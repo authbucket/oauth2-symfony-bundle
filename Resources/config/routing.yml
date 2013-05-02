@@ -1,3 +1,11 @@
-pantarei_oauth2_homepage:
-    pattern:  /hello/{name}
-    defaults: { _controller: PantareiOauth2Bundle:Default:index }
+pantarei_oauth2_authorize:
+    pattern:  /authorize
+    defaults: { _controller: PantareiOauth2Bundle:Default:authorize }
+
+pantarei_oauth2_token:
+    pattern:  /token
+    defaults: { _controller: PantareiOauth2Bundle:Default:token }
+
+pantarei_oauth2_resource:
+    pattern:  /resource
+    defaults: { _controller: PantareiOauth2Bundle:Default:resource }
