@@ -27,7 +27,6 @@
         "symfony/framework-bundle": ">=2.1.0,<2.3-dev"
     },
     "require-dev": {
-        "kriswallsmith/assetic": "1.1.*",
         "symfony/class-loader": ">=2.1.0,<2.3-dev",
         "symfony/console": ">=2.1.0,<2.3-dev",
         "symfony/css-selector": ">=2.1.0,<2.3-dev",
