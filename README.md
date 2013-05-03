@@ -1,14 +1,10 @@
-PantareiBootstrapBundle
-=======================
-
-[![Build Status](https://travis-ci.org/pantarei/oauth2-bundle.png?branch=1.0)](https://travis-ci.org/pantarei/oauth2-bundle)
+# PantareiBootstrapBundle [![Build Status](https://travis-ci.org/pantarei/oauth2-bundle.png?branch=1.0)](https://travis-ci.org/pantarei/oauth2-bundle)
 
 PantaReiBootstrapBundle is a collection of code to integrate Twitter Bootstrap
 (http://twitter.github.com/bootstrap/) as easy as possible into your Symfony
 (http://www.symfony.com) Project.
 
-Installation
-------------
+## Installation
 
 First you need to add `pantarei/bootstrap-bundle` to `composer.json`:
 
@@ -31,8 +27,7 @@ You also have to add `PantareiBootstrapBundle` to your `AppKernel.php`:
       }
     }
 
-Assets
-------
+## Assets
 
 Since you are probably already using Composer this is the easiest way to get started. Update your `composer.json` file and execute the following line: `composer update`:
 
@@ -83,8 +78,7 @@ After that, the last thing we need is to include bootstrap in main template:
       <link rel="styleshet" href="{{ asset_url }} "/>
     {% endstylesheets %}
 
-Examples
---------
+## Examples
 
 If you hope to enable the examples as reference, update your `app/config/routing.yml` file to this:
 
@@ -94,8 +88,7 @@ If you hope to enable the examples as reference, update your `app/config/routing
 
 Then you can access `_bootstrap/starter-template` or other pages as example.
 
-License
--------
+## License
 
 - The bundle is licensed under the [MIT License](http://opensource.org/licenses/MIT)
 - The CSS and Javascript from the Twitter Bootstrap are licensed under the [Apache License 2.0](http://www.apache.org/licenses/LICENSE-2.0)
