@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity repository-class="Pantarei\Bundle\OAuth2Bundle\Entity\CodeManager" name="Pantarei\Bundle\OAuth2Bundle\Entity\Code" table="code">
+    <id name="id" type="integer" column="id">
+      <generator strategy="AUTO"/>
+    </id>
+    <field name="code" type="string" column="code" length="255"/>
+    <field name="client_id" type="string" column="client_id" length="255"/>
+    <field name="username" type="string" column="username" length="255"/>
+    <field name="redirect_uri" type="blob" column="redirect_uri"/>
+    <field name="expires" type="integer" column="expires"/>
+    <field name="scope" type="array" column="scope"/>
+  </entity>
+</doctrine-mapping>

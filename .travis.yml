@@ -5,4 +5,13 @@ php:
   - 5.3
   - 5.4
 
-before_script: composer install --dev --prefer-source
+before_script:
+  - curl -s http://getcomposer.org/installer | php
+  - php composer.phar --dev --prefer-source install
+
+script:
+  - mkdir -p build/logs
+  - phpunit -c phpunit.xml.dist --coverage-text
+
+after_script:
+  - php vendor/bin/coveralls -v

@@ -1,49 +1,42 @@
 {
-    "name": "pantarei/oauth2-bundle",
-    "type": "symfony-bundle",
-    "description": "Integrates OAuth2.0 into Symfony2",
-    "homepage": "https://github.com/pantarei/oauth2-bundle",
-    "license": "MIT",
-    "minimum-stability": "dev",
-    "keywords": [
-        "oauth2"
-    ],
     "authors": [
         {
-            "name": "Wong Hoi Sing Edison",
-            "email": "hswong3i@pantarei-design.com",
-            "homepage": "http://edin.no-ip.com"
-        },
-        {
-            "name": "Ho Shuk Yi Esther",
-            "email": "syho2d@pantarei-design.com"
-        },
-        {
-            "name": "Wilson Tang",
-            "email": "wstang5c@pantarei-design.com"
+            "email": "hswong3i@pantarei-design.com", 
+            "homepage": "http://edin.no-ip.com", 
+            "name": "Wong Hoi Sing Edison"
         }
-    ],
-    "require": {
-        "php": ">=5.3.2",
-        "symfony/framework-bundle": ">=2.1.0,<2.3-dev",
-        "kriswallsmith/assetic": "1.1.*"
-    },
-    "require-dev": {
-        "symfony/twig-bundle": ">=2.1.0,<2.3-dev",
-        "symfony/console": ">=2.1.0,<2.3-dev",
-        "symfony/class-loader": ">=2.1.0,<2.3-dev",
-        "symfony/yaml": ">=2.1.0,<2.3-dev",
-        "symfony/form": ">=2.1.0,<2.3-dev",
-        "symfony/dom-crawler": ">=2.1.0,<2.3-dev",
-        "symfony/css-selector": ">=2.1.0,<2.3-dev"
-    },
-    "suggest": {
-        "symfony/twig-bundle": ">=2.1.0,<2.3-dev"
-    },
+    ], 
     "autoload": {
         "psr-0": {
-            "Pantarei\\Bundle\\Oauth2Bundle": ""
+            "Pantarei\\Bundle\\OAuth2Bundle": ""
         }
-    },
-    "target-dir": "Pantarei/Bundle/Oauth2Bundle"
+    }, 
+    "description": "Symfony OAuth2Bundle", 
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0.x-dev"
+        }
+    }, 
+    "homepage": "https://github.com/pantarei/OAuth2Bundle", 
+    "keywords": [
+        "oauth2", 
+        "symfony2"
+    ], 
+    "license": "MIT", 
+    "minimum-stability": "dev", 
+    "name": "pantarei/OAuth2Bundle", 
+    "require": {
+        "pantarei/oauth2": "1.0.*@dev", 
+        "php": ">=5.3.3", 
+        "symfony/http-foundation": ">=2.1,<2.4-dev", 
+        "symfony/http-kernel": "~2.2", 
+        "symfony/security": "~2.2"
+    }, 
+    "require-dev": {
+        "symfony/config": "~2.2-beta2", 
+        "symfony/dependency-injection": "~2.2-beta2", 
+        "symfony/yaml": "~2.2-beta2"
+    }, 
+    "target-dir": "Pantarei/Bundle/OAuth2Bundle", 
+    "type": "symfony-bundle"
 }

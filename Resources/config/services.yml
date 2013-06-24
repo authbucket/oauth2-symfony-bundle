@@ -1,7 +1,7 @@
 parameters:
-#    pantarei_oauth2.example.class: Pantarei\Bundle\Oauth2Bundle\Example
+#    o_auth2.example.class: Pantarei\Bundle\OAuth2Bundle\Example
 
 services:
-#    pantarei_oauth2.example:
-#        class: %pantarei_oauth2.example.class%
+#    o_auth2.example:
+#        class: %o_auth2.example.class%
 #        arguments: [@service_id, "plain_value", %parameter%]
