@@ -44,7 +44,7 @@ class Code implements CodeInterface
     protected $redirect_uri;
 
     /**
-     * @var integer
+     * @var \DateTime
      */
     protected $expires;
 

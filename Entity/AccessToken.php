@@ -44,7 +44,7 @@ class AccessToken implements AccessTokenInterface
     protected $username;
 
     /**
-     * @var integer
+     * @var \DateTime
      */
     protected $expires;
 

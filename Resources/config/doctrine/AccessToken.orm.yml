@@ -1,0 +1,30 @@
+Pantarei\Bundle\OAuth2Bundle\Entity\AccessToken:
+    type: entity
+    table: access_token
+    repositoryClass: Pantarei\Bundle\OAuth2Bundle\Entity\AccessTokenRepository
+    fields:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+        access_token:
+            type: string
+            length: 255
+            column: access_token
+        token_type:
+            type: string
+            length: 255
+            column: token_type
+        client_id:
+            type: string
+            length: 255
+            column: client_id
+        username:
+            type: string
+            length: 255
+        expires:
+            type: datetime
+        scope:
+            type: array
+    lifecycleCallbacks: {  }

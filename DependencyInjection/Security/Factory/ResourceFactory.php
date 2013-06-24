@@ -22,7 +22,7 @@ class ResourceFactory implements SecurityFactoryInterface
     public function create(
         ContainerBuilder $container,
         $id,
-        $config, 
+        $config,
         $userProvider,
         $defaultEntryPoint
     )

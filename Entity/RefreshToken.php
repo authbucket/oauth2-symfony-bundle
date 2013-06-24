@@ -39,7 +39,7 @@ class RefreshToken implements RefreshTokenInterface
     protected $username;
 
     /**
-     * @var integer
+     * @var \DateTime
      */
     protected $expires;
 
