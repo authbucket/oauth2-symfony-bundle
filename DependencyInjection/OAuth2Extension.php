@@ -1,6 +1,6 @@
 <?php
 
-namespace Pantarei\Bundle\OAuth2Bundle\DependencyInjection;
+namespace PantaRei\Bundle\OAuth2Bundle\DependencyInjection;
 
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\Config\FileLocator;

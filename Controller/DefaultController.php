@@ -1,6 +1,6 @@
 <?php
 
-namespace Pantarei\Bundle\OAuth2Bundle\Controller;
+namespace PantaRei\Bundle\OAuth2Bundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 

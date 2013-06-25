@@ -1,6 +1,6 @@
 <?php
 
-namespace Pantarei\Bundle\OAuth2Bundle;
+namespace PantaRei\Bundle\OAuth2Bundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 

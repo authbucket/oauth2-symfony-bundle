@@ -9,9 +9,9 @@
  * file that was distributed with this source code.
  */
 
-namespace Pantarei\Bundle\OAuth2Bundle\Entity;
+namespace PantaRei\Bundle\OAuth2Bundle\Entity;
 
-use Pantarei\OAuth2\Model\AuthorizeInterface;
+use PantaRei\OAuth2\Model\AuthorizeInterface;
 
 /**
  * Authorize

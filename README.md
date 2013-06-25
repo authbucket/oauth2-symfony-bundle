@@ -1,4 +1,4 @@
-Pantarei/Bundle/OAuth2Bundle
+PantaRei/Bundle/OAuth2Bundle
 ============================
 
 [![Build
@@ -10,9 +10,9 @@ Version](https://poser.pugx.org/pantarei/oauth2-bundle/v/stable.png)](https://pa
 [![Total
 Downloads](https://poser.pugx.org/pantarei/oauth2-bundle/downloads.png)](https://packagist.org/packages/pantarei/oauth2-bundle)
 
-[Pantarei/Bundle/OAuth2Bundle](https://github.com/pantarei/oauth2-bundle)
+[PantaRei/Bundle/OAuth2Bundle](https://github.com/pantarei/oauth2-bundle)
 is a Symfony2 Bundle, which integrate
-[Pantarei/OAuth2](https://github.com/pantarei/oauth2) as easy as
+[PantaRei/OAuth2](https://github.com/pantarei/oauth2) as easy as
 possible into your [Symfony2](http://www.symfony.com) Project.
 
 Installation
@@ -33,7 +33,7 @@ You also have to add `OAuth2Bundle` to your `AppKernel.php`:
         public function registerBundles()
         {
             $bundles = array(
-                new Pantarei\Bundle\OAuth2Bundle\OAuth2Bundle()
+                new PantaRei\Bundle\OAuth2Bundle\OAuth2Bundle()
             );
             return $bundles;
         }

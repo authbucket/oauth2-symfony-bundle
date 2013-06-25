@@ -1,19 +1,19 @@
 parameters:
-    oauth2.model_manager.factory.class: Pantarei\OAuth2\Model\ModelManagerFactory
-    oauth2.response_handler.factory.class: Pantarei\OAuth2\ResponseType\ResponseTypeHandlerFactory
-    oauth2.grant_handler.factory.class: Pantarei\OAuth2\GrantType\GrantTypeHandlerFactory
-    oauth2.token_handler.factory.class: Pantarei\OAuth2\TokenType\TokenTypeHandlerFactory
+    oauth2.model_manager.factory.class: PantaRei\OAuth2\Model\ModelManagerFactory
+    oauth2.response_handler.factory.class: PantaRei\OAuth2\ResponseType\ResponseTypeHandlerFactory
+    oauth2.grant_handler.factory.class: PantaRei\OAuth2\GrantType\GrantTypeHandlerFactory
+    oauth2.token_handler.factory.class: PantaRei\OAuth2\TokenType\TokenTypeHandlerFactory
 
-    oauth2.response_handler.code.class: Pantarei\OAuth2\ResponseType\CodeResponseTypeHandler
-    oauth2.response_handler.token.class: Pantarei\OAuth2\ResponseType\TokenResponseTypeHandler
+    oauth2.response_handler.code.class: PantaRei\OAuth2\ResponseType\CodeResponseTypeHandler
+    oauth2.response_handler.token.class: PantaRei\OAuth2\ResponseType\TokenResponseTypeHandler
 
-    oauth2.grant_handler.authorization_code.class: Pantarei\OAuth2\GrantType\AuthorizationCodeGrantTypeHandler
-    oauth2.grant_handler.client_credentials.class: Pantarei\OAuth2\GrantType\ClientCredentialsGrantTypeHandler
-    oauth2.grant_handler.password.class: Pantarei\OAuth2\GrantType\PasswordGrantTypeHandler
-    oauth2.grant_handler.refresh_token.class: Pantarei\OAuth2\GrantType\RefreshTokenGrantTypeHandler
+    oauth2.grant_handler.authorization_code.class: PantaRei\OAuth2\GrantType\AuthorizationCodeGrantTypeHandler
+    oauth2.grant_handler.client_credentials.class: PantaRei\OAuth2\GrantType\ClientCredentialsGrantTypeHandler
+    oauth2.grant_handler.password.class: PantaRei\OAuth2\GrantType\PasswordGrantTypeHandler
+    oauth2.grant_handler.refresh_token.class: PantaRei\OAuth2\GrantType\RefreshTokenGrantTypeHandler
 
-    oauth2.token_handler.bearer.class: Pantarei\OAuth2\TokenType\BearerTokenTypeHandler
-    oauth2.token_handler.mac.class: Pantarei\OAuth2\TokenType\MacTokenTypeHandler
+    oauth2.token_handler.bearer.class: PantaRei\OAuth2\TokenType\BearerTokenTypeHandler
+    oauth2.token_handler.mac.class: PantaRei\OAuth2\TokenType\MacTokenTypeHandler
 
 services:
     oauth2.model_manager.factory:

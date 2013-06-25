@@ -1,7 +1,7 @@
-Pantarei\Bundle\OAuth2Bundle\Entity\AccessToken:
+PantaRei\Bundle\OAuth2Bundle\Entity\AccessToken:
     type: entity
     table: access_token
-    repositoryClass: Pantarei\Bundle\OAuth2Bundle\Entity\AccessTokenRepository
+    repositoryClass: PantaRei\Bundle\OAuth2Bundle\Entity\AccessTokenRepository
     fields:
         id:
             type: integer

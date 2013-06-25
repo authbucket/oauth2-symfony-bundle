@@ -1,6 +1,6 @@
 <?php
 
-namespace Pantarei\Bundle\OAuth2Bundle\Tests\Controller;
+namespace PantaRei\Bundle\OAuth2Bundle\Tests\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 

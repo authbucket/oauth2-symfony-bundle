@@ -1,6 +1,6 @@
 <?php
 
-namespace Pantarei\Bundle\OAuth2Bundle\DependencyInjection;
+namespace PantaRei\Bundle\OAuth2Bundle\DependencyInjection;
 
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\Config\Definition\ConfigurationInterface;
