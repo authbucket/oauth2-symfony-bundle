@@ -1,94 +1,69 @@
-# PantareiBootstrapBundle [![Build Status](https://travis-ci.org/pantarei/oauth2-bundle.png?branch=1.0)](https://travis-ci.org/pantarei/oauth2-bundle)
+Pantarei/Bundle/OAuth2Bundle
+============================
 
-PantaReiBootstrapBundle is a collection of code to integrate Twitter Bootstrap
-(http://twitter.github.com/bootstrap/) as easy as possible into your Symfony
-(http://www.symfony.com) Project.
+[![Build
+Status](https://travis-ci.org/pantarei/oauth2-bundle.png?branch=1.0)](https://travis-ci.org/pantarei/oauth2-bundle)
+[![Coverage
+Status](https://coveralls.io/repos/pantarei/oauth2-bundle/badge.png?branch=1.0)](https://coveralls.io/r/pantarei/oauth2-bundle)
+[![Latest Stable
+Version](https://poser.pugx.org/pantarei/oauth2-bundle/v/stable.png)](https://packagist.org/packages/pantarei/oauth2-bundle)
+[![Total
+Downloads](https://poser.pugx.org/pantarei/oauth2-bundle/downloads.png)](https://packagist.org/packages/pantarei/oauth2-bundle)
 
-## Installation
+[Pantarei/Bundle/OAuth2Bundle](https://github.com/pantarei/oauth2-bundle)
+is a Symfony2 Bundle, which integrate
+[Pantarei/OAuth2](https://github.com/pantarei/oauth2) as easy as
+possible into your [Symfony2](http://www.symfony.com) Project.
 
-First you need to add `pantarei/bootstrap-bundle` to `composer.json`:
+Installation
+------------
+
+First you need to add `pantarei/oauth2-bundle` to `composer.json`:
 
     {
       "require": {
-        "pantarei/bootstrap-bundle": "3.0.*@dev"
+        "pantarei/oauth2-bundle": "1.0.*@dev"
       }
     }
 
-You also have to add `PantareiBootstrapBundle` to your `AppKernel.php`:
+You also have to add `OAuth2Bundle` to your `AppKernel.php`:
 
     class AppKernel extends Kernel
     {
-      public function registerBundles()
-      {
-      $bundles = array(
-          new Pantarei\Bundle\BootstrapBundle\PantareiBootstrapBundle()
-          );
-        return $bundles;
-      }
+        public function registerBundles()
+        {
+            $bundles = array(
+                new Pantarei\Bundle\OAuth2Bundle\OAuth2Bundle()
+            );
+            return $bundles;
+        }
     }
 
-## Assets
+Continuous Integration
+----------------------
 
-Since you are probably already using Composer this is the easiest way to get started. Update your `composer.json` file and execute the following line: `composer update`:
+This project is coverage with phpunit test cases, where CI result can be
+found from https://travis-ci.org/pantarei/oauth2-bundle.
 
-    {
-      "require": {
-        "twitter/bootstrap": "dev-3.0.0-wip"
-      }
-    }
+Code coverage CI result can be found from
+https://coveralls.io/r/pantarei/oauth2-bundle.
 
-### Without Assetic
+If you hope to run the test cases locally, please execute
+`phpunit -c phpunit.xml.dist`. Coverage report can be found from
+`build/logs/html` folder.
 
-Create symlink for the asset files from the `vendor/twitter/bootstrap` directory into your web directory:
+References
+----------
 
-    mkdir -p web/bundles/twitter
-    cd web/bundles/twitter
-    ln -s ../../../vendor/twitter/bootstrap bootstrap
+-   http://pantarei.github.io/oauth2-bundle/
+-   https://coveralls.io/r/pantarei/oauth2-bundle
+-   https://github.com/pantarei/oauth2-bundle
+-   https://packagist.org/packages/pantarei/oauth2-bundle
+-   https://travis-ci.org/pantarei/oauth2-bundle
 
-Now you can include boostrap css and js in main template:
+License
+-------
 
-    <link rel="stylesheet" href="{{ asset('bundles/twitter/bootstrap/docs/assets/css/bootstrap.css') }}">
-    <script src="{{ asset('bundles/twitter/bootstrap/docs/assets/js/jquery.js') }}"></script>
-    <script src="{{ asset('bundles/twitter/bootstrap/docs/assets/js/bootstrap.min.js') }}"></script>
+-   The bundle is licensed under the [MIT
+    License](http://opensource.org/licenses/MIT)
 
-### With Assetic
-
-If you want to use LessPHP to compile the Bootstrap LESS files, you need update your `composer.json` file and execute the following line: `composer update`:
-
-    {
-      "require": {
-        "leafo/lessphp": "0.3.9"
-      }
-    }
-
-Now change your `app/config/config.yml` to this:
-
-    # Assetic Configuration
-    assetic:
-      filters:
-        lessphp:
-          file: %kernel.root_dir%/../vendor/leafo/lessphp/lessc.inc.php
-          apply_to: "\.less$"
-
-After that, the last thing we need is to include bootstrap in main template:
-
-    {% stylesheets
-      'bundles/twitter/bootstrap/less/*.less'
-    %}
-      <link rel="styleshet" href="{{ asset_url }} "/>
-    {% endstylesheets %}
-
-## Examples
-
-If you hope to enable the examples as reference, update your `app/config/routing.yml` file to this:
-
-    pantarei_bootstrap:
-        resource: "@PantareiBootstrapBundle/Resources/config/routing.yml"
-        prefix:   /_bootstrap
-
-Then you can access `_bootstrap/starter-template` or other pages as example.
-
-## License
-
-- The bundle is licensed under the [MIT License](http://opensource.org/licenses/MIT)
-- The CSS and Javascript from the Twitter Bootstrap are licensed under the [Apache License 2.0](http://www.apache.org/licenses/LICENSE-2.0)
