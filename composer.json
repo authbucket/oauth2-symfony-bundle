@@ -17,25 +17,38 @@
             "dev-master": "1.0.x-dev"
         }
     }, 
-    "homepage": "https://github.com/pantarei/OAuth2Bundle", 
+    "homepage": "https://github.com/pantarei/oauth2-bundle", 
     "keywords": [
         "oauth2", 
         "symfony2"
     ], 
     "license": "MIT", 
     "minimum-stability": "dev", 
-    "name": "pantarei/OAuth2Bundle", 
+    "name": "pantarei/oauth2-bundle", 
     "require": {
         "pantarei/oauth2": "1.0.*@dev", 
         "php": ">=5.3.3", 
-        "symfony/http-foundation": ">=2.1,<2.4-dev", 
-        "symfony/http-kernel": "~2.2", 
-        "symfony/security": "~2.2"
+        "symfony/framework-bundle": "~2.2", 
+        "symfony/security": "~2.2", 
+        "symfony/security-bundle": "~2.2"
     }, 
     "require-dev": {
-        "symfony/config": "~2.2-beta2", 
-        "symfony/dependency-injection": "~2.2-beta2", 
-        "symfony/yaml": "~2.2-beta2"
+        "doctrine/doctrine-bundle": "*", 
+        "doctrine/orm": ">=2.2.3,<2.4-dev", 
+        "satooshi/php-coveralls": "dev-master", 
+        "sensio/framework-extra-bundle": "2.3.*@dev", 
+        "symfony/browser-kit": "2.3.*@dev", 
+        "symfony/config": "2.3.*@dev", 
+        "symfony/css-selector": "2.3.*@dev", 
+        "symfony/dependency-injection": "2.3.*@dev", 
+        "symfony/doctrine-bridge": "2.3.*@dev", 
+        "symfony/finder": "2.3.*@dev", 
+        "symfony/form": "2.3.*@dev", 
+        "symfony/twig-bridge": "2.3.*@dev", 
+        "symfony/twig-bundle": "2.3.*@dev", 
+        "symfony/validator": "2.3.*@dev", 
+        "symfony/yaml": "2.3.*@dev", 
+        "twig/twig": "~1.11"
     }, 
     "target-dir": "Pantarei/Bundle/OAuth2Bundle", 
     "type": "symfony-bundle"

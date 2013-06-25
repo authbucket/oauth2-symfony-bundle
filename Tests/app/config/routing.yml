@@ -1,0 +1,3 @@
+oauth2:
+    resource: "@OAuth2Bundle/Resources/config/routing.yml"
+    prefix:   /

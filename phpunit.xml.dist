@@ -1,18 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<phpunit bootstrap="./tests/bootstrap.php" colors="true">
-        <testsuites>
-                <testsuite name="Pantarei/Bundle/OAuth2Bundle Test Suite">
-                        <directory>./tests/Pantarei/Bundle/OAuth2Bundle</directory>
-                </testsuite>
-        </testsuites>
-        <filter>
-                <whitelist>
-                        <directory>./src/Pantarei/Bundle/OAuth2Bundle</directory>
-                </whitelist>
-        </filter>
-        <logging>
-                <log type="coverage-clover" target="build/logs/clover.xml"/>
-                <log type="coverage-html" target="build/logs/html"/>
-        </logging>
+<phpunit bootstrap="./Tests/bootstrap.php" colors="true">
+    <php>
+        <server name="KERNEL_DIR" value="./Tests/app"/>
+    </php>
+    <testsuites>
+        <testsuite name="Pantarei/Bundle/OAuth2Bundle Test Suite">
+            <directory>./Tests</directory>
+        </testsuite>
+    </testsuites>
+    <filter>
+        <whitelist>
+            <directory>./</directory>
+            <exclude>
+                <directory>./Tests</directory>
+                <directory>./vendor</directory>
+            </exclude>
+        </whitelist>
+    </filter>
+    <logging>
+        <log type="coverage-clover" target="build/logs/clover.xml"/>
+        <log type="coverage-html" target="build/logs/html"/>
+    </logging>
 </phpunit>
