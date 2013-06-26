@@ -9,6 +9,13 @@
  * file that was distributed with this source code.
  */
 
-$loader = require __DIR__ . '/../vendor/autoload.php';
+namespace PantaRei\Bundle\OAuth2Bundle\Tests;
 
-\Doctrine\Common\Annotations\AnnotationRegistry::registerLoader('class_exists');
+use PantaRei\Bundle\OAuth2Bundle\Tests\WebTestCase;
+
+class WebTestCaseTest extends WebTestCase
+{
+    public function testDoctrine()
+    {
+    }
+}

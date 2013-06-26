@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace PantaRei\Bundle\OAuth2Bundle\Entity;
+namespace PantaRei\Bundle\OAuth2Bundle\Tests\TestBundle\Entity;
 
 use Doctrine\ORM\EntityRepository;
 use PantaRei\OAuth2\Model\AccessTokenInterface;

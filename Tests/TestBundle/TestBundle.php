@@ -9,6 +9,10 @@
  * file that was distributed with this source code.
  */
 
-$loader = require __DIR__ . '/../vendor/autoload.php';
+namespace PantaRei\Bundle\OAuth2Bundle\Tests\TestBundle;
 
-\Doctrine\Common\Annotations\AnnotationRegistry::registerLoader('class_exists');
+use Symfony\Component\HttpKernel\Bundle\Bundle;
+
+class TestBundle extends Bundle
+{
+}

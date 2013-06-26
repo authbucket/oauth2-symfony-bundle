@@ -1,7 +1,7 @@
 <?php
 
 /**
- * This file is part of the pantarei/oauth2 package.
+ * This file is part of the pantarei/oauth2-bundle package.
  *
  * (c) Wong Hoi Sing Edison <hswong3i@pantarei-design.com>
  *
@@ -11,12 +11,12 @@
 
 namespace PantaRei\Bundle\OAuth2Bundle\Entity;
 
-use PantaRei\OAuth2\Model\ScopeInterface;
+use PantaRei\OAuth2\Model\AbstractScope;
 
 /**
  * Scope
  */
-class Scope implements ScopeInterface
+class Scope extends AbstractScope
 {
     /**
      * @var integer
@@ -36,28 +36,5 @@ class Scope implements ScopeInterface
     public function getId()
     {
         return $this->id;
-    }
-
-    /**
-     * Set scope
-     *
-     * @param string $scope
-     * @return Scope
-     */
-    public function setScope($scope)
-    {
-        $this->scope = $scope;
-
-        return $this;
-    }
-
-    /**
-     * Get scope
-     *
-     * @return string
-     */
-    public function getScope()
-    {
-        return $this->scope;
     }
 }

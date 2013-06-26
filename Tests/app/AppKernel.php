@@ -1,5 +1,14 @@
 <?php
 
+/**
+ * This file is part of the pantarei/oauth2-bundle package.
+ *
+ * (c) Wong Hoi Sing Edison <hswong3i@pantarei-design.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 use Symfony\Component\HttpKernel\Kernel;
 use Symfony\Component\Config\Loader\LoaderInterface;
 
@@ -10,6 +19,7 @@ class AppKernel extends Kernel
         $bundles = array(
             new Doctrine\Bundle\DoctrineBundle\DoctrineBundle(),
             new PantaRei\Bundle\OAuth2Bundle\OAuth2Bundle(),
+            new PantaRei\Bundle\OAuth2Bundle\Tests\TestBundle\TestBundle(),
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
             new Symfony\Bundle\FrameworkBundle\FrameworkBundle(),
             new Symfony\Bundle\SecurityBundle\SecurityBundle(),

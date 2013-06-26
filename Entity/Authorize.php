@@ -1,7 +1,7 @@
 <?php
 
 /**
- * This file is part of the pantarei/oauth2 package.
+ * This file is part of the pantarei/oauth2-bundle package.
  *
  * (c) Wong Hoi Sing Edison <hswong3i@pantarei-design.com>
  *
@@ -11,12 +11,12 @@
 
 namespace PantaRei\Bundle\OAuth2Bundle\Entity;
 
-use PantaRei\OAuth2\Model\AuthorizeInterface;
+use PantaRei\OAuth2\Model\AbstractAuthorize;
 
 /**
  * Authorize
  */
-class Authorize implements AuthorizeInterface
+class Authorize extends AbstractAuthorize
 {
     /**
      * @var integer
@@ -46,74 +46,5 @@ class Authorize implements AuthorizeInterface
     public function getId()
     {
         return $this->id;
-    }
-
-    /**
-     * Set client_id
-     *
-     * @param string $client_id
-     * @return Authorize
-     */
-    public function setClientId($client_id)
-    {
-        $this->client_id = $client_id;
-
-        return $this;
-    }
-
-    /**
-     * Get client_id
-     *
-     * @return string
-     */
-    public function getClientId()
-    {
-        return $this->client_id;
-    }
-
-    /**
-     * Set username
-     *
-     * @param string $username
-     * @return Authorize
-     */
-    public function setUsername($username)
-    {
-        $this->username = $username;
-
-        return $this;
-    }
-
-    /**
-     * Get username
-     *
-     * @return string
-     */
-    public function getUsername()
-    {
-        return $this->username;
-    }
-
-    /**
-     * Set scope
-     *
-     * @param array $scope
-     * @return Authorize
-     */
-    public function setScope($scope)
-    {
-        $this->scope = $scope;
-
-        return $this;
-    }
-
-    /**
-     * Get scope
-     *
-     * @return array
-     */
-    public function getScope()
-    {
-        return $this->scope;
     }
 }

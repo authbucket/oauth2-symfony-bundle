@@ -1,11 +1,7 @@
-imports:
-    - { resource: parameters.yml }
-    - { resource: security.yml }
-
 framework:
     #esi:             ~
     #translator:      { fallback: %locale% }
-    secret:          %secret%
+    secret:          fbe0b58410c7435d8b0afde3a2108fade7
     router:
         resource: "%kernel.root_dir%/config/routing.yml"
         strict_requirements: ~
@@ -15,7 +11,7 @@ framework:
     templating:
         engines: ['twig']
         #assets_version: SomeVersionScheme
-    default_locale:  "%locale%"
+    default_locale:  en
     trusted_proxies: ~
     fragments:       ~
     test: ~
@@ -35,7 +31,36 @@ doctrine:
         driver: pdo_sqlite
         path: :memory:
         memory: true
-
     orm:
-        auto_generate_proxy_classes: %kernel.debug%
-        auto_mapping: %kernel.debug%
+        entity_managers:
+            default:
+                mappings:
+                    TestBundle: ~
+
+security:
+    encoders:
+        PantaRei\Bundle\OAuth2Bundle\Tests\TestBundle\Entity\User: plaintext
+
+    role_hierarchy:
+        ROLE_ADMIN: ROLE_USER
+        ROLE_SUPER_ADMIN: [ROLE_USER, ROLE_ADMIN, ROLE_ALLOWED_TO_SWITCH]
+
+    providers:
+        in_memory:
+            memory:
+                users:
+                    user: { password: userpass, roles: [ 'ROLE_USER' ] }
+                    admin: { password: adminpass, roles: [ 'ROLE_ADMIN' ] }
+
+    firewalls:
+        dev:
+            pattern: ^/
+            security: false
+
+        login:
+            security: false
+
+        secured_area:
+            anonymous: ~
+
+    access_control:
