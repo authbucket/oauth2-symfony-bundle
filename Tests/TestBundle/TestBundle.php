@@ -11,8 +11,13 @@
 
 namespace PantaRei\Bundle\OAuth2Bundle\Tests\TestBundle;
 
+use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
 class TestBundle extends Bundle
 {
+    public function bulid(ContainerBuilder $container)
+    {
+
+    }
 }

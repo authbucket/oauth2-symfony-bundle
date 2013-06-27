@@ -9,14 +9,15 @@
  * file that was distributed with this source code.
  */
 
-namespace PantaRei\Bundle\OAuth2Bundle\Controller;
+namespace PantaRei\Bundle\OAuth2Bundle\Tests\TestBundle\Controller;
 
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
-class DefaultController extends Controller
+class ResourceController extends Controller
 {
-    public function indexAction($name)
+    public function echoAction($echo)
     {
-        return $this->render('OAuth2Bundle:Default:index.html.twig', array('name' => $name));
+        return new Response($echo);
     }
 }

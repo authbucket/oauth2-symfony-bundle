@@ -31,6 +31,7 @@ doctrine:
         driver: pdo_sqlite
         path: :memory:
         memory: true
+
     orm:
         entity_managers:
             default:
@@ -46,21 +47,20 @@ security:
         ROLE_SUPER_ADMIN: [ROLE_USER, ROLE_ADMIN, ROLE_ALLOWED_TO_SWITCH]
 
     providers:
-        in_memory:
-            memory:
-                users:
-                    user: { password: userpass, roles: [ 'ROLE_USER' ] }
-                    admin: { password: adminpass, roles: [ 'ROLE_ADMIN' ] }
+        default:
+            entity: { class: PantaRei\Bundle\OAuth2Bundle\Tests\TestBundle\Entity\User }
 
     firewalls:
-        dev:
-            pattern: ^/
-            security: false
+        authorize:
+            pattern: ^/authorize
+            http_basic:
+                provider: default
 
-        login:
-            security: false
+        token:
+            pattern: ^/token
+            oauth2_token: true
 
-        secured_area:
-            anonymous: ~
-
-    access_control:
+#        resource:
+#            pattern: ^/resource
+#            oauth2_resource: true
+#            stateless: true

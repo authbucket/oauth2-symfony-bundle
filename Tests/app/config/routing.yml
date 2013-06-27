@@ -1,3 +1,11 @@
 oauth2:
     resource: "@OAuth2Bundle/Resources/config/routing.yml"
     prefix:   /
+
+oauth2_homepage:
+    pattern:  /hello/{name}
+    defaults: { _controller: TestBundle:Default:index }
+
+oauth2_resource:
+    pattern: /resource/{echo}
+    defaults: { _controller: TestBundle:Resource:echo }
