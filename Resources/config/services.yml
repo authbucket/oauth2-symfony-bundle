@@ -15,6 +15,12 @@ parameters:
     oauth2.token_handler.bearer.class: PantaRei\OAuth2\TokenType\BearerTokenTypeHandler
     oauth2.token_handler.mac.class: PantaRei\OAuth2\TokenType\MacTokenTypeHandler
 
+    security.authentication.provider.oauth2_token.class: PantaRei\OAuth2\Security\Authentication\Provider\TokenProvider
+    security.authentication.listener.oauth2_token.class: PantaRei\OAuth2\Security\Firewall\TokenListener
+
+    security.authentication.provider.oauth2_resource.class: PantaRei\OAuth2\Security\Authentication\Provider\ResourceProvider
+    security.authentication.listener.oauth2_resource.class: PantaRei\OAuth2\Security\Firewall\ResourceListener
+
 services:
     oauth2.model_manager.factory:
         class: %oauth2.model_manager.factory.class%
@@ -36,6 +42,7 @@ services:
         class: %oauth2.grant_handler.client_credentials.class%
     oauth2.grant_handler.password:
         class: %oauth2.grant_handler.password.class%
+        arguments: ["@security.user_checker", "@security.encoder_factory"]
     oauth2.grant_handler.refresh_token:
         class: %oauth2.grant_handler.refresh_token.class%
 
@@ -43,3 +50,17 @@ services:
         class: %oauth2.token_handler.bearer.class%
     oauth2.token_handler.mac:
         class: %oauth2.token_handler.mac.class%
+
+    oauth2_token.security.authentication.provider:
+        class: %security.authentication.provider.oauth2_token.class%
+        arguments: ["@oauth2.model_manager.factory"]
+    oauth2_token.security.authentication.listener:
+        class: %security.authentication.listener.oauth2_token.class%
+        arguments: ["@security.context", "@security.authentication.manager", "@oauth2.model_manager.factory", "@oauth2.token_handler.factory"]
+
+    oauth2_resource.security.authentication.provider:
+        class: %security.authentication.provider.oauth2_resource.class%
+        arguments: ["@oauth2.model_manager.factory"]
+    oauth2_resource.security.authentication.listener:
+        class: %security.authentication.listener.oauth2_resource.class%
+        arguments: ["@security.context", "@security.authentication.manager", "@oauth2.model_manager.factory", "@oauth2.token_handler.factory"]

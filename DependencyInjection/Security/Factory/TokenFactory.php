@@ -17,15 +17,15 @@ use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\DefinitionDecorator;
 use Symfony\Component\DependencyInjection\Reference;
 
-class ResourceFactory implements SecurityFactoryInterface
+class TokenFactory implements SecurityFactoryInterface
 {
     public function create(ContainerBuilder $container, $id, $config, $userProvider, $defaultEntryPoint)
     {
-        $providerId = 'security.authentication.provider.oauth2_resource.' . $id;
-        $container->setDefinition($providerId, new DefinitionDecorator('oauth2_resource.security.authentication.provider'));
+        $providerId = 'security.authentication.provider.oauth2_token.' . $id;
+        $container->setDefinition($providerId, new DefinitionDecorator('oauth2_token.security.authentication.provider'));
 
-        $listenerId = 'security.authentication.listener.oauth2_resource.' . $id;
-        $container->setDefinition($listenerId, new DefinitionDecorator('oauth2_resource.security.authentication.listener'));
+        $listenerId = 'security.authentication.listener.oauth2_token.' . $id;
+        $container->setDefinition($listenerId, new DefinitionDecorator('oauth2_token.security.authentication.listener'));
 
         return array($providerId, $listenerId, $defaultEntryPoint);
     }
@@ -37,7 +37,7 @@ class ResourceFactory implements SecurityFactoryInterface
 
     public function getKey()
     {
-        return 'oauth2_resource';
+        return 'oauth2_token';
     }
 
     public function addConfiguration(NodeDefinition $node)
