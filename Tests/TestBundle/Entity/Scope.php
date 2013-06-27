@@ -12,7 +12,7 @@
 namespace PantaRei\Bundle\OAuth2Bundle\Tests\TestBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use PantaRei\Bundle\OAuth2Bundle\Entity\Scope as BaseScope;
+use PantaRei\Bundle\OAuth2Bundle\Entity\AbstractScope;
 
 /**
  * Scope
@@ -20,7 +20,7 @@ use PantaRei\Bundle\OAuth2Bundle\Entity\Scope as BaseScope;
  * @ORM\Table(name="scope")
  * @ORM\Entity(repositoryClass="PantaRei\Bundle\OAuth2Bundle\Tests\TestBundle\Entity\ScopeManager")
  */
-class Scope extends BaseScope
+class Scope extends AbstractScope
 {
     /**
      * @var integer

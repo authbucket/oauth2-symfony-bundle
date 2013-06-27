@@ -12,7 +12,7 @@
 namespace PantaRei\Bundle\OAuth2Bundle\Tests\TestBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use PantaRei\Bundle\OAuth2Bundle\Entity\Authorize as BaseAuthorize;
+use PantaRei\Bundle\OAuth2Bundle\Entity\AbstractAuthorize;
 
 /**
  * Authorize
@@ -20,7 +20,7 @@ use PantaRei\Bundle\OAuth2Bundle\Entity\Authorize as BaseAuthorize;
  * @ORM\Table(name="authorize")
  * @ORM\Entity(repositoryClass="PantaRei\Bundle\OAuth2Bundle\Tests\TestBundle\Entity\AuthorizeManager")
  */
-class Authorize extends BaseAuthorize
+class Authorize extends AbstractAuthorize
 {
     /**
      * @var integer

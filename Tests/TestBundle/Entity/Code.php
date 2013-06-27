@@ -12,7 +12,7 @@
 namespace PantaRei\Bundle\OAuth2Bundle\Tests\TestBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use PantaRei\Bundle\OAuth2Bundle\Entity\Code as BaseCode;
+use PantaRei\Bundle\OAuth2Bundle\Entity\AbstractCode;
 
 /**
  * Code
@@ -20,7 +20,7 @@ use PantaRei\Bundle\OAuth2Bundle\Entity\Code as BaseCode;
  * @ORM\Table(name="code")
  * @ORM\Entity(repositoryClass="PantaRei\Bundle\OAuth2Bundle\Tests\TestBundle\Entity\CodeManager")
  */
-class Code extends BaseCode
+class Code extends AbstractCode
 {
     /**
      * @var integer

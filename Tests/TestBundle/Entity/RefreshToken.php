@@ -12,7 +12,7 @@
 namespace PantaRei\Bundle\OAuth2Bundle\Tests\TestBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use PantaRei\Bundle\OAuth2Bundle\Entity\RefreshToken as BaseRefreshToken;
+use PantaRei\Bundle\OAuth2Bundle\Entity\AbstractRefreshToken;
 
 /**
  * RefreshToken
@@ -20,7 +20,7 @@ use PantaRei\Bundle\OAuth2Bundle\Entity\RefreshToken as BaseRefreshToken;
  * @ORM\Table(name="refresh_token")
  * @ORM\Entity(repositoryClass="PantaRei\Bundle\OAuth2Bundle\Tests\TestBundle\Entity\RefreshTokenManager")
  */
-class RefreshToken extends BaseRefreshToken
+class RefreshToken extends AbstractRefreshToken
 {
     /**
      * @var integer

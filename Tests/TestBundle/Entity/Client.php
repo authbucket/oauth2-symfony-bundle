@@ -12,7 +12,7 @@
 namespace PantaRei\Bundle\OAuth2Bundle\Tests\TestBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use PantaRei\Bundle\OAuth2Bundle\Entity\Client as BaseClient;
+use PantaRei\Bundle\OAuth2Bundle\Entity\AbstractClient;
 
 /**
  * Client
@@ -20,7 +20,7 @@ use PantaRei\Bundle\OAuth2Bundle\Entity\Client as BaseClient;
  * @ORM\Table(name="client")
  * @ORM\Entity(repositoryClass="PantaRei\Bundle\OAuth2Bundle\Tests\TestBundle\Entity\ClientManager")
  */
-class Client extends BaseClient
+class Client extends AbstractClient
 {
     /**
      * @var integer

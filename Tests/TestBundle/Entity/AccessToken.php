@@ -12,7 +12,7 @@
 namespace PantaRei\Bundle\OAuth2Bundle\Tests\TestBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use PantaRei\Bundle\OAuth2Bundle\Entity\AccessToken as BaseAccessToken;
+use PantaRei\Bundle\OAuth2Bundle\Entity\AbstractAccessToken;
 
 /**
  * AccessToken
@@ -20,7 +20,7 @@ use PantaRei\Bundle\OAuth2Bundle\Entity\AccessToken as BaseAccessToken;
  * @ORM\Table(name="access_token")
  * @ORM\Entity(repositoryClass="PantaRei\Bundle\OAuth2Bundle\Tests\TestBundle\Entity\AccessTokenManager")
  */
-class AccessToken extends BaseAccessToken
+class AccessToken extends AbstractAccessToken
 {
     /**
      * @var integer

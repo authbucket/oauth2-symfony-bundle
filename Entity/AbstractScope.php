@@ -11,12 +11,12 @@
 
 namespace PantaRei\Bundle\OAuth2Bundle\Entity;
 
-use PantaRei\OAuth2\Model\AbstractCode;
+use PantaRei\OAuth2\Model\ScopeInterface;
 
 /**
- * Code
+ * Scope
  */
-class Code extends AbstractCode
+abstract class AbstractScope implements ScopeInterface
 {
     /**
      * @var integer
@@ -25,31 +25,6 @@ class Code extends AbstractCode
 
     /**
      * @var string
-     */
-    protected $code;
-
-    /**
-     * @var string
-     */
-    protected $client_id;
-
-    /**
-     * @var string
-     */
-    protected $username;
-
-    /**
-     * @var string
-     */
-    protected $redirect_uri;
-
-    /**
-     * @var \DateTime
-     */
-    protected $expires;
-
-    /**
-     * @var array
      */
     protected $scope;
 
@@ -63,8 +38,26 @@ class Code extends AbstractCode
         return $this->id;
     }
 
-    public function __construct()
+    /**
+     * Set scope
+     *
+     * @param string $scope
+     * @return Scope
+     */
+    public function setScope($scope)
     {
-        $this->redirect_uri = '';
+        $this->scope = $scope;
+
+        return $this;
+    }
+
+    /**
+     * Get scope
+     *
+     * @return string
+     */
+    public function getScope()
+    {
+        return $this->scope;
     }
 }

@@ -28,8 +28,8 @@
     "require": {
         "pantarei/oauth2": "1.0.*@dev",
         "php": ">=5.3.3",
-        "symfony/framework-bundle": "~2.2",
-        "symfony/security-bundle": "~2.2"
+        "symfony/framework-bundle": "~2.3",
+        "symfony/security-bundle": "~2.3"
     },
     "require-dev": {
         "doctrine/doctrine-bundle": "1.2.*",
