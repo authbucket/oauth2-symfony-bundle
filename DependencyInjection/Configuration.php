@@ -30,20 +30,22 @@ class Configuration implements ConfigurationInterface
         $rootNode = $treeBuilder->root('oauth2');
 
         $rootNode
+            ->addDefaultsIfNotSet()
             ->children()
                 ->arrayNode('response_handler')
-                    ->addDefaultsIfNotSet()
-                    ->canBeUnset()
+                    ->prototype('array')
                     ->children()
                         ->scalarNode('code')->defaultValue('oauth2.response_handler.code')->end()
                         ->scalarNode('token')->defaultValue('oauth2.response_handler.token')->end()
                     ->end()
                 ->end()
-            ->end()
+            ->end();
+
+        $rootNode
+            ->addDefaultsIfNotSet()
             ->children()
                 ->arrayNode('grant_handler')
-                    ->addDefaultsIfNotSet()
-                    ->canBeUnset()
+                    ->prototype('array')
                     ->children()
                         ->scalarNode('authorization_code')->defaultValue('oauth2.grant_handler.authorization_code')->end()
                         ->scalarNode('client_credentials')->defaultValue('oauth2.grant_handler.client_credentials')->end()
@@ -51,13 +53,16 @@ class Configuration implements ConfigurationInterface
                         ->scalarNode('refresh_token')->defaultValue('oauth2.grant_handler.refresh_token')->end()
                     ->end()
                 ->end()
-            ->end()
+            ->end();
+
+        $rootNode
+            ->addDefaultsIfNotSet()
             ->children()
                 ->arrayNode('token_handler')
-                    ->addDefaultsIfNotSet()
-                    ->canBeUnset()
+                    ->prototype('array')
                     ->children()
                         ->scalarNode('bearer')->defaultValue('oauth2.token_handler.bearer')->end()
+                        ->scalarNode('mac')->defaultValue('oauth2.token_handler.mac')->end()
                     ->end()
                 ->end()
             ->end();

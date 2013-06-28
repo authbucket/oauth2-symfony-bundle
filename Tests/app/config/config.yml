@@ -44,11 +44,12 @@ oauth2:
         token: oauth2.response_handler.token
     grant_handler:
         authorization_code: oauth2.grant_handler.authorization_code
-        client_credentials: oauth2.grant_handler.client_credentials:
-        password: oauth2.grant_handler.password
-        refresh_token: oauth2.grant_handler.refresh_token:
+        client_credentials: oauth2.grant_handler.client_credentials
+#        password: oauth2.grant_handler.password
+        refresh_token: oauth2.grant_handler.refresh_token
     token_handler:
         bearer: oauth2.token_handler.bearer
+        mac: oauth2.token_handler.mac
 
 security:
     encoders:
