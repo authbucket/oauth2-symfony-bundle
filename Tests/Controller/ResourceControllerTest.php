@@ -11,16 +11,18 @@
 
 namespace Pantarei\Bundle\Oauth2Bundle\Tests\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
+use Pantarei\Bundle\Oauth2Bundle\Tests\WebTestCase;
 
 class ResourceControllerTest extends WebTestCase
 {
     public function testEcho()
     {
+        $parameters = array();
+        $server = array(
+            'HTTP_Authorization' => implode(' ', array('Bearer', 'eeb5aa92bbb4b56373b9e0d00bc02d93')),
+        );
         $client = static::createClient();
-        $crawler = $client->request('GET', '/resource/foo');
+        $crawler = $client->request('GET', '/resource/foo', $parameters, array(), $server);
         $this->assertEquals('foo', $client->getResponse()->getContent());
-
-        #$this->assertTrue($crawler->filter('html:contains("Hello Fabien")')->count() > 0);
     }
 }

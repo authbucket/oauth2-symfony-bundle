@@ -49,7 +49,6 @@ oauth2:
         refresh_token: oauth2.grant_handler.refresh_token
     token_handler:
         bearer: oauth2.token_handler.bearer
-        mac: oauth2.token_handler.mac
 
 security:
     encoders:
@@ -75,8 +74,7 @@ security:
 
         authorize:
             pattern: ^/authorize
-            http_basic:
-                provider: default
+            http_basic: ~
 
     access_control:
         - { path: ^/resource, roles: [IS_AUTHENTICATED_FULLY] }

@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Pantarei\Bundle\Oauth2Bundle\Tests\TestBundle\Controller;
+namespace Pantarei\Bundle\Oauth2Bundle\Controller;
 
 use Pantarei\Oauth2\Exception\InvalidRequestException;
 use Pantarei\Oauth2\Model\ModelManagerFactoryInterface;
