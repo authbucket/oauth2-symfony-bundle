@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace PantaRei\Bundle\OAuth2Bundle\DependencyInjection;
+namespace Pantarei\Bundle\Oauth2Bundle\DependencyInjection;
 
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\Config\Definition\ConfigurationInterface;
@@ -29,9 +29,38 @@ class Configuration implements ConfigurationInterface
         $treeBuilder = new TreeBuilder();
         $rootNode = $treeBuilder->root('oauth2');
 
-        // Here you should define the parameters that are allowed to
-        // configure your bundle. See the documentation linked above for
-        // more information on that topic.
+        $rootNode
+            ->children()
+                ->arrayNode('response_handler')
+                    ->addDefaultsIfNotSet()
+                    ->canBeUnset()
+                    ->children()
+                        ->scalarNode('code')->defaultValue('oauth2.response_handler.code')->end()
+                        ->scalarNode('token')->defaultValue('oauth2.response_handler.token')->end()
+                    ->end()
+                ->end()
+            ->end()
+            ->children()
+                ->arrayNode('grant_handler')
+                    ->addDefaultsIfNotSet()
+                    ->canBeUnset()
+                    ->children()
+                        ->scalarNode('authorization_code')->defaultValue('oauth2.grant_handler.authorization_code')->end()
+                        ->scalarNode('client_credentials')->defaultValue('oauth2.grant_handler.client_credentials')->end()
+                        ->scalarNode('password')->defaultValue('oauth2.grant_handler.password')->end()
+                        ->scalarNode('refresh_token')->defaultValue('oauth2.grant_handler.refresh_token')->end()
+                    ->end()
+                ->end()
+            ->end()
+            ->children()
+                ->arrayNode('token_handler')
+                    ->addDefaultsIfNotSet()
+                    ->canBeUnset()
+                    ->children()
+                        ->scalarNode('bearer')->defaultValue('oauth2.token_handler.bearer')->end()
+                    ->end()
+                ->end()
+            ->end();
 
         return $treeBuilder;
     }

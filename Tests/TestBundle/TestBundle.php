@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace PantaRei\Bundle\OAuth2Bundle\Tests\TestBundle;
+namespace Pantarei\Bundle\Oauth2Bundle\Tests\TestBundle;
 
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\HttpKernel\Bundle\Bundle;

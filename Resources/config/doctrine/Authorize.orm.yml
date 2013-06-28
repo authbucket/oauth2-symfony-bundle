@@ -1,7 +1,7 @@
-PantaRei\Bundle\OAuth2Bundle\Entity\Authorize:
+Pantarei\Bundle\Oauth2Bundle\Entity\Authorize:
     type: entity
     table: authorize
-    repositoryClass: PantaRei\Bundle\OAuth2Bundle\Entity\AuthorizeManager
+    repositoryClass: Pantarei\Bundle\Oauth2Bundle\Entity\AuthorizeManager
     fields:
         id:
             type: integer

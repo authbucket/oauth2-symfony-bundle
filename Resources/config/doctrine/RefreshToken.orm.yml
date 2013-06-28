@@ -1,7 +1,7 @@
-PantaRei\Bundle\OAuth2Bundle\Entity\RefreshToken:
+Pantarei\Bundle\Oauth2Bundle\Entity\RefreshToken:
     type: entity
     table: refresh_token
-    repositoryClass: PantaRei\Bundle\OAuth2Bundle\Entity\RefreshTokenManager
+    repositoryClass: Pantarei\Bundle\Oauth2Bundle\Entity\RefreshTokenManager
     fields:
         id:
             type: integer

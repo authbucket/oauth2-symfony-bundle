@@ -9,10 +9,10 @@
  * file that was distributed with this source code.
  */
 
-namespace PantaRei\Bundle\OAuth2Bundle\Tests\TestBundle\Entity;
+namespace Pantarei\Bundle\Oauth2Bundle\Tests\TestBundle\Entity;
 
 use Doctrine\ORM\EntityRepository;
-use PantaRei\OAuth2\Model\ModelManagerInterface;
+use Pantarei\Oauth2\Model\ModelManagerInterface;
 use Symfony\Component\Security\Core\Exception\UnsupportedUserException;
 use Symfony\Component\Security\Core\Exception\UsernameNotFoundException;
 use Symfony\Component\Security\Core\User\UserInterface;

@@ -9,11 +9,11 @@
  * file that was distributed with this source code.
  */
 
-namespace PantaRei\Bundle\OAuth2Bundle\Tests\TestBundle\Entity;
+namespace Pantarei\Bundle\Oauth2Bundle\Tests\TestBundle\Entity;
 
 use Doctrine\ORM\EntityRepository;
-use PantaRei\OAuth2\Model\AuthorizeInterface;
-use PantaRei\OAuth2\Model\AuthorizeManagerInterface;
+use Pantarei\Oauth2\Model\AuthorizeInterface;
+use Pantarei\Oauth2\Model\AuthorizeManagerInterface;
 
 /**
  * AuthorizeManager

@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace PantaRei\Bundle\OAuth2Bundle\DependencyInjection;
+namespace Pantarei\Bundle\Oauth2Bundle\DependencyInjection;
 
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\Config\FileLocator;
@@ -21,7 +21,7 @@ use Symfony\Component\DependencyInjection\Loader;
  *
  * To learn more see {@link http://symfony.com/doc/current/cookbook/bundles/extension.html}
  */
-class OAuth2Extension extends Extension
+class Oauth2Extension extends Extension
 {
     /**
      * {@inheritDoc}
@@ -33,5 +33,10 @@ class OAuth2Extension extends Extension
 
         $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
         $loader->load('services.yml');
+    }
+
+    public function getAlias()
+    {
+        return 'oauth2';
     }
 }

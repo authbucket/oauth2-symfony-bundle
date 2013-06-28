@@ -9,16 +9,16 @@
  * file that was distributed with this source code.
  */
 
-namespace PantaRei\Bundle\OAuth2Bundle\Tests\TestBundle\Entity;
+namespace Pantarei\Bundle\Oauth2Bundle\Tests\TestBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use PantaRei\Bundle\OAuth2Bundle\Entity\AbstractClient;
+use Pantarei\Bundle\Oauth2Bundle\Entity\AbstractClient;
 
 /**
  * Client
  *
  * @ORM\Table(name="client")
- * @ORM\Entity(repositoryClass="PantaRei\Bundle\OAuth2Bundle\Tests\TestBundle\Entity\ClientManager")
+ * @ORM\Entity(repositoryClass="Pantarei\Bundle\Oauth2Bundle\Tests\TestBundle\Entity\ClientManager")
  */
 class Client extends AbstractClient
 {

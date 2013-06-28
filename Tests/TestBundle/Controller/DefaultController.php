@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace PantaRei\Bundle\OAuth2Bundle\Tests\TestBundle\Controller;
+namespace Pantarei\Bundle\Oauth2Bundle\Tests\TestBundle\Controller;
 
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;

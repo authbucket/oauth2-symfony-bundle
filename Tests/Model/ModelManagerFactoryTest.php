@@ -9,11 +9,11 @@
  * file that was distributed with this source code.
  */
 
-namespace PantaRei\Bundle\OAuth2Bundle\Tests\Model;
+namespace Pantarei\Bundle\Oauth2Bundle\Tests\Model;
 
-use PantaRei\OAuth2\Model\ModelInterface;
-use PantaRei\OAuth2\Model\ModelManagerFactory;
-use PantaRei\OAuth2\Model\ModelManagerInterface;
+use Pantarei\Oauth2\Model\ModelInterface;
+use Pantarei\Oauth2\Model\ModelManagerFactory;
+use Pantarei\Oauth2\Model\ModelManagerInterface;
 
 class FooModelManager
 {
@@ -46,7 +46,7 @@ class ModelManagerFactoryTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \PantaRei\OAuth2\Exception\ServerErrorException
+     * @expectedException \Pantarei\Oauth2\Exception\ServerErrorException
      */
     public function testBadGetModelManager()
     {
@@ -74,7 +74,7 @@ class ModelManagerFactoryTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \PantaRei\OAuth2\Exception\ServerErrorException
+     * @expectedException \Pantarei\Oauth2\Exception\ServerErrorException
      */
     public function testGoodRemoveModelManager()
     {

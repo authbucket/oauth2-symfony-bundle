@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace PantaRei\Bundle\OAuth2Bundle\DependencyInjection\Security\Factory;
+namespace Pantarei\Bundle\Oauth2Bundle\DependencyInjection\Security\Factory;
 
 use Symfony\Bundle\SecurityBundle\DependencyInjection\Security\Factory\SecurityFactoryInterface;
 use Symfony\Component\Config\Definition\Builder\NodeDefinition;

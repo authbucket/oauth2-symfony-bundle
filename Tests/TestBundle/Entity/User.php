@@ -9,17 +9,17 @@
  * file that was distributed with this source code.
  */
 
-namespace PantaRei\Bundle\OAuth2Bundle\Tests\TestBundle\Entity;
+namespace Pantarei\Bundle\Oauth2Bundle\Tests\TestBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use PantaRei\OAuth2\Model\ModelInterface;
+use Pantarei\Oauth2\Model\ModelInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
  * User
  *
  * @ORM\Table(name="users")
- * @ORM\Entity(repositoryClass="PantaRei\Bundle\OAuth2Bundle\Tests\TestBundle\Entity\UserManager")
+ * @ORM\Entity(repositoryClass="Pantarei\Bundle\Oauth2Bundle\Tests\TestBundle\Entity\UserManager")
  */
 class User implements UserInterface, ModelInterface
 {

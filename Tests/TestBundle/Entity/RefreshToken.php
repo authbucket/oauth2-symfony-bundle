@@ -9,16 +9,16 @@
  * file that was distributed with this source code.
  */
 
-namespace PantaRei\Bundle\OAuth2Bundle\Tests\TestBundle\Entity;
+namespace Pantarei\Bundle\Oauth2Bundle\Tests\TestBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use PantaRei\Bundle\OAuth2Bundle\Entity\AbstractRefreshToken;
+use Pantarei\Bundle\Oauth2Bundle\Entity\AbstractRefreshToken;
 
 /**
  * RefreshToken
  *
  * @ORM\Table(name="refresh_token")
- * @ORM\Entity(repositoryClass="PantaRei\Bundle\OAuth2Bundle\Tests\TestBundle\Entity\RefreshTokenManager")
+ * @ORM\Entity(repositoryClass="Pantarei\Bundle\Oauth2Bundle\Tests\TestBundle\Entity\RefreshTokenManager")
  */
 class RefreshToken extends AbstractRefreshToken
 {

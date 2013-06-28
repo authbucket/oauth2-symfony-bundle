@@ -9,9 +9,9 @@
  * file that was distributed with this source code.
  */
 
-namespace PantaRei\Bundle\OAuth2Bundle\Entity;
+namespace Pantarei\Bundle\Oauth2Bundle\Entity;
 
-use PantaRei\OAuth2\Model\ClientInterface;
+use Pantarei\Oauth2\Model\ClientInterface;
 
 /**
  * Client

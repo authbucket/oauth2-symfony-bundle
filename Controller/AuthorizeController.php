@@ -9,13 +9,13 @@
  * file that was distributed with this source code.
  */
 
-namespace PantaRei\Bundle\OAuth2Bundle\Tests\TestBundle\Controller;
+namespace Pantarei\Bundle\Oauth2Bundle\Tests\TestBundle\Controller;
 
-use PantaRei\OAuth2\Exception\InvalidRequestException;
-use PantaRei\OAuth2\Model\ModelManagerFactoryInterface;
-use PantaRei\OAuth2\ResponseType\ResponseTypeHandlerFactoryInterface;
-use PantaRei\OAuth2\TokenType\TokenTypeHandlerFactoryInterface;
-use PantaRei\OAuth2\Util\Filter;
+use Pantarei\Oauth2\Exception\InvalidRequestException;
+use Pantarei\Oauth2\Model\ModelManagerFactoryInterface;
+use Pantarei\Oauth2\ResponseType\ResponseTypeHandlerFactoryInterface;
+use Pantarei\Oauth2\TokenType\TokenTypeHandlerFactoryInterface;
+use Pantarei\Oauth2\Util\Filter;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;

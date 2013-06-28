@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace PantaRei\Bundle\OAuth2Bundle\Tests;
+namespace Pantarei\Bundle\Oauth2Bundle\Tests;
 
 use Doctrine\Common\EventManager;
 use Doctrine\Common\Persistence\PersistentObject;
@@ -48,13 +48,13 @@ abstract class WebTestCase extends SymfonyWebTestCase
 
         // Add model managers from ORM.
         $models = array(
-            'access_token' => 'PantaRei\\Bundle\\OAuth2Bundle\\Tests\\TestBundle\\Entity\\AccessToken',
-            'authorize' => 'PantaRei\\Bundle\\OAuth2Bundle\\Tests\\TestBundle\\Entity\\Authorize',
-            'client' => 'PantaRei\\Bundle\\OAuth2Bundle\\Tests\\TestBundle\\Entity\\Client',
-            'code' => 'PantaRei\\Bundle\\OAuth2Bundle\\Tests\\TestBundle\\Entity\\Code',
-            'refresh_token' => 'PantaRei\\Bundle\\OAuth2Bundle\\Tests\\TestBundle\\Entity\\RefreshToken',
-            'scope' => 'PantaRei\\Bundle\\OAuth2Bundle\\Tests\\TestBundle\\Entity\\Scope',
-            'user' => 'PantaRei\\Bundle\\OAuth2Bundle\\Tests\\TestBundle\\Entity\\User',
+            'access_token' => 'Pantarei\\Bundle\\Oauth2Bundle\\Tests\\TestBundle\\Entity\\AccessToken',
+            'authorize' => 'Pantarei\\Bundle\\Oauth2Bundle\\Tests\\TestBundle\\Entity\\Authorize',
+            'client' => 'Pantarei\\Bundle\\Oauth2Bundle\\Tests\\TestBundle\\Entity\\Client',
+            'code' => 'Pantarei\\Bundle\\Oauth2Bundle\\Tests\\TestBundle\\Entity\\Code',
+            'refresh_token' => 'Pantarei\\Bundle\\Oauth2Bundle\\Tests\\TestBundle\\Entity\\RefreshToken',
+            'scope' => 'Pantarei\\Bundle\\Oauth2Bundle\\Tests\\TestBundle\\Entity\\Scope',
+            'user' => 'Pantarei\\Bundle\\Oauth2Bundle\\Tests\\TestBundle\\Entity\\User',
         );
         foreach ($models as $type => $model) {
             $modelManager = $this->container->get('doctrine')->getManager()->getRepository($model);

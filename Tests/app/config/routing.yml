@@ -1,5 +1,5 @@
 oauth2:
-    resource: "@OAuth2Bundle/Resources/config/routing.yml"
+    resource: "@Oauth2Bundle/Resources/config/routing.yml"
     prefix:   /
 
 oauth2_homepage:

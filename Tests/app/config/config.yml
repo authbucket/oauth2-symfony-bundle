@@ -38,9 +38,21 @@ doctrine:
                 mappings:
                     TestBundle: ~
 
+oauth2:
+    response_handler:
+        code: oauth2.response_handler.code
+        token: oauth2.response_handler.token
+    grant_handler:
+        authorization_code: oauth2.grant_handler.authorization_code
+        client_credentials: oauth2.grant_handler.client_credentials:
+        password: oauth2.grant_handler.password
+        refresh_token: oauth2.grant_handler.refresh_token:
+    token_handler:
+        bearer: oauth2.token_handler.bearer
+
 security:
     encoders:
-        PantaRei\Bundle\OAuth2Bundle\Tests\TestBundle\Entity\User: plaintext
+        Pantarei\Bundle\Oauth2Bundle\Tests\TestBundle\Entity\User: plaintext
 
     role_hierarchy:
         ROLE_ADMIN: ROLE_USER
@@ -48,19 +60,22 @@ security:
 
     providers:
         default:
-            entity: { class: PantaRei\Bundle\OAuth2Bundle\Tests\TestBundle\Entity\User }
+            entity: { class: Pantarei\Bundle\Oauth2Bundle\Tests\TestBundle\Entity\User }
 
     firewalls:
-        authorize:
-            pattern: ^/authorize
-            http_basic:
-                provider: default
+#        resource:
+#            pattern: ^/resource
+#            oauth2_resource: true
+#            stateless: true
 
         token:
             pattern: ^/token
             oauth2_token: true
 
-#        resource:
-#            pattern: ^/resource
-#            oauth2_resource: true
-#            stateless: true
+        authorize:
+            pattern: ^/authorize
+            http_basic:
+                provider: default
+
+    access_control:
+        - { path: ^/resource, roles: [IS_AUTHENTICATED_FULLY] }

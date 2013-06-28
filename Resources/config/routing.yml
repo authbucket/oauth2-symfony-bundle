@@ -1,9 +1,9 @@
 oauth2_authorize:
     pattern: /authorize
-    defaults: { _controller: OAuth2Bundle:Authorize:authorize }
+    defaults: { _controller: Oauth2Bundle:Authorize:authorize }
     methods: [GET]
 
 oauth2_token:
     pattern: /token
-    defaults: { _controller: OAuth2Bundle:Token:token }
+    defaults: { _controller: Oauth2Bundle:Token:token }
     methods: [POST]

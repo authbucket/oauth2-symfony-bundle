@@ -9,9 +9,9 @@
  * file that was distributed with this source code.
  */
 
-namespace PantaRei\Bundle\OAuth2Bundle\Tests;
+namespace Pantarei\Bundle\Oauth2Bundle\Tests;
 
-use PantaRei\Bundle\OAuth2Bundle\Tests\WebTestCase;
+use Pantarei\Bundle\Oauth2Bundle\Tests\WebTestCase;
 
 class WebTestCaseTest extends WebTestCase
 {
