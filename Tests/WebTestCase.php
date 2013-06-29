@@ -54,7 +54,6 @@ abstract class WebTestCase extends SymfonyWebTestCase
             'code' => 'Pantarei\\Bundle\\Oauth2Bundle\\Tests\\TestBundle\\Entity\\Code',
             'refresh_token' => 'Pantarei\\Bundle\\Oauth2Bundle\\Tests\\TestBundle\\Entity\\RefreshToken',
             'scope' => 'Pantarei\\Bundle\\Oauth2Bundle\\Tests\\TestBundle\\Entity\\Scope',
-            'user' => 'Pantarei\\Bundle\\Oauth2Bundle\\Tests\\TestBundle\\Entity\\User',
         );
         foreach ($models as $type => $model) {
             $modelManager = $this->container->get('doctrine')->getManager()->getRepository($model);
@@ -75,7 +74,6 @@ abstract class WebTestCase extends SymfonyWebTestCase
             $em->getClassMetadata($modelManagerFactory->getModelManager('code')->getClassName()),
             $em->getClassMetadata($modelManagerFactory->getModelManager('refresh_token')->getClassName()),
             $em->getClassMetadata($modelManagerFactory->getModelManager('scope')->getClassName()),
-            $em->getClassMetadata($modelManagerFactory->getModelManager('user')->getClassName()),
         );
 
         PersistentObject::setObjectManager($em);
@@ -201,25 +199,5 @@ abstract class WebTestCase extends SymfonyWebTestCase
         $model = $modelManager->createScope();
         $model->setScope('demoscope3');
         $modelManager->updateScope($model);
-
-        // Add demo users.
-        $modelManager = $modelManagerFactory->getModelManager('user');
-        $model = $modelManager->createUser();
-        $encoder = $encoderFactory->getEncoder($model);
-        $model->setUsername('demousername1')
-            ->setPassword($encoder->encodePassword('demopassword1', $model->getSalt()));
-        $modelManager->updateUser($model);
-
-        $model = $modelManager->createUser();
-        $encoder = $encoderFactory->getEncoder($model);
-        $model->setUsername('demousername2')
-            ->setPassword($encoder->encodePassword('demopassword2', $model->getSalt()));
-        $modelManager->updateUser($model);
-
-        $model = $modelManager->createUser();
-        $encoder = $encoderFactory->getEncoder($model);
-        $model->setUsername('demousername3')
-            ->setPassword($encoder->encodePassword('demopassword3', $model->getSalt()));
-        $modelManager->updateUser($model);
     }
 }

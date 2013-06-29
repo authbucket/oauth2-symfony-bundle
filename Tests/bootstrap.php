@@ -9,6 +9,10 @@
  * file that was distributed with this source code.
  */
 
+use Doctrine\Common\Annotations\AnnotationRegistry;
+
 $loader = require __DIR__ . '/../vendor/autoload.php';
 
-\Doctrine\Common\Annotations\AnnotationRegistry::registerLoader('class_exists');
+AnnotationRegistry::registerLoader(array($loader, 'loadClass'));
+
+return $loader;

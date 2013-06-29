@@ -27,6 +27,6 @@ class AuthorizeControllerTest extends WebTestCase
         );
         $client = static::createClient();
         $crawler = $client->request('GET', '/authorize', $parameters, array(), $server);
-        $this->assertEquals(401, $client->getResponse()->getStatusCode());
+        $this->assertEquals(500, $client->getResponse()->getStatusCode());
     }
 }
