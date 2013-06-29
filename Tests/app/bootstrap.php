@@ -11,7 +11,16 @@
 
 use Doctrine\Common\Annotations\AnnotationRegistry;
 
-$loader = require __DIR__ . '/../vendor/autoload.php';
+// Clean cache before test, see http://symfony.com/doc/current/cookbook/testing/bootstrap.html
+if (isset($_ENV['BOOTSTRAP_CLEAR_CACHE_ENV'])) {
+    passthru(sprintf(
+        'php "%s/console" cache:clear --env=%s --no-warmup',
+        __DIR__,
+        $_ENV['BOOTSTRAP_CLEAR_CACHE_ENV']
+    ));
+}
+
+$loader = require __DIR__ . '/../../vendor/autoload.php';
 
 AnnotationRegistry::registerLoader(array($loader, 'loadClass'));
 
