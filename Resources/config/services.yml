@@ -4,17 +4,6 @@ parameters:
     oauth2.grant_handler.factory.class: Pantarei\Oauth2\GrantType\GrantTypeHandlerFactory
     oauth2.token_handler.factory.class: Pantarei\Oauth2\TokenType\TokenTypeHandlerFactory
 
-    oauth2.response_handler.code.class: Pantarei\Oauth2\ResponseType\CodeResponseTypeHandler
-    oauth2.response_handler.token.class: Pantarei\Oauth2\ResponseType\TokenResponseTypeHandler
-
-    oauth2.grant_handler.authorization_code.class: Pantarei\Oauth2\GrantType\AuthorizationCodeGrantTypeHandler
-    oauth2.grant_handler.client_credentials.class: Pantarei\Oauth2\GrantType\ClientCredentialsGrantTypeHandler
-    oauth2.grant_handler.password.class: Pantarei\Oauth2\GrantType\PasswordGrantTypeHandler
-    oauth2.grant_handler.refresh_token.class: Pantarei\Oauth2\GrantType\RefreshTokenGrantTypeHandler
-
-    oauth2.token_handler.bearer.class: Pantarei\Oauth2\TokenType\BearerTokenTypeHandler
-    oauth2.token_handler.mac.class: Pantarei\Oauth2\TokenType\MacTokenTypeHandler
-
     security.authentication.provider.oauth2_token.class: Pantarei\Oauth2\Security\Authentication\Provider\TokenProvider
     security.authentication.listener.oauth2_token.class: Pantarei\Oauth2\Security\Firewall\TokenListener
 
