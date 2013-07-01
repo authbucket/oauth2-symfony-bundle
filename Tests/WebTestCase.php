@@ -32,11 +32,11 @@ abstract class WebTestCase extends SymfonyWebTestCase
     {
         // Initialize with parent's setUp().
         parent::setUp();
-        $this->createApplication();
+        #$this->createApplication();
 
         // Add tables and sample data.
-        $this->createSchema();
-        $this->addSampleData();
+        #$this->createSchema();
+        #$this->addSampleData();
     }
 
     public function createApplication()

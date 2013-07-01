@@ -39,16 +39,25 @@ doctrine:
                     TestBundle: ~
 
 oauth2:
+#    model_manager:
+#        access_token: oauth2.model_manager.access_token
+#        authorize: oauth2.model_manager.authorize
+#        client: oauth2.model_manager.client
+#        code: oauth2.model_manager.code
+#        refresh_token: oauth2.model_manager.refresh_token
+#        scope: oauth2.model_manager.scope
     response_handler:
         code: oauth2.response_handler.code
         token: oauth2.response_handler.token
     grant_handler:
         authorization_code: oauth2.grant_handler.authorization_code
         client_credentials: oauth2.grant_handler.client_credentials
-#        password: oauth2.grant_handler.password
+        password: oauth2.grant_handler.password
         refresh_token: oauth2.grant_handler.refresh_token
     token_handler:
         bearer: oauth2.token_handler.bearer
+        mac: oauth2.token_handler.mac
+#    user_provider: default
 
 security:
     encoders:

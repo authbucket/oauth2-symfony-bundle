@@ -34,22 +34,6 @@ class Oauth2Extension extends Extension
         $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
         $loader->load('services.yml');
 
-        // Add response type handler.
-        foreach ($config['response_handler'] as $type => $handler) {
-            $container->get('oauth2.response_handler.factory')
-                ->addResponseTypeHandler($type, $container->get($handler));
-        }
-
-        // Add grant type handler.
-        foreach ($config['grant_handler'] as $type => $handler) {
-            $container->get('oauth2.grant_handler.factory')
-                ->addGrantTypeHandler($type, $container->get($handler));
-        }
-
-        // Addd token type handler.
-        foreach ($config['token_handler'] as $type => $handler) {
-            $container->get('oauth2.token_handler.factory')
-                ->addTokenTypeHandler($type, $container->get($handler));
-        }
+#        var_dump($config);
     }
 }

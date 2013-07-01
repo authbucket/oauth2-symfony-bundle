@@ -25,16 +25,17 @@ class AuthorizeController extends Controller
 {
     public function authorizeAction()
     {
-        $securityContext = $this->get('security.context');
-        $request = $this->getRequest();
-        $modelManagerFactory = $this->get('');
-        $tokenTypeHandlerFactory = $this->get('');
+        $securityContext = $this->container->get('security.context');
+        $request = $this->container->get('request');
+        $modelManagerFactory = $this->get('oauth2.model_manager.factory');
+        $responseTypeHandlerFactory = $this->container->get('oauth2.response_handler.factory');
+        $tokenTypeHandlerFactory = $this->container->get('oauth2.token_handler.factory');
 
         // Fetch response_type from GET.
         $response_type = $this->getResponseType($request);
 
         // Handle authorize endpoint response.
-        return $this->responseTypeHandlerFactory->getResponseTypeHandler($response_type)->handle(
+        return $responseTypeHandlerFactory->getResponseTypeHandler($response_type)->handle(
             $securityContext,
             $request,
             $modelManagerFactory,

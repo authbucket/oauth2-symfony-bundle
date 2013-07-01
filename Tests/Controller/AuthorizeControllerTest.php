@@ -15,18 +15,19 @@ use Pantarei\Bundle\Oauth2Bundle\Tests\WebTestCase;
 
 class AuthorizeControllerTest extends WebTestCase
 {
-    public function testExceptionCodeNoClientId()
+    public function testGoodCode()
     {
-        $parameters = array(
-            'response_type' => 'code',
-            'redirect_uri' => 'http://democlient1.com/redirect_uri',
-        );
-        $server = array(
-            'PHP_AUTH_USER' => 'demousername1',
-            'PHP_AUTH_PW' => 'demopassword1',
-        );
-        $client = static::createClient();
-        $crawler = $client->request('GET', '/authorize', $parameters, array(), $server);
-        $this->assertEquals(500, $client->getResponse()->getStatusCode());
+#        $parameters = array(
+#            'response_type' => 'code',
+#            'client_id' => 'http://democlient1.com/',
+#            'redirect_uri' => 'http://democlient1.com/redirect_uri',
+#        );
+#        $server = array(
+#            'PHP_AUTH_USER' => 'demousername1',
+#            'PHP_AUTH_PW' => 'demopassword1',
+#        );
+#        $client = static::createClient();
+#        $crawler = $client->request('GET', '/authorize', $parameters, array(), $server);
+#        $this->assertTrue($client->getResponse()->isRedirect());
     }
 }

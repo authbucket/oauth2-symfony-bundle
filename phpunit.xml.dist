@@ -10,7 +10,7 @@
     processIsolation            = "false"
     stopOnFailure               = "false"
     syntaxCheck                 = "false"
-    bootstrap                   = "./Tests/app/bootstrap.php">
+    bootstrap                   = "./Tests/app/bootstrap.php.cache">
 
     <testsuites>
         <testsuite name="Pantarei/Bundle/Oauth2Bundle Test Suite">
