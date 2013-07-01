@@ -1,7 +1,7 @@
-Pantarei\Bundle\Oauth2Bundle\Entity\Client:
+Pantarei\Bundle\Oauth2Bundle\Model\Client:
     type: entity
     table: client
-    repositoryClass: Pantarei\Bundle\Oauth2Bundle\Entity\ClientManager
+    repositoryClass: Pantarei\Bundle\Oauth2Bundle\Model\ClientManager
     fields:
         id:
             type: integer

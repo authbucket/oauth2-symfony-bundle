@@ -16,9 +16,9 @@ framework:
     fragments:       ~
     test: ~
     session:
-        storage_id: session.storage.mock_file
+        storage_id:  session.storage.mock_file
     profiler:
-        enabled: false
+        enabled:     false
 
 # Twig Configuration
 twig:
@@ -29,7 +29,7 @@ twig:
 doctrine:
     dbal:
         driver: pdo_sqlite
-        path: :memory:
+        path:   :memory:
         memory: true
 
     orm:
@@ -39,24 +39,24 @@ doctrine:
                     TestBundle: ~
 
 oauth2:
-#    model_manager:
-#        access_token: oauth2.model_manager.access_token
-#        authorize: oauth2.model_manager.authorize
-#        client: oauth2.model_manager.client
-#        code: oauth2.model_manager.code
-#        refresh_token: oauth2.model_manager.refresh_token
-#        scope: oauth2.model_manager.scope
+    model:
+        access_token:       Pantarei\Bundle\Oauth2Bundle\Tests\TestBundle\Entity\AccessToken
+        authorize:          Pantarei\Bundle\Oauth2Bundle\Tests\TestBundle\Entity\Authorize
+        client:             Pantarei\Bundle\Oauth2Bundle\Tests\TestBundle\Entity\Client
+        code:               Pantarei\Bundle\Oauth2Bundle\Tests\TestBundle\Entity\Code
+        refresh_token:      Pantarei\Bundle\Oauth2Bundle\Tests\TestBundle\Entity\RefreshToken
+        scope:              Pantarei\Bundle\Oauth2Bundle\Tests\TestBundle\Entity\Scope
     response_handler:
-        code: oauth2.response_handler.code
-        token: oauth2.response_handler.token
+        code:               oauth2.response_handler.code.class
+        token:              oauth2.response_handler.token.class
     grant_handler:
-        authorization_code: oauth2.grant_handler.authorization_code
-        client_credentials: oauth2.grant_handler.client_credentials
-        password: oauth2.grant_handler.password
-        refresh_token: oauth2.grant_handler.refresh_token
+        authorization_code: oauth2.grant_handler.authorization_code.class
+        client_credentials: oauth2.grant_handler.client_credentials.class
+        password:           oauth2.grant_handler.password.class
+        refresh_token:      oauth2.grant_handler.refresh_token.class
     token_handler:
-        bearer: oauth2.token_handler.bearer
-        mac: oauth2.token_handler.mac
+        bearer:             oauth2.token_handler.bearer.class
+        mac:                oauth2.token_handler.mac.class
 #    user_provider: default
 
 security:

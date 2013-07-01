@@ -12,7 +12,7 @@
 namespace Pantarei\Bundle\Oauth2Bundle\Tests\TestBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use Pantarei\Bundle\Oauth2Bundle\Entity\AbstractAccessToken;
+use Pantarei\Bundle\Oauth2Bundle\Model\AbstractAccessToken;
 
 /**
  * AccessToken

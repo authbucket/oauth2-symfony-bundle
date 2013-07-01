@@ -9,19 +9,24 @@
  * file that was distributed with this source code.
  */
 
-namespace Pantarei\Bundle\Oauth2Bundle\Entity;
+namespace Pantarei\Bundle\Oauth2Bundle\Model;
 
-use Pantarei\Oauth2\Model\AuthorizeInterface;
+use Pantarei\Oauth2\Model\RefreshTokenInterface;
 
 /**
- * Authorize
+ * RefreshToken
  */
-abstract class AbstractAuthorize implements AuthorizeInterface
+abstract class AbstractRefreshToken implements RefreshTokenInterface
 {
     /**
      * @var integer
      */
     protected $id;
+
+    /**
+     * @var string
+     */
+    protected $refresh_token;
 
     /**
      * @var string
@@ -32,6 +37,11 @@ abstract class AbstractAuthorize implements AuthorizeInterface
      * @var string
      */
     protected $username;
+
+    /**
+     * @var \DateTime
+     */
+    protected $expires;
 
     /**
      * @var array
@@ -49,10 +59,33 @@ abstract class AbstractAuthorize implements AuthorizeInterface
     }
 
     /**
+     * Set refresh_token
+     *
+     * @param string $refresh_token
+     * @return RefreshToken
+     */
+    public function setRefreshToken($refresh_token)
+    {
+        $this->refresh_token = $refresh_token;
+
+        return $this;
+    }
+
+    /**
+     * Get refresh_token
+     *
+     * @return string
+     */
+    public function getRefreshToken()
+    {
+        return $this->refresh_token;
+    }
+
+    /**
      * Set client_id
      *
      * @param string $client_id
-     * @return Authorize
+     * @return RefreshToken
      */
     public function setClientId($client_id)
     {
@@ -75,7 +108,7 @@ abstract class AbstractAuthorize implements AuthorizeInterface
      * Set username
      *
      * @param string $username
-     * @return Authorize
+     * @return RefreshToken
      */
     public function setUsername($username)
     {
@@ -95,10 +128,33 @@ abstract class AbstractAuthorize implements AuthorizeInterface
     }
 
     /**
+     * Set expires
+     *
+     * @param integer $expires
+     * @return RefreshToken
+     */
+    public function setExpires($expires)
+    {
+        $this->expires = $expires;
+
+        return $this;
+    }
+
+    /**
+     * Get expires
+     *
+     * @return integer
+     */
+    public function getExpires()
+    {
+        return $this->expires;
+    }
+
+    /**
      * Set scope
      *
      * @param array $scope
-     * @return Authorize
+     * @return RefreshToken
      */
     public function setScope($scope)
     {

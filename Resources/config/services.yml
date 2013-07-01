@@ -1,5 +1,5 @@
 parameters:
-    oauth2.model_manager.factory.class: Pantarei\Oauth2\Model\ModelManagerFactory
+    oauth2.model_manager.factory.class: Pantarei\Bundle\Oauth2Bundle\Model\ModelManagerFactory
     oauth2.response_handler.factory.class: Pantarei\Oauth2\ResponseType\ResponseTypeHandlerFactory
     oauth2.grant_handler.factory.class: Pantarei\Oauth2\GrantType\GrantTypeHandlerFactory
     oauth2.token_handler.factory.class: Pantarei\Oauth2\TokenType\TokenTypeHandlerFactory
@@ -24,32 +24,16 @@ parameters:
 services:
     oauth2.model_manager.factory:
         class: %oauth2.model_manager.factory.class%
+        arguments: ["@doctrine.orm.entity_manager", "%oauth2.model%"]
     oauth2.response_handler.factory:
         class: %oauth2.response_handler.factory.class%
+        arguments: ["%oauth2.response_handler%"]
     oauth2.grant_handler.factory:
         class: %oauth2.grant_handler.factory.class%
+        arguments: ["%oauth2.grant_handler%"]
     oauth2.token_handler.factory:
         class: %oauth2.token_handler.factory.class%
-
-    oauth2.response_handler.code:
-        class: %oauth2.response_handler.code.class%
-    oauth2.response_handler.token:
-        class: %oauth2.response_handler.token.class%
-
-    oauth2.grant_handler.authorization_code:
-        class: %oauth2.grant_handler.authorization_code.class%
-    oauth2.grant_handler.client_credentials:
-        class: %oauth2.grant_handler.client_credentials.class%
-    oauth2.grant_handler.password:
-        class: %oauth2.grant_handler.password.class%
-        arguments: ["@security.user_checker", "@security.encoder_factory"]
-    oauth2.grant_handler.refresh_token:
-        class: %oauth2.grant_handler.refresh_token.class%
-
-    oauth2.token_handler.bearer:
-        class: %oauth2.token_handler.bearer.class%
-    oauth2.token_handler.mac:
-        class: %oauth2.token_handler.mac.class%
+        arguments: ["%oauth2.token_handler%"]
 
     oauth2_token.security.authentication.provider:
         class: %security.authentication.provider.oauth2_token.class%

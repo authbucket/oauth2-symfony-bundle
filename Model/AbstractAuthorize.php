@@ -9,14 +9,14 @@
  * file that was distributed with this source code.
  */
 
-namespace Pantarei\Bundle\Oauth2Bundle\Entity;
+namespace Pantarei\Bundle\Oauth2Bundle\Model;
 
-use Pantarei\Oauth2\Model\ClientInterface;
+use Pantarei\Oauth2\Model\AuthorizeInterface;
 
 /**
- * Client
+ * Authorize
  */
-abstract class AbstractClient implements ClientInterface
+abstract class AbstractAuthorize implements AuthorizeInterface
 {
     /**
      * @var integer
@@ -31,12 +31,12 @@ abstract class AbstractClient implements ClientInterface
     /**
      * @var string
      */
-    protected $client_secret;
+    protected $username;
 
     /**
-     * @var string
+     * @var array
      */
-    protected $redirect_uri;
+    protected $scope;
 
     /**
      * Get id
@@ -52,7 +52,7 @@ abstract class AbstractClient implements ClientInterface
      * Set client_id
      *
      * @param string $client_id
-     * @return Client
+     * @return Authorize
      */
     public function setClientId($client_id)
     {
@@ -72,53 +72,48 @@ abstract class AbstractClient implements ClientInterface
     }
 
     /**
-     * Set client_secret
+     * Set username
      *
-     * @param string $client_secret
-     * @return Client
+     * @param string $username
+     * @return Authorize
      */
-    public function setClientSecret($client_secret)
+    public function setUsername($username)
     {
-        $this->client_secret = $client_secret;
+        $this->username = $username;
 
         return $this;
     }
 
     /**
-     * Get client_secret
+     * Get username
      *
      * @return string
      */
-    public function getClientSecret()
+    public function getUsername()
     {
-        return $this->client_secret;
+        return $this->username;
     }
 
     /**
-     * Set redirect_uri
+     * Set scope
      *
-     * @param string $redirect_uri
-     * @return Client
+     * @param array $scope
+     * @return Authorize
      */
-    public function setRedirectUri($redirect_uri)
+    public function setScope($scope)
     {
-        $this->redirect_uri = $redirect_uri;
+        $this->scope = $scope;
 
         return $this;
     }
 
     /**
-     * Get redirect_uri
+     * Get scope
      *
-     * @return string
+     * @return array
      */
-    public function getRedirectUri()
+    public function getScope()
     {
-        return $this->redirect_uri;
-    }
-
-    public function __construct()
-    {
-        $this->redirect_uri = '';
+        return $this->scope;
     }
 }

@@ -1,7 +1,7 @@
-Pantarei\Bundle\Oauth2Bundle\Entity\Code:
+Pantarei\Bundle\Oauth2Bundle\Model\Code:
     type: entity
     table: code
-    repositoryClass: Pantarei\Bundle\Oauth2Bundle\Entity\CodeManager
+    repositoryClass: Pantarei\Bundle\Oauth2Bundle\Model\CodeManager
     fields:
         id:
             type: integer

@@ -17,6 +17,12 @@ class AuthorizeControllerTest extends WebTestCase
 {
     public function testGoodCode()
     {
+#        $client = static::createClient();
+#        var_dump($client->getContainer()->get('oauth2.model_manager.factory'));
+#        var_dump($client->getContainer()->get('oauth2.response_handler.factory'));
+#        var_dump($client->getContainer()->get('oauth2.grant_handler.factory'));
+#        var_dump($client->getContainer()->get('oauth2.token_handler.factory'));
+
 #        $parameters = array(
 #            'response_type' => 'code',
 #            'client_id' => 'http://democlient1.com/',

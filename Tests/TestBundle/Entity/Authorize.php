@@ -12,7 +12,7 @@
 namespace Pantarei\Bundle\Oauth2Bundle\Tests\TestBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use Pantarei\Bundle\Oauth2Bundle\Entity\AbstractAuthorize;
+use Pantarei\Bundle\Oauth2Bundle\Model\AbstractAuthorize;
 
 /**
  * Authorize

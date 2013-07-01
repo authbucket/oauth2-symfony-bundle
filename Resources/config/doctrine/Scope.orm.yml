@@ -1,7 +1,7 @@
-Pantarei\Bundle\Oauth2Bundle\Entity\Scope:
+Pantarei\Bundle\Oauth2Bundle\Model\Scope:
     type: entity
     table: scope
-    repositoryClass: Pantarei\Bundle\Oauth2Bundle\Entity\ScopeManager
+    repositoryClass: Pantarei\Bundle\Oauth2Bundle\Model\ScopeManager
     fields:
         id:
             type: integer

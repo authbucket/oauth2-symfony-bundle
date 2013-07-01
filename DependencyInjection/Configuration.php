@@ -31,6 +31,13 @@ class Configuration implements ConfigurationInterface
 
         $rootNode
             ->children()
+                ->arrayNode('model')
+                    ->prototype('scalar')->end()
+                ->end()
+            ->end();
+
+        $rootNode
+            ->children()
                 ->arrayNode('response_handler')
                     ->prototype('scalar')->end()
                 ->end()

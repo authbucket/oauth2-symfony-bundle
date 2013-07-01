@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Pantarei\Bundle\Oauth2Bundle\Entity;
+namespace Pantarei\Bundle\Oauth2Bundle\Model;
 
 use Pantarei\Oauth2\Model\ScopeInterface;
 

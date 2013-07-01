@@ -34,6 +34,9 @@ class Oauth2Extension extends Extension
         $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
         $loader->load('services.yml');
 
-#        var_dump($config);
+        $container->setParameter('oauth2.model', $config['model']);
+        $container->setParameter('oauth2.response_handler', $config['response_handler']);
+        $container->setParameter('oauth2.grant_handler', $config['grant_handler']);
+        $container->setParameter('oauth2.token_handler', $config['token_handler']);
     }
 }
