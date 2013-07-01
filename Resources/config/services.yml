@@ -4,6 +4,9 @@ parameters:
     oauth2.grant_handler.factory.class: Pantarei\Oauth2\GrantType\GrantTypeHandlerFactory
     oauth2.token_handler.factory.class: Pantarei\Oauth2\TokenType\TokenTypeHandlerFactory
 
+    oauth2.authorize_controller.class: Pantarei\Oauth2\Controller\AuthorizeController
+    oauth2.token_controller.class: Pantarei\Oauth2\Controller\TokenController
+
     security.authentication.provider.token.class: Pantarei\Oauth2\Security\Authentication\Provider\TokenProvider
     security.authentication.listener.token.class: Pantarei\Oauth2\Security\Firewall\TokenListener
 
@@ -23,6 +26,13 @@ services:
     oauth2.token_handler.factory:
         class: %oauth2.token_handler.factory.class%
         arguments: ["%oauth2.token_handler%"]
+
+    oauth2.authorize_controller:
+        class: %oauth2.authorize_controller.class%
+        arguments: ["@security.context", "@oauth2.model_manager.factory", "@oauth2.response_handler.factory", "@oauth2.token_handler.factory"]
+    oauth2.token_controller:
+        class: %oauth2.token_controller.class%
+        arguments: ["@security.context", "@security.user_checker", "@security.encoder_factory", "@oauth2.model_manager.factory", "@oauth2.grant_handler.factory", "@oauth2.token_handler.factory", null]
 
     security.authentication.provider.token:
         class: %security.authentication.provider.token.class%

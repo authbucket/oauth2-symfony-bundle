@@ -57,6 +57,11 @@ class Configuration implements ConfigurationInterface
                 ->end()
             ->end();
 
+        $rootNode
+            ->children()
+                ->scalarNode('user_provider')->defaultNull()->end()
+            ->end();
+
         return $treeBuilder;
     }
 }

@@ -14,10 +14,10 @@ namespace Pantarei\Bundle\Oauth2Bundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
-class AuthorizeController extends Controller
+class TokenController extends Controller
 {
-    public function authorizeAction(Request $request)
+    public function tokenAction(Request $request)
     {
-        return $this->container->get('oauth2.authorize_controller')->authorizeAction($request);
+        return $this->container->get('oauth2.token_controller')->tokenAction($request);
     }
 }

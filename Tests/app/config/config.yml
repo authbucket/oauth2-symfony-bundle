@@ -56,7 +56,7 @@ oauth2:
     token_handler:
         bearer:             Pantarei\Oauth2\TokenType\BearerTokenTypeHandler
         mac:                Pantarei\Oauth2\TokenType\MacTokenTypeHandler
-#    user_provider: default
+    user_provider:          security.user.provider.concrete.default
 
 security:
     encoders:

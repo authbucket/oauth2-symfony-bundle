@@ -11,10 +11,11 @@
 
 namespace Pantarei\Bundle\Oauth2Bundle\DependencyInjection;
 
-use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\Config\FileLocator;
-use Symfony\Component\HttpKernel\DependencyInjection\Extension;
+use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Loader;
+use Symfony\Component\DependencyInjection\Reference;
+use Symfony\Component\HttpKernel\DependencyInjection\Extension;
 
 /**
  * This is the class that loads and manages your bundle configuration
@@ -38,5 +39,10 @@ class Oauth2Extension extends Extension
         $container->setParameter('oauth2.response_handler', $config['response_handler']);
         $container->setParameter('oauth2.grant_handler', $config['grant_handler']);
         $container->setParameter('oauth2.token_handler', $config['token_handler']);
+
+        if (!empty($config['user_provider'])) {
+            $container->getDefinition('oauth2.token_controller')
+                ->replaceArgument(6, new Reference($config['user_provider']));
+        }
     }
 }
