@@ -11,7 +11,7 @@
 
 namespace Pantarei\Bundle\Oauth2Bundle\Tests\Controller;
 
-use Pantarei\Bundle\Oauth2Bundle\Tests\WebTestCase;
+use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
 class ResourceControllerTest extends WebTestCase
 {

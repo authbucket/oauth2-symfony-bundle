@@ -33,6 +33,7 @@
     },
     "require-dev": {
         "doctrine/doctrine-bundle": "1.2.*",
+        "doctrine/doctrine-fixtures-bundle": "dev-master",
         "doctrine/orm": ">=2.2.3,<2.4-dev",
         "satooshi/php-coveralls": "dev-master",
         "sensio/framework-extra-bundle": "2.3.*",

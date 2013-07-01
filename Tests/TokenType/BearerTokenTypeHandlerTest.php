@@ -11,7 +11,7 @@
 
 namespace Pantarei\Bundle\Oauth2Bundle\Tests\TokenType;
 
-use Pantarei\Bundle\Oauth2Bundle\Tests\WebTestCase;
+use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 

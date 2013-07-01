@@ -11,12 +11,30 @@
 
 use Doctrine\Common\Annotations\AnnotationRegistry;
 
-// Clean cache before test, see http://symfony.com/doc/current/cookbook/testing/bootstrap.html
-if (isset($_ENV['BOOTSTRAP_CLEAR_CACHE_ENV'])) {
+// See http://symfony.com/doc/current/cookbook/testing/bootstrap.html
+if (isset($_ENV['BOOTSTRAP_ENV'])) {
     passthru(sprintf(
-        'php "%s/console" cache:clear --env=%s --no-warmup',
+        'php "%s/console" cache:clear --env=%s -q --no-warmup',
         __DIR__,
-        $_ENV['BOOTSTRAP_CLEAR_CACHE_ENV']
+        $_ENV['BOOTSTRAP_ENV']
+    ));
+
+    passthru(sprintf(
+        'php "%s/console" doctrine:schema:drop --env=%s -q --force',
+        __DIR__,
+        $_ENV['BOOTSTRAP_ENV']
+    ));
+
+    passthru(sprintf(
+        'php "%s/console" doctrine:schema:create --env=%s -q',
+        __DIR__,
+        $_ENV['BOOTSTRAP_ENV']
+    ));
+
+    passthru(sprintf(
+        'php "%s/console" doctrine:fixtures:load --env=%s -q --no-interaction --purge-with-truncate',
+        __DIR__,
+        $_ENV['BOOTSTRAP_ENV']
     ));
 }
 

@@ -29,8 +29,7 @@ twig:
 doctrine:
     dbal:
         driver: pdo_sqlite
-        path:   :memory:
-        memory: true
+        path:   %kernel.cache_dir%/.ht.sqlite
 
     orm:
         entity_managers:
