@@ -55,7 +55,7 @@ class Code extends AbstractCode
     /**
      * @var string
      *
-     * @ORM\Column(name="redirect_uri", type="blob")
+     * @ORM\Column(name="redirect_uri", type="text")
      */
     protected $redirect_uri;
 

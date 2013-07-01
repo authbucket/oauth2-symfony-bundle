@@ -21,11 +21,11 @@ class ResourceFactory implements SecurityFactoryInterface
 {
     public function create(ContainerBuilder $container, $id, $config, $userProvider, $defaultEntryPoint)
     {
-        $providerId = 'security.authentication.provider.oauth2_resource.' . $id;
-        $container->setDefinition($providerId, new DefinitionDecorator('oauth2_resource.security.authentication.provider'));
+        $providerId = 'security.authentication.provider.resource.' . $id;
+        $container->setDefinition($providerId, new DefinitionDecorator('security.authentication.provider.resource'));
 
-        $listenerId = 'security.authentication.listener.oauth2_resource.' . $id;
-        $container->setDefinition($listenerId, new DefinitionDecorator('oauth2_resource.security.authentication.listener'));
+        $listenerId = 'security.authentication.listener.resource.' . $id;
+        $container->setDefinition($listenerId, new DefinitionDecorator('security.authentication.listener.resource'));
 
         return array($providerId, $listenerId, $defaultEntryPoint);
     }
@@ -37,7 +37,7 @@ class ResourceFactory implements SecurityFactoryInterface
 
     public function getKey()
     {
-        return 'oauth2_resource';
+        return 'oauth2-resource';
     }
 
     public function addConfiguration(NodeDefinition $node)

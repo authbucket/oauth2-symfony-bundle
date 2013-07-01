@@ -4,11 +4,11 @@ parameters:
     oauth2.grant_handler.factory.class: Pantarei\Oauth2\GrantType\GrantTypeHandlerFactory
     oauth2.token_handler.factory.class: Pantarei\Oauth2\TokenType\TokenTypeHandlerFactory
 
-    security.authentication.provider.oauth2_token.class: Pantarei\Oauth2\Security\Authentication\Provider\TokenProvider
-    security.authentication.listener.oauth2_token.class: Pantarei\Oauth2\Security\Firewall\TokenListener
+    security.authentication.provider.token.class: Pantarei\Oauth2\Security\Authentication\Provider\TokenProvider
+    security.authentication.listener.token.class: Pantarei\Oauth2\Security\Firewall\TokenListener
 
-    security.authentication.provider.oauth2_resource.class: Pantarei\Oauth2\Security\Authentication\Provider\ResourceProvider
-    security.authentication.listener.oauth2_resource.class: Pantarei\Oauth2\Security\Firewall\ResourceListener
+    security.authentication.provider.resource.class: Pantarei\Oauth2\Security\Authentication\Provider\ResourceProvider
+    security.authentication.listener.resource.class: Pantarei\Oauth2\Security\Firewall\ResourceListener
 
 services:
     oauth2.model_manager.factory:
@@ -24,16 +24,16 @@ services:
         class: %oauth2.token_handler.factory.class%
         arguments: ["%oauth2.token_handler%"]
 
-    oauth2_token.security.authentication.provider:
-        class: %security.authentication.provider.oauth2_token.class%
+    security.authentication.provider.token:
+        class: %security.authentication.provider.token.class%
         arguments: ["@oauth2.model_manager.factory"]
-    oauth2_token.security.authentication.listener:
-        class: %security.authentication.listener.oauth2_token.class%
+    security.authentication.listener.token:
+        class: %security.authentication.listener.token.class%
         arguments: ["@security.context", "@security.authentication.manager", "@oauth2.model_manager.factory", "@oauth2.token_handler.factory"]
 
-    oauth2_resource.security.authentication.provider:
-        class: %security.authentication.provider.oauth2_resource.class%
+    security.authentication.provider.resource:
+        class: %security.authentication.provider.resource.class%
         arguments: ["@oauth2.model_manager.factory"]
-    oauth2_resource.security.authentication.listener:
-        class: %security.authentication.listener.oauth2_resource.class%
+    security.authentication.listener.resource:
+        class: %security.authentication.listener.resource.class%
         arguments: ["@security.context", "@security.authentication.manager", "@oauth2.model_manager.factory", "@oauth2.token_handler.factory"]

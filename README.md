@@ -2,9 +2,9 @@ Pantarei/Bundle/Oauth2Bundle
 ============================
 
 [![Build
-Status](https://travis-ci.org/pantarei/oauth2-bundle.png?branch=1.0)](https://travis-ci.org/pantarei/oauth2-bundle)
+Status](https://travis-ci.org/pantarei/oauth2-bundle.png?branch=master)](https://travis-ci.org/pantarei/oauth2-bundle)
 [![Coverage
-Status](https://coveralls.io/repos/pantarei/oauth2-bundle/badge.png?branch=1.0)](https://coveralls.io/r/pantarei/oauth2-bundle)
+Status](https://coveralls.io/repos/pantarei/oauth2-bundle/badge.png?branch=master)](https://coveralls.io/r/pantarei/oauth2-bundle)
 [![Latest Stable
 Version](https://poser.pugx.org/pantarei/oauth2-bundle/v/stable.png)](https://packagist.org/packages/pantarei/oauth2-bundle)
 [![Total

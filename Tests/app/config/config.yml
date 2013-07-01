@@ -61,11 +61,10 @@ oauth2:
 security:
     encoders:
         Symfony\Component\Security\Core\User\User: plaintext
-        Pantarei\Bundle\Oauth2Bundle\Tests\TestBundle\Entity\User: plaintext
 
     role_hierarchy:
-        ROLE_ADMIN: ROLE_USER
-        ROLE_SUPER_ADMIN: [ROLE_USER, ROLE_ADMIN, ROLE_ALLOWED_TO_SWITCH]
+        ROLE_ADMIN:         ROLE_USER
+        ROLE_SUPER_ADMIN:   [ROLE_USER, ROLE_ADMIN, ROLE_ALLOWED_TO_SWITCH]
 
     providers:
         default:
@@ -76,19 +75,19 @@ security:
                     demousername3: { password: demopassword3, roles: 'ROLE_USER' }
 
     firewalls:
-#        resource:
-#            pattern: ^/resource
-#            oauth2_resource: true
-#            stateless: true
+        resource:
+            pattern:            ^/resource
+            oauth2_resource:    true
+            stateless:          true
 
         token:
-            pattern: ^/token
-            oauth2_token: true
+            pattern:            ^/token
+            oauth2_token:       true
 
         authorize:
-            pattern: ^/authorize
+            pattern:            ^/authorize
             http_basic:
-                provider: default
+                provider:       default
 
     access_control:
         - { path: ^/resource, roles: [IS_AUTHENTICATED_FULLY] }

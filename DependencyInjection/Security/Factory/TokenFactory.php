@@ -21,11 +21,11 @@ class TokenFactory implements SecurityFactoryInterface
 {
     public function create(ContainerBuilder $container, $id, $config, $userProvider, $defaultEntryPoint)
     {
-        $providerId = 'security.authentication.provider.oauth2_token.' . $id;
-        $container->setDefinition($providerId, new DefinitionDecorator('oauth2_token.security.authentication.provider'));
+        $providerId = 'security.authentication.provider.token.' . $id;
+        $container->setDefinition($providerId, new DefinitionDecorator('security.authentication.provider.token'));
 
-        $listenerId = 'security.authentication.listener.oauth2_token.' . $id;
-        $container->setDefinition($listenerId, new DefinitionDecorator('oauth2_token.security.authentication.listener'));
+        $listenerId = 'security.authentication.listener.token.' . $id;
+        $container->setDefinition($listenerId, new DefinitionDecorator('security.authentication.listener.token'));
 
         return array($providerId, $listenerId, $defaultEntryPoint);
     }
@@ -37,7 +37,7 @@ class TokenFactory implements SecurityFactoryInterface
 
     public function getKey()
     {
-        return 'oauth2_token';
+        return 'oauth2-token';
     }
 
     public function addConfiguration(NodeDefinition $node)

@@ -15,25 +15,39 @@ use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
 class AuthorizeControllerTest extends WebTestCase
 {
-    public function testGoodCode()
+    public function testExceptionNoResponseType()
     {
-#        $client = static::createClient();
-#        var_dump($client->getContainer()->get('oauth2.model_manager.factory'));
-#        var_dump($client->getContainer()->get('oauth2.response_handler.factory'));
-#        var_dump($client->getContainer()->get('oauth2.grant_handler.factory'));
-#        var_dump($client->getContainer()->get('oauth2.token_handler.factory'));
+        $parameters = array(
+            'client_id' => '1234',
+        );
+        $server = array(
+            'PHP_AUTH_USER' => 'demousername1',
+            'PHP_AUTH_PW' => 'demopassword1',
+        );
+        $client = static::createClient();
+        $crawler = $client->request('GET', '/authorize', $parameters, array(), $server);
+        $this->assertEquals(400, $client->getResponse()->getStatusCode());
+        $this->assertNotNull(json_decode($client->getResponse()->getContent()));
+        $token_response = json_decode($client->getResponse()->getContent(), true);
+        $this->assertEquals('invalid_request', $token_response['error']);
+    }
 
-#        $parameters = array(
-#            'response_type' => 'code',
-#            'client_id' => 'http://democlient1.com/',
-#            'redirect_uri' => 'http://democlient1.com/redirect_uri',
-#        );
-#        $server = array(
-#            'PHP_AUTH_USER' => 'demousername1',
-#            'PHP_AUTH_PW' => 'demopassword1',
-#        );
-#        $client = static::createClient();
-#        $crawler = $client->request('GET', '/authorize', $parameters, array(), $server);
-#        $this->assertTrue($client->getResponse()->isRedirect());
+    public function testErrorBadResponseType()
+    {
+        $parameters = array(
+            'response_type' => 'foo',
+            'client_id' => '1234',
+            'redirect_uri' => 'http://example.com/redirect_uri',
+        );
+        $server = array(
+            'PHP_AUTH_USER' => 'demousername1',
+            'PHP_AUTH_PW' => 'demopassword1',
+        );
+        $client = static::createClient();
+        $crawler = $client->request('GET', '/authorize', $parameters, array(), $server);
+        $this->assertEquals(400, $client->getResponse()->getStatusCode());
+        $this->assertNotNull(json_decode($client->getResponse()->getContent()));
+        $token_response = json_decode($client->getResponse()->getContent(), true);
+        $this->assertEquals('unsupported_response_type', $token_response['error']);
     }
 }

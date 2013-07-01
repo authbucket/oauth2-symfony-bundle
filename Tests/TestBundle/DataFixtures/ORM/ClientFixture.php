@@ -37,6 +37,11 @@ class ClientFixture implements FixtureInterface
             ->setRedirectUri('http://democlient3.com/redirect_uri');
         $manager->persist($model);
 
+        $model = new Client();
+        $model->setClientId('http://democlient4.com/')
+            ->setClientSecret('demosecret4');
+        $manager->persist($model);
+
         $manager->flush();
     }
 }

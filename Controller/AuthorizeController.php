@@ -12,10 +12,12 @@
 namespace Pantarei\Bundle\Oauth2Bundle\Controller;
 
 use Pantarei\Oauth2\Exception\InvalidRequestException;
+use Pantarei\Oauth2\Exception\UnsupportedResponseTypeException;
 use Pantarei\Oauth2\Model\ModelManagerFactoryInterface;
 use Pantarei\Oauth2\ResponseType\ResponseTypeHandlerFactoryInterface;
 use Pantarei\Oauth2\TokenType\TokenTypeHandlerFactoryInterface;
 use Pantarei\Oauth2\Util\Filter;
+use Pantarei\Oauth2\Util\JsonResponse;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -31,16 +33,26 @@ class AuthorizeController extends Controller
         $responseTypeHandlerFactory = $this->container->get('oauth2.response_handler.factory');
         $tokenTypeHandlerFactory = $this->container->get('oauth2.token_handler.factory');
 
-        // Fetch response_type from GET.
-        $response_type = $this->getResponseType($request);
+        try {
+            // Fetch response_type from GET.
+            $response_type = $this->getResponseType($request);
 
-        // Handle authorize endpoint response.
-        return $responseTypeHandlerFactory->getResponseTypeHandler($response_type)->handle(
-            $securityContext,
-            $request,
-            $modelManagerFactory,
-            $tokenTypeHandlerFactory
-        );
+            // Handle authorize endpoint response.
+            return $responseTypeHandlerFactory->getResponseTypeHandler($response_type)->handle(
+                $securityContext,
+                $request,
+                $modelManagerFactory,
+                $tokenTypeHandlerFactory
+            );
+        } catch (InvalidRequestException $e) {
+            return JsonResponse::create(array(
+                'error' => 'invalid_request',
+            ), 400);
+        } catch (UnsupportedResponseTypeException $e) {
+            return JsonResponse::create(array(
+                'error' => 'unsupported_response_type',
+            ), 400);
+        }
     }
 
     private function getResponseType(Request $request)
