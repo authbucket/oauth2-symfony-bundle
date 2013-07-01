@@ -39,11 +39,11 @@ services:
         arguments: ["@oauth2.model_manager.factory"]
     security.authentication.listener.token:
         class: %security.authentication.listener.token.class%
-        arguments: ["@security.context", "@security.authentication.manager", "@oauth2.model_manager.factory", "@oauth2.token_handler.factory"]
+        arguments: ["@security.context", "@security.authentication.manager"]
 
     security.authentication.provider.resource:
         class: %security.authentication.provider.resource.class%
         arguments: ["@oauth2.model_manager.factory"]
     security.authentication.listener.resource:
         class: %security.authentication.listener.resource.class%
-        arguments: ["@security.context", "@security.authentication.manager", "@oauth2.model_manager.factory", "@oauth2.token_handler.factory"]
+        arguments: ["@security.context", "@security.authentication.manager", "@oauth2.token_handler.factory"]

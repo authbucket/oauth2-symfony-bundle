@@ -13,7 +13,7 @@ namespace Pantarei\Bundle\Oauth2Bundle\Tests\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
-class AuthorizeControllerTest extends WebTestCase
+class AuthorizateControllerTest extends WebTestCase
 {
     public function testExceptionNoResponseType()
     {
