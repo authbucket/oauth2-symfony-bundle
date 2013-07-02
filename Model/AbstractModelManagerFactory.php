@@ -21,23 +21,9 @@ use Pantarei\Oauth2\Model\ModelManagerInterface;
  *
  * @author Wong Hoi Sing Edison <hswong3i@pantarei-design.com>
  */
-class ModelManagerFactory implements ModelManagerFactoryInterface
+abstract class AbstractModelManagerFactory implements ModelManagerFactoryInterface
 {
     protected $managers;
-
-    public function __construct(EntityManager $em, array $models = array())
-    {
-        $managers = array();
-        foreach ($models as $type => $model) {
-            $manager = $em->getRepository($model);
-            if (!$manager instanceof ModelManagerInterface) {
-                throw new ServerErrorException();
-            }
-            $managers[$type] = $manager;
-        }
-
-        $this->managers = $managers;
-    }
 
     public function getModelManager($type)
     {

@@ -38,6 +38,9 @@ doctrine:
                     TestBundle: ~
 
 oauth2:
+    driver:                 orm
+    user_provider:          security.user.provider.concrete.default
+
     model:
         access_token:       Pantarei\Bundle\Oauth2Bundle\Tests\TestBundle\Entity\AccessToken
         authorize:          Pantarei\Bundle\Oauth2Bundle\Tests\TestBundle\Entity\Authorize
@@ -45,18 +48,20 @@ oauth2:
         code:               Pantarei\Bundle\Oauth2Bundle\Tests\TestBundle\Entity\Code
         refresh_token:      Pantarei\Bundle\Oauth2Bundle\Tests\TestBundle\Entity\RefreshToken
         scope:              Pantarei\Bundle\Oauth2Bundle\Tests\TestBundle\Entity\Scope
+
     response_handler:
         code:               Pantarei\Oauth2\ResponseType\CodeResponseTypeHandler
         token:              Pantarei\Oauth2\ResponseType\TokenResponseTypeHandler
+
     grant_handler:
         authorization_code: Pantarei\Oauth2\GrantType\AuthorizationCodeGrantTypeHandler
         client_credentials: Pantarei\Oauth2\GrantType\ClientCredentialsGrantTypeHandler
         password:           Pantarei\Oauth2\GrantType\PasswordGrantTypeHandler
         refresh_token:      Pantarei\Oauth2\GrantType\RefreshTokenGrantTypeHandler
+
     token_handler:
         bearer:             Pantarei\Oauth2\TokenType\BearerTokenTypeHandler
         mac:                Pantarei\Oauth2\TokenType\MacTokenTypeHandler
-    user_provider:          security.user.provider.concrete.default
 
 security:
     encoders:

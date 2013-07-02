@@ -31,6 +31,12 @@ class Configuration implements ConfigurationInterface
 
         $rootNode
             ->children()
+                ->scalarNode('driver')->defaultValue('orm')->end()
+                ->scalarNode('user_provider')->defaultNull()->end()
+            ->end();
+
+        $rootNode
+            ->children()
                 ->arrayNode('model')
                     ->prototype('scalar')->end()
                 ->end()
@@ -55,11 +61,6 @@ class Configuration implements ConfigurationInterface
                 ->arrayNode('token_handler')
                     ->prototype('scalar')->end()
                 ->end()
-            ->end();
-
-        $rootNode
-            ->children()
-                ->scalarNode('user_provider')->defaultNull()->end()
             ->end();
 
         return $treeBuilder;

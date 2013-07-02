@@ -1,5 +1,4 @@
 parameters:
-    oauth2.model_manager.factory.class: Pantarei\Bundle\Oauth2Bundle\Model\ModelManagerFactory
     oauth2.response_handler.factory.class: Pantarei\Oauth2\ResponseType\ResponseTypeHandlerFactory
     oauth2.grant_handler.factory.class: Pantarei\Oauth2\GrantType\GrantTypeHandlerFactory
     oauth2.token_handler.factory.class: Pantarei\Oauth2\TokenType\TokenTypeHandlerFactory
@@ -14,9 +13,6 @@ parameters:
     security.authentication.listener.resource.class: Pantarei\Oauth2\Security\Firewall\ResourceListener
 
 services:
-    oauth2.model_manager.factory:
-        class: %oauth2.model_manager.factory.class%
-        arguments: ["@doctrine.orm.entity_manager", "%oauth2.model%"]
     oauth2.response_handler.factory:
         class: %oauth2.response_handler.factory.class%
         arguments: ["%oauth2.response_handler%"]
