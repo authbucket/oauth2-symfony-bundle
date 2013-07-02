@@ -1,13 +1,8 @@
-Pantarei\Bundle\Oauth2Bundle\Model\Scope:
+Pantarei\Bundle\Oauth2Bundle\Model\AbstractScope:
     type: entity
     table: scope
-    repositoryClass: Pantarei\Bundle\Oauth2Bundle\Model\ScopeManager
+    repositoryClass: Pantarei\Bundle\Oauth2Bundle\Doctrine\ORM\ScopeManager
     fields:
-        id:
-            type: integer
-            id: true
-            generator:
-                strategy: AUTO
         scope:
             type: string
             length: 255

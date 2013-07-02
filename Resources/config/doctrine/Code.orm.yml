@@ -1,13 +1,8 @@
-Pantarei\Bundle\Oauth2Bundle\Model\Code:
+Pantarei\Bundle\Oauth2Bundle\Model\AbstractCode:
     type: entity
     table: code
-    repositoryClass: Pantarei\Bundle\Oauth2Bundle\Model\CodeManager
+    repositoryClass: Pantarei\Bundle\Oauth2Bundle\Doctrine\ORM\CodeManager
     fields:
-        id:
-            type: integer
-            id: true
-            generator:
-                strategy: AUTO
         code:
             type: string
             length: 255
@@ -19,8 +14,7 @@ Pantarei\Bundle\Oauth2Bundle\Model\Code:
             type: string
             length: 255
         redirect_uri:
-            type: string
-            length: 255
+            type: text
             column: redirect_uri
         expires:
             type: datetime

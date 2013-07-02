@@ -1,13 +1,8 @@
-Pantarei\Bundle\Oauth2Bundle\Model\Client:
+Pantarei\Bundle\Oauth2Bundle\Model\AbstractClient:
     type: entity
     table: client
-    repositoryClass: Pantarei\Bundle\Oauth2Bundle\Model\ClientManager
+    repositoryClass: Pantarei\Bundle\Oauth2Bundle\Doctrine\ORM\ClientManager
     fields:
-        id:
-            type: integer
-            id: true
-            generator:
-                strategy: AUTO
         client_id:
             type: string
             length: 255
@@ -17,6 +12,6 @@ Pantarei\Bundle\Oauth2Bundle\Model\Client:
             length: 255
             column: client_secret
         redirect_uri:
-            type: blob
+            type: text
             column: redirect_uri
     lifecycleCallbacks: {  }

@@ -1,13 +1,8 @@
-Pantarei\Bundle\Oauth2Bundle\Model\AccessToken:
+Pantarei\Bundle\Oauth2Bundle\Model\AbstractAccessToken:
     type: entity
     table: access_token
-    repositoryClass: Pantarei\Bundle\Oauth2Bundle\Model\AccessTokenManager
+    repositoryClass: Pantarei\Bundle\Oauth2Bundle\Doctrine\ORM\AccessTokenManager
     fields:
-        id:
-            type: integer
-            id: true
-            generator:
-                strategy: AUTO
         access_token:
             type: string
             length: 255

@@ -1,13 +1,8 @@
-Pantarei\Bundle\Oauth2Bundle\Model\RefreshToken:
+Pantarei\Bundle\Oauth2Bundle\Model\AbstractRefreshToken:
     type: entity
     table: refresh_token
-    repositoryClass: Pantarei\Bundle\Oauth2Bundle\Model\RefreshTokenManager
+    repositoryClass: Pantarei\Bundle\Oauth2Bundle\Doctrine\ORM\RefreshTokenManager
     fields:
-        id:
-            type: integer
-            id: true
-            generator:
-                strategy: AUTO
         refresh_token:
             type: string
             length: 255

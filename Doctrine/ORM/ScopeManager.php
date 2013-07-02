@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Pantarei\Bundle\Oauth2Bundle\Tests\TestBundle\Entity;
+namespace Pantarei\Bundle\Oauth2Bundle\Doctrine\ORM;
 
 use Doctrine\ORM\EntityRepository;
 use Pantarei\Oauth2\Model\ScopeInterface;
