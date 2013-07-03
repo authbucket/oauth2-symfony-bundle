@@ -20,11 +20,6 @@ use Pantarei\Oauth2\Model\RefreshTokenInterface;
 class RefreshToken implements RefreshTokenInterface
 {
     /**
-     * @var integer
-     */
-    protected $id;
-
-    /**
      * @var string
      */
     protected $refresh_token;
@@ -48,16 +43,6 @@ class RefreshToken implements RefreshTokenInterface
      * @var array
      */
     protected $scope;
-
-    /**
-     * Get id
-     *
-     * @return integer
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
 
     /**
      * Set refresh_token

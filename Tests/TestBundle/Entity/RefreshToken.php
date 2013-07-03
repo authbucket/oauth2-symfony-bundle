@@ -32,37 +32,12 @@ class RefreshToken extends AbstractRefreshToken
     protected $id;
 
     /**
-     * @var string
+     * Get id
      *
-     * @ORM\Column(name="refresh_token", type="string", length=255)
+     * @return integer
      */
-    protected $refresh_token;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="client_id", type="string", length=255)
-     */
-    protected $client_id;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="username", type="string", length=255)
-     */
-    protected $username;
-
-    /**
-     * @var \DateTime
-     *
-     * @ORM\Column(name="expires", type="datetime")
-     */
-    protected $expires;
-
-    /**
-     * @var array
-     *
-     * @ORM\Column(name="scope", type="array")
-     */
-    protected $scope;
+    public function getId()
+    {
+        return $this->id;
+    }
 }

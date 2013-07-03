@@ -32,23 +32,12 @@ class Client extends AbstractClient
     protected $id;
 
     /**
-     * @var string
+     * Get id
      *
-     * @ORM\Column(name="client_id", type="string", length=255)
+     * @return integer
      */
-    protected $client_id;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="client_secret", type="string", length=255)
-     */
-    protected $client_secret;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="redirect_uri", type="text")
-     */
-    protected $redirect_uri;
+    public function getId()
+    {
+        return $this->id;
+    }
 }

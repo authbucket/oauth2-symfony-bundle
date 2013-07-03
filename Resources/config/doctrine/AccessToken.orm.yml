@@ -2,11 +2,6 @@ Pantarei\Bundle\Oauth2Bundle\Entity\AccessToken:
     type: mappedSuperclass
     repositoryClass: Pantarei\Bundle\Oauth2Bundle\Entity\AccessTokenManager
     fields:
-        id:
-            type: integer
-            id: true
-            generator:
-                strategy: AUTO
         access_token:
             type: string
             length: 255

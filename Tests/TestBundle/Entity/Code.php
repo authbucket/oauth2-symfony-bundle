@@ -32,44 +32,12 @@ class Code extends AbstractCode
     protected $id;
 
     /**
-     * @var string
+     * Get id
      *
-     * @ORM\Column(name="code", type="string", length=255)
+     * @return integer
      */
-    protected $code;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="client_id", type="string", length=255)
-     */
-    protected $client_id;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="username", type="string", length=255)
-     */
-    protected $username;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="redirect_uri", type="text")
-     */
-    protected $redirect_uri;
-
-    /**
-     * @var \DateTime
-     *
-     * @ORM\Column(name="expires", type="datetime")
-     */
-    protected $expires;
-
-    /**
-     * @var array
-     *
-     * @ORM\Column(name="scope", type="array")
-     */
-    protected $scope;
+    public function getId()
+    {
+        return $this->id;
+    }
 }

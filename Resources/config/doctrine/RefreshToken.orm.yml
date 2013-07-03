@@ -2,11 +2,6 @@ Pantarei\Bundle\Oauth2Bundle\Entity\RefreshToken:
     type: mappedSuperclass
     repositoryClass: Pantarei\Bundle\Oauth2Bundle\Entity\RefreshTokenManager
     fields:
-        id:
-            type: integer
-            id: true
-            generator:
-                strategy: AUTO
         refresh_token:
             type: string
             length: 255

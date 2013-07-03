@@ -20,11 +20,6 @@ use Pantarei\Oauth2\Model\AccessTokenInterface;
 class AccessToken implements AccessTokenInterface
 {
     /**
-     * @var integer
-     */
-    protected $id;
-
-    /**
      * @var string
      */
     protected $access_token;
@@ -53,16 +48,6 @@ class AccessToken implements AccessTokenInterface
      * @var array
      */
     protected $scope;
-
-    /**
-     * Get id
-     *
-     * @return integer
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
 
     /**
      * Set access_token

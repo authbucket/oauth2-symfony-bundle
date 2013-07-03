@@ -20,11 +20,6 @@ use Pantarei\Oauth2\Model\AuthorizeInterface;
 class Authorize implements AuthorizeInterface
 {
     /**
-     * @var integer
-     */
-    protected $id;
-
-    /**
      * @var string
      */
     protected $client_id;
@@ -38,16 +33,6 @@ class Authorize implements AuthorizeInterface
      * @var array
      */
     protected $scope;
-
-    /**
-     * Get id
-     *
-     * @return integer
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
 
     /**
      * Set client_id

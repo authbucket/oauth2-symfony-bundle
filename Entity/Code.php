@@ -20,11 +20,6 @@ use Pantarei\Oauth2\Model\CodeInterface;
 class Code implements CodeInterface
 {
     /**
-     * @var integer
-     */
-    protected $id;
-
-    /**
      * @var string
      */
     protected $code;
@@ -53,16 +48,6 @@ class Code implements CodeInterface
      * @var array
      */
     protected $scope;
-
-    /**
-     * Get id
-     *
-     * @return integer
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
 
     /**
      * Set code

@@ -32,9 +32,12 @@ class Scope extends AbstractScope
     protected $id;
 
     /**
-     * @var string
+     * Get id
      *
-     * @ORM\Column(name="scope", type="string", length=255)
+     * @return integer
      */
-    protected $scope;
+    public function getId()
+    {
+        return $this->id;
+    }
 }

@@ -2,11 +2,6 @@ Pantarei\Bundle\Oauth2Bundle\Entity\Code:
     type: mappedSuperclass
     repositoryClass: Pantarei\Bundle\Oauth2Bundle\Entity\CodeManager
     fields:
-        id:
-            type: integer
-            id: true
-            generator:
-                strategy: AUTO
         code:
             type: string
             length: 255

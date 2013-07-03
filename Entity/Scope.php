@@ -20,24 +20,9 @@ use Pantarei\Oauth2\Model\ScopeInterface;
 class Scope implements ScopeInterface
 {
     /**
-     * @var integer
-     */
-    protected $id;
-
-    /**
      * @var string
      */
     protected $scope;
-
-    /**
-     * Get id
-     *
-     * @return integer
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
 
     /**
      * Set scope

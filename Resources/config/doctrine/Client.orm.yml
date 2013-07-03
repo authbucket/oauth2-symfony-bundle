@@ -2,11 +2,6 @@ Pantarei\Bundle\Oauth2Bundle\Entity\Client:
     type: mappedSuperclass
     repositoryClass: Pantarei\Bundle\Oauth2Bundle\Entity\ClientManager
     fields:
-        id:
-            type: integer
-            id: true
-            generator:
-                strategy: AUTO
         client_id:
             type: string
             length: 255

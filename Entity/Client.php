@@ -20,11 +20,6 @@ use Pantarei\Oauth2\Model\ClientInterface;
 class Client implements ClientInterface
 {
     /**
-     * @var integer
-     */
-    protected $id;
-
-    /**
      * @var string
      */
     protected $client_id;
@@ -38,16 +33,6 @@ class Client implements ClientInterface
      * @var string
      */
     protected $redirect_uri;
-
-    /**
-     * Get id
-     *
-     * @return integer
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
 
     /**
      * Set client_id
