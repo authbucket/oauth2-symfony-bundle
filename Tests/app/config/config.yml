@@ -32,10 +32,8 @@ doctrine:
         path:   %kernel.cache_dir%/.ht.sqlite
 
     orm:
-        entity_managers:
-            default:
-                mappings:
-                    TestBundle: ~
+        mappings:
+            TestBundle: ~
 
 oauth2:
     driver:                 orm

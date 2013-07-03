@@ -9,11 +9,11 @@
  * file that was distributed with this source code.
  */
 
-namespace Pantarei\Bundle\Oauth2Bundle\Model;
+namespace Pantarei\Bundle\Oauth2Bundle\Entity;
 
 use Doctrine\ORM\EntityManager;
-use Pantarei\Oauth2\Exception\ServerErrorException;
 use Pantarei\Oauth2\Model\ModelManagerFactoryInterface;
+use Pantarei\Oauth2\Exception\ServerErrorException;
 use Pantarei\Oauth2\Model\ModelManagerInterface;
 
 /**
@@ -21,9 +21,23 @@ use Pantarei\Oauth2\Model\ModelManagerInterface;
  *
  * @author Wong Hoi Sing Edison <hswong3i@pantarei-design.com>
  */
-abstract class AbstractModelManagerFactory implements ModelManagerFactoryInterface
+class ModelManagerFactory implements ModelManagerFactoryInterface
 {
     protected $managers;
+
+    public function __construct(EntityManager $em, array $models = array())
+    {
+        $managers = array();
+        foreach ($models as $type => $model) {
+            $manager = $em->getRepository($model);
+            if (!$manager instanceof ModelManagerInterface) {
+                throw new ServerErrorException();
+            }
+            $managers[$type] = $manager;
+        }
+
+        $this->managers = $managers;
+    }
 
     public function getModelManager($type)
     {
