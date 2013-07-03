@@ -9,14 +9,15 @@
  * file that was distributed with this source code.
  */
 
-namespace Pantarei\Bundle\Oauth2Bundle\Model;
+namespace Pantarei\Bundle\Oauth2Bundle\Entity;
 
-use Pantarei\Oauth2\Model\RefreshTokenInterface;
+use Doctrine\ORM\Mapping as ORM;
+use Pantarei\Oauth2\Model\CodeInterface;
 
 /**
- * RefreshToken
+ * Code
  */
-abstract class AbstractRefreshToken implements RefreshTokenInterface
+class Code implements CodeInterface
 {
     /**
      * @var integer
@@ -26,7 +27,7 @@ abstract class AbstractRefreshToken implements RefreshTokenInterface
     /**
      * @var string
      */
-    protected $refresh_token;
+    protected $code;
 
     /**
      * @var string
@@ -37,6 +38,11 @@ abstract class AbstractRefreshToken implements RefreshTokenInterface
      * @var string
      */
     protected $username;
+
+    /**
+     * @var string
+     */
+    protected $redirect_uri;
 
     /**
      * @var \DateTime
@@ -59,33 +65,33 @@ abstract class AbstractRefreshToken implements RefreshTokenInterface
     }
 
     /**
-     * Set refresh_token
+     * Set code
      *
-     * @param string $refresh_token
-     * @return RefreshToken
+     * @param string $code
+     * @return Code
      */
-    public function setRefreshToken($refresh_token)
+    public function setCode($code)
     {
-        $this->refresh_token = $refresh_token;
+        $this->code = $code;
 
         return $this;
     }
 
     /**
-     * Get refresh_token
+     * Get code
      *
      * @return string
      */
-    public function getRefreshToken()
+    public function getCode()
     {
-        return $this->refresh_token;
+        return $this->code;
     }
 
     /**
      * Set client_id
      *
      * @param string $client_id
-     * @return RefreshToken
+     * @return Code
      */
     public function setClientId($client_id)
     {
@@ -108,7 +114,7 @@ abstract class AbstractRefreshToken implements RefreshTokenInterface
      * Set username
      *
      * @param string $username
-     * @return RefreshToken
+     * @return Code
      */
     public function setUsername($username)
     {
@@ -128,10 +134,33 @@ abstract class AbstractRefreshToken implements RefreshTokenInterface
     }
 
     /**
+     * Set redirect_uri
+     *
+     * @param string $redirect_uri
+     * @return Code
+     */
+    public function setRedirectUri($redirect_uri)
+    {
+        $this->redirect_uri = $redirect_uri;
+
+        return $this;
+    }
+
+    /**
+     * Get redirect_uri
+     *
+     * @return string
+     */
+    public function getRedirectUri()
+    {
+        return $this->redirect_uri;
+    }
+
+    /**
      * Set expires
      *
-     * @param integer $expires
-     * @return RefreshToken
+     * @param \DateTime $expires
+     * @return Code
      */
     public function setExpires($expires)
     {
@@ -143,7 +172,7 @@ abstract class AbstractRefreshToken implements RefreshTokenInterface
     /**
      * Get expires
      *
-     * @return integer
+     * @return \DateTime
      */
     public function getExpires()
     {
@@ -154,7 +183,7 @@ abstract class AbstractRefreshToken implements RefreshTokenInterface
      * Set scope
      *
      * @param array $scope
-     * @return RefreshToken
+     * @return Code
      */
     public function setScope($scope)
     {
@@ -171,5 +200,10 @@ abstract class AbstractRefreshToken implements RefreshTokenInterface
     public function getScope()
     {
         return $this->scope;
+    }
+
+    public function __construct()
+    {
+        $this->redirect_uri = '';
     }
 }

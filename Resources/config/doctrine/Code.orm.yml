@@ -1,21 +1,24 @@
-Pantarei\Bundle\Oauth2Bundle\Model\AbstractCode:
+Pantarei\Bundle\Oauth2Bundle\Entity\Code:
     type: entity
     table: code
-    repositoryClass: Pantarei\Bundle\Oauth2Bundle\Doctrine\ORM\CodeManager
+    repositoryClass: Pantarei\Bundle\Oauth2Bundle\Entity\CodeManager
     fields:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
         code:
             type: string
             length: 255
         client_id:
             type: string
             length: 255
-            column: client_id
         username:
             type: string
             length: 255
         redirect_uri:
             type: text
-            column: redirect_uri
         expires:
             type: datetime
         scope:

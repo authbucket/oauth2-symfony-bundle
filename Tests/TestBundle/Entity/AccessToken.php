@@ -12,13 +12,13 @@
 namespace Pantarei\Bundle\Oauth2Bundle\Tests\TestBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use Pantarei\Bundle\Oauth2Bundle\Model\AbstractAccessToken;
+use Pantarei\Bundle\Oauth2Bundle\Entity\AccessToken as AbstractAccessToken;
 
 /**
  * AccessToken
  *
  * @ORM\Table(name="access_token")
- * @ORM\Entity(repositoryClass="Pantarei\Bundle\Oauth2Bundle\Doctrine\ORM\AccessTokenManager")
+ * @ORM\Entity(repositoryClass="Pantarei\Bundle\Oauth2Bundle\Entity\AccessTokenManager")
  */
 class AccessToken extends AbstractAccessToken
 {

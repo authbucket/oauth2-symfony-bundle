@@ -12,13 +12,13 @@
 namespace Pantarei\Bundle\Oauth2Bundle\Tests\TestBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use Pantarei\Bundle\Oauth2Bundle\Model\AbstractClient;
+use Pantarei\Bundle\Oauth2Bundle\Entity\Client as AbstractClient;
 
 /**
  * Client
  *
  * @ORM\Table(name="client")
- * @ORM\Entity(repositoryClass="Pantarei\Bundle\Oauth2Bundle\Doctrine\ORM\ClientManager")
+ * @ORM\Entity(repositoryClass="Pantarei\Bundle\Oauth2Bundle\Entity\ClientManager")
  */
 class Client extends AbstractClient
 {

@@ -1,12 +1,16 @@
-Pantarei\Bundle\Oauth2Bundle\Model\AbstractAuthorize:
+Pantarei\Bundle\Oauth2Bundle\Entity\Authorize:
     type: entity
     table: authorize
-    repositoryClass: Pantarei\Bundle\Oauth2Bundle\Doctrine\ORM\AuthorizeManager
+    repositoryClass: Pantarei\Bundle\Oauth2Bundle\Entity\AuthorizeManager
     fields:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
         client_id:
             type: string
             length: 255
-            column: client_id
         username:
             type: string
             length: 255

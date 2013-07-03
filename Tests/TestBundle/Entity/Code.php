@@ -12,13 +12,13 @@
 namespace Pantarei\Bundle\Oauth2Bundle\Tests\TestBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use Pantarei\Bundle\Oauth2Bundle\Model\AbstractCode;
+use Pantarei\Bundle\Oauth2Bundle\Entity\Code as AbstractCode;
 
 /**
  * Code
  *
  * @ORM\Table(name="code")
- * @ORM\Entity(repositoryClass="Pantarei\Bundle\Oauth2Bundle\Doctrine\ORM\CodeManager")
+ * @ORM\Entity(repositoryClass="Pantarei\Bundle\Oauth2Bundle\Entity\CodeManager")
  */
 class Code extends AbstractCode
 {

@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Pantarei\Bundle\Oauth2Bundle\Doctrine\ORM;
+namespace Pantarei\Bundle\Oauth2Bundle\Entity;
 
 use Doctrine\ORM\EntityRepository;
 use Pantarei\Oauth2\Model\RefreshTokenInterface;

@@ -12,13 +12,13 @@
 namespace Pantarei\Bundle\Oauth2Bundle\Tests\TestBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use Pantarei\Bundle\Oauth2Bundle\Model\AbstractScope;
+use Pantarei\Bundle\Oauth2Bundle\Entity\Scope as AbstractScope;
 
 /**
  * Scope
  *
  * @ORM\Table(name="scope")
- * @ORM\Entity(repositoryClass="Pantarei\Bundle\Oauth2Bundle\Doctrine\ORM\ScopeManager")
+ * @ORM\Entity(repositoryClass="Pantarei\Bundle\Oauth2Bundle\Entity\ScopeManager")
  */
 class Scope extends AbstractScope
 {

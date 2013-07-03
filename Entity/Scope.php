@@ -9,14 +9,15 @@
  * file that was distributed with this source code.
  */
 
-namespace Pantarei\Bundle\Oauth2Bundle\Model;
+namespace Pantarei\Bundle\Oauth2Bundle\Entity;
 
+use Doctrine\ORM\Mapping as ORM;
 use Pantarei\Oauth2\Model\ScopeInterface;
 
 /**
  * Scope
  */
-abstract class AbstractScope implements ScopeInterface
+class Scope implements ScopeInterface
 {
     /**
      * @var integer

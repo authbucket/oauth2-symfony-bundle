@@ -9,14 +9,15 @@
  * file that was distributed with this source code.
  */
 
-namespace Pantarei\Bundle\Oauth2Bundle\Model;
+namespace Pantarei\Bundle\Oauth2Bundle\Entity;
 
-use Pantarei\Oauth2\Model\CodeInterface;
+use Doctrine\ORM\Mapping as ORM;
+use Pantarei\Oauth2\Model\AccessTokenInterface;
 
 /**
- * Code
+ * AccessToken
  */
-abstract class AbstractCode implements CodeInterface
+class AccessToken implements AccessTokenInterface
 {
     /**
      * @var integer
@@ -26,7 +27,12 @@ abstract class AbstractCode implements CodeInterface
     /**
      * @var string
      */
-    protected $code;
+    protected $access_token;
+
+    /**
+     * @var string
+     */
+    protected $token_type;
 
     /**
      * @var string
@@ -37,11 +43,6 @@ abstract class AbstractCode implements CodeInterface
      * @var string
      */
     protected $username;
-
-    /**
-     * @var string
-     */
-    protected $redirect_uri;
 
     /**
      * @var \DateTime
@@ -64,33 +65,56 @@ abstract class AbstractCode implements CodeInterface
     }
 
     /**
-     * Set code
+     * Set access_token
      *
-     * @param string $code
-     * @return Code
+     * @param string $access_token
+     * @return AccessToken
      */
-    public function setCode($code)
+    public function setAccessToken($access_token)
     {
-        $this->code = $code;
+        $this->access_token = $access_token;
 
         return $this;
     }
 
     /**
-     * Get code
+     * Get access_token
      *
      * @return string
      */
-    public function getCode()
+    public function getAccessToken()
     {
-        return $this->code;
+        return $this->access_token;
+    }
+
+    /**
+     * Set token_type
+     *
+     * @param string $token_type
+     * @return AccessToken
+     */
+    public function setTokenType($token_type)
+    {
+        $this->token_type = $token_type;
+
+        return $this;
+    }
+
+    /**
+     * Get token_type
+     *
+     * @return string
+     */
+    public function getTokenType()
+    {
+        return $this->token_type;
     }
 
     /**
      * Set client_id
      *
      * @param string $client_id
-     * @return Code
+     * @return AccessToken
      */
     public function setClientId($client_id)
     {
@@ -113,7 +137,7 @@ abstract class AbstractCode implements CodeInterface
      * Set username
      *
      * @param string $username
-     * @return Code
+     * @return AccessToken
      */
     public function setUsername($username)
     {
@@ -133,33 +157,10 @@ abstract class AbstractCode implements CodeInterface
     }
 
     /**
-     * Set redirect_uri
-     *
-     * @param string $redirect_uri
-     * @return Code
-     */
-    public function setRedirectUri($redirect_uri)
-    {
-        $this->redirect_uri = $redirect_uri;
-
-        return $this;
-    }
-
-    /**
-     * Get redirect_uri
-     *
-     * @return string
-     */
-    public function getRedirectUri()
-    {
-        return $this->redirect_uri;
-    }
-
-    /**
      * Set expires
      *
-     * @param integer $expires
-     * @return Code
+     * @param \DateTime $expires
+     * @return AccessToken
      */
     public function setExpires($expires)
     {
@@ -171,7 +172,7 @@ abstract class AbstractCode implements CodeInterface
     /**
      * Get expires
      *
-     * @return integer
+     * @return \DateTime
      */
     public function getExpires()
     {
@@ -182,7 +183,7 @@ abstract class AbstractCode implements CodeInterface
      * Set scope
      *
      * @param array $scope
-     * @return Code
+     * @return AccessToken
      */
     public function setScope($scope)
     {
@@ -199,10 +200,5 @@ abstract class AbstractCode implements CodeInterface
     public function getScope()
     {
         return $this->scope;
-    }
-
-    public function __construct()
-    {
-        $this->redirect_uri = '';
     }
 }

@@ -37,7 +37,7 @@ class Oauth2Extension extends Extension
         if (in_array($config['driver'], array('orm'))) {
             $loader->load(sprintf('%s.yml', $config['driver']));
         }
-        
+
         $loader->load('services.yml');
 
         $container->setParameter('oauth2.model', $config['model']);

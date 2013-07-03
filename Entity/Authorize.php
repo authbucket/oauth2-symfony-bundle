@@ -9,29 +9,20 @@
  * file that was distributed with this source code.
  */
 
-namespace Pantarei\Bundle\Oauth2Bundle\Model;
+namespace Pantarei\Bundle\Oauth2Bundle\Entity;
 
-use Pantarei\Oauth2\Model\AccessTokenInterface;
+use Doctrine\ORM\Mapping as ORM;
+use Pantarei\Oauth2\Model\AuthorizeInterface;
 
 /**
- * AccessToken
+ * Authorize
  */
-abstract class AbstractAccessToken implements AccessTokenInterface
+class Authorize implements AuthorizeInterface
 {
     /**
      * @var integer
      */
     protected $id;
-
-    /**
-     * @var string
-     */
-    protected $access_token;
-
-    /**
-     * @var string
-     */
-    protected $token_type;
 
     /**
      * @var string
@@ -42,11 +33,6 @@ abstract class AbstractAccessToken implements AccessTokenInterface
      * @var string
      */
     protected $username;
-
-    /**
-     * @var \DateTime
-     */
-    protected $expires;
 
     /**
      * @var array
@@ -64,56 +50,10 @@ abstract class AbstractAccessToken implements AccessTokenInterface
     }
 
     /**
-     * Set access_token
-     *
-     * @param string $access_token
-     * @return AccessToken
-     */
-    public function setAccessToken($access_token)
-    {
-        $this->access_token = $access_token;
-
-        return $this;
-    }
-
-    /**
-     * Get access_token
-     *
-     * @return string
-     */
-    public function getAccessToken()
-    {
-        return $this->access_token;
-    }
-
-    /**
-     * Set token_type
-     *
-     * @param string $token_type
-     * @return AccessToken
-     */
-    public function setTokenType($token_type)
-    {
-        $this->token_type = $token_type;
-
-        return $this;
-    }
-
-    /**
-     * Get token_type
-     *
-     * @return string
-     */
-    public function getTokenType()
-    {
-        return $this->token_type;
-    }
-
-    /**
      * Set client_id
      *
      * @param string $client_id
-     * @return AccessToken
+     * @return Authorize
      */
     public function setClientId($client_id)
     {
@@ -136,7 +76,7 @@ abstract class AbstractAccessToken implements AccessTokenInterface
      * Set username
      *
      * @param string $username
-     * @return AccessToken
+     * @return Authorize
      */
     public function setUsername($username)
     {
@@ -156,33 +96,10 @@ abstract class AbstractAccessToken implements AccessTokenInterface
     }
 
     /**
-     * Set expires
-     *
-     * @param integer $expires
-     * @return AccessToken
-     */
-    public function setExpires($expires)
-    {
-        $this->expires = $expires;
-
-        return $this;
-    }
-
-    /**
-     * Get expires
-     *
-     * @return integer
-     */
-    public function getExpires()
-    {
-        return $this->expires;
-    }
-
-    /**
      * Set scope
      *
      * @param array $scope
-     * @return AccessToken
+     * @return Authorize
      */
     public function setScope($scope)
     {

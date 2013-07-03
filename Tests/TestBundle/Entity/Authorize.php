@@ -12,13 +12,13 @@
 namespace Pantarei\Bundle\Oauth2Bundle\Tests\TestBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use Pantarei\Bundle\Oauth2Bundle\Model\AbstractAuthorize;
+use Pantarei\Bundle\Oauth2Bundle\Entity\Authorize as AbstractAuthorize;
 
 /**
  * Authorize
  *
  * @ORM\Table(name="authorize")
- * @ORM\Entity(repositoryClass="Pantarei\Bundle\Oauth2Bundle\Doctrine\ORM\AuthorizeManager")
+ * @ORM\Entity(repositoryClass="Pantarei\Bundle\Oauth2Bundle\Entity\AuthorizeManager")
  */
 class Authorize extends AbstractAuthorize
 {
