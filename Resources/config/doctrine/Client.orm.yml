@@ -1,6 +1,5 @@
 Pantarei\Bundle\Oauth2Bundle\Entity\Client:
-    type: entity
-    table: client
+    type: mappedSuperclass
     repositoryClass: Pantarei\Bundle\Oauth2Bundle\Entity\ClientManager
     fields:
         id:

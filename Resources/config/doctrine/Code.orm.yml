@@ -1,6 +1,5 @@
 Pantarei\Bundle\Oauth2Bundle\Entity\Code:
-    type: entity
-    table: code
+    type: mappedSuperclass
     repositoryClass: Pantarei\Bundle\Oauth2Bundle\Entity\CodeManager
     fields:
         id:

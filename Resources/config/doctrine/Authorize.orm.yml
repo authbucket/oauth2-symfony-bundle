@@ -1,6 +1,5 @@
 Pantarei\Bundle\Oauth2Bundle\Entity\Authorize:
-    type: entity
-    table: authorize
+    type: mappedSuperclass
     repositoryClass: Pantarei\Bundle\Oauth2Bundle\Entity\AuthorizeManager
     fields:
         id:

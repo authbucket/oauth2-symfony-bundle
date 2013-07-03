@@ -1,6 +1,5 @@
 Pantarei\Bundle\Oauth2Bundle\Entity\Scope:
-    type: entity
-    table: scope
+    type: mappedSuperclass
     repositoryClass: Pantarei\Bundle\Oauth2Bundle\Entity\ScopeManager
     fields:
         id:

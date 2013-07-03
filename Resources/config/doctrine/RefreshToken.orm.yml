@@ -1,6 +1,5 @@
 Pantarei\Bundle\Oauth2Bundle\Entity\RefreshToken:
-    type: entity
-    table: refresh_token
+    type: mappedSuperclass
     repositoryClass: Pantarei\Bundle\Oauth2Bundle\Entity\RefreshTokenManager
     fields:
         id:
