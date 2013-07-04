@@ -1,5 +1,8 @@
 #!/bin/bash
 
+rm -rf Tests/app/cache
+rm -rf Tests/app/log
+
 COMMIT=`git log --oneline -n 1`
 if [ -z "$COMMIT" ];
 then
