@@ -18,7 +18,7 @@ use Pantarei\Bundle\Oauth2Bundle\Entity\Code as AbstractCode;
  * Code
  *
  * @ORM\Table(name="code")
- * @ORM\Entity(repositoryClass="Pantarei\Bundle\Oauth2Bundle\Entity\CodeManager")
+ * @ORM\Entity(repositoryClass="Pantarei\Bundle\Oauth2Bundle\Tests\TestBundle\Entity\CodeRepository")
  */
 class Code extends AbstractCode
 {

@@ -18,7 +18,7 @@ use Pantarei\Bundle\Oauth2Bundle\Entity\RefreshToken as AbstractRefreshToken;
  * RefreshToken
  *
  * @ORM\Table(name="refresh_token")
- * @ORM\Entity(repositoryClass="Pantarei\Bundle\Oauth2Bundle\Entity\RefreshTokenManager")
+ * @ORM\Entity(repositoryClass="Pantarei\Bundle\Oauth2Bundle\Tests\TestBundle\Entity\RefreshTokenRepository")
  */
 class RefreshToken extends AbstractRefreshToken
 {

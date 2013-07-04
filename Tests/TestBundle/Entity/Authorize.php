@@ -18,7 +18,7 @@ use Pantarei\Bundle\Oauth2Bundle\Entity\Authorize as AbstractAuthorize;
  * Authorize
  *
  * @ORM\Table(name="authorize")
- * @ORM\Entity(repositoryClass="Pantarei\Bundle\Oauth2Bundle\Entity\AuthorizeManager")
+ * @ORM\Entity(repositoryClass="Pantarei\Bundle\Oauth2Bundle\Tests\TestBundle\Entity\AuthorizeRepository")
  */
 class Authorize extends AbstractAuthorize
 {
