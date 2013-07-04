@@ -22,10 +22,13 @@ class ResourceFactory implements SecurityFactoryInterface
     public function create(ContainerBuilder $container, $id, $config, $userProvider, $defaultEntryPoint)
     {
         $providerId = 'security.authentication.provider.resource.' . $id;
-        $container->setDefinition($providerId, new DefinitionDecorator('security.authentication.provider.resource'));
+        $container
+            ->setDefinition($providerId, new DefinitionDecorator('security.authentication.provider.resource'))
+            ->replaceArgument(1, $id);
 
         $listenerId = 'security.authentication.listener.resource.' . $id;
-        $container->setDefinition($listenerId, new DefinitionDecorator('security.authentication.listener.resource'));
+        $container->setDefinition($listenerId, new DefinitionDecorator('security.authentication.listener.resource'))
+            ->replaceArgument(2, $id);
 
         return array($providerId, $listenerId, $defaultEntryPoint);
     }
