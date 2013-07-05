@@ -9,15 +9,15 @@
  * file that was distributed with this source code.
  */
 
-namespace Pantarei\Bundle\Oauth2Bundle\Tests\TestBundle\Controller;
+namespace Pantarei\Bundle\Oauth2Bundle\Controller;
 
-use Symfony\Component\HttpFoundation\Response;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Request;
 
 class ResourceController extends Controller
 {
-    public function echoAction($echo)
+    public function usernameAction(Request $request)
     {
-        return new Response($echo);
+        return $this->container->get('oauth2.resource_controller')->usernameAction($request);
     }
 }

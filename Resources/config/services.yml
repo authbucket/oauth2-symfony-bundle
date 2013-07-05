@@ -5,6 +5,7 @@ parameters:
 
     oauth2.authorize_controller.class: Pantarei\Oauth2\Controller\AuthorizeController
     oauth2.token_controller.class: Pantarei\Oauth2\Controller\TokenController
+    oauth2.resource_controller.class: Pantarei\Oauth2\Controller\ResourceController
 
     security.authentication.provider.token.class: Pantarei\Oauth2\Security\Authentication\Provider\TokenProvider
     security.authentication.listener.token.class: Pantarei\Oauth2\Security\Firewall\TokenListener
@@ -29,6 +30,9 @@ services:
     oauth2.token_controller:
         class: %oauth2.token_controller.class%
         arguments: ["@security.context", "@security.user_checker", "@security.encoder_factory", "@oauth2.model_manager.factory", "@oauth2.grant_handler.factory", "@oauth2.token_handler.factory", null]
+    oauth2.resource_controller:
+        class: %oauth2.resource_controller.class%
+        arguments: ["@security.context"]
 
     security.authentication.provider.token:
         class: %security.authentication.provider.token.class%

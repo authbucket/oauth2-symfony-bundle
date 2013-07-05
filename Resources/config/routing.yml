@@ -7,3 +7,7 @@ oauth2_token:
     pattern: /token
     defaults: { _controller: Oauth2Bundle:Token:token }
     methods: [POST]
+
+oauth2_resource_username:
+    pattern: /resource/username
+    defaults: { _controller: Oauth2Bundle:Resource:username }
