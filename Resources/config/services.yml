@@ -1,4 +1,6 @@
 parameters:
+    oauth2.exception_listener.class: Pantarei\Oauth2\EventListener\ExceptionListener
+
     oauth2.response_handler.factory.class: Pantarei\Oauth2\ResponseType\ResponseTypeHandlerFactory
     oauth2.grant_handler.factory.class: Pantarei\Oauth2\GrantType\GrantTypeHandlerFactory
     oauth2.token_handler.factory.class: Pantarei\Oauth2\TokenType\TokenTypeHandlerFactory
@@ -14,6 +16,11 @@ parameters:
     security.authentication.listener.resource.class: Pantarei\Oauth2\Security\Firewall\ResourceListener
 
 services:
+    oauth2.exception_listener:
+        class: %oauth2.exception_listener.class%
+        tags:
+            - { name: kernel.event_listener, event: kernel.exception, method: onKernelException, priority: -8 }
+
     oauth2.response_handler.factory:
         class: %oauth2.response_handler.factory.class%
         arguments: ["%oauth2.response_handler%"]
