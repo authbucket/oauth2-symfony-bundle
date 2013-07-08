@@ -9,12 +9,12 @@
  * file that was distributed with this source code.
  */
 
-namespace Pantarei\Bundle\Oauth2Bundle\Tests\ResponseType;
+namespace PantaRei\Bundle\OAuth2Bundle\Tests\ResponseType;
 
-use Pantarei\Oauth2\Model\ModelManagerFactoryInterface;
-use Pantarei\Oauth2\ResponseType\ResponseTypeHandlerFactory;
-use Pantarei\Oauth2\ResponseType\ResponseTypeHandlerInterface;
-use Pantarei\Oauth2\TokenType\TokenTypeHandlerFactoryInterface;
+use PantaRei\OAuth2\Model\ModelManagerFactoryInterface;
+use PantaRei\OAuth2\ResponseType\ResponseTypeHandlerFactory;
+use PantaRei\OAuth2\ResponseType\ResponseTypeHandlerInterface;
+use PantaRei\OAuth2\TokenType\TokenTypeHandlerFactoryInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Security\Core\SecurityContextInterface;
 
@@ -38,23 +38,23 @@ class ResponseTypeHandlerFactoryTest extends \PHPUnit_Framework_TestCase
 {
 
     /**
-     * @expectedException \Pantarei\Oauth2\Exception\UnsupportedResponseTypeException
+     * @expectedException \PantaRei\OAuth2\Exception\UnsupportedResponseTypeException
      */
     public function testBadAddResponseTypeHandler()
     {
         $responseTypeHandlerFactory = new ResponseTypeHandlerFactory(array(
-            'foo' => 'Pantarei\\Bundle\\Oauth2Bundle\\Tests\\ResponseType\\FooResponseTypeHandler',
+            'foo' => 'PantaRei\\Bundle\\OAuth2Bundle\\Tests\\ResponseType\\FooResponseTypeHandler',
         ));
         $responseTypeHandlerFactory->addResponseTypeHandler('foo', $responseTypeHandler);
     }
 
     /**
-     * @expectedException \Pantarei\Oauth2\Exception\UnsupportedResponseTypeException
+     * @expectedException \PantaRei\OAuth2\Exception\UnsupportedResponseTypeException
      */
     public function testBadGetResponseTypeHandler()
     {
         $responseTypeHandlerFactory = new ResponseTypeHandlerFactory(array(
-            'bar' => 'Pantarei\\Bundle\\Oauth2Bundle\\Tests\\ResponseType\\BarResponseTypeHandler',
+            'bar' => 'PantaRei\\Bundle\\OAuth2Bundle\\Tests\\ResponseType\\BarResponseTypeHandler',
         ));
         $responseTypeHandlerFactory->getResponseTypeHandler('foo');
     }
@@ -62,7 +62,7 @@ class ResponseTypeHandlerFactoryTest extends \PHPUnit_Framework_TestCase
     public function testGoodGetResponseTypeHandler()
     {
         $responseTypeHandlerFactory = new ResponseTypeHandlerFactory(array(
-            'bar' => 'Pantarei\\Bundle\\Oauth2Bundle\\Tests\\ResponseType\\BarResponseTypeHandler',
+            'bar' => 'PantaRei\\Bundle\\OAuth2Bundle\\Tests\\ResponseType\\BarResponseTypeHandler',
         ));
         $responseTypeHandlerFactory->getResponseTypeHandler('bar');
     }

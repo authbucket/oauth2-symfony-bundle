@@ -1,6 +1,6 @@
-Pantarei\Bundle\Oauth2Bundle\Entity\Authorize:
+PantaRei\Bundle\OAuth2Bundle\Entity\Authorize:
     type: mappedSuperclass
-    repositoryClass: Pantarei\Bundle\Oauth2Bundle\Entity\AuthorizeManager
+    repositoryClass: PantaRei\Bundle\OAuth2Bundle\Entity\AuthorizeManager
     fields:
         client_id:
             type: string

@@ -9,9 +9,9 @@
  * file that was distributed with this source code.
  */
 
-namespace Pantarei\Bundle\Oauth2Bundle\Tests\TestBundle\Entity;
+namespace PantaRei\Bundle\OAuth2Bundle\Tests\TestBundle\Entity;
 
-use Pantarei\Bundle\Oauth2Bundle\Entity\CodeManager as AbstractCodeManager;
+use PantaRei\Bundle\OAuth2Bundle\Entity\CodeManager as AbstractCodeManager;
 
 /**
  * CodeRepository

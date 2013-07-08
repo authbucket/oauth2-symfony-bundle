@@ -1,6 +1,6 @@
-Pantarei\Bundle\Oauth2Bundle\Entity\Code:
+PantaRei\Bundle\OAuth2Bundle\Entity\Code:
     type: mappedSuperclass
-    repositoryClass: Pantarei\Bundle\Oauth2Bundle\Entity\CodeManager
+    repositoryClass: PantaRei\Bundle\OAuth2Bundle\Entity\CodeManager
     fields:
         code:
             type: string

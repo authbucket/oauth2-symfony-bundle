@@ -9,18 +9,18 @@
  * file that was distributed with this source code.
  */
 
-namespace Pantarei\Bundle\Oauth2Bundle\Tests;
+namespace PantaRei\Bundle\OAuth2Bundle\Tests;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
 /**
- * Overall Oauth2 workflow test cases.
+ * Overall OAuth2 workflow test cases.
  *
  * @author Wong Hoi Sing Edison <hswong3i@pantarei-design.com>
  */
-class Oauth2Test extends WebTestCase
+class OAuth2Test extends WebTestCase
 {
     public function testAuthorizationCodeGrant()
     {

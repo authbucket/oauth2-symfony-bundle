@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Pantarei\Bundle\Oauth2Bundle\DependencyInjection;
+namespace PantaRei\Bundle\OAuth2Bundle\DependencyInjection;
 
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
@@ -22,7 +22,7 @@ use Symfony\Component\HttpKernel\DependencyInjection\Extension;
  *
  * To learn more see {@link http://symfony.com/doc/current/cookbook/bundles/extension.html}
  */
-class Oauth2Extension extends Extension
+class OAuth2Extension extends Extension
 {
     /**
      * {@inheritDoc}
@@ -49,5 +49,10 @@ class Oauth2Extension extends Extension
             $container->getDefinition('oauth2.token_controller')
                 ->replaceArgument(6, new Reference($config['user_provider']));
         }
+    }
+
+    public function getAlias()
+    {
+        return 'oauth2';
     }
 }

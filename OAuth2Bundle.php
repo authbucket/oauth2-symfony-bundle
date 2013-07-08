@@ -9,15 +9,21 @@
  * file that was distributed with this source code.
  */
 
-namespace Pantarei\Bundle\Oauth2Bundle;
+namespace PantaRei\Bundle\OAuth2Bundle;
 
-use Pantarei\Bundle\Oauth2Bundle\DependencyInjection\Security\Factory\ResourceFactory;
-use Pantarei\Bundle\Oauth2Bundle\DependencyInjection\Security\Factory\TokenFactory;
+use PantaRei\Bundle\OAuth2Bundle\DependencyInjection\OAuth2Extension;
+use PantaRei\Bundle\OAuth2Bundle\DependencyInjection\Security\Factory\ResourceFactory;
+use PantaRei\Bundle\OAuth2Bundle\DependencyInjection\Security\Factory\TokenFactory;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
-class Oauth2Bundle extends Bundle
+class OAuth2Bundle extends Bundle
 {
+    public function __construct()
+    {
+        $this->extension = new OAuth2Extension();
+    }
+
     public function build(ContainerBuilder $container)
     {
         parent::build($container);

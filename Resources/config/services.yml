@@ -1,19 +1,19 @@
 parameters:
-    oauth2.exception_listener.class: Pantarei\Oauth2\EventListener\ExceptionListener
+    oauth2.exception_listener.class: PantaRei\OAuth2\EventListener\ExceptionListener
 
-    oauth2.response_handler.factory.class: Pantarei\Oauth2\ResponseType\ResponseTypeHandlerFactory
-    oauth2.grant_handler.factory.class: Pantarei\Oauth2\GrantType\GrantTypeHandlerFactory
-    oauth2.token_handler.factory.class: Pantarei\Oauth2\TokenType\TokenTypeHandlerFactory
+    oauth2.response_handler.factory.class: PantaRei\OAuth2\ResponseType\ResponseTypeHandlerFactory
+    oauth2.grant_handler.factory.class: PantaRei\OAuth2\GrantType\GrantTypeHandlerFactory
+    oauth2.token_handler.factory.class: PantaRei\OAuth2\TokenType\TokenTypeHandlerFactory
 
-    oauth2.authorize_controller.class: Pantarei\Oauth2\Controller\AuthorizeController
-    oauth2.token_controller.class: Pantarei\Oauth2\Controller\TokenController
-    oauth2.resource_controller.class: Pantarei\Oauth2\Controller\ResourceController
+    oauth2.authorize_controller.class: PantaRei\OAuth2\Controller\AuthorizeController
+    oauth2.token_controller.class: PantaRei\OAuth2\Controller\TokenController
+    oauth2.resource_controller.class: PantaRei\OAuth2\Controller\ResourceController
 
-    security.authentication.provider.token.class: Pantarei\Oauth2\Security\Authentication\Provider\TokenProvider
-    security.authentication.listener.token.class: Pantarei\Oauth2\Security\Firewall\TokenListener
+    security.authentication.provider.token.class: PantaRei\OAuth2\Security\Authentication\Provider\TokenProvider
+    security.authentication.listener.token.class: PantaRei\OAuth2\Security\Firewall\TokenListener
 
-    security.authentication.provider.resource.class: Pantarei\Oauth2\Security\Authentication\Provider\ResourceProvider
-    security.authentication.listener.resource.class: Pantarei\Oauth2\Security\Firewall\ResourceListener
+    security.authentication.provider.resource.class: PantaRei\OAuth2\Security\Authentication\Provider\ResourceProvider
+    security.authentication.listener.resource.class: PantaRei\OAuth2\Security\Firewall\ResourceListener
 
 services:
     oauth2.exception_listener:

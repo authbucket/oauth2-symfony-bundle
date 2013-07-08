@@ -9,11 +9,11 @@
  * file that was distributed with this source code.
  */
 
-namespace Pantarei\Bundle\Oauth2Bundle\Tests\TokenType;
+namespace PantaRei\Bundle\OAuth2Bundle\Tests\TokenType;
 
-use Pantarei\Oauth2\Model\ModelManagerFactoryInterface;
-use Pantarei\Oauth2\TokenType\TokenTypeHandlerFactory;
-use Pantarei\Oauth2\TokenType\TokenTypeHandlerInterface;
+use PantaRei\OAuth2\Model\ModelManagerFactoryInterface;
+use PantaRei\OAuth2\TokenType\TokenTypeHandlerFactory;
+use PantaRei\OAuth2\TokenType\TokenTypeHandlerInterface;
 use Symfony\Component\HttpFoundation\Request;
 
 class FooTokenTypeHandler
@@ -42,18 +42,18 @@ class BarTokenTypeHandler implements TokenTypeHandlerInterface
 class TokenTypeHandlerFactoryTest extends \PHPUnit_Framework_TestCase
 {
     /**
-     * @expectedException \Pantarei\Oauth2\Exception\ServerErrorException
+     * @expectedException \PantaRei\OAuth2\Exception\ServerErrorException
      */
     public function testBadAddTokenTypeHandler()
     {
         $tokenTypeHandlerFactory = new TokenTypeHandlerFactory(array(
-            'foo' => 'Pantarei\\Bundle\\Oauth2Bundle\\Tests\\TokenType\\FooTokenTypeHandler',
+            'foo' => 'PantaRei\\Bundle\\OAuth2Bundle\\Tests\\TokenType\\FooTokenTypeHandler',
         ));
         $tokenTypeHandlerFactory->addTokenTypeHandler('foo', $tokenTypeHandler);
     }
 
     /**
-     * @expectedException \Pantarei\Oauth2\Exception\ServerErrorException
+     * @expectedException \PantaRei\OAuth2\Exception\ServerErrorException
      */
     public function testEmptyGetTokenTypeHandler()
     {
@@ -62,12 +62,12 @@ class TokenTypeHandlerFactoryTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException \Pantarei\Oauth2\Exception\ServerErrorException
+     * @expectedException \PantaRei\OAuth2\Exception\ServerErrorException
      */
     public function testBadGetTokenTypeHandler()
     {
         $tokenTypeHandlerFactory = new TokenTypeHandlerFactory(array(
-            'bar' => 'Pantarei\\Bundle\\Oauth2Bundle\\Tests\\TokenType\\BarTokenTypeHandler',
+            'bar' => 'PantaRei\\Bundle\\OAuth2Bundle\\Tests\\TokenType\\BarTokenTypeHandler',
         ));
         $tokenTypeHandlerFactory->getTokenTypeHandler('foo');
     }
@@ -75,7 +75,7 @@ class TokenTypeHandlerFactoryTest extends \PHPUnit_Framework_TestCase
     public function testGoodGetTokenTypeHandler()
     {
         $tokenTypeHandlerFactory = new TokenTypeHandlerFactory(array(
-            'bar' => 'Pantarei\\Bundle\\Oauth2Bundle\\Tests\\TokenType\\BarTokenTypeHandler',
+            'bar' => 'PantaRei\\Bundle\\OAuth2Bundle\\Tests\\TokenType\\BarTokenTypeHandler',
         ));
         $tokenTypeHandlerFactory->getTokenTypeHandler('bar');
     }

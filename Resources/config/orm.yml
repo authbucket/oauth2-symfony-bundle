@@ -1,5 +1,5 @@
 parameters:
-    oauth2.model_manager.factory.class: Pantarei\Bundle\Oauth2Bundle\Entity\ModelManagerFactory
+    oauth2.model_manager.factory.class: PantaRei\Bundle\OAuth2Bundle\Entity\ModelManagerFactory
 
 services:
     oauth2.model_manager.factory:

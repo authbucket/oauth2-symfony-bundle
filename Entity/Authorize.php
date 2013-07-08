@@ -9,10 +9,10 @@
  * file that was distributed with this source code.
  */
 
-namespace Pantarei\Bundle\Oauth2Bundle\Entity;
+namespace PantaRei\Bundle\OAuth2Bundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use Pantarei\Oauth2\Model\AuthorizeInterface;
+use PantaRei\OAuth2\Model\AuthorizeInterface;
 
 /**
  * Authorize

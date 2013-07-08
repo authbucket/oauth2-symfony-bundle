@@ -9,9 +9,9 @@
  * file that was distributed with this source code.
  */
 
-namespace Pantarei\Bundle\Oauth2Bundle\Tests\Exception;
+namespace PantaRei\Bundle\OAuth2Bundle\Tests\Exception;
 
-use Pantarei\Oauth2\Exception\InvalidGrantException;
+use PantaRei\OAuth2\Exception\InvalidGrantException;
 
 /**
  * Test invalid grant exception.
@@ -21,7 +21,7 @@ use Pantarei\Oauth2\Exception\InvalidGrantException;
 class InvalidGrantExceptionTest extends \PHPUnit_Framework_TestCase
 {
     /**
-     * @expectedException \Pantarei\Oauth2\Exception\InvalidGrantException
+     * @expectedException \PantaRei\OAuth2\Exception\InvalidGrantException
      */
     public function testInvalidGrantException()
     {

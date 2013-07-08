@@ -9,11 +9,11 @@
  * file that was distributed with this source code.
  */
 
-namespace Pantarei\Bundle\Oauth2Bundle\Entity;
+namespace PantaRei\Bundle\OAuth2Bundle\Entity;
 
 use Doctrine\ORM\EntityRepository;
-use Pantarei\Oauth2\Model\RefreshTokenInterface;
-use Pantarei\Oauth2\Model\RefreshTokenManagerInterface;
+use PantaRei\OAuth2\Model\RefreshTokenInterface;
+use PantaRei\OAuth2\Model\RefreshTokenManagerInterface;
 
 /**
  * RefreshTokenManager

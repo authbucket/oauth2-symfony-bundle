@@ -1,6 +1,6 @@
-Pantarei\Bundle\Oauth2Bundle\Entity\RefreshToken:
+PantaRei\Bundle\OAuth2Bundle\Entity\RefreshToken:
     type: mappedSuperclass
-    repositoryClass: Pantarei\Bundle\Oauth2Bundle\Entity\RefreshTokenManager
+    repositoryClass: PantaRei\Bundle\OAuth2Bundle\Entity\RefreshTokenManager
     fields:
         refresh_token:
             type: string

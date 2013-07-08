@@ -1,6 +1,6 @@
-Pantarei\Bundle\Oauth2Bundle\Entity\AccessToken:
+PantaRei\Bundle\OAuth2Bundle\Entity\AccessToken:
     type: mappedSuperclass
-    repositoryClass: Pantarei\Bundle\Oauth2Bundle\Entity\AccessTokenManager
+    repositoryClass: PantaRei\Bundle\OAuth2Bundle\Entity\AccessTokenManager
     fields:
         access_token:
             type: string

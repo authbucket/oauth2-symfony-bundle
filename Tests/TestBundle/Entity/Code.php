@@ -9,16 +9,16 @@
  * file that was distributed with this source code.
  */
 
-namespace Pantarei\Bundle\Oauth2Bundle\Tests\TestBundle\Entity;
+namespace PantaRei\Bundle\OAuth2Bundle\Tests\TestBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use Pantarei\Bundle\Oauth2Bundle\Entity\Code as AbstractCode;
+use PantaRei\Bundle\OAuth2Bundle\Entity\Code as AbstractCode;
 
 /**
  * Code
  *
  * @ORM\Table(name="code")
- * @ORM\Entity(repositoryClass="Pantarei\Bundle\Oauth2Bundle\Tests\TestBundle\Entity\CodeRepository")
+ * @ORM\Entity(repositoryClass="PantaRei\Bundle\OAuth2Bundle\Tests\TestBundle\Entity\CodeRepository")
  */
 class Code extends AbstractCode
 {

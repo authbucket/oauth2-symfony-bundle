@@ -9,9 +9,9 @@
  * file that was distributed with this source code.
  */
 
-namespace Pantarei\Bundle\Oauth2Bundle\Tests\Exception;
+namespace PantaRei\Bundle\OAuth2Bundle\Tests\Exception;
 
-use Pantarei\Oauth2\Exception\InvalidScopeException;
+use PantaRei\OAuth2\Exception\InvalidScopeException;
 
 /**
  * Test invalid scope exception.
@@ -21,7 +21,7 @@ use Pantarei\Oauth2\Exception\InvalidScopeException;
 class InvalidScopeExceptionTest extends \PHPUnit_Framework_TestCase
 {
     /**
-     * @expectedException \Pantarei\Oauth2\Exception\InvalidScopeException
+     * @expectedException \PantaRei\OAuth2\Exception\InvalidScopeException
      */
     public function testInvalidScopeException()
     {

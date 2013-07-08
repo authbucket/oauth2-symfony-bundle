@@ -9,9 +9,9 @@
  * file that was distributed with this source code.
  */
 
-namespace Pantarei\Bundle\Oauth2Bundle\Tests\Exception;
+namespace PantaRei\Bundle\OAuth2Bundle\Tests\Exception;
 
-use Pantarei\Oauth2\Exception\InvalidClientException;
+use PantaRei\OAuth2\Exception\InvalidClientException;
 
 /**
  * Test invalid client exception.
@@ -21,7 +21,7 @@ use Pantarei\Oauth2\Exception\InvalidClientException;
 class InvalidClientExceptionTest extends \PHPUnit_Framework_TestCase
 {
     /**
-     * @expectedException \Pantarei\Oauth2\Exception\InvalidClientException
+     * @expectedException \PantaRei\OAuth2\Exception\InvalidClientException
      */
     public function testInvalidClientException()
     {

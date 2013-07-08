@@ -9,11 +9,11 @@
  * file that was distributed with this source code.
  */
 
-namespace Pantarei\Bundle\Oauth2Bundle\Tests\TestBundle\DataFixtures\ORM;
+namespace PantaRei\Bundle\OAuth2Bundle\Tests\TestBundle\DataFixtures\ORM;
 
 use Doctrine\Common\DataFixtures\FixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
-use Pantarei\Bundle\Oauth2Bundle\Tests\TestBundle\Entity\Client;
+use PantaRei\Bundle\OAuth2Bundle\Tests\TestBundle\Entity\Client;
 
 class ClientFixture implements FixtureInterface
 {

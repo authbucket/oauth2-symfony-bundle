@@ -1,6 +1,6 @@
-Pantarei\Bundle\Oauth2Bundle\Entity\Scope:
+PantaRei\Bundle\OAuth2Bundle\Entity\Scope:
     type: mappedSuperclass
-    repositoryClass: Pantarei\Bundle\Oauth2Bundle\Entity\ScopeManager
+    repositoryClass: PantaRei\Bundle\OAuth2Bundle\Entity\ScopeManager
     fields:
         scope:
             type: string

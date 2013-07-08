@@ -9,15 +9,15 @@
  * file that was distributed with this source code.
  */
 
-namespace Pantarei\Bundle\Oauth2Bundle\Entity;
+namespace PantaRei\Bundle\OAuth2Bundle\Entity;
 
 use Doctrine\ORM\EntityManager;
-use Pantarei\Oauth2\Model\ModelManagerFactoryInterface;
-use Pantarei\Oauth2\Exception\ServerErrorException;
-use Pantarei\Oauth2\Model\ModelManagerInterface;
+use PantaRei\OAuth2\Model\ModelManagerFactoryInterface;
+use PantaRei\OAuth2\Exception\ServerErrorException;
+use PantaRei\OAuth2\Model\ModelManagerInterface;
 
 /**
- * Oauth2 model manager factory implemention.
+ * OAuth2 model manager factory implemention.
  *
  * @author Wong Hoi Sing Edison <hswong3i@pantarei-design.com>
  */

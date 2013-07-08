@@ -9,16 +9,16 @@
  * file that was distributed with this source code.
  */
 
-namespace Pantarei\Bundle\Oauth2Bundle\Tests\TestBundle\Entity;
+namespace PantaRei\Bundle\OAuth2Bundle\Tests\TestBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use Pantarei\Bundle\Oauth2Bundle\Entity\AccessToken as AbstractAccessToken;
+use PantaRei\Bundle\OAuth2Bundle\Entity\AccessToken as AbstractAccessToken;
 
 /**
  * AccessToken
  *
  * @ORM\Table(name="access_token")
- * @ORM\Entity(repositoryClass="Pantarei\Bundle\Oauth2Bundle\Tests\TestBundle\Entity\AccessTokenRepository")
+ * @ORM\Entity(repositoryClass="PantaRei\Bundle\OAuth2Bundle\Tests\TestBundle\Entity\AccessTokenRepository")
  */
 class AccessToken extends AbstractAccessToken
 {

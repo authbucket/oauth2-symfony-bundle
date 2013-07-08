@@ -9,10 +9,10 @@
  * file that was distributed with this source code.
  */
 
-namespace Pantarei\Bundle\Oauth2Bundle\Tests\TokenType;
+namespace PantaRei\Bundle\OAuth2Bundle\Tests\TokenType;
 
-use Pantarei\Oauth2\Model\ModelManagerFactoryInterface;
-use Pantarei\Oauth2\TokenType\MacTokenTypeHandler;
+use PantaRei\OAuth2\Model\ModelManagerFactoryInterface;
+use PantaRei\OAuth2\TokenType\MacTokenTypeHandler;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -26,7 +26,7 @@ class FooModelManagerFactory implements ModelManagerFactoryInterface
 class MacTokenTypeHandlerTest extends WebTestCase
 {
     /**
-     * @expectedException \Pantarei\Oauth2\Exception\TemporarilyUnavailableException
+     * @expectedException \PantaRei\OAuth2\Exception\TemporarilyUnavailableException
      */
     public function testExceptionGetAccessToken()
     {
@@ -36,7 +36,7 @@ class MacTokenTypeHandlerTest extends WebTestCase
     }
 
     /**
-     * @expectedException \Pantarei\Oauth2\Exception\TemporarilyUnavailableException
+     * @expectedException \PantaRei\OAuth2\Exception\TemporarilyUnavailableException
      */
     public function testExceptionCreateAccessToken()
     {

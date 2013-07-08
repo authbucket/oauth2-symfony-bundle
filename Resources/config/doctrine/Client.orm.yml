@@ -1,6 +1,6 @@
-Pantarei\Bundle\Oauth2Bundle\Entity\Client:
+PantaRei\Bundle\OAuth2Bundle\Entity\Client:
     type: mappedSuperclass
-    repositoryClass: Pantarei\Bundle\Oauth2Bundle\Entity\ClientManager
+    repositoryClass: PantaRei\Bundle\OAuth2Bundle\Entity\ClientManager
     fields:
         client_id:
             type: string

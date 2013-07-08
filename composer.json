@@ -8,10 +8,10 @@
     ],
     "autoload": {
         "psr-0": {
-            "Pantarei\\Bundle\\Oauth2Bundle": ""
+            "PantaRei\\Bundle\\OAuth2Bundle": ""
         }
     },
-    "description": "Symfony Oauth2Bundle",
+    "description": "Symfony OAuth2Bundle",
     "extra": {
         "branch-alias": {
             "dev-master": "1.0.x-dev"
@@ -50,6 +50,6 @@
         "symfony/yaml": "2.3.*",
         "twig/twig": "~1.11"
     },
-    "target-dir": "Pantarei/Bundle/Oauth2Bundle",
+    "target-dir": "PantaRei/Bundle/OAuth2Bundle",
     "type": "symfony-bundle"
 }
