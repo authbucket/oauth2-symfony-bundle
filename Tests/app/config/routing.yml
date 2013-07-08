@@ -1,3 +1,10 @@
 oauth2:
-    resource: "@OAuth2Bundle/Resources/config/routing.yml"
-    prefix:   /
+    resource:   "@OAuth2Bundle/Resources/config/routing.yml"
+    prefix:     /
+
+authorize_login:
+    pattern:    /authorize/login
+    defaults:   { _controller:TestBundle:Security:login }
+
+authorize_login_check:
+    pattern:    /authorize/login_check

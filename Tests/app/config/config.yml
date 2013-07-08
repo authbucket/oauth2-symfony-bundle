@@ -89,8 +89,16 @@ security:
 
         authorize:
             pattern:            ^/authorize
+            logout:             true
+            form_login:
+                login_path:     /authorize/login
+                check_path:     /authorize/login_check
+                provider:       default
+                csrf_provider:  form.csrf_provider
             http_basic:
                 provider:       default
+            anonymous:          true
 
     access_control:
         - { path: ^/resource, roles: [IS_AUTHENTICATED_FULLY] }
+        - { path: ^/authorize/login$, role: [IS_AUTHENTICATED_ANONYMOUSLY] }
