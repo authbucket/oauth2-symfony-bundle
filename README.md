@@ -12,7 +12,7 @@ Downloads](https://poser.pugx.org/pantarei/oauth2-bundle/downloads.png)](https:/
 
 [PantaRei\Bundle\OAuth2Bundle](https://github.com/pantarei/oauth2-bundle)
 is a Symfony2 Bundle, which integrate
-[PantaRei/OAuth2](https://github.com/pantarei/oauth2) as easy as
+[PantaRei\OAuth2](https://github.com/pantarei/oauth2) as easy as
 possible into your [Symfony2](http://www.symfony.com) Project.
 
 Installation
