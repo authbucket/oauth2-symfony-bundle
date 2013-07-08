@@ -24,12 +24,10 @@ class SecurityController extends Controller
         if ($request->attributes->has(SecurityContextInterface::AUTHENTICATION_ERROR)) {
             $error = $request
                 ->attributes
-                ->get(SecurityContextInterface::AUTHENTICATION_ERROR)
-                ->getMessage();
+                ->get(SecurityContextInterface::AUTHENTICATION_ERROR);
         } else {
             $error = $session
-                ->get(SecurityContextInterface::AUTHENTICATION_ERROR)
-                ->getMessage();
+                ->get(SecurityContextInterface::AUTHENTICATION_ERROR);
             $session->remove(SecurityContextInterface::AUTHENTICATION_ERROR);
         }
 
