@@ -11,7 +11,7 @@
             "PantaRei\\Bundle\\OAuth2Bundle": ""
         }
     },
-    "description": "Symfony OAuth2Bundle",
+    "description": "Symfony2 OAuth2Bundle",
     "extra": {
         "branch-alias": {
             "dev-master": "1.0.x-dev"
