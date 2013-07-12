@@ -16,11 +16,15 @@ use PantaRei\OAuth2\Model\ScopeInterface;
 
 /**
  * Scope
+ *
+ * @ORM\MappedSuperclass(repositoryClass="PantaRei\Bundle\OAuth2Bundle\Entity\ScopeRepository")
  */
 class Scope implements ScopeInterface
 {
     /**
      * @var string
+     *
+     * @ORM\Column(name="scope", type="string", length=255)
      */
     protected $scope;
 

@@ -16,31 +16,43 @@ use PantaRei\OAuth2\Model\RefreshTokenInterface;
 
 /**
  * RefreshToken
+ *
+ * @ORM\MappedSuperclass(repositoryClass="PantaRei\Bundle\OAuth2Bundle\Entity\RefreshTokenRepository")
  */
 class RefreshToken implements RefreshTokenInterface
 {
     /**
      * @var string
+     *
+     * @ORM\Column(name="refresh_token", type="string", length=255)
      */
     protected $refresh_token;
 
     /**
      * @var string
+     *
+     * @ORM\Column(name="client_id", type="string", length=255)
      */
     protected $client_id;
 
     /**
      * @var string
+     *
+     * @ORM\Column(name="username", type="string", length=255)
      */
     protected $username;
 
     /**
      * @var \DateTime
+     *
+     * @ORM\Column(name="expires", type="datetime")
      */
     protected $expires;
 
     /**
      * @var array
+     *
+     * @ORM\Column(name="scope", type="array")
      */
     protected $scope;
 

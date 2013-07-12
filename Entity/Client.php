@@ -16,21 +16,29 @@ use PantaRei\OAuth2\Model\ClientInterface;
 
 /**
  * Client
+ *
+ * @ORM\MappedSuperclass(repositoryClass="PantaRei\Bundle\OAuth2Bundle\Entity\ClientRepository")
  */
 class Client implements ClientInterface
 {
     /**
      * @var string
+     *
+     * @ORM\Column(name="client_id", type="string", length=255)
      */
     protected $client_id;
 
     /**
      * @var string
+     *
+     * @ORM\Column(name="client_secret", type="string", length=255)
      */
     protected $client_secret;
 
     /**
      * @var string
+     *
+     * @ORM\Column(name="redirect_uri", type="text")
      */
     protected $redirect_uri;
 

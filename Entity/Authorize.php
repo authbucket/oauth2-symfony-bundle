@@ -16,21 +16,29 @@ use PantaRei\OAuth2\Model\AuthorizeInterface;
 
 /**
  * Authorize
+ *
+ * @ORM\MappedSuperclass(repositoryClass="PantaRei\Bundle\OAuth2Bundle\Entity\AuthorizeRepository")
  */
 class Authorize implements AuthorizeInterface
 {
     /**
      * @var string
+     *
+     * @ORM\Column(name="client_id", type="string", length=255)
      */
     protected $client_id;
 
     /**
      * @var string
+     *
+     * @ORM\Column(name="username", type="string", length=255)
      */
     protected $username;
 
     /**
      * @var array
+     *
+     * @ORM\Column(name="scope", type="array")
      */
     protected $scope;
 
