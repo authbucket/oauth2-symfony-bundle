@@ -100,5 +100,7 @@ security:
             anonymous:          true
 
     access_control:
-        - { path: ^/resource, roles: [IS_AUTHENTICATED_FULLY] }
+        - { path: ^/resource$, roles: [IS_AUTHENTICATED_FULLY] }
+        - { path: ^/token$, roles: [IS_AUTHENTICATED_FULLY] }
+        - { path: ^/authorize$, roles: [IS_AUTHENTICATED_FULLY] }
         - { path: ^/authorize/login$, role: [IS_AUTHENTICATED_ANONYMOUSLY] }
