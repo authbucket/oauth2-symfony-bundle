@@ -40,26 +40,26 @@ oauth2:
     user_provider:          security.user.provider.concrete.default
 
     model:
-        access_token:       PantaRei\Bundle\OAuth2Bundle\Tests\TestBundle\Entity\AccessToken
-        authorize:          PantaRei\Bundle\OAuth2Bundle\Tests\TestBundle\Entity\Authorize
-        client:             PantaRei\Bundle\OAuth2Bundle\Tests\TestBundle\Entity\Client
-        code:               PantaRei\Bundle\OAuth2Bundle\Tests\TestBundle\Entity\Code
-        refresh_token:      PantaRei\Bundle\OAuth2Bundle\Tests\TestBundle\Entity\RefreshToken
-        scope:              PantaRei\Bundle\OAuth2Bundle\Tests\TestBundle\Entity\Scope
+        access_token:       Pantarei\Bundle\OAuth2Bundle\Tests\TestBundle\Entity\AccessToken
+        authorize:          Pantarei\Bundle\OAuth2Bundle\Tests\TestBundle\Entity\Authorize
+        client:             Pantarei\Bundle\OAuth2Bundle\Tests\TestBundle\Entity\Client
+        code:               Pantarei\Bundle\OAuth2Bundle\Tests\TestBundle\Entity\Code
+        refresh_token:      Pantarei\Bundle\OAuth2Bundle\Tests\TestBundle\Entity\RefreshToken
+        scope:              Pantarei\Bundle\OAuth2Bundle\Tests\TestBundle\Entity\Scope
 
     response_handler:
-        code:               PantaRei\OAuth2\ResponseType\CodeResponseTypeHandler
-        token:              PantaRei\OAuth2\ResponseType\TokenResponseTypeHandler
+        code:               Pantarei\OAuth2\ResponseType\CodeResponseTypeHandler
+        token:              Pantarei\OAuth2\ResponseType\TokenResponseTypeHandler
 
     grant_handler:
-        authorization_code: PantaRei\OAuth2\GrantType\AuthorizationCodeGrantTypeHandler
-        client_credentials: PantaRei\OAuth2\GrantType\ClientCredentialsGrantTypeHandler
-        password:           PantaRei\OAuth2\GrantType\PasswordGrantTypeHandler
-        refresh_token:      PantaRei\OAuth2\GrantType\RefreshTokenGrantTypeHandler
+        authorization_code: Pantarei\OAuth2\GrantType\AuthorizationCodeGrantTypeHandler
+        client_credentials: Pantarei\OAuth2\GrantType\ClientCredentialsGrantTypeHandler
+        password:           Pantarei\OAuth2\GrantType\PasswordGrantTypeHandler
+        refresh_token:      Pantarei\OAuth2\GrantType\RefreshTokenGrantTypeHandler
 
     token_handler:
-        bearer:             PantaRei\OAuth2\TokenType\BearerTokenTypeHandler
-        mac:                PantaRei\OAuth2\TokenType\MacTokenTypeHandler
+        bearer:             Pantarei\OAuth2\TokenType\BearerTokenTypeHandler
+        mac:                Pantarei\OAuth2\TokenType\MacTokenTypeHandler
 
 security:
     encoders:

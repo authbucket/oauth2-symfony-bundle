@@ -19,8 +19,8 @@ class AppKernel extends Kernel
         $bundles = array(
             new Doctrine\Bundle\DoctrineBundle\DoctrineBundle(),
             new Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle(),
-            new PantaRei\Bundle\OAuth2Bundle\OAuth2Bundle(),
-            new PantaRei\Bundle\OAuth2Bundle\Tests\TestBundle\TestBundle(),
+            new Pantarei\Bundle\OAuth2Bundle\PantareiOAuth2Bundle(),
+            new Pantarei\Bundle\OAuth2Bundle\Tests\TestBundle\TestBundle(),
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
             new Symfony\Bundle\FrameworkBundle\FrameworkBundle(),
             new Symfony\Bundle\SecurityBundle\SecurityBundle(),

@@ -13,7 +13,7 @@
     bootstrap                   = "./Tests/app/bootstrap.php.cache">
 
     <testsuites>
-        <testsuite name="PantaRei\Bundle\OAuth2Bundle Test Suite">
+        <testsuite name="Pantarei\Bundle\OAuth2Bundle Test Suite">
             <directory>./Tests</directory>
         </testsuite>
     </testsuites>

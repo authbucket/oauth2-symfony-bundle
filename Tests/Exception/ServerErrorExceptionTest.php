@@ -9,9 +9,9 @@
  * file that was distributed with this source code.
  */
 
-namespace PantaRei\Bundle\OAuth2Bundle\Tests\Exception;
+namespace Pantarei\Bundle\OAuth2Bundle\Tests\Exception;
 
-use PantaRei\OAuth2\Exception\ServerErrorException;
+use Pantarei\OAuth2\Exception\ServerErrorException;
 
 /**
  * Test server error exception.
@@ -21,7 +21,7 @@ use PantaRei\OAuth2\Exception\ServerErrorException;
 class ServerErrorExceptionTest extends \PHPUnit_Framework_TestCase
 {
     /**
-     * @expectedException \PantaRei\OAuth2\Exception\ServerErrorException
+     * @expectedException \Pantarei\OAuth2\Exception\ServerErrorException
      */
     public function testServerErrorException()
     {

@@ -9,9 +9,9 @@
  * file that was distributed with this source code.
  */
 
-namespace PantaRei\Bundle\OAuth2Bundle\Tests\Exception;
+namespace Pantarei\Bundle\OAuth2Bundle\Tests\Exception;
 
-use PantaRei\OAuth2\Exception\UnauthorizedClientException;
+use Pantarei\OAuth2\Exception\UnauthorizedClientException;
 
 /**
  * Test unauthorized client exception.
@@ -21,7 +21,7 @@ use PantaRei\OAuth2\Exception\UnauthorizedClientException;
 class UnauthorizedClientExceptionTest extends \PHPUnit_Framework_TestCase
 {
     /**
-     * @expectedException \PantaRei\OAuth2\Exception\UnauthorizedClientException
+     * @expectedException \Pantarei\OAuth2\Exception\UnauthorizedClientException
      */
     public function testUnauthorizedClientException()
     {

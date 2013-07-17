@@ -9,9 +9,9 @@
  * file that was distributed with this source code.
  */
 
-namespace PantaRei\Bundle\OAuth2Bundle\Tests\Exception;
+namespace Pantarei\Bundle\OAuth2Bundle\Tests\Exception;
 
-use PantaRei\OAuth2\Exception\TemporarilyUnavailableException;
+use Pantarei\OAuth2\Exception\TemporarilyUnavailableException;
 
 /**
  * Test temporarily unavailable exception.
@@ -21,7 +21,7 @@ use PantaRei\OAuth2\Exception\TemporarilyUnavailableException;
 class TemporarilyUnavailableExceptionTest extends \PHPUnit_Framework_TestCase
 {
     /**
-     * @expectedException \PantaRei\OAuth2\Exception\TemporarilyUnavailableException
+     * @expectedException \Pantarei\OAuth2\Exception\TemporarilyUnavailableException
      */
     public function testTemporarilyUnavailableException()
     {

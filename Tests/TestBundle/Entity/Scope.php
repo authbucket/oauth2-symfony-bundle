@@ -9,16 +9,16 @@
  * file that was distributed with this source code.
  */
 
-namespace PantaRei\Bundle\OAuth2Bundle\Tests\TestBundle\Entity;
+namespace Pantarei\Bundle\OAuth2Bundle\Tests\TestBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use PantaRei\Bundle\OAuth2Bundle\Entity\Scope as AbstractScope;
+use Pantarei\Bundle\OAuth2Bundle\Entity\Scope as AbstractScope;
 
 /**
  * Scope
  *
  * @ORM\Table(name="scope")
- * @ORM\Entity(repositoryClass="PantaRei\Bundle\OAuth2Bundle\Tests\TestBundle\Entity\ScopeRepository")
+ * @ORM\Entity(repositoryClass="Pantarei\Bundle\OAuth2Bundle\Tests\TestBundle\Entity\ScopeRepository")
  */
 class Scope extends AbstractScope
 {

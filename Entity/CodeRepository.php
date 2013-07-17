@@ -9,11 +9,11 @@
  * file that was distributed with this source code.
  */
 
-namespace PantaRei\Bundle\OAuth2Bundle\Entity;
+namespace Pantarei\Bundle\OAuth2Bundle\Entity;
 
 use Doctrine\ORM\EntityRepository;
-use PantaRei\OAuth2\Model\CodeInterface;
-use PantaRei\OAuth2\Model\CodeManagerInterface;
+use Pantarei\OAuth2\Model\CodeInterface;
+use Pantarei\OAuth2\Model\CodeManagerInterface;
 
 /**
  * CodeRepository

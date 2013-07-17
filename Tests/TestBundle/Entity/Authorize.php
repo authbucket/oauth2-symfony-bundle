@@ -9,16 +9,16 @@
  * file that was distributed with this source code.
  */
 
-namespace PantaRei\Bundle\OAuth2Bundle\Tests\TestBundle\Entity;
+namespace Pantarei\Bundle\OAuth2Bundle\Tests\TestBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use PantaRei\Bundle\OAuth2Bundle\Entity\Authorize as AbstractAuthorize;
+use Pantarei\Bundle\OAuth2Bundle\Entity\Authorize as AbstractAuthorize;
 
 /**
  * Authorize
  *
  * @ORM\Table(name="authorize")
- * @ORM\Entity(repositoryClass="PantaRei\Bundle\OAuth2Bundle\Tests\TestBundle\Entity\AuthorizeRepository")
+ * @ORM\Entity(repositoryClass="Pantarei\Bundle\OAuth2Bundle\Tests\TestBundle\Entity\AuthorizeRepository")
  */
 class Authorize extends AbstractAuthorize
 {

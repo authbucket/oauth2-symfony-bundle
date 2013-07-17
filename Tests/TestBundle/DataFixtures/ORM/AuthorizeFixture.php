@@ -9,11 +9,11 @@
  * file that was distributed with this source code.
  */
 
-namespace PantaRei\Bundle\OAuth2Bundle\Tests\TestBundle\DataFixtures\ORM;
+namespace Pantarei\Bundle\OAuth2Bundle\Tests\TestBundle\DataFixtures\ORM;
 
 use Doctrine\Common\DataFixtures\FixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
-use PantaRei\Bundle\OAuth2Bundle\Tests\TestBundle\Entity\Authorize;
+use Pantarei\Bundle\OAuth2Bundle\Tests\TestBundle\Entity\Authorize;
 
 class AuthorizeFixture implements FixtureInterface
 {

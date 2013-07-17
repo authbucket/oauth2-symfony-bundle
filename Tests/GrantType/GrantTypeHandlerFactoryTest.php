@@ -9,12 +9,12 @@
  * file that was distributed with this source code.
  */
 
-namespace PantaRei\Bundle\OAuth2Bundle\Tests\GrantType;
+namespace Pantarei\Bundle\OAuth2Bundle\Tests\GrantType;
 
-use PantaRei\OAuth2\GrantType\GrantTypeHandlerFactory;
-use PantaRei\OAuth2\GrantType\GrantTypeHandlerInterface;
-use PantaRei\OAuth2\Model\ModelManagerFactoryInterface;
-use PantaRei\OAuth2\TokenType\TokenTypeHandlerFactoryInterface;
+use Pantarei\OAuth2\GrantType\GrantTypeHandlerFactory;
+use Pantarei\OAuth2\GrantType\GrantTypeHandlerInterface;
+use Pantarei\OAuth2\Model\ModelManagerFactoryInterface;
+use Pantarei\OAuth2\TokenType\TokenTypeHandlerFactoryInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Security\Core\Encoder\EncoderFactoryInterface;
 use Symfony\Component\Security\Core\SecurityContextInterface;
@@ -43,23 +43,23 @@ class BarGrantTypeHandler implements GrantTypeHandlerInterface
 class GrantTypeHandlerFactoryTest extends \PHPUnit_Framework_TestCase
 {
     /**
-     * @expectedException \PantaRei\OAuth2\Exception\UnsupportedGrantTypeException
+     * @expectedException \Pantarei\OAuth2\Exception\UnsupportedGrantTypeException
      */
     public function testBadAddGrantTypeHandler()
     {
         $grantTypeHandlerFactory = new GrantTypeHandlerFactory(array(
-            'foo' => 'PantaRei\\Bundle\\OAuth2Bundle\\Tests\\GrantType\\FooGrantTypeHandler',
+            'foo' => 'Pantarei\\Bundle\\OAuth2Bundle\\Tests\\GrantType\\FooGrantTypeHandler',
         ));
         $grantTypeHandlerFactory->addGrantTypeHandler('foo', $grantTypeHandler);
     }
 
     /**
-     * @expectedException \PantaRei\OAuth2\Exception\UnsupportedGrantTypeException
+     * @expectedException \Pantarei\OAuth2\Exception\UnsupportedGrantTypeException
      */
     public function testBadGetGrantTypeHandler()
     {
         $grantTypeHandlerFactory = new GrantTypeHandlerFactory(array(
-            'bar' => 'PantaRei\\Bundle\\OAuth2Bundle\\Tests\\GrantType\\BarGrantTypeHandler',
+            'bar' => 'Pantarei\\Bundle\\OAuth2Bundle\\Tests\\GrantType\\BarGrantTypeHandler',
         ));
         $grantTypeHandlerFactory->getGrantTypeHandler('foo');
     }
@@ -67,7 +67,7 @@ class GrantTypeHandlerFactoryTest extends \PHPUnit_Framework_TestCase
     public function testGoodGetGrantTypeHandler()
     {
         $grantTypeHandlerFactory = new GrantTypeHandlerFactory(array(
-            'bar' => 'PantaRei\\Bundle\\OAuth2Bundle\\Tests\\GrantType\\BarGrantTypeHandler',
+            'bar' => 'Pantarei\\Bundle\\OAuth2Bundle\\Tests\\GrantType\\BarGrantTypeHandler',
         ));
         $grantTypeHandlerFactory->getGrantTypeHandler('bar');
     }

@@ -1,5 +1,5 @@
 oauth2:
-    resource:   "@OAuth2Bundle/Resources/config/routing.yml"
+    resource:   "@PantareiOAuth2Bundle/Resources/config/routing.yml"
     prefix:     /
 
 authorize_login:

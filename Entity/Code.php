@@ -9,15 +9,15 @@
  * file that was distributed with this source code.
  */
 
-namespace PantaRei\Bundle\OAuth2Bundle\Entity;
+namespace Pantarei\Bundle\OAuth2Bundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use PantaRei\OAuth2\Model\CodeInterface;
+use Pantarei\OAuth2\Model\CodeInterface;
 
 /**
  * Code
  *
- * @ORM\MappedSuperclass(repositoryClass="PantaRei\Bundle\OAuth2Bundle\Entity\CodeRepository")
+ * @ORM\MappedSuperclass(repositoryClass="Pantarei\Bundle\OAuth2Bundle\Entity\CodeRepository")
  */
 class Code implements CodeInterface
 {
