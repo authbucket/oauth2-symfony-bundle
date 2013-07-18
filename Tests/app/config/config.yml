@@ -79,20 +79,20 @@ security:
 
     firewalls:
         resource:
-            pattern:            ^/resource
+            pattern:            ^/oauth2/resource
             oauth2_resource:    true
             stateless:          true
 
         token:
-            pattern:            ^/token
+            pattern:            ^/oauth2/token
             oauth2_token:       true
 
         authorize:
-            pattern:            ^/authorize
+            pattern:            ^/
             logout:             true
             form_login:
-                login_path:     /authorize/login
-                check_path:     /authorize/login_check
+                login_path:     /login
+                check_path:     /login_check
                 provider:       default
                 csrf_provider:  form.csrf_provider
             http_basic:
@@ -100,7 +100,6 @@ security:
             anonymous:          true
 
     access_control:
-        - { path: ^/resource$, roles: [IS_AUTHENTICATED_FULLY] }
-        - { path: ^/token$, roles: [IS_AUTHENTICATED_FULLY] }
-        - { path: ^/authorize$, roles: [IS_AUTHENTICATED_FULLY] }
-        - { path: ^/authorize/login$, role: [IS_AUTHENTICATED_ANONYMOUSLY] }
+        - { path: ^/oauth2/resource$, roles: [IS_AUTHENTICATED_FULLY] }
+        - { path: ^/oauth2/token$, roles: [IS_AUTHENTICATED_FULLY] }
+        - { path: ^/login$, role: [IS_AUTHENTICATED_ANONYMOUSLY] }
