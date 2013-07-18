@@ -1,13 +1,13 @@
-oauth2_authorize:
+pantarei_oauth2_authorize:
     pattern: /authorize
     defaults: { _controller: PantareiOAuth2Bundle:Authorize:authorize }
     methods: [GET]
 
-oauth2_token:
+pantarei_oauth2_token:
     pattern: /token
     defaults: { _controller: PantareiOAuth2Bundle:Token:token }
     methods: [POST]
 
-oauth2_resource_username:
+pantarei_oauth2_resource_username:
     pattern: /resource/username
     defaults: { _controller: PantareiOAuth2Bundle:Resource:username }
