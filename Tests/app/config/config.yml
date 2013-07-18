@@ -35,7 +35,7 @@ doctrine:
         auto_generate_proxy_classes: %kernel.debug%
         auto_mapping: true
 
-oauth2:
+pantarei_oauth2:
     driver:                 orm
     user_provider:          security.user.provider.concrete.default
 

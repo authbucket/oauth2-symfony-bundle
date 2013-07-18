@@ -18,6 +18,6 @@ class ResourceController extends Controller
 {
     public function usernameAction(Request $request)
     {
-        return $this->container->get('oauth2.resource_controller')->usernameAction($request);
+        return $this->container->get('pantarei_oauth2.resource_controller')->usernameAction($request);
     }
 }

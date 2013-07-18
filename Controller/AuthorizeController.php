@@ -18,6 +18,6 @@ class AuthorizeController extends Controller
 {
     public function authorizeAction(Request $request)
     {
-        return $this->container->get('oauth2.authorize_controller')->authorizeAction($request);
+        return $this->container->get('pantarei_oauth2.authorize_controller')->authorizeAction($request);
     }
 }

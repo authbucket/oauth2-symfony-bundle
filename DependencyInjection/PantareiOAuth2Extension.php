@@ -40,19 +40,19 @@ class PantareiOAuth2Extension extends Extension
 
         $loader->load('services.yml');
 
-        $container->setParameter('oauth2.model', $config['model']);
-        $container->setParameter('oauth2.response_handler', $config['response_handler']);
-        $container->setParameter('oauth2.grant_handler', $config['grant_handler']);
-        $container->setParameter('oauth2.token_handler', $config['token_handler']);
+        $container->setParameter('pantarei_oauth2.model', $config['model']);
+        $container->setParameter('pantarei_oauth2.response_handler', $config['response_handler']);
+        $container->setParameter('pantarei_oauth2.grant_handler', $config['grant_handler']);
+        $container->setParameter('pantarei_oauth2.token_handler', $config['token_handler']);
 
         if (!empty($config['user_provider'])) {
-            $container->getDefinition('oauth2.token_controller')
+            $container->getDefinition('pantarei_oauth2.token_controller')
                 ->replaceArgument(6, new Reference($config['user_provider']));
         }
     }
 
     public function getAlias()
     {
-        return 'oauth2';
+        return 'pantarei_oauth2';
     }
 }

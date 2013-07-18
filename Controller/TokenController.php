@@ -18,6 +18,6 @@ class TokenController extends Controller
 {
     public function tokenAction(Request $request)
     {
-        return $this->container->get('oauth2.token_controller')->tokenAction($request);
+        return $this->container->get('pantarei_oauth2.token_controller')->tokenAction($request);
     }
 }

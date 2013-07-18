@@ -1,7 +1,7 @@
 parameters:
-    oauth2.model_manager.factory.class: Pantarei\Bundle\OAuth2Bundle\Entity\ModelManagerFactory
+    pantarei_oauth2.model_manager.factory.class: Pantarei\Bundle\OAuth2Bundle\Entity\ModelManagerFactory
 
 services:
-    oauth2.model_manager.factory:
-        class: %oauth2.model_manager.factory.class%
-        arguments: ["@doctrine.orm.entity_manager", "%oauth2.model%"]
+    pantarei_oauth2.model_manager.factory:
+        class: %pantarei_oauth2.model_manager.factory.class%
+        arguments: ["@doctrine.orm.entity_manager", "%pantarei_oauth2.model%"]
