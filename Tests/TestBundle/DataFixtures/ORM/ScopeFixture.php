@@ -19,16 +19,17 @@ class ScopeFixture implements FixtureInterface
 {
     public function load(ObjectManager $manager)
     {
-        $model = new Scope();
-        $model->setScope('demoscope1');
+        $model = new Scope(
+            'demoscope1'
+        );
         $manager->persist($model);
-
-        $model = new Scope();
-        $model->setScope('demoscope2');
+        $model = new Scope(
+            'demoscope2'
+        );
         $manager->persist($model);
-
-        $model = new Scope();
-        $model->setScope('demoscope3');
+        $model = new Scope(
+            'demoscope3'
+        );
         $manager->persist($model);
 
         $manager->flush();

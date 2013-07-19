@@ -63,17 +63,21 @@ class AccessToken implements AccessTokenInterface
      */
     protected $scope;
 
-    /**
-     * Set access_token
-     *
-     * @param string $access_token
-     * @return AccessToken
-     */
-    public function setAccessToken($access_token)
+    public function __construct(
+        $access_token,
+        $token_type,
+        $client_id,
+        $username,
+        $expires,
+        $scope = array()
+    )
     {
         $this->access_token = $access_token;
-
-        return $this;
+        $this->token_type = $token_type;
+        $this->client_id = $client_id;
+        $this->username = $username;
+        $this->expires = $expires;
+        $this->scope = $scope;
     }
 
     /**
@@ -87,19 +91,6 @@ class AccessToken implements AccessTokenInterface
     }
 
     /**
-     * Set token_type
-     *
-     * @param string $token_type
-     * @return AccessToken
-     */
-    public function setTokenType($token_type)
-    {
-        $this->token_type = $token_type;
-
-        return $this;
-    }
-
-    /**
      * Get token_type
      *
      * @return string
@@ -107,19 +98,6 @@ class AccessToken implements AccessTokenInterface
     public function getTokenType()
     {
         return $this->token_type;
-    }
-
-    /**
-     * Set client_id
-     *
-     * @param string $client_id
-     * @return AccessToken
-     */
-    public function setClientId($client_id)
-    {
-        $this->client_id = $client_id;
-
-        return $this;
     }
 
     /**
@@ -133,19 +111,6 @@ class AccessToken implements AccessTokenInterface
     }
 
     /**
-     * Set username
-     *
-     * @param string $username
-     * @return AccessToken
-     */
-    public function setUsername($username)
-    {
-        $this->username = $username;
-
-        return $this;
-    }
-
-    /**
      * Get username
      *
      * @return string
@@ -156,19 +121,6 @@ class AccessToken implements AccessTokenInterface
     }
 
     /**
-     * Set expires
-     *
-     * @param \DateTime $expires
-     * @return AccessToken
-     */
-    public function setExpires($expires)
-    {
-        $this->expires = $expires;
-
-        return $this;
-    }
-
-    /**
      * Get expires
      *
      * @return \DateTime
@@ -176,19 +128,6 @@ class AccessToken implements AccessTokenInterface
     public function getExpires()
     {
         return $this->expires;
-    }
-
-    /**
-     * Set scope
-     *
-     * @param array $scope
-     * @return AccessToken
-     */
-    public function setScope($scope)
-    {
-        $this->scope = $scope;
-
-        return $this;
     }
 
     /**

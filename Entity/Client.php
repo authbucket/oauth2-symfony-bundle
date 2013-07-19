@@ -42,17 +42,15 @@ class Client implements ClientInterface
      */
     protected $redirect_uri;
 
-    /**
-     * Set client_id
-     *
-     * @param string $client_id
-     * @return Client
-     */
-    public function setClientId($client_id)
+    public function __construct(
+        $client_id,
+        $client_secret,
+        $redirect_uri = ''
+    )
     {
         $this->client_id = $client_id;
-
-        return $this;
+        $this->client_secret = $client_secret;
+        $this->redirect_uri = $redirect_uri;
     }
 
     /**
@@ -66,19 +64,6 @@ class Client implements ClientInterface
     }
 
     /**
-     * Set client_secret
-     *
-     * @param string $client_secret
-     * @return Client
-     */
-    public function setClientSecret($client_secret)
-    {
-        $this->client_secret = $client_secret;
-
-        return $this;
-    }
-
-    /**
      * Get client_secret
      *
      * @return string
@@ -89,19 +74,6 @@ class Client implements ClientInterface
     }
 
     /**
-     * Set redirect_uri
-     *
-     * @param string $redirect_uri
-     * @return Client
-     */
-    public function setRedirectUri($redirect_uri)
-    {
-        $this->redirect_uri = $redirect_uri;
-
-        return $this;
-    }
-
-    /**
      * Get redirect_uri
      *
      * @return string
@@ -109,10 +81,5 @@ class Client implements ClientInterface
     public function getRedirectUri()
     {
         return $this->redirect_uri;
-    }
-
-    public function __construct()
-    {
-        $this->redirect_uri = '';
     }
 }

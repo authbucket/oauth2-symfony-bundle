@@ -28,10 +28,18 @@ class ClientRepository extends EntityRepository implements ClientManagerInterfac
         return $this->getClassName();
     }
 
-    public function createClient()
+    public function createClient(
+        $client_id,
+        $client_secret,
+        $redirect_uri = ''
+    )
     {
         $class = $this->getClass();
-        return new $class();
+        return new $class(
+            $client_id,
+            $client_secret,
+            $redirect_uri
+        );
     }
 
     public function deleteClient(ClientInterface $client)

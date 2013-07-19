@@ -19,41 +19,42 @@ class AuthorizeFixture implements FixtureInterface
 {
     public function load(ObjectManager $manager)
     {
-        $model = new Authorize();
-        $model->setClientId('http://democlient1.com/')
-            ->setUsername('demousername1')
-            ->setScope(array(
+        $model = new Authorize(
+            'http://democlient1.com/',
+            'demousername1',
+            array(
                 'demoscope1',
-            ));
+            )
+        );
         $manager->persist($model);
-
-        $model = new Authorize();
-        $model->setClientId('http://democlient2.com/')
-            ->setUsername('demousername2')
-            ->setScope(array(
-                'demoscope1',
-                'demoscope2',
-            ));
-        $manager->persist($model);
-
-        $model = new Authorize();
-        $model->setClientId('http://democlient3.com/')
-            ->setUsername('demousername3')
-            ->setScope(array(
+        $model = new Authorize(
+            'http://democlient2.com/',
+            'demousername2',
+            array(
                 'demoscope1',
                 'demoscope2',
-                'demoscope3',
-            ));
+            )
+        );
         $manager->persist($model);
-
-        $model = new Authorize();
-        $model->setClientId('http://democlient1.com/')
-            ->setUsername('')
-            ->setScope(array(
+        $model = new Authorize(
+            'http://democlient3.com/',
+            'demousername3',
+            array(
                 'demoscope1',
                 'demoscope2',
                 'demoscope3',
-            ));
+            )
+        );
+        $manager->persist($model);
+        $model = new Authorize(
+            'http://democlient1.com/',
+            '',
+            array(
+                'demoscope1',
+                'demoscope2',
+                'demoscope3',
+            )
+        );
         $manager->persist($model);
 
         $manager->flush();

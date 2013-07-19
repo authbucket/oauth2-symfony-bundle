@@ -19,26 +19,27 @@ class RefreshTokenFixture implements FixtureInterface
 {
     public function load(ObjectManager $manager)
     {
-        $model = new RefreshToken();
-        $model->setRefreshToken('288b5ea8e75d2b24368a79ed5ed9593b')
-            ->setClientId('http://democlient3.com/')
-            ->setExpires(new \DateTime('+1 days'))
-            ->setUsername('demousername3')
-            ->setScope(array(
+        $model = new RefreshToken(
+            '288b5ea8e75d2b24368a79ed5ed9593b',
+            'http://democlient3.com/',
+            'demousername3',
+            new \DateTime('+1 days'),
+            array(
                 'demoscope1',
                 'demoscope2',
                 'demoscope3',
-            ));
+            )
+        );
         $manager->persist($model);
-
-        $model = new RefreshToken();
-        $model->setRefreshToken('5ff43cbc27b54202c6fd8bb9c2a308ce')
-            ->setClientId('http://democlient1.com/')
-            ->setExpires(new \DateTime('-1 days'))
-            ->setUsername('demousername1')
-            ->setScope(array(
+        $model = new RefreshToken(
+            '5ff43cbc27b54202c6fd8bb9c2a308ce',
+            'http://democlient1.com/',
+            'demousername1',
+            new \DateTime('-1 days'),
+            array(
                 'demoscope1',
-            ));
+            )
+        );
         $manager->persist($model);
 
         $manager->flush();

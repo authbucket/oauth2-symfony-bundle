@@ -28,10 +28,14 @@ class ScopeRepository extends EntityRepository implements ScopeManagerInterface
         return $this->getClassName();
     }
 
-    public function createScope()
+    public function createScope(
+        $scope
+    )
     {
         $class = $this->getClass();
-        return new $class();
+        return new $class(
+            $scope
+        );
     }
 
     public function deleteScope(ScopeInterface $scope)

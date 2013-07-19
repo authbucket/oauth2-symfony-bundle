@@ -28,17 +28,11 @@ class Scope implements ScopeInterface
      */
     protected $scope;
 
-    /**
-     * Set scope
-     *
-     * @param string $scope
-     * @return Scope
-     */
-    public function setScope($scope)
+    public function __construct(
+        $scope
+    )
     {
         $this->scope = $scope;
-
-        return $this;
     }
 
     /**

@@ -28,10 +28,24 @@ class AccessTokenRepository extends EntityRepository implements AccessTokenManag
         return $this->getClassName();
     }
 
-    public function createAccessToken()
+    public function createAccessToken(
+        $access_token,
+        $token_type,
+        $client_id,
+        $username,
+        $expires,
+        $scope = array()
+    )
     {
         $class = $this->getClass();
-        return new $class();
+        return new $class(
+            $access_token, 
+            $token_type,
+            $client_id,
+            $username, 
+            $expires,
+            $scope
+        );
     }
 
     public function deleteAccessToken(AccessTokenInterface $access_token)
