@@ -12,8 +12,8 @@
 namespace Pantarei\Bundle\OAuth2Bundle\Entity;
 
 use Doctrine\ORM\EntityManager;
-use Pantarei\OAuth2\Model\ModelManagerFactoryInterface;
 use Pantarei\OAuth2\Exception\ServerErrorException;
+use Pantarei\OAuth2\Model\ModelManagerFactoryInterface;
 use Pantarei\OAuth2\Model\ModelManagerInterface;
 
 /**

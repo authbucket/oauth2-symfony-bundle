@@ -19,16 +19,15 @@ class AccessTokenFixture implements FixtureInterface
 {
     public function load(ObjectManager $manager)
     {
-        $model = new AccessToken(
-            'eeb5aa92bbb4b56373b9e0d00bc02d93',
-            'bearer',
-            'http://democlient1.com/',
-            'demousername1',
-            new \DateTime('+1 hours'),
-            array(
+        $model = new AccessToken();
+        $model->setAccessToken('eeb5aa92bbb4b56373b9e0d00bc02d93')
+            ->setTokenType('bearer')
+            ->setClientId('http://democlient1.com/')
+            ->setUsername('demousername1')
+            ->setExpires(new \DateTime('+1 hours'))
+            ->setScope(array(
                 'demoscope1',
-            )
-        );
+            ));
         $manager->persist($model);
 
         $manager->flush();
