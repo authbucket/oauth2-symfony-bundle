@@ -17,7 +17,7 @@ use Pantarei\Bundle\OAuth2Bundle\Entity\Scope as AbstractScope;
 /**
  * Scope
  *
- * @ORM\Table(name="scope")
+ * @ORM\Table(name="test_scope")
  * @ORM\Entity(repositoryClass="Pantarei\Bundle\OAuth2Bundle\Tests\TestBundle\Entity\ScopeRepository")
  */
 class Scope extends AbstractScope

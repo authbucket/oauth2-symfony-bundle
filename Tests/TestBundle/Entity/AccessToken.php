@@ -17,7 +17,7 @@ use Pantarei\Bundle\OAuth2Bundle\Entity\AccessToken as AbstractAccessToken;
 /**
  * AccessToken
  *
- * @ORM\Table(name="access_token")
+ * @ORM\Table(name="test_access_token")
  * @ORM\Entity(repositoryClass="Pantarei\Bundle\OAuth2Bundle\Tests\TestBundle\Entity\AccessTokenRepository")
  */
 class AccessToken extends AbstractAccessToken

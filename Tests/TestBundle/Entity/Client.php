@@ -17,7 +17,7 @@ use Pantarei\Bundle\OAuth2Bundle\Entity\Client as AbstractClient;
 /**
  * Client
  *
- * @ORM\Table(name="client")
+ * @ORM\Table(name="test_client")
  * @ORM\Entity(repositoryClass="Pantarei\Bundle\OAuth2Bundle\Tests\TestBundle\Entity\ClientRepository")
  */
 class Client extends AbstractClient

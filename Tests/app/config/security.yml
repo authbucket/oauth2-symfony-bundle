@@ -1,0 +1,43 @@
+security:
+    encoders:
+        Symfony\Component\Security\Core\User\User: plaintext
+
+    role_hierarchy:
+        ROLE_ADMIN:         ROLE_USER
+        ROLE_SUPER_ADMIN:   [ROLE_USER, ROLE_ADMIN, ROLE_ALLOWED_TO_SWITCH]
+
+    providers:
+        default:
+            memory:
+                users:
+                    demousername1: { password: demopassword1, roles: 'ROLE_USER' }
+                    demousername2: { password: demopassword2, roles: 'ROLE_USER' }
+                    demousername3: { password: demopassword3, roles: 'ROLE_USER' }
+
+    firewalls:
+        resource:
+            pattern:            ^/oauth2/resource
+            oauth2_resource:    true
+            stateless:          true
+
+        token:
+            pattern:            ^/oauth2/token
+            oauth2_token:       true
+
+        authorize:
+            pattern:                ^/
+            logout:
+                invalidate_session: false
+            form_login:
+                login_path:         /login
+                check_path:         /login_check
+                provider:           default
+                csrf_provider:      form.csrf_provider
+            http_basic:
+                provider:           default
+            anonymous:              true
+
+    access_control:
+        - { path: ^/oauth2/resource$, roles: [IS_AUTHENTICATED_FULLY] }
+        - { path: ^/oauth2/token$, roles: [IS_AUTHENTICATED_FULLY] }
+        - { path: ^/login$, role: [IS_AUTHENTICATED_ANONYMOUSLY] }
