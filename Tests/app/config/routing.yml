@@ -2,9 +2,6 @@ pantarei_oauth2:
     resource:   "@PantareiOAuth2Bundle/Resources/config/routing.yml"
     prefix:     /
 
-login:
-    pattern:    /login
-    defaults:   { _controller:TestBundle:Security:login }
-
-login_check:
-    pattern:    /login_check
+test:
+    resource:   "@TestBundle/Resources/config/routing.yml"
+    prefix:     /
