@@ -1,7 +1,7 @@
 <?php
 
 /**
- * This file is part of the pantarei/oauth2-bundle package.
+ * This file is part of the authbucket/oauth2-bundle package.
  *
  * (c) Wong Hoi Sing Edison <hswong3i@pantarei-design.com>
  *
@@ -19,8 +19,8 @@ class AppKernel extends Kernel
         $bundles = array(
             new Doctrine\Bundle\DoctrineBundle\DoctrineBundle(),
             new Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle(),
-            new Pantarei\Bundle\OAuth2Bundle\PantareiOAuth2Bundle(),
-            new Pantarei\Bundle\OAuth2Bundle\Tests\TestBundle\TestBundle(),
+            new AuthBucket\Bundle\OAuth2Bundle\AuthBucketOAuth2Bundle(),
+            new AuthBucket\Bundle\OAuth2Bundle\Tests\TestBundle\TestBundle(),
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
             new Symfony\Bundle\FrameworkBundle\FrameworkBundle(),
             new Symfony\Bundle\SecurityBundle\SecurityBundle(),

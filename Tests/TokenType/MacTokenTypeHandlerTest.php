@@ -1,7 +1,7 @@
 <?php
 
 /**
- * This file is part of the pantarei/oauth2-bundle package.
+ * This file is part of the authbucket/oauth2-bundle package.
  *
  * (c) Wong Hoi Sing Edison <hswong3i@pantarei-design.com>
  *
@@ -9,10 +9,10 @@
  * file that was distributed with this source code.
  */
 
-namespace Pantarei\Bundle\OAuth2Bundle\Tests\TokenType;
+namespace AuthBucket\Bundle\OAuth2Bundle\Tests\TokenType;
 
-use Pantarei\OAuth2\Model\ModelManagerFactoryInterface;
-use Pantarei\OAuth2\TokenType\MacTokenTypeHandler;
+use AuthBucket\OAuth2\Model\ModelManagerFactoryInterface;
+use AuthBucket\OAuth2\TokenType\MacTokenTypeHandler;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -26,7 +26,7 @@ class FooModelManagerFactory implements ModelManagerFactoryInterface
 class MacTokenTypeHandlerTest extends WebTestCase
 {
     /**
-     * @expectedException \Pantarei\OAuth2\Exception\TemporarilyUnavailableException
+     * @expectedException \AuthBucket\OAuth2\Exception\TemporarilyUnavailableException
      */
     public function testExceptionGetAccessToken()
     {
@@ -36,7 +36,7 @@ class MacTokenTypeHandlerTest extends WebTestCase
     }
 
     /**
-     * @expectedException \Pantarei\OAuth2\Exception\TemporarilyUnavailableException
+     * @expectedException \AuthBucket\OAuth2\Exception\TemporarilyUnavailableException
      */
     public function testExceptionCreateAccessToken()
     {

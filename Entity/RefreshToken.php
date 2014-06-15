@@ -1,7 +1,7 @@
 <?php
 
 /**
- * This file is part of the pantarei/oauth2-bundle package.
+ * This file is part of the authbucket/oauth2-bundle package.
  *
  * (c) Wong Hoi Sing Edison <hswong3i@pantarei-design.com>
  *
@@ -9,15 +9,15 @@
  * file that was distributed with this source code.
  */
 
-namespace Pantarei\Bundle\OAuth2Bundle\Entity;
+namespace AuthBucket\Bundle\OAuth2Bundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use Pantarei\OAuth2\Model\RefreshTokenInterface;
+use AuthBucket\OAuth2\Model\RefreshTokenInterface;
 
 /**
  * RefreshToken
  *
- * @ORM\MappedSuperclass(repositoryClass="Pantarei\Bundle\OAuth2Bundle\Entity\RefreshTokenRepository")
+ * @ORM\MappedSuperclass(repositoryClass="AuthBucket\Bundle\OAuth2Bundle\Entity\RefreshTokenRepository")
  */
 class RefreshToken implements RefreshTokenInterface
 {

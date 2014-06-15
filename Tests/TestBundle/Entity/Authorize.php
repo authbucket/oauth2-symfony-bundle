@@ -1,7 +1,7 @@
 <?php
 
 /**
- * This file is part of the pantarei/oauth2-bundle package.
+ * This file is part of the authbucket/oauth2-bundle package.
  *
  * (c) Wong Hoi Sing Edison <hswong3i@pantarei-design.com>
  *
@@ -9,16 +9,16 @@
  * file that was distributed with this source code.
  */
 
-namespace Pantarei\Bundle\OAuth2Bundle\Tests\TestBundle\Entity;
+namespace AuthBucket\Bundle\OAuth2Bundle\Tests\TestBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use Pantarei\Bundle\OAuth2Bundle\Entity\Authorize as AbstractAuthorize;
+use AuthBucket\Bundle\OAuth2Bundle\Entity\Authorize as AbstractAuthorize;
 
 /**
  * Authorize
  *
  * @ORM\Table(name="test_authorize")
- * @ORM\Entity(repositoryClass="Pantarei\Bundle\OAuth2Bundle\Tests\TestBundle\Entity\AuthorizeRepository")
+ * @ORM\Entity(repositoryClass="AuthBucket\Bundle\OAuth2Bundle\Tests\TestBundle\Entity\AuthorizeRepository")
  */
 class Authorize extends AbstractAuthorize
 {

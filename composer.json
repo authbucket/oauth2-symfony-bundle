@@ -8,7 +8,7 @@
     ],
     "autoload": {
         "psr-0": {
-            "Pantarei\\Bundle\\OAuth2Bundle": ""
+            "AuthBucket\\Bundle\\OAuth2Bundle": ""
         }
     },
     "description": "Symfony2 OAuth2Bundle",
@@ -17,16 +17,16 @@
             "dev-master": "1.0.x-dev"
         }
     },
-    "homepage": "https://github.com/pantarei/oauth2-bundle",
+    "homepage": "https://github.com/authbucket/oauth2-bundle",
     "keywords": [
         "oauth2",
         "symfony2"
     ],
     "license": "MIT",
     "minimum-stability": "dev",
-    "name": "pantarei/oauth2-bundle",
+    "name": "authbucket/oauth2-bundle",
     "require": {
-        "pantarei/oauth2": "1.0.*@dev",
+        "authbucket/oauth2": "1.0.*@dev",
         "php": ">=5.3.3",
         "symfony/framework-bundle": "~2.3",
         "symfony/security-bundle": "~2.3"
@@ -50,6 +50,6 @@
         "symfony/yaml": "2.3.*",
         "twig/twig": "~1.11"
     },
-    "target-dir": "Pantarei/Bundle/OAuth2Bundle",
+    "target-dir": "AuthBucket/Bundle/OAuth2Bundle",
     "type": "symfony-bundle"
 }

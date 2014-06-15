@@ -1,7 +1,7 @@
 <?php
 
 /**
- * This file is part of the pantarei/oauth2-bundle package.
+ * This file is part of the authbucket/oauth2-bundle package.
  *
  * (c) Wong Hoi Sing Edison <hswong3i@pantarei-design.com>
  *
@@ -9,15 +9,15 @@
  * file that was distributed with this source code.
  */
 
-namespace Pantarei\Bundle\OAuth2Bundle\Entity;
+namespace AuthBucket\Bundle\OAuth2Bundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use Pantarei\OAuth2\Model\ClientInterface;
+use AuthBucket\OAuth2\Model\ClientInterface;
 
 /**
  * Client
  *
- * @ORM\MappedSuperclass(repositoryClass="Pantarei\Bundle\OAuth2Bundle\Entity\ClientRepository")
+ * @ORM\MappedSuperclass(repositoryClass="AuthBucket\Bundle\OAuth2Bundle\Entity\ClientRepository")
  */
 class Client implements ClientInterface
 {

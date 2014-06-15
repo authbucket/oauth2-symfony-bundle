@@ -1,7 +1,7 @@
 <?php
 
 /**
- * This file is part of the pantarei/oauth2-bundle package.
+ * This file is part of the authbucket/oauth2-bundle package.
  *
  * (c) Wong Hoi Sing Edison <hswong3i@pantarei-design.com>
  *
@@ -9,9 +9,9 @@
  * file that was distributed with this source code.
  */
 
-namespace Pantarei\Bundle\OAuth2Bundle\Tests\Exception;
+namespace AuthBucket\Bundle\OAuth2Bundle\Tests\Exception;
 
-use Pantarei\OAuth2\Exception\InvalidRequestException;
+use AuthBucket\OAuth2\Exception\InvalidRequestException;
 
 /**
  * Test invalid request exception.
@@ -21,7 +21,7 @@ use Pantarei\OAuth2\Exception\InvalidRequestException;
 class InvalidRequestExceptionTest extends \PHPUnit_Framework_TestCase
 {
     /**
-     * @expectedException \Pantarei\OAuth2\Exception\InvalidRequestException
+     * @expectedException \AuthBucket\OAuth2\Exception\InvalidRequestException
      */
     public function testInvalidRequestException()
     {

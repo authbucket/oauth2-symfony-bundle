@@ -1,7 +1,7 @@
 <?php
 
 /**
- * This file is part of the pantarei/oauth2-bundle package.
+ * This file is part of the authbucket/oauth2-bundle package.
  *
  * (c) Wong Hoi Sing Edison <hswong3i@pantarei-design.com>
  *
@@ -9,11 +9,11 @@
  * file that was distributed with this source code.
  */
 
-namespace Pantarei\Bundle\OAuth2Bundle\Tests\TestBundle\DataFixtures\ORM;
+namespace AuthBucket\Bundle\OAuth2Bundle\Tests\TestBundle\DataFixtures\ORM;
 
 use Doctrine\Common\DataFixtures\FixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
-use Pantarei\Bundle\OAuth2Bundle\Tests\TestBundle\Entity\RefreshToken;
+use AuthBucket\Bundle\OAuth2Bundle\Tests\TestBundle\Entity\RefreshToken;
 
 class RefreshTokenFixture implements FixtureInterface
 {

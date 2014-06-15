@@ -1,5 +1,5 @@
-pantarei_oauth2:
-    resource:   "@PantareiOAuth2Bundle/Resources/config/routing.yml"
+authbucket_oauth2:
+    resource:   "@AuthBucketOAuth2Bundle/Resources/config/routing.yml"
     prefix:     /
 
 test:

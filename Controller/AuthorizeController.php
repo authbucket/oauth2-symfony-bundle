@@ -1,7 +1,7 @@
 <?php
 
 /**
- * This file is part of the pantarei/oauth2-bundle package.
+ * This file is part of the authbucket/oauth2-bundle package.
  *
  * (c) Wong Hoi Sing Edison <hswong3i@pantarei-design.com>
  *
@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Pantarei\Bundle\OAuth2Bundle\Controller;
+namespace AuthBucket\Bundle\OAuth2Bundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
@@ -18,6 +18,6 @@ class AuthorizeController extends Controller
 {
     public function authorizeAction(Request $request)
     {
-        return $this->container->get('pantarei_oauth2.authorize_controller')->authorizeAction($request);
+        return $this->container->get('authbucket_oauth2.authorize_controller')->authorizeAction($request);
     }
 }

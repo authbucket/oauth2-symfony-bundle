@@ -1,7 +1,7 @@
 <?php
 
 /**
- * This file is part of the pantarei/oauth2-bundle package.
+ * This file is part of the authbucket/oauth2-bundle package.
  *
  * (c) Wong Hoi Sing Edison <hswong3i@pantarei-design.com>
  *
@@ -9,11 +9,11 @@
  * file that was distributed with this source code.
  */
 
-namespace Pantarei\Bundle\OAuth2Bundle\Entity;
+namespace AuthBucket\Bundle\OAuth2Bundle\Entity;
 
 use Doctrine\ORM\EntityRepository;
-use Pantarei\OAuth2\Model\RefreshTokenInterface;
-use Pantarei\OAuth2\Model\RefreshTokenManagerInterface;
+use AuthBucket\OAuth2\Model\RefreshTokenInterface;
+use AuthBucket\OAuth2\Model\RefreshTokenManagerInterface;
 
 /**
  * RefreshTokenRepository

@@ -1,7 +1,7 @@
 <?php
 
 /**
- * This file is part of the pantarei/oauth2-bundle package.
+ * This file is part of the authbucket/oauth2-bundle package.
  *
  * (c) Wong Hoi Sing Edison <hswong3i@pantarei-design.com>
  *
@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Pantarei\Bundle\OAuth2Bundle\Tests;
+namespace AuthBucket\Bundle\OAuth2Bundle\Tests;
 
 /**
  * Test if autoload able to discover all required classes.
@@ -20,15 +20,15 @@ class AutoloadTest extends \PHPUnit_Framework_TestCase
 {
     public function testExceptionClassesExist()
     {
-        $this->assertTrue(class_exists('Pantarei\OAuth2\Exception\AccessDeniedException'));
-        $this->assertTrue(class_exists('Pantarei\OAuth2\Exception\InvalidClientException'));
-        $this->assertTrue(class_exists('Pantarei\OAuth2\Exception\InvalidGrantException'));
-        $this->assertTrue(class_exists('Pantarei\OAuth2\Exception\InvalidRequestException'));
-        $this->assertTrue(class_exists('Pantarei\OAuth2\Exception\InvalidScopeException'));
-        $this->assertTrue(class_exists('Pantarei\OAuth2\Exception\ServerErrorException'));
-        $this->assertTrue(class_exists('Pantarei\OAuth2\Exception\TemporarilyUnavailableException'));
-        $this->assertTrue(class_exists('Pantarei\OAuth2\Exception\UnauthorizedClientException'));
-        $this->assertTrue(class_exists('Pantarei\OAuth2\Exception\UnsupportedGrantTypeException'));
-        $this->assertTrue(class_exists('Pantarei\OAuth2\Exception\UnsupportedResponseTypeException'));
+        $this->assertTrue(class_exists('AuthBucket\OAuth2\Exception\AccessDeniedException'));
+        $this->assertTrue(class_exists('AuthBucket\OAuth2\Exception\InvalidClientException'));
+        $this->assertTrue(class_exists('AuthBucket\OAuth2\Exception\InvalidGrantException'));
+        $this->assertTrue(class_exists('AuthBucket\OAuth2\Exception\InvalidRequestException'));
+        $this->assertTrue(class_exists('AuthBucket\OAuth2\Exception\InvalidScopeException'));
+        $this->assertTrue(class_exists('AuthBucket\OAuth2\Exception\ServerErrorException'));
+        $this->assertTrue(class_exists('AuthBucket\OAuth2\Exception\TemporarilyUnavailableException'));
+        $this->assertTrue(class_exists('AuthBucket\OAuth2\Exception\UnauthorizedClientException'));
+        $this->assertTrue(class_exists('AuthBucket\OAuth2\Exception\UnsupportedGrantTypeException'));
+        $this->assertTrue(class_exists('AuthBucket\OAuth2\Exception\UnsupportedResponseTypeException'));
     }
 }
