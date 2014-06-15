@@ -3,7 +3,7 @@ AuthBucket\Bundle\OAuth2Bundle
 
 [![Build Status](https://travis-ci.org/authbucket/oauth2-bundle.png?branch=master)](https://travis-ci.org/authbucket/oauth2-bundle)
 [![Coverage Status](https://coveralls.io/repos/authbucket/oauth2-bundle/badge.png?branch=master)](https://coveralls.io/r/authbucket/oauth2-bundle)
-[![Dependency Status](https://www.versioneye.com/user/projects/539d001a83add71249000092/badge.svg?style=flat)](https://www.versioneye.com/user/projects/539d001a83add71249000092)
+[![Dependency Status](https://www.versioneye.com/user/projects/539d001a83add71249000092/badge.svg)](https://www.versioneye.com/user/projects/539d001a83add71249000092)
 [![Latest Stable Version](https://poser.pugx.org/authbucket/oauth2-bundle/v/stable.png)](https://packagist.org/packages/authbucket/oauth2-bundle)
 [![Total Downloads](https://poser.pugx.org/authbucket/oauth2-bundle/downloads.png)](https://packagist.org/packages/authbucket/oauth2-bundle)
 [![License](https://poser.pugx.org/authbucket/oauth2-bundle/license.png)](https://packagist.org/packages/authbucket/oauth2-bundle)
