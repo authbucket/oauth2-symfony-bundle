@@ -18,6 +18,9 @@ class TokenController extends Controller
 {
     public function tokenAction(Request $request)
     {
-        return $this->container->get('authbucket_oauth2.token_controller')->tokenAction($request);
+        return $this
+            ->container
+            ->get('authbucket_oauth2.token_controller')
+            ->tokenAction($request);
     }
 }
