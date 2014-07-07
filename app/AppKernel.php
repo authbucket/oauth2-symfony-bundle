@@ -9,6 +9,8 @@
  * file that was distributed with this source code.
  */
 
+namespace AuthBucket\Bundle\OAuth2Bundle;
+
 use Symfony\Component\HttpKernel\Kernel;
 use Symfony\Component\Config\Loader\LoaderInterface;
 
