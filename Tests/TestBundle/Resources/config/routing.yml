@@ -1,6 +1,6 @@
 login:
-    pattern:    /login
+    pattern:    /oauth2/login
     defaults:   { _controller:TestBundle:Security:login }
 
 login_check:
-    pattern:    /login_check
+    pattern:    /oauth2/authorize/form/login_check

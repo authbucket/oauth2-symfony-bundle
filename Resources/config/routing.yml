@@ -11,7 +11,6 @@ oauth2_authorize_form:
 oauth2_token:
     pattern: /oauth2/token
     defaults: { _controller: AuthBucketOAuth2Bundle:Token:token }
-    methods: [POST]
 
 oauth2_debug:
     pattern: /oauth2/debug

@@ -13,6 +13,8 @@ namespace AuthBucket\Bundle\OAuth2Bundle\Tests\ResponseType;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Session\Session;
+use Symfony\Component\HttpFoundation\Session\Storage\MockFileSessionStorage;
 
 class CodeResponseTypeHandlerTest extends WebTestCase
 {
@@ -27,11 +29,11 @@ class CodeResponseTypeHandlerTest extends WebTestCase
             'PHP_AUTH_PW' => 'demopassword1',
         );
         $client = static::createClient();
-        $crawler = $client->request('GET', '/oauth2/authorize', $parameters, array(), $server);
+        $crawler = $client->request('GET', '/oauth2/authorize/http', $parameters, array(), $server);
         $this->assertEquals(400, $client->getResponse()->getStatusCode());
         $this->assertNotNull(json_decode($client->getResponse()->getContent()));
-        $token_response = json_decode($client->getResponse()->getContent(), true);
-        $this->assertEquals('invalid_request', $token_response['error']);
+        $tokenResponse = json_decode($client->getResponse()->getContent(), true);
+        $this->assertEquals('invalid_request', $tokenResponse['error']);
     }
 
     public function testExceptionCodeBadClientId()
@@ -46,11 +48,11 @@ class CodeResponseTypeHandlerTest extends WebTestCase
             'PHP_AUTH_PW' => 'demopassword1',
         );
         $client = static::createClient();
-        $crawler = $client->request('GET', '/oauth2/authorize', $parameters, array(), $server);
+        $crawler = $client->request('GET', '/oauth2/authorize/http', $parameters, array(), $server);
         $this->assertEquals(401, $client->getResponse()->getStatusCode());
         $this->assertNotNull(json_decode($client->getResponse()->getContent()));
-        $token_response = json_decode($client->getResponse()->getContent(), true);
-        $this->assertEquals('invalid_client', $token_response['error']);
+        $tokenResponse = json_decode($client->getResponse()->getContent(), true);
+        $this->assertEquals('invalid_client', $tokenResponse['error']);
     }
 
     public function testExceptionCodeNoSavedNoPassedRedirectUri()
@@ -64,11 +66,11 @@ class CodeResponseTypeHandlerTest extends WebTestCase
             'PHP_AUTH_PW' => 'demopassword1',
         );
         $client = static::createClient();
-        $crawler = $client->request('GET', '/oauth2/authorize', $parameters, array(), $server);
+        $crawler = $client->request('GET', '/oauth2/authorize/http', $parameters, array(), $server);
         $this->assertEquals(400, $client->getResponse()->getStatusCode());
         $this->assertNotNull(json_decode($client->getResponse()->getContent()));
-        $token_response = json_decode($client->getResponse()->getContent(), true);
-        $this->assertEquals('invalid_request', $token_response['error']);
+        $tokenResponse = json_decode($client->getResponse()->getContent(), true);
+        $this->assertEquals('invalid_request', $tokenResponse['error']);
     }
 
     public function testExceptionCodeBadRedirectUri()
@@ -83,51 +85,61 @@ class CodeResponseTypeHandlerTest extends WebTestCase
             'PHP_AUTH_PW' => 'demopassword1',
         );
         $client = static::createClient();
-        $crawler = $client->request('GET', '/oauth2/authorize', $parameters, array(), $server);
+        $crawler = $client->request('GET', '/oauth2/authorize/http', $parameters, array(), $server);
         $this->assertEquals(400, $client->getResponse()->getStatusCode());
         $this->assertNotNull(json_decode($client->getResponse()->getContent()));
-        $token_response = json_decode($client->getResponse()->getContent(), true);
-        $this->assertEquals('invalid_request', $token_response['error']);
+        $tokenResponse = json_decode($client->getResponse()->getContent(), true);
+        $this->assertEquals('invalid_request', $tokenResponse['error']);
     }
 
     public function testErrorCodeBadScopeFormat()
     {
+        // Start session manually.
+        $session = new Session(new MockFileSessionStorage());
+        $session->start();
+
         $parameters = array(
             'response_type' => 'code',
             'client_id' => 'http://democlient1.com/',
             'redirect_uri' => 'http://democlient1.com/redirect_uri',
             'scope' => "aaa\x22bbb\x5Cccc\x7Fddd",
+            'state' => $session->getId(),
         );
         $server = array(
             'PHP_AUTH_USER' => 'demousername1',
             'PHP_AUTH_PW' => 'demopassword1',
         );
         $client = static::createClient();
-        $crawler = $client->request('GET', '/oauth2/authorize', $parameters, array(), $server);
+        $crawler = $client->request('GET', '/oauth2/authorize/http', $parameters, array(), $server);
         $this->assertTrue($client->getResponse()->isRedirect());
-        $auth_response = Request::create($client->getResponse()->headers->get('Location'), 'GET');
-        $token_response = $auth_response->query->all();
-        $this->assertEquals('invalid_request', $token_response['error']);
+        $authResponse = Request::create($client->getResponse()->headers->get('Location'), 'GET');
+        $tokenResponse = $authResponse->query->all();
+        $this->assertEquals('invalid_request', $tokenResponse['error']);
     }
 
     public function testErrorCodeBadScope()
     {
+        // Start session manually.
+        $session = new Session(new MockFileSessionStorage());
+        $session->start();
+
         $parameters = array(
             'response_type' => 'code',
             'client_id' => 'http://democlient1.com/',
             'redirect_uri' => 'http://democlient1.com/redirect_uri',
             'scope' => "badscope1",
+            'state' => $session->getId(),
         );
         $server = array(
             'PHP_AUTH_USER' => 'demousername1',
             'PHP_AUTH_PW' => 'demopassword1',
         );
         $client = static::createClient();
-        $crawler = $client->request('GET', '/oauth2/authorize', $parameters, array(), $server);
+        $crawler = $client->request('GET', '/oauth2/authorize/http', $parameters, array(), $server);
         $this->assertTrue($client->getResponse()->isRedirect());
-        $auth_response = Request::create($client->getResponse()->headers->get('Location'), 'GET');
-        $token_response = $auth_response->query->all();
-        $this->assertEquals('invalid_scope', $token_response['error']);
+        $authResponse = Request::create($client->getResponse()->headers->get('Location'), 'GET');
+        $tokenResponse = $authResponse->query->all();
+        $this->assertEquals('invalid_scope', $tokenResponse['error']);
     }
 
     public function testErrorCodeBadStateFormat()
@@ -144,26 +156,31 @@ class CodeResponseTypeHandlerTest extends WebTestCase
             'PHP_AUTH_PW' => 'demopassword3',
         );
         $client = static::createClient();
-        $crawler = $client->request('GET', '/oauth2/authorize', $parameters, array(), $server);
+        $crawler = $client->request('GET', '/oauth2/authorize/http', $parameters, array(), $server);
         $this->assertTrue($client->getResponse()->isRedirect());
-        $auth_response = Request::create($client->getResponse()->headers->get('Location'), 'GET');
-        $token_response = $auth_response->query->all();
-        $this->assertEquals('invalid_request', $token_response['error']);
+        $authResponse = Request::create($client->getResponse()->headers->get('Location'), 'GET');
+        $tokenResponse = $authResponse->query->all();
+        $this->assertEquals('invalid_request', $tokenResponse['error']);
     }
 
     public function testGoodCode()
     {
+        // Start session manually.
+        $session = new Session(new MockFileSessionStorage());
+        $session->start();
+
         $parameters = array(
             'response_type' => 'code',
             'client_id' => 'http://democlient1.com/',
             'redirect_uri' => 'http://democlient1.com/redirect_uri',
+            'state' => $session->getId(),
         );
         $server = array(
             'PHP_AUTH_USER' => 'demousername1',
             'PHP_AUTH_PW' => 'demopassword1',
         );
         $client = static::createClient();
-        $crawler = $client->request('GET', '/oauth2/authorize', $parameters, array(), $server);
+        $crawler = $client->request('GET', '/oauth2/authorize/http', $parameters, array(), $server);
         $this->assertTrue($client->getResponse()->isRedirect());
 
         $parameters = array(
@@ -171,13 +188,14 @@ class CodeResponseTypeHandlerTest extends WebTestCase
             'client_id' => 'http://democlient1.com/',
             'redirect_uri' => 'http://democlient1.com/redirect_uri',
             'scope' => 'demoscope1',
+            'state' => $session->getId(),
         );
         $server = array(
             'PHP_AUTH_USER' => 'demousername1',
             'PHP_AUTH_PW' => 'demopassword1',
         );
         $client = static::createClient();
-        $crawler = $client->request('GET', '/oauth2/authorize', $parameters, array(), $server);
+        $crawler = $client->request('GET', '/oauth2/authorize/http', $parameters, array(), $server);
         $this->assertTrue($client->getResponse()->isRedirect());
 
         $parameters = array(
@@ -185,13 +203,14 @@ class CodeResponseTypeHandlerTest extends WebTestCase
             'client_id' => 'http://democlient3.com/',
             'redirect_uri' => 'http://democlient3.com/redirect_uri',
             'scope' => 'demoscope1 demoscope2 demoscope3',
+            'state' => $session->getId(),
         );
         $server = array(
             'PHP_AUTH_USER' => 'demousername3',
             'PHP_AUTH_PW' => 'demopassword3',
         );
         $client = static::createClient();
-        $crawler = $client->request('GET', '/oauth2/authorize', $parameters, array(), $server);
+        $crawler = $client->request('GET', '/oauth2/authorize/http', $parameters, array(), $server);
         $this->assertTrue($client->getResponse()->isRedirect());
 
         $parameters = array(
@@ -199,52 +218,68 @@ class CodeResponseTypeHandlerTest extends WebTestCase
             'client_id' => 'http://democlient3.com/',
             'redirect_uri' => 'http://democlient3.com/redirect_uri',
             'scope' => 'demoscope1 demoscope2 demoscope3',
-            'state' => 'example state',
+            'state' => $session->getId(),
         );
         $server = array(
             'PHP_AUTH_USER' => 'demousername3',
             'PHP_AUTH_PW' => 'demopassword3',
         );
         $client = static::createClient();
-        $crawler = $client->request('GET', '/oauth2/authorize', $parameters, array(), $server);
+        $crawler = $client->request('GET', '/oauth2/authorize/http', $parameters, array(), $server);
         $this->assertTrue($client->getResponse()->isRedirect());
     }
 
     public function testGoodCodeNoPassedRedirectUri()
     {
+        // Start session manually.
+        $session = new Session(new MockFileSessionStorage());
+        $session->start();
+
         $parameters = array(
             'response_type' => 'code',
             'client_id' => 'http://democlient1.com/',
+            'state' => $session->getId(),
         );
         $server = array(
             'PHP_AUTH_USER' => 'demousername1',
             'PHP_AUTH_PW' => 'demopassword1',
         );
         $client = static::createClient();
-        $crawler = $client->request('GET', '/oauth2/authorize', $parameters, array(), $server);
+        $crawler = $client->request('GET', '/oauth2/authorize/http', $parameters, array(), $server);
         $this->assertTrue($client->getResponse()->isRedirect());
     }
 
     public function testGoodCodeNoStoredRedirectUri()
     {
+        // Start session manually.
+        $session = new Session(new MockFileSessionStorage());
+        $session->start();
+
         $parameters = array(
             'response_type' => 'code',
             'client_id' => 'http://democlient4.com/',
             'redirect_uri' => 'http://democlient4.com/redirect_uri',
+            'state' => $session->getId(),
         );
         $server = array(
             'PHP_AUTH_USER' => 'demousername1',
             'PHP_AUTH_PW' => 'demopassword1',
         );
         $client = static::createClient();
-        $crawler = $client->request('GET', '/oauth2/authorize', $parameters, array(), $server);
+        $crawler = $client->request('GET', '/oauth2/authorize/http', $parameters, array(), $server);
         $this->assertTrue($client->getResponse()->isRedirect());
     }
 
     public function testGoodCodeFormSubmit()
     {
+        // Start session manually.
+        $session = new Session(new MockFileSessionStorage());
+        $session->start();
+
+        // Must use single shared client for continue session.
         $client = static::createClient();
-        $crawler = $client->request('GET', '/login');
+
+        $crawler = $client->request('GET', '/oauth2/login');
         $buttonCrawlerNode = $crawler->selectButton('submit');
         $form = $buttonCrawlerNode->form(array(
             '_username' => 'demousername3',
@@ -257,11 +292,10 @@ class CodeResponseTypeHandlerTest extends WebTestCase
             'client_id' => 'http://democlient3.com/',
             'redirect_uri' => 'http://democlient3.com/redirect_uri',
             'scope' => 'demoscope1 demoscope2 demoscope3',
-            'state' => 'example state',
+            'state' => $session->getId(),
         );
         $server = array();
-        $client = static::createClient();
-        $crawler = $client->request('GET', '/oauth2/authorize', $parameters, array(), $server);
+        $crawler = $client->request('GET', '/oauth2/authorize/form', $parameters, array(), $server);
         $this->assertTrue($client->getResponse()->isRedirect());
     }
 }

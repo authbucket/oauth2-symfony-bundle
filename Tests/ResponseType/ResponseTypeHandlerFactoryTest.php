@@ -15,6 +15,16 @@ use AuthBucket\OAuth2\ResponseType\ResponseTypeHandlerFactory;
 
 class ResponseTypeHandlerFactoryTest extends \PHPUnit_Framework_TestCase
 {
+    /**
+     * @expectedException \AuthBucket\OAuth2\Exception\UnsupportedResponseTypeException
+     */
+    public function testNonExistsResponseTypeHandler()
+    {
+        $responseTypeHandlerFactory = new ResponseTypeHandlerFactory(array(
+            'foo' => 'AuthBucket\\Bundle\\OAuth2Bundle\\Tests\\ResponseType\\NonExistsResponseTypeHandler',
+        ));
+        $responseTypeHandlerFactory->addResponseTypeHandler('foo', $responseTypeHandler);
+    }
 
     /**
      * @expectedException \AuthBucket\OAuth2\Exception\UnsupportedResponseTypeException

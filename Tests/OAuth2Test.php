@@ -26,8 +26,9 @@ class OAuth2Test extends WebTestCase
 {
     public function testAuthorizationCodeGrant()
     {
-        // Unique session for state.
+        // Start session manually.
         $session = new Session(new MockFileSessionStorage());
+        $session->start();
 
         // Query authorization endpoint with response_type = code.
         $parameters = array(
@@ -35,7 +36,7 @@ class OAuth2Test extends WebTestCase
             'client_id' => 'http://democlient1.com/',
             'redirect_uri' => 'http://democlient1.com/redirect_uri',
             'scope' => 'demoscope1',
-            'state' => $session,
+            'state' => $session->getId(),
         );
         $server = array(
             'PHP_AUTH_USER' => 'demousername1',
@@ -101,8 +102,9 @@ class OAuth2Test extends WebTestCase
 
     public function testImplicitGrant()
     {
-        // Unique session for state.
+        // Start session manually.
         $session = new Session(new MockFileSessionStorage());
+        $session->start();
 
         // Query authorization endpoint with response_type = token.
         $parameters = array(
@@ -110,7 +112,7 @@ class OAuth2Test extends WebTestCase
             'client_id' => 'http://democlient1.com/',
             'redirect_uri' => 'http://democlient1.com/redirect_uri',
             'scope' => 'demoscope1',
-            'state' => $session,
+            'state' => $session->getId(),
         );
         $server = array(
             'PHP_AUTH_USER' => 'demousername1',
@@ -131,7 +133,7 @@ class OAuth2Test extends WebTestCase
         $tokenResponse = $authResponse->query->all();
         $this->assertEquals('bearer', $tokenResponse['token_type']);
         $this->assertEquals('demoscope1', $tokenResponse['scope']);
-        $this->assertEquals($session, $tokenResponse['state']);
+        $this->assertEquals($session->getId(), $tokenResponse['state']);
 
         // Query debug endpoint with access_token.
         $parameters = array(
