@@ -1,19 +1,20 @@
 language: php
 
 php:
-  - 5.3.3
   - 5.3
   - 5.4
+  - 5.5
+  - hhvm
 
 before_script:
-  - curl -s http://getcomposer.org/installer | php
-  - php composer.phar --dev --prefer-source install
-  - echo "extension = apc.so" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
-  - echo "apc.rfc1867 = 1" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
+  - composer install --dev --prefer-source
 
 script:
-  - mkdir -p build/logs
-  - phpunit -c phpunit.xml.dist --coverage-text
+  - vendor/bin/phpunit -c phpunit.xml.dist --coverage-clover ./build/logs/clover.xml
 
 after_script:
   - php vendor/bin/coveralls -v
+
+matrix:
+  allow_failures:
+    - php: hhvm

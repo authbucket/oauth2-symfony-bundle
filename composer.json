@@ -11,7 +11,7 @@
             "AuthBucket\\Bundle\\OAuth2Bundle": ""
         }
     },
-    "description": "Symfony2 OAuth2Bundle",
+    "description": "Symfony OAuth2Bundle",
     "extra": {
         "branch-alias": {
             "dev-master": "1.0.x-dev"
@@ -26,15 +26,18 @@
     "minimum-stability": "dev",
     "name": "authbucket/oauth2-bundle",
     "require": {
-        "authbucket/oauth2": "1.0.*@dev",
+        "authbucket/oauth2": "dev-master",
         "php": ">=5.3.3",
         "symfony/framework-bundle": ">=2.3,<2.6-dev",
         "symfony/security-bundle": ">=2.3,<2.6-dev"
     },
     "require-dev": {
-        "doctrine/doctrine-bundle": "1.2.*",
-        "doctrine/doctrine-fixtures-bundle": "2.2.*",
+        "doctrine/doctrine-bundle": "~1.2",
+        "doctrine/doctrine-fixtures-bundle": "~2.2",
         "doctrine/orm": "~2.2,>=2.2.3",
+        "fabpot/php-cs-fixer": "@stable",
+        "phpunit/phpunit": "@stable",
+        "sami/sami": "@stable",
         "satooshi/php-coveralls": "dev-master",
         "sensio/framework-extra-bundle": ">=2.3,<2.6-dev",
         "symfony/browser-kit": ">=2.3,<2.6-dev",
@@ -44,6 +47,9 @@
         "symfony/doctrine-bridge": ">=2.3,<2.6-dev",
         "symfony/finder": ">=2.3,<2.6-dev",
         "symfony/form": ">=2.3,<2.6-dev",
+        "symfony/locale": ">=2.3,<2.6-dev",
+        "symfony/process": ">=2.3,<2.6-dev",
+        "symfony/translation": ">=2.3,<2.6-dev",
         "symfony/twig-bridge": ">=2.3,<2.6-dev",
         "symfony/twig-bundle": ">=2.3,<2.6-dev",
         "symfony/validator": ">=2.3,<2.6-dev",
