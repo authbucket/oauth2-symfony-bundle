@@ -30,8 +30,8 @@ class RefreshTokenGrantTypeHandlerTest extends WebTestCase
         $crawler = $client->request('POST', '/oauth2/token', $parameters, array(), $server);
         $this->assertEquals(400, $client->getResponse()->getStatusCode());
         $this->assertNotNull(json_decode($client->getResponse()->getContent()));
-        $token_response = json_decode($client->getResponse()->getContent(), true);
-        $this->assertEquals('invalid_request', $token_response['error']);
+        $tokenResponse = json_decode($client->getResponse()->getContent(), true);
+        $this->assertEquals('invalid_request', $tokenResponse['error']);
     }
 
     public function testErrorRefreshTokenBadScope()
@@ -49,8 +49,27 @@ class RefreshTokenGrantTypeHandlerTest extends WebTestCase
         $crawler = $client->request('POST', '/oauth2/token', $parameters, array(), $server);
         $this->assertEquals(400, $client->getResponse()->getStatusCode());
         $this->assertNotNull(json_decode($client->getResponse()->getContent()));
-        $token_response = json_decode($client->getResponse()->getContent(), true);
-        $this->assertEquals('invalid_scope', $token_response['error']);
+        $tokenResponse = json_decode($client->getResponse()->getContent(), true);
+        $this->assertEquals('invalid_scope', $tokenResponse['error']);
+    }
+
+    public function testErrorRefreshTokenUnsupportedScope()
+    {
+        $parameters = array(
+            'grant_type' => 'refresh_token',
+            'refresh_token' => '302a7e7af27a25a6c052302d0dcac2c0',
+            'scope' => 'badscope',
+        );
+        $server = array(
+            'PHP_AUTH_USER' => 'http://democlient2.com/',
+            'PHP_AUTH_PW' => 'demosecret2',
+        );
+        $client = static::createClient();
+        $crawler = $client->request('POST', '/oauth2/token', $parameters, array(), $server);
+        $this->assertEquals(400, $client->getResponse()->getStatusCode());
+        $this->assertNotNull(json_decode($client->getResponse()->getContent()));
+        $tokenResponse = json_decode($client->getResponse()->getContent(), true);
+        $this->assertEquals('invalid_scope', $tokenResponse['error']);
     }
 
     public function testErrorRefreshTokenBadScopeFormat()
@@ -68,8 +87,8 @@ class RefreshTokenGrantTypeHandlerTest extends WebTestCase
         $crawler = $client->request('POST', '/oauth2/token', $parameters, array(), $server);
         $this->assertEquals(400, $client->getResponse()->getStatusCode());
         $this->assertNotNull(json_decode($client->getResponse()->getContent()));
-        $token_response = json_decode($client->getResponse()->getContent(), true);
-        $this->assertEquals('invalid_request', $token_response['error']);
+        $tokenResponse = json_decode($client->getResponse()->getContent(), true);
+        $this->assertEquals('invalid_request', $tokenResponse['error']);
     }
 
     public function testExceptionRefreshTokenBadClientId()
@@ -87,8 +106,8 @@ class RefreshTokenGrantTypeHandlerTest extends WebTestCase
         $crawler = $client->request('POST', '/oauth2/token', $parameters, array(), $server);
         $this->assertEquals(400, $client->getResponse()->getStatusCode());
         $this->assertNotNull(json_decode($client->getResponse()->getContent()));
-        $token_response = json_decode($client->getResponse()->getContent(), true);
-        $this->assertEquals('invalid_grant', $token_response['error']);
+        $tokenResponse = json_decode($client->getResponse()->getContent(), true);
+        $this->assertEquals('invalid_grant', $tokenResponse['error']);
     }
 
     public function testExceptionRefreshTokenExpired()
@@ -106,8 +125,8 @@ class RefreshTokenGrantTypeHandlerTest extends WebTestCase
         $crawler = $client->request('POST', '/oauth2/token', $parameters, array(), $server);
         $this->assertEquals(400, $client->getResponse()->getStatusCode());
         $this->assertNotNull(json_decode($client->getResponse()->getContent()));
-        $token_response = json_decode($client->getResponse()->getContent(), true);
-        $this->assertEquals('invalid_grant', $token_response['error']);
+        $tokenResponse = json_decode($client->getResponse()->getContent(), true);
+        $this->assertEquals('invalid_grant', $tokenResponse['error']);
     }
 
     public function testGoodRefreshToken()
