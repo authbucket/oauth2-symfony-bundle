@@ -1,13 +1,18 @@
-authbucket_oauth2_authorize:
-    pattern: /oauth2/authorize
+oauth2_authorize_http:
+    pattern: /oauth2/authorize/http
     defaults: { _controller: AuthBucketOAuth2Bundle:Authorize:authorize }
     methods: [GET]
 
-authbucket_oauth2_token:
+oauth2_authorize_form:
+    pattern: /oauth2/authorize/form
+    defaults: { _controller: AuthBucketOAuth2Bundle:Authorize:authorize }
+    methods: [GET]
+
+oauth2_token:
     pattern: /oauth2/token
     defaults: { _controller: AuthBucketOAuth2Bundle:Token:token }
     methods: [POST]
 
-authbucket_oauth2_resource_username:
-    pattern: /oauth2/resource/username
-    defaults: { _controller: AuthBucketOAuth2Bundle:Resource:username }
+oauth2_debug:
+    pattern: /oauth2/debug
+    defaults: { _controller: AuthBucketOAuth2Bundle:Debug:debug }
