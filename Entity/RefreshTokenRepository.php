@@ -11,9 +11,9 @@
 
 namespace AuthBucket\Bundle\OAuth2Bundle\Entity;
 
-use Doctrine\ORM\EntityRepository;
 use AuthBucket\OAuth2\Model\RefreshTokenInterface;
 use AuthBucket\OAuth2\Model\RefreshTokenManagerInterface;
+use Doctrine\ORM\EntityRepository;
 
 /**
  * RefreshTokenRepository
@@ -31,30 +31,31 @@ class RefreshTokenRepository extends EntityRepository implements RefreshTokenMan
     public function createRefreshToken()
     {
         $class = $this->getClass();
+
         return new $class();
     }
 
-    public function deleteRefreshToken(RefreshTokenInterface $refresh_token)
+    public function deleteRefreshToken(RefreshTokenInterface $refreshToken)
     {
-        $this->getEntityManager()->remove($refresh_token);
+        $this->getEntityManager()->remove($refreshToken);
         $this->getEntityManager()->flush();
     }
 
-    public function reloadRefreshToken(RefreshTokenInterface $refresh_token)
+    public function reloadRefreshToken(RefreshTokenInterface $refreshToken)
     {
-        $this->getEntityManager()->refresh($refresh_token);
+        $this->getEntityManager()->refresh($refreshToken);
     }
 
-    public function updateRefreshToken(RefreshTokenInterface $refresh_token)
+    public function updateRefreshToken(RefreshTokenInterface $refreshToken)
     {
-        $this->getEntityManager()->persist($refresh_token);
+        $this->getEntityManager()->persist($refreshToken);
         $this->getEntityManager()->flush();
     }
 
-    public function findRefreshTokenByRefreshToken($refresh_token)
+    public function findRefreshTokenByRefreshToken($refreshToken)
     {
         return $this->findOneBy(array(
-            'refresh_token' => $refresh_token,
+            'refreshToken' => $refreshToken,
         ));
     }
 }

@@ -11,8 +11,8 @@
 
 namespace AuthBucket\Bundle\OAuth2Bundle\Entity;
 
-use Doctrine\ORM\Mapping as ORM;
 use AuthBucket\OAuth2\Model\ScopeInterface;
+use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Scope
@@ -32,6 +32,7 @@ class Scope implements ScopeInterface
      * Set scope
      *
      * @param string $scope
+     *
      * @return Scope
      */
     public function setScope($scope)

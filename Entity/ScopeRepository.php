@@ -11,9 +11,9 @@
 
 namespace AuthBucket\Bundle\OAuth2Bundle\Entity;
 
-use Doctrine\ORM\EntityRepository;
 use AuthBucket\OAuth2\Model\ScopeInterface;
 use AuthBucket\OAuth2\Model\ScopeManagerInterface;
+use Doctrine\ORM\EntityRepository;
 
 /**
  * ScopeRepository
@@ -31,6 +31,7 @@ class ScopeRepository extends EntityRepository implements ScopeManagerInterface
     public function createScope()
     {
         $class = $this->getClass();
+
         return new $class();
     }
 

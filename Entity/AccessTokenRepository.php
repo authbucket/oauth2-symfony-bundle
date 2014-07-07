@@ -11,9 +11,9 @@
 
 namespace AuthBucket\Bundle\OAuth2Bundle\Entity;
 
-use Doctrine\ORM\EntityRepository;
 use AuthBucket\OAuth2\Model\AccessTokenInterface;
 use AuthBucket\OAuth2\Model\AccessTokenManagerInterface;
+use Doctrine\ORM\EntityRepository;
 
 /**
  * AccessTokenRepository
@@ -31,30 +31,31 @@ class AccessTokenRepository extends EntityRepository implements AccessTokenManag
     public function createAccessToken()
     {
         $class = $this->getClass();
+
         return new $class();
     }
 
-    public function deleteAccessToken(AccessTokenInterface $access_token)
+    public function deleteAccessToken(AccessTokenInterface $accessToken)
     {
-        $this->getEntityManager()->remove($access_token);
+        $this->getEntityManager()->remove($accessToken);
         $this->getEntityManager()->flush();
     }
 
-    public function reloadAccessToken(AccessTokenInterface $access_token)
+    public function reloadAccessToken(AccessTokenInterface $accessToken)
     {
-        $this->getEntityManager()->refresh($access_token);
+        $this->getEntityManager()->refresh($accessToken);
     }
 
-    public function updateAccessToken(AccessTokenInterface $access_token)
+    public function updateAccessToken(AccessTokenInterface $accessToken)
     {
-        $this->getEntityManager()->persist($access_token);
+        $this->getEntityManager()->persist($accessToken);
         $this->getEntityManager()->flush();
     }
 
-    public function findAccessTokenByAccessToken($access_token)
+    public function findAccessTokenByAccessToken($accessToken)
     {
         return $this->findOneBy(array(
-            'access_token' => $access_token,
+            'accessToken' => $accessToken,
         ));
     }
 }

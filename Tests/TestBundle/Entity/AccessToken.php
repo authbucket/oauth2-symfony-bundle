@@ -11,8 +11,8 @@
 
 namespace AuthBucket\Bundle\OAuth2Bundle\Tests\TestBundle\Entity;
 
-use Doctrine\ORM\Mapping as ORM;
 use AuthBucket\Bundle\OAuth2Bundle\Entity\AccessToken as AbstractAccessToken;
+use Doctrine\ORM\Mapping as ORM;
 
 /**
  * AccessToken

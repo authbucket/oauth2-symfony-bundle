@@ -11,8 +11,8 @@
 
 namespace AuthBucket\Bundle\OAuth2Bundle\Tests\TestBundle\Entity;
 
-use Doctrine\ORM\Mapping as ORM;
 use AuthBucket\Bundle\OAuth2Bundle\Entity\Authorize as AbstractAuthorize;
+use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Authorize

@@ -11,8 +11,8 @@
 
 namespace AuthBucket\Bundle\OAuth2Bundle\Entity;
 
-use Doctrine\ORM\Mapping as ORM;
 use AuthBucket\OAuth2\Model\AccessTokenInterface;
+use Doctrine\ORM\Mapping as ORM;
 
 /**
  * AccessToken
@@ -26,21 +26,21 @@ class AccessToken implements AccessTokenInterface
      *
      * @ORM\Column(name="access_token", type="string", length=255)
      */
-    protected $access_token;
+    protected $accessToken;
 
     /**
      * @var string
      *
      * @ORM\Column(name="token_type", type="string", length=255)
      */
-    protected $token_type;
+    protected $tokenType;
 
     /**
      * @var string
      *
      * @ORM\Column(name="client_id", type="string", length=255)
      */
-    protected $client_id;
+    protected $clientId;
 
     /**
      * @var string
@@ -66,12 +66,13 @@ class AccessToken implements AccessTokenInterface
     /**
      * Set access_token
      *
-     * @param string $access_token
+     * @param string $accessToken
+     *
      * @return AccessToken
      */
-    public function setAccessToken($access_token)
+    public function setAccessToken($accessToken)
     {
-        $this->access_token = $access_token;
+        $this->accessToken = $accessToken;
 
         return $this;
     }
@@ -83,18 +84,19 @@ class AccessToken implements AccessTokenInterface
      */
     public function getAccessToken()
     {
-        return $this->access_token;
+        return $this->accessToken;
     }
 
     /**
      * Set token_type
      *
-     * @param string $token_type
+     * @param string $tokenType
+     *
      * @return AccessToken
      */
-    public function setTokenType($token_type)
+    public function setTokenType($tokenType)
     {
-        $this->token_type = $token_type;
+        $this->tokenType = $tokenType;
 
         return $this;
     }
@@ -106,18 +108,19 @@ class AccessToken implements AccessTokenInterface
      */
     public function getTokenType()
     {
-        return $this->token_type;
+        return $this->tokenType;
     }
 
     /**
      * Set client_id
      *
-     * @param string $client_id
+     * @param string $clientId
+     *
      * @return AccessToken
      */
-    public function setClientId($client_id)
+    public function setClientId($clientId)
     {
-        $this->client_id = $client_id;
+        $this->clientId = $clientId;
 
         return $this;
     }
@@ -129,13 +132,14 @@ class AccessToken implements AccessTokenInterface
      */
     public function getClientId()
     {
-        return $this->client_id;
+        return $this->clientId;
     }
 
     /**
      * Set username
      *
      * @param string $username
+     *
      * @return AccessToken
      */
     public function setUsername($username)
@@ -159,6 +163,7 @@ class AccessToken implements AccessTokenInterface
      * Set expires
      *
      * @param \DateTime $expires
+     *
      * @return AccessToken
      */
     public function setExpires($expires)
@@ -182,6 +187,7 @@ class AccessToken implements AccessTokenInterface
      * Set scope
      *
      * @param array $scope
+     *
      * @return AccessToken
      */
     public function setScope($scope)

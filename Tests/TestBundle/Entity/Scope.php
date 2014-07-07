@@ -11,8 +11,8 @@
 
 namespace AuthBucket\Bundle\OAuth2Bundle\Tests\TestBundle\Entity;
 
-use Doctrine\ORM\Mapping as ORM;
 use AuthBucket\Bundle\OAuth2Bundle\Entity\Scope as AbstractScope;
+use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Scope

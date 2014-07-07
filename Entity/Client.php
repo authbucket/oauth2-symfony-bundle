@@ -11,8 +11,8 @@
 
 namespace AuthBucket\Bundle\OAuth2Bundle\Entity;
 
-use Doctrine\ORM\Mapping as ORM;
 use AuthBucket\OAuth2\Model\ClientInterface;
+use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Client
@@ -26,31 +26,32 @@ class Client implements ClientInterface
      *
      * @ORM\Column(name="client_id", type="string", length=255)
      */
-    protected $client_id;
+    protected $clientId;
 
     /**
      * @var string
      *
      * @ORM\Column(name="client_secret", type="string", length=255)
      */
-    protected $client_secret;
+    protected $clientSecret;
 
     /**
      * @var string
      *
      * @ORM\Column(name="redirect_uri", type="text")
      */
-    protected $redirect_uri;
+    protected $redirectUri;
 
     /**
      * Set client_id
      *
-     * @param string $client_id
+     * @param string $clientId
+     *
      * @return Client
      */
-    public function setClientId($client_id)
+    public function setClientId($clientId)
     {
-        $this->client_id = $client_id;
+        $this->clientId = $clientId;
 
         return $this;
     }
@@ -62,18 +63,19 @@ class Client implements ClientInterface
      */
     public function getClientId()
     {
-        return $this->client_id;
+        return $this->clientId;
     }
 
     /**
      * Set client_secret
      *
-     * @param string $client_secret
+     * @param string $clientSecret
+     *
      * @return Client
      */
-    public function setClientSecret($client_secret)
+    public function setClientSecret($clientSecret)
     {
-        $this->client_secret = $client_secret;
+        $this->clientSecret = $clientSecret;
 
         return $this;
     }
@@ -85,18 +87,19 @@ class Client implements ClientInterface
      */
     public function getClientSecret()
     {
-        return $this->client_secret;
+        return $this->clientSecret;
     }
 
     /**
      * Set redirect_uri
      *
-     * @param string $redirect_uri
+     * @param string $redirectUri
+     *
      * @return Client
      */
-    public function setRedirectUri($redirect_uri)
+    public function setRedirectUri($redirectUri)
     {
-        $this->redirect_uri = $redirect_uri;
+        $this->redirectUri = $redirectUri;
 
         return $this;
     }
@@ -108,6 +111,6 @@ class Client implements ClientInterface
      */
     public function getRedirectUri()
     {
-        return $this->redirect_uri;
+        return $this->redirectUri;
     }
 }

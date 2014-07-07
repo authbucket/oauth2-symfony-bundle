@@ -13,7 +13,6 @@ namespace AuthBucket\Bundle\OAuth2Bundle\Tests\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
 
 class TokenControllerTest extends WebTestCase
 {

@@ -11,9 +11,9 @@
 
 namespace AuthBucket\Bundle\OAuth2Bundle\Entity;
 
-use Doctrine\ORM\EntityRepository;
 use AuthBucket\OAuth2\Model\CodeInterface;
 use AuthBucket\OAuth2\Model\CodeManagerInterface;
+use Doctrine\ORM\EntityRepository;
 
 /**
  * CodeRepository
@@ -31,6 +31,7 @@ class CodeRepository extends EntityRepository implements CodeManagerInterface
     public function createCode()
     {
         $class = $this->getClass();
+
         return new $class();
     }
 

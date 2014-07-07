@@ -11,9 +11,9 @@
 
 namespace AuthBucket\Bundle\OAuth2Bundle\Entity;
 
-use Doctrine\ORM\EntityRepository;
 use AuthBucket\OAuth2\Model\ClientInterface;
 use AuthBucket\OAuth2\Model\ClientManagerInterface;
+use Doctrine\ORM\EntityRepository;
 
 /**
  * ClientRepository
@@ -31,6 +31,7 @@ class ClientRepository extends EntityRepository implements ClientManagerInterfac
     public function createClient()
     {
         $class = $this->getClass();
+
         return new $class();
     }
 
@@ -51,10 +52,10 @@ class ClientRepository extends EntityRepository implements ClientManagerInterfac
         $this->getEntityManager()->flush();
     }
 
-    public function findClientByClientId($client_id)
+    public function findClientByClientId($clientId)
     {
         return $this->findOneBy(array(
-            'client_id' => $client_id,
+            'clientId' => $clientId,
         ));
     }
 }

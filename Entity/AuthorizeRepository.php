@@ -11,9 +11,9 @@
 
 namespace AuthBucket\Bundle\OAuth2Bundle\Entity;
 
-use Doctrine\ORM\EntityRepository;
 use AuthBucket\OAuth2\Model\AuthorizeInterface;
 use AuthBucket\OAuth2\Model\AuthorizeManagerInterface;
+use Doctrine\ORM\EntityRepository;
 
 /**
  * AuthorizeRepository
@@ -31,6 +31,7 @@ class AuthorizeRepository extends EntityRepository implements AuthorizeManagerIn
     public function createAuthorize()
     {
         $class = $this->getClass();
+
         return new $class();
     }
 
@@ -51,10 +52,10 @@ class AuthorizeRepository extends EntityRepository implements AuthorizeManagerIn
         $this->getEntityManager()->flush();
     }
 
-    public function findAuthorizeByClientIdAndUsername($client_id, $username)
+    public function findAuthorizeByClientIdAndUsername($clientId, $username)
     {
         return $this->findOneBy(array(
-            'client_id' => $client_id,
+            'clientId' => $clientId,
             'username' => $username,
         ));
     }

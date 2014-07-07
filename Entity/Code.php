@@ -11,8 +11,8 @@
 
 namespace AuthBucket\Bundle\OAuth2Bundle\Entity;
 
-use Doctrine\ORM\Mapping as ORM;
 use AuthBucket\OAuth2\Model\CodeInterface;
+use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Code
@@ -31,9 +31,16 @@ class Code implements CodeInterface
     /**
      * @var string
      *
+     * @ORM\Column(name="state", type="string", length=255)
+     */
+    protected $state;
+
+    /**
+     * @var string
+     *
      * @ORM\Column(name="client_id", type="string", length=255)
      */
-    protected $client_id;
+    protected $clientId;
 
     /**
      * @var string
@@ -47,7 +54,7 @@ class Code implements CodeInterface
      *
      * @ORM\Column(name="redirect_uri", type="text")
      */
-    protected $redirect_uri;
+    protected $redirectUri;
 
     /**
      * @var \DateTime
@@ -67,6 +74,7 @@ class Code implements CodeInterface
      * Set code
      *
      * @param string $code
+     *
      * @return Code
      */
     public function setCode($code)
@@ -87,14 +95,39 @@ class Code implements CodeInterface
     }
 
     /**
+     * Set state
+     *
+     * @param string $state
+     *
+     * @return State
+     */
+    public function setState($state)
+    {
+        $this->state = $state;
+
+        return $this;
+    }
+
+    /**
+     * Get state
+     *
+     * @return string
+     */
+    public function getState()
+    {
+        return $this->state;
+    }
+
+    /**
      * Set client_id
      *
-     * @param string $client_id
+     * @param string $clientId
+     *
      * @return Code
      */
-    public function setClientId($client_id)
+    public function setClientId($clientId)
     {
-        $this->client_id = $client_id;
+        $this->clientId = $clientId;
 
         return $this;
     }
@@ -106,13 +139,14 @@ class Code implements CodeInterface
      */
     public function getClientId()
     {
-        return $this->client_id;
+        return $this->clientId;
     }
 
     /**
      * Set username
      *
      * @param string $username
+     *
      * @return Code
      */
     public function setUsername($username)
@@ -135,12 +169,13 @@ class Code implements CodeInterface
     /**
      * Set redirect_uri
      *
-     * @param string $redirect_uri
+     * @param string $redirectUri
+     *
      * @return Code
      */
-    public function setRedirectUri($redirect_uri)
+    public function setRedirectUri($redirectUri)
     {
-        $this->redirect_uri = $redirect_uri;
+        $this->redirectUri = $redirectUri;
 
         return $this;
     }
@@ -152,13 +187,14 @@ class Code implements CodeInterface
      */
     public function getRedirectUri()
     {
-        return $this->redirect_uri;
+        return $this->redirectUri;
     }
 
     /**
      * Set expires
      *
      * @param \DateTime $expires
+     *
      * @return Code
      */
     public function setExpires($expires)
@@ -182,6 +218,7 @@ class Code implements CodeInterface
      * Set scope
      *
      * @param array $scope
+     *
      * @return Code
      */
     public function setScope($scope)

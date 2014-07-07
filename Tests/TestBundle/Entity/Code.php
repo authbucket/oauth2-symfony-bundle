@@ -11,8 +11,8 @@
 
 namespace AuthBucket\Bundle\OAuth2Bundle\Tests\TestBundle\Entity;
 
-use Doctrine\ORM\Mapping as ORM;
 use AuthBucket\Bundle\OAuth2Bundle\Entity\Code as AbstractCode;
+use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Code
