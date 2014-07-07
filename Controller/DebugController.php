@@ -16,7 +16,7 @@ use Symfony\Component\HttpFoundation\Request;
 
 class DebugController extends Controller
 {
-    public function usernameAction(Request $request)
+    public function debugAction(Request $request)
     {
         return $this
             ->container
