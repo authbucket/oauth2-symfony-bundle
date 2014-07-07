@@ -11,9 +11,9 @@
 
 namespace AuthBucket\Bundle\OAuth2Bundle\Tests\TestBundle\DataFixtures\ORM;
 
+use AuthBucket\Bundle\OAuth2Bundle\Tests\TestBundle\Entity\AccessToken;
 use Doctrine\Common\DataFixtures\FixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
-use AuthBucket\Bundle\OAuth2Bundle\Tests\TestBundle\Entity\AccessToken;
 
 class AccessTokenFixture implements FixtureInterface
 {
@@ -25,6 +25,17 @@ class AccessTokenFixture implements FixtureInterface
             ->setClientId('http://democlient1.com/')
             ->setUsername('demousername1')
             ->setExpires(new \DateTime('+1 hours'))
+            ->setScope(array(
+                'demoscope1',
+            ));
+        $manager->persist($model);
+
+        $model = new AccessToken();
+        $model->setAccessToken('d2b58c4c6bc0cc9fefca2d558f1221a5')
+            ->setTokenType('bearer')
+            ->setClientId('http://democlient1.com/')
+            ->setUsername('demousername1')
+            ->setExpires(new \DateTime('-1 hours'))
             ->setScope(array(
                 'demoscope1',
             ));

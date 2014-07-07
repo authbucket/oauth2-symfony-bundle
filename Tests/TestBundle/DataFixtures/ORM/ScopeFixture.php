@@ -11,9 +11,9 @@
 
 namespace AuthBucket\Bundle\OAuth2Bundle\Tests\TestBundle\DataFixtures\ORM;
 
+use AuthBucket\Bundle\OAuth2Bundle\Tests\TestBundle\Entity\Scope;
 use Doctrine\Common\DataFixtures\FixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
-use AuthBucket\Bundle\OAuth2Bundle\Tests\TestBundle\Entity\Scope;
 
 class ScopeFixture implements FixtureInterface
 {
@@ -22,9 +22,11 @@ class ScopeFixture implements FixtureInterface
         $model = new Scope();
         $model->setScope('demoscope1');
         $manager->persist($model);
+
         $model = new Scope();
         $model->setScope('demoscope2');
         $manager->persist($model);
+
         $model = new Scope();
         $model->setScope('demoscope3');
         $manager->persist($model);

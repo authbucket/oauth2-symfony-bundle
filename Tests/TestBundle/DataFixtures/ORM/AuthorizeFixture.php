@@ -11,14 +11,56 @@
 
 namespace AuthBucket\Bundle\OAuth2Bundle\Tests\TestBundle\DataFixtures\ORM;
 
+use AuthBucket\Bundle\OAuth2Bundle\Tests\TestBundle\Entity\Authorize;
 use Doctrine\Common\DataFixtures\FixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
-use AuthBucket\Bundle\OAuth2Bundle\Tests\TestBundle\Entity\Authorize;
 
 class AuthorizeFixture implements FixtureInterface
 {
     public function load(ObjectManager $manager)
     {
+        $model = new Authorize();
+        $model->setClientId('51b2d34c3a661b5e111a694dfcb4b248')
+            ->setUsername('demousername1')
+            ->setScope(array(
+                'demoscope1',
+                'demoscope2',
+                'demoscope3',
+            ));
+        $manager->persist($model);
+
+        $model = new Authorize();
+        $model->setClientId('authorization_code_grant')
+            ->setUsername('demousername1')
+            ->setScope(array(
+                'demoscope1',
+            ));
+        $manager->persist($model);
+
+        $model = new Authorize();
+        $model->setClientId('implicit_grant')
+            ->setUsername('demousername1')
+            ->setScope(array(
+                'demoscope1',
+            ));
+        $manager->persist($model);
+
+        $model = new Authorize();
+        $model->setClientId('resource_owner_password_credentials_grant')
+            ->setUsername('demousername1')
+            ->setScope(array(
+                'demoscope1',
+            ));
+        $manager->persist($model);
+
+        $model = new Authorize();
+        $model->setClientId('client_credentials_grant')
+            ->setUsername('')
+            ->setScope(array(
+                'demoscope1',
+            ));
+        $manager->persist($model);
+
         $model = new Authorize();
         $model->setClientId('http://democlient1.com/')
             ->setUsername('demousername1')
@@ -26,6 +68,7 @@ class AuthorizeFixture implements FixtureInterface
                 'demoscope1',
             ));
         $manager->persist($model);
+
         $model = new Authorize();
         $model->setClientId('http://democlient2.com/')
             ->setUsername('demousername2')
@@ -34,6 +77,7 @@ class AuthorizeFixture implements FixtureInterface
                 'demoscope2',
             ));
         $manager->persist($model);
+
         $model = new Authorize();
         $model->setClientId('http://democlient3.com/')
             ->setUsername('demousername3')
@@ -43,6 +87,7 @@ class AuthorizeFixture implements FixtureInterface
                 'demoscope3',
             ));
         $manager->persist($model);
+
         $model = new Authorize();
         $model->setClientId('http://democlient1.com/')
             ->setUsername('')
