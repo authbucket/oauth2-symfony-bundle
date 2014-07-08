@@ -11,8 +11,8 @@
 
 namespace AuthBucket\Bundle\OAuth2Bundle\Tests\TokenType;
 
+use AuthBucket\Bundle\OAuth2Bundle\Tests\WebTestCase;
 use AuthBucket\OAuth2\TokenType\MacTokenTypeHandler;
-use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 use Symfony\Component\HttpFoundation\Request;
 
 class MacTokenTypeHandlerTest extends WebTestCase

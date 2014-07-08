@@ -11,7 +11,7 @@
 
 namespace AuthBucket\Bundle\OAuth2Bundle\Tests\GrantType;
 
-use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
+use AuthBucket\Bundle\OAuth2Bundle\Tests\WebTestCase;
 use Symfony\Component\HttpFoundation\Request;
 
 class ClientCredentialsGrantTypeHandlerTest extends WebTestCase
@@ -26,7 +26,7 @@ class ClientCredentialsGrantTypeHandlerTest extends WebTestCase
             'PHP_AUTH_USER' => 'http://democlient1.com/',
             'PHP_AUTH_PW' => 'demosecret1',
         );
-        $client = static::createClient();
+        $client = $this->createClient();
         $crawler = $client->request('POST', '/oauth2/token', $parameters, array(), $server);
         $this->assertEquals(400, $client->getResponse()->getStatusCode());
         $this->assertNotNull(json_decode($client->getResponse()->getContent()));
@@ -44,7 +44,7 @@ class ClientCredentialsGrantTypeHandlerTest extends WebTestCase
             'PHP_AUTH_USER' => 'http://democlient1.com/',
             'PHP_AUTH_PW' => 'demosecret1',
         );
-        $client = static::createClient();
+        $client = $this->createClient();
         $crawler = $client->request('POST', '/oauth2/token', $parameters, array(), $server);
         $this->assertEquals(400, $client->getResponse()->getStatusCode());
         $this->assertNotNull(json_decode($client->getResponse()->getContent()));
@@ -62,7 +62,7 @@ class ClientCredentialsGrantTypeHandlerTest extends WebTestCase
             'PHP_AUTH_USER' => 'http://democlient1.com/',
             'PHP_AUTH_PW' => 'demosecret1',
         );
-        $client = static::createClient();
+        $client = $this->createClient();
         $crawler = $client->request('POST', '/oauth2/token', $parameters, array(), $server);
         $this->assertEquals(200, $client->getResponse()->getStatusCode());
         $this->assertNotNull(json_decode($client->getResponse()->getContent()));

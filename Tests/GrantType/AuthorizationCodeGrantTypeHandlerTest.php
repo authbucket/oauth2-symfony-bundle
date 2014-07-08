@@ -11,7 +11,7 @@
 
 namespace AuthBucket\Bundle\OAuth2Bundle\Tests\GrantType;
 
-use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
+use AuthBucket\Bundle\OAuth2Bundle\Tests\WebTestCase;
 use Symfony\Component\HttpFoundation\Request;
 
 class AuthorizationCodeGrantTypeHandlerTest extends WebTestCase
@@ -26,7 +26,7 @@ class AuthorizationCodeGrantTypeHandlerTest extends WebTestCase
             'PHP_AUTH_USER' => 'http://democlient4.com/',
             'PHP_AUTH_PW' => 'demosecret4',
         );
-        $client = static::createClient();
+        $client = $this->createClient();
         $crawler = $client->request('POST', '/oauth2/token', $parameters, array(), $server);
         $this->assertEquals(400, $client->getResponse()->getStatusCode());
         $this->assertNotNull(json_decode($client->getResponse()->getContent()));
@@ -45,7 +45,7 @@ class AuthorizationCodeGrantTypeHandlerTest extends WebTestCase
             'PHP_AUTH_USER' => 'http://democlient2.com/',
             'PHP_AUTH_PW' => 'demosecret2',
         );
-        $client = static::createClient();
+        $client = $this->createClient();
         $crawler = $client->request('POST', '/oauth2/token', $parameters, array(), $server);
         $this->assertEquals(400, $client->getResponse()->getStatusCode());
         $this->assertNotNull(json_decode($client->getResponse()->getContent()));
@@ -64,7 +64,7 @@ class AuthorizationCodeGrantTypeHandlerTest extends WebTestCase
             'PHP_AUTH_USER' => 'http://democlient1.com/',
             'PHP_AUTH_PW' => 'demosecret1',
         );
-        $client = static::createClient();
+        $client = $this->createClient();
         $crawler = $client->request('POST', '/oauth2/token', $parameters, array(), $server);
         $this->assertEquals(400, $client->getResponse()->getStatusCode());
         $this->assertNotNull(json_decode($client->getResponse()->getContent()));
@@ -83,7 +83,7 @@ class AuthorizationCodeGrantTypeHandlerTest extends WebTestCase
             'PHP_AUTH_USER' => 'http://democlient3.com/',
             'PHP_AUTH_PW' => 'demosecret3',
         );
-        $client = static::createClient();
+        $client = $this->createClient();
         $crawler = $client->request('POST', '/oauth2/token', $parameters, array(), $server);
         $this->assertEquals(400, $client->getResponse()->getStatusCode());
         $this->assertNotNull(json_decode($client->getResponse()->getContent()));
@@ -102,7 +102,7 @@ class AuthorizationCodeGrantTypeHandlerTest extends WebTestCase
             'PHP_AUTH_USER' => 'http://democlient1.com/',
             'PHP_AUTH_PW' => 'demosecret1',
         );
-        $client = static::createClient();
+        $client = $this->createClient();
         $crawler = $client->request('POST', '/oauth2/token', $parameters, array(), $server);
         $this->assertEquals(400, $client->getResponse()->getStatusCode());
         $this->assertNotNull(json_decode($client->getResponse()->getContent()));
@@ -122,7 +122,7 @@ class AuthorizationCodeGrantTypeHandlerTest extends WebTestCase
             'PHP_AUTH_USER' => 'http://democlient2.com/',
             'PHP_AUTH_PW' => 'demosecret2',
         );
-        $client = static::createClient();
+        $client = $this->createClient();
         $crawler = $client->request('POST', '/oauth2/token', $parameters, array(), $server);
         $this->assertEquals(400, $client->getResponse()->getStatusCode());
         $this->assertNotNull(json_decode($client->getResponse()->getContent()));
@@ -142,7 +142,7 @@ class AuthorizationCodeGrantTypeHandlerTest extends WebTestCase
             'PHP_AUTH_USER' => 'http://democlient2.com/',
             'PHP_AUTH_PW' => 'demosecret2',
         );
-        $client = static::createClient();
+        $client = $this->createClient();
         $crawler = $client->request('POST', '/oauth2/token', $parameters, array(), $server);
         $this->assertEquals(400, $client->getResponse()->getStatusCode());
         $this->assertNotNull(json_decode($client->getResponse()->getContent()));
@@ -162,7 +162,7 @@ class AuthorizationCodeGrantTypeHandlerTest extends WebTestCase
             'PHP_AUTH_USER' => 'http://democlient2.com/',
             'PHP_AUTH_PW' => 'demosecret2',
         );
-        $client = static::createClient();
+        $client = $this->createClient();
         $crawler = $client->request('POST', '/oauth2/token', $parameters, array(), $server);
         $this->assertNotNull(json_decode($client->getResponse()->getContent()));
 
@@ -175,7 +175,7 @@ class AuthorizationCodeGrantTypeHandlerTest extends WebTestCase
             'state' => 'f0c68d250bcc729eb780a235371a9a55',
         );
         $server = array();
-        $client = static::createClient();
+        $client = $this->createClient();
         $crawler = $client->request('POST', '/oauth2/token', $parameters, array(), $server);
         $this->assertEquals(200, $client->getResponse()->getStatusCode());
         $this->assertNotNull(json_decode($client->getResponse()->getContent()));
@@ -191,7 +191,7 @@ class AuthorizationCodeGrantTypeHandlerTest extends WebTestCase
             'state' => 'f0c68d250bcc729eb780a235371a9a55',
         );
         $server = array();
-        $client = static::createClient();
+        $client = $this->createClient();
         $crawler = $client->request('POST', '/oauth2/token', $parameters, array(), $server);
         $this->assertEquals(200, $client->getResponse()->getStatusCode());
         $this->assertNotNull(json_decode($client->getResponse()->getContent()));
@@ -208,7 +208,7 @@ class AuthorizationCodeGrantTypeHandlerTest extends WebTestCase
             'state' => '08fb55e26c84f8cb060b7803bc177af8',
         );
         $server = array();
-        $client = static::createClient();
+        $client = $this->createClient();
         $crawler = $client->request('POST', '/oauth2/token', $parameters, array(), $server);
         $this->assertEquals(200, $client->getResponse()->getStatusCode());
         $this->assertNotNull(json_decode($client->getResponse()->getContent()));

@@ -11,7 +11,7 @@
 
 namespace AuthBucket\Bundle\OAuth2Bundle\Tests\ResponseType;
 
-use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
+use AuthBucket\Bundle\OAuth2Bundle\Tests\WebTestCase;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Session\Session;
 use Symfony\Component\HttpFoundation\Session\Storage\MockFileSessionStorage;
@@ -28,7 +28,7 @@ class TokenResponseTypeHandlerTest extends WebTestCase
             'PHP_AUTH_USER' => 'demousername1',
             'PHP_AUTH_PW' => 'demopassword1',
         );
-        $client = static::createClient();
+        $client = $this->createClient();
         $crawler = $client->request('GET', '/oauth2/authorize/http', $parameters, array(), $server);
         $this->assertEquals(400, $client->getResponse()->getStatusCode());
         $this->assertNotNull(json_decode($client->getResponse()->getContent()));
@@ -47,7 +47,7 @@ class TokenResponseTypeHandlerTest extends WebTestCase
             'PHP_AUTH_USER' => 'demousername1',
             'PHP_AUTH_PW' => 'demopassword1',
         );
-        $client = static::createClient();
+        $client = $this->createClient();
         $crawler = $client->request('GET', '/oauth2/authorize/http', $parameters, array(), $server);
         $this->assertEquals(401, $client->getResponse()->getStatusCode());
         $this->assertNotNull(json_decode($client->getResponse()->getContent()));
@@ -65,7 +65,7 @@ class TokenResponseTypeHandlerTest extends WebTestCase
             'PHP_AUTH_USER' => 'demousername1',
             'PHP_AUTH_PW' => 'demopassword1',
         );
-        $client = static::createClient();
+        $client = $this->createClient();
         $crawler = $client->request('GET', '/oauth2/authorize/http', $parameters, array(), $server);
         $this->assertEquals(400, $client->getResponse()->getStatusCode());
         $this->assertNotNull(json_decode($client->getResponse()->getContent()));
@@ -84,7 +84,7 @@ class TokenResponseTypeHandlerTest extends WebTestCase
             'PHP_AUTH_USER' => 'demousername1',
             'PHP_AUTH_PW' => 'demopassword1',
         );
-        $client = static::createClient();
+        $client = $this->createClient();
         $crawler = $client->request('GET', '/oauth2/authorize/http', $parameters, array(), $server);
         $this->assertEquals(400, $client->getResponse()->getStatusCode());
         $this->assertNotNull(json_decode($client->getResponse()->getContent()));
@@ -109,7 +109,7 @@ class TokenResponseTypeHandlerTest extends WebTestCase
             'PHP_AUTH_USER' => 'demousername1',
             'PHP_AUTH_PW' => 'demopassword1',
         );
-        $client = static::createClient();
+        $client = $this->createClient();
         $crawler = $client->request('GET', '/oauth2/authorize/http', $parameters, array(), $server);
         $this->assertTrue($client->getResponse()->isRedirect());
         $authResponse = Request::create($client->getResponse()->headers->get('Location'), 'GET');
@@ -134,7 +134,7 @@ class TokenResponseTypeHandlerTest extends WebTestCase
             'PHP_AUTH_USER' => 'demousername1',
             'PHP_AUTH_PW' => 'demopassword1',
         );
-        $client = static::createClient();
+        $client = $this->createClient();
         $crawler = $client->request('GET', '/oauth2/authorize/http', $parameters, array(), $server);
         $this->assertTrue($client->getResponse()->isRedirect());
         $authResponse = Request::create($client->getResponse()->headers->get('Location'), 'GET');
@@ -155,7 +155,7 @@ class TokenResponseTypeHandlerTest extends WebTestCase
             'PHP_AUTH_USER' => 'demousername3',
             'PHP_AUTH_PW' => 'demopassword3',
         );
-        $client = static::createClient();
+        $client = $this->createClient();
         $crawler = $client->request('GET', '/oauth2/authorize/http', $parameters, array(), $server);
         $this->assertTrue($client->getResponse()->isRedirect());
         $authResponse = Request::create($client->getResponse()->headers->get('Location'), 'GET');
@@ -178,7 +178,7 @@ class TokenResponseTypeHandlerTest extends WebTestCase
             'PHP_AUTH_USER' => 'demousername1',
             'PHP_AUTH_PW' => 'demopassword1',
         );
-        $client = static::createClient();
+        $client = $this->createClient();
         $crawler = $client->request('GET', '/oauth2/authorize/http', $parameters, array(), $server);
         $this->assertTrue($client->getResponse()->isRedirect());
 
@@ -193,7 +193,7 @@ class TokenResponseTypeHandlerTest extends WebTestCase
             'PHP_AUTH_USER' => 'demousername1',
             'PHP_AUTH_PW' => 'demopassword1',
         );
-        $client = static::createClient();
+        $client = $this->createClient();
         $crawler = $client->request('GET', '/oauth2/authorize/http', $parameters, array(), $server);
         $this->assertTrue($client->getResponse()->isRedirect());
 
@@ -208,7 +208,7 @@ class TokenResponseTypeHandlerTest extends WebTestCase
             'PHP_AUTH_USER' => 'demousername3',
             'PHP_AUTH_PW' => 'demopassword3',
         );
-        $client = static::createClient();
+        $client = $this->createClient();
         $crawler = $client->request('GET', '/oauth2/authorize/http', $parameters, array(), $server);
         $this->assertTrue($client->getResponse()->isRedirect());
 
@@ -223,7 +223,7 @@ class TokenResponseTypeHandlerTest extends WebTestCase
             'PHP_AUTH_USER' => 'demousername3',
             'PHP_AUTH_PW' => 'demopassword3',
         );
-        $client = static::createClient();
+        $client = $this->createClient();
         $crawler = $client->request('GET', '/oauth2/authorize/http', $parameters, array(), $server);
         $this->assertTrue($client->getResponse()->isRedirect());
     }
@@ -238,7 +238,7 @@ class TokenResponseTypeHandlerTest extends WebTestCase
             'PHP_AUTH_USER' => 'demousername1',
             'PHP_AUTH_PW' => 'demopassword1',
         );
-        $client = static::createClient();
+        $client = $this->createClient();
         $crawler = $client->request('GET', '/oauth2/authorize/http', $parameters, array(), $server);
         $this->assertTrue($client->getResponse()->isRedirect());
     }
@@ -254,7 +254,7 @@ class TokenResponseTypeHandlerTest extends WebTestCase
             'PHP_AUTH_USER' => 'demousername1',
             'PHP_AUTH_PW' => 'demopassword1',
         );
-        $client = static::createClient();
+        $client = $this->createClient();
         $crawler = $client->request('GET', '/oauth2/authorize/http', $parameters, array(), $server);
         $this->assertTrue($client->getResponse()->isRedirect());
     }
@@ -266,7 +266,7 @@ class TokenResponseTypeHandlerTest extends WebTestCase
         $session->start();
 
         // Must use single shared client for continue session.
-        $client = static::createClient();
+        $client = $this->createClient();
 
         $crawler = $client->request('GET', '/oauth2/login');
         $buttonCrawlerNode = $crawler->selectButton('submit');

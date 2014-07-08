@@ -11,7 +11,6 @@
 
 namespace AuthBucket\Bundle\OAuth2Bundle\Tests;
 
-use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Session\Session;
@@ -42,7 +41,7 @@ class OAuth2Test extends WebTestCase
             'PHP_AUTH_USER' => 'demousername1',
             'PHP_AUTH_PW' => 'demopassword1',
         );
-        $client = static::createClient();
+        $client = $this->createClient();
         $crawler = $client->request('GET', '/oauth2/authorize/http', $parameters, array(), $server);
         $this->assertTrue($client->getResponse()->isRedirect());
 
@@ -64,7 +63,7 @@ class OAuth2Test extends WebTestCase
             'state' => $codeResponse['state'],
         );
         $server = array();
-        $client = static::createClient();
+        $client = $this->createClient();
         $crawler = $client->request('POST', '/oauth2/token', $parameters, array(), $server);
         $this->assertNotNull(json_decode($client->getResponse()->getContent()));
 
@@ -79,7 +78,7 @@ class OAuth2Test extends WebTestCase
             'PHP_AUTH_USER' => 'http://democlient1.com/',
             'PHP_AUTH_PW' => 'demosecret1',
         );
-        $client = static::createClient();
+        $client = $this->createClient();
         $crawler = $client->request('POST', '/oauth2/token', $parameters, array(), $server);
 
         // Check basic token response that can simply compare.
@@ -94,7 +93,7 @@ class OAuth2Test extends WebTestCase
         $server = array(
             'HTTP_Authorization' => implode(' ', array('Bearer', $tokenResponse['access_token'])),
         );
-        $client = static::createClient();
+        $client = $this->createClient();
         $crawler = $client->request('GET', '/oauth2/debug', $parameters, array(), $server);
         $debugResponse = json_decode($client->getResponse()->getContent(), true);
         $this->assertEquals('demousername1', $debugResponse['username']);
@@ -118,7 +117,7 @@ class OAuth2Test extends WebTestCase
             'PHP_AUTH_USER' => 'demousername1',
             'PHP_AUTH_PW' => 'demopassword1',
         );
-        $client = static::createClient();
+        $client = $this->createClient();
         $crawler = $client->request('GET', '/oauth2/authorize/http', $parameters, array(), $server);
         $this->assertTrue($client->getResponse()->isRedirect());
 
@@ -142,7 +141,7 @@ class OAuth2Test extends WebTestCase
         $server = array(
             'HTTP_Authorization' => implode(' ', array('Bearer', $tokenResponse['access_token'])),
         );
-        $client = static::createClient();
+        $client = $this->createClient();
         $crawler = $client->request('GET', '/oauth2/debug', $parameters, array(), $server);
         $debugResponse = json_decode($client->getResponse()->getContent(), true);
         $this->assertEquals('demousername1', $debugResponse['username']);
@@ -161,7 +160,7 @@ class OAuth2Test extends WebTestCase
             'PHP_AUTH_USER' => 'http://democlient1.com/',
             'PHP_AUTH_PW' => 'demosecret1',
         );
-        $client = static::createClient();
+        $client = $this->createClient();
         $crawler = $client->request('POST', '/oauth2/token', $parameters, array(), $server);
         $this->assertNotNull(json_decode($client->getResponse()->getContent()));
 
@@ -176,7 +175,7 @@ class OAuth2Test extends WebTestCase
             'PHP_AUTH_USER' => 'http://democlient1.com/',
             'PHP_AUTH_PW' => 'demosecret1',
         );
-        $client = static::createClient();
+        $client = $this->createClient();
         $crawler = $client->request('POST', '/oauth2/token', $parameters, array(), $server);
 
         // Check basic token response that can simply compare.
@@ -191,7 +190,7 @@ class OAuth2Test extends WebTestCase
         $server = array(
             'HTTP_Authorization' => implode(' ', array('Bearer', $tokenResponse['access_token'])),
         );
-        $client = static::createClient();
+        $client = $this->createClient();
         $crawler = $client->request('GET', '/oauth2/debug', $parameters, array(), $server);
         $debugResponse = json_decode($client->getResponse()->getContent(), true);
         $this->assertEquals('demousername1', $debugResponse['username']);
@@ -208,7 +207,7 @@ class OAuth2Test extends WebTestCase
             'PHP_AUTH_USER' => 'http://democlient1.com/',
             'PHP_AUTH_PW' => 'demosecret1',
         );
-        $client = static::createClient();
+        $client = $this->createClient();
         $crawler = $client->request('POST', '/oauth2/token', $parameters, array(), $server);
         $this->assertNotNull(json_decode($client->getResponse()->getContent()));
 
@@ -223,7 +222,7 @@ class OAuth2Test extends WebTestCase
             'PHP_AUTH_USER' => 'http://democlient1.com/',
             'PHP_AUTH_PW' => 'demosecret1',
         );
-        $client = static::createClient();
+        $client = $this->createClient();
         $crawler = $client->request('POST', '/oauth2/token', $parameters, array(), $server);
 
         // Check basic token response that can simply compare.
@@ -238,7 +237,7 @@ class OAuth2Test extends WebTestCase
         $server = array(
             'HTTP_Authorization' => implode(' ', array('Bearer', $tokenResponse['access_token'])),
         );
-        $client = static::createClient();
+        $client = $this->createClient();
         $crawler = $client->request('GET', '/oauth2/debug', $parameters, array(), $server);
         $debugResponse = json_decode($client->getResponse()->getContent(), true);
         $this->assertEquals('', $debugResponse['username']);

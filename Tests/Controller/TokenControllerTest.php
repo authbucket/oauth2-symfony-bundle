@@ -11,7 +11,7 @@
 
 namespace AuthBucket\Bundle\OAuth2Bundle\Tests\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
+use AuthBucket\Bundle\OAuth2Bundle\Tests\WebTestCase;
 use Symfony\Component\HttpFoundation\Request;
 
 class TokenControllerTest extends WebTestCase
@@ -26,7 +26,7 @@ class TokenControllerTest extends WebTestCase
             'PHP_AUTH_USER' => 'http://democlient2.com/',
             'PHP_AUTH_PW' => 'demosecret2',
         );
-        $client = static::createClient();
+        $client = $this->createClient();
         $crawler = $client->request('POST', '/oauth2/token', $parameters, array(), $server);
         $this->assertNotNull(json_decode($client->getResponse()->getContent()));
         $tokenResponse = json_decode($client->getResponse()->getContent(), true);
@@ -39,7 +39,7 @@ class TokenControllerTest extends WebTestCase
             'grant_type' => 'foo',
         );
         $server = array();
-        $client = static::createClient();
+        $client = $this->createClient();
         $crawler = $client->request('POST', '/oauth2/token', $parameters, array(), $server);
         $this->assertNotNull(json_decode($client->getResponse()->getContent()));
         $tokenResponse = json_decode($client->getResponse()->getContent(), true);
@@ -52,7 +52,7 @@ class TokenControllerTest extends WebTestCase
             'grant_type' => 'authorization_code',
         );
         $server = array();
-        $client = static::createClient();
+        $client = $this->createClient();
         $crawler = $client->request('POST', '/oauth2/token', $parameters, array(), $server);
         $this->assertNotNull(json_decode($client->getResponse()->getContent()));
         $tokenResponse = json_decode($client->getResponse()->getContent(), true);
@@ -70,7 +70,7 @@ class TokenControllerTest extends WebTestCase
             'PHP_AUTH_USER' => 'http://democlient1.com/',
             'PHP_AUTH_PW' => 'demosecret1',
         );
-        $client = static::createClient();
+        $client = $this->createClient();
         $crawler = $client->request('POST', '/oauth2/token', $parameters, array(), $server);
         $this->assertNotNull(json_decode($client->getResponse()->getContent()));
         $tokenResponse = json_decode($client->getResponse()->getContent(), true);
@@ -86,7 +86,7 @@ class TokenControllerTest extends WebTestCase
             'PHP_AUTH_USER' => 'http://badclient1.com/',
             'PHP_AUTH_PW' => 'badsecret1',
         );
-        $client = static::createClient();
+        $client = $this->createClient();
         $crawler = $client->request('POST', '/oauth2/token', $parameters, array(), $server);
         $this->assertNotNull(json_decode($client->getResponse()->getContent()));
         $tokenResponse = json_decode($client->getResponse()->getContent(), true);
@@ -101,7 +101,7 @@ class TokenControllerTest extends WebTestCase
             'client_secret' => 'badsecret1',
         );
         $server = array();
-        $client = static::createClient();
+        $client = $this->createClient();
         $crawler = $client->request('POST', '/oauth2/token', $parameters, array(), $server);
         $this->assertNotNull(json_decode($client->getResponse()->getContent()));
         $tokenResponse = json_decode($client->getResponse()->getContent(), true);

@@ -11,7 +11,7 @@
 
 namespace AuthBucket\Bundle\OAuth2Bundle\Tests\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
+use AuthBucket\Bundle\OAuth2Bundle\Tests\WebTestCase;
 use Symfony\Component\HttpFoundation\Request;
 
 class DebugControllerTest extends WebTestCase
@@ -24,7 +24,7 @@ class DebugControllerTest extends WebTestCase
         $server = array(
             'HTTP_Authorization' => implode(' ', array('Bearer', 'eeb5aa92bbb4b56373b9e0d00bc02d93')),
         );
-        $client = static::createClient();
+        $client = $this->createClient();
         $crawler = $client->request('GET', '/oauth2/debug', $parameters, array(), $server);
         $resourceResponse = json_decode($client->getResponse()->getContent(), true);
         $this->assertEquals('invalid_request', $resourceResponse['error']);
@@ -38,7 +38,7 @@ class DebugControllerTest extends WebTestCase
         $server = array(
             'HTTP_Authorization' => implode(' ', array('Bearer', 'eeb5aa92bbb4b56373b9e0d00bc02d93')),
         );
-        $client = static::createClient();
+        $client = $this->createClient();
         $crawler = $client->request('GET', '/oauth2/debug', $parameters, array(), $server);
         $resourceResponse = json_decode($client->getResponse()->getContent(), true);
         $this->assertEquals('invalid_request', $resourceResponse['error']);
@@ -52,7 +52,7 @@ class DebugControllerTest extends WebTestCase
         $server = array(
             'HTTP_Authorization' => implode(' ', array('Bearer', 'eeb5aa92bbb4b56373b9e0d00bc02d93')),
         );
-        $client = static::createClient();
+        $client = $this->createClient();
         $crawler = $client->request('GET', '/oauth2/debug', $parameters, array(), $server);
         $resourceResponse = json_decode($client->getResponse()->getContent(), true);
         $this->assertEquals('invalid_request', $resourceResponse['error']);
@@ -64,7 +64,7 @@ class DebugControllerTest extends WebTestCase
         $server = array(
             'HTTP_Authorization' => implode(' ', array('Bearer', 'eeb5aa92bbb4b56373b9e0d00bc02d93')),
         );
-        $client = static::createClient();
+        $client = $this->createClient();
         $crawler = $client->request('GET', '/oauth2/debug', $parameters, array(), $server);
         $resourceResponse = json_decode($client->getResponse()->getContent(), true);
         $this->assertEquals('demousername1', $resourceResponse['username']);
@@ -78,7 +78,7 @@ class DebugControllerTest extends WebTestCase
         $server = array(
             'HTTP_Authorization' => implode(' ', array('Bearer', 'eeb5aa92bbb4b56373b9e0d00bc02d93')),
         );
-        $client = static::createClient();
+        $client = $this->createClient();
         $crawler = $client->request('GET', '/oauth2/debug', $parameters, array(), $server);
         $resourceResponse = json_decode($client->getResponse()->getContent(), true);
         $this->assertEquals('demousername1', $resourceResponse['username']);
