@@ -21,11 +21,11 @@ class BearerTokenTypeHandlerTest extends WebTestCase
         $parameters = array();
         $server = array();
         $client = static::createClient();
-        $crawler = $client->request('GET', '/oauth2/resource/username', $parameters, array(), $server);
+        $crawler = $client->request('GET', '/oauth2/debug', $parameters, array(), $server);
         $this->assertEquals(400, $client->getResponse()->getStatusCode());
         $this->assertNotNull(json_decode($client->getResponse()->getContent()));
-        $token_response = json_decode($client->getResponse()->getContent(), true);
-        $this->assertEquals('invalid_request', $token_response['error']);
+        $tokenResponse = json_decode($client->getResponse()->getContent(), true);
+        $this->assertEquals('invalid_request', $tokenResponse['error']);
     }
 
     public function testExceptionDuplicateToken()
@@ -37,55 +37,61 @@ class BearerTokenTypeHandlerTest extends WebTestCase
             'HTTP_Authorization' => 'Bearer eeb5aa92bbb4b56373b9e0d00bc02d93',
         );
         $client = static::createClient();
-        $crawler = $client->request('GET', '/oauth2/resource/username', $parameters, array(), $server);
+        $crawler = $client->request('GET', '/oauth2/debug', $parameters, array(), $server);
         $this->assertEquals(400, $client->getResponse()->getStatusCode());
         $this->assertNotNull(json_decode($client->getResponse()->getContent()));
-        $token_response = json_decode($client->getResponse()->getContent(), true);
-        $this->assertEquals('invalid_request', $token_response['error']);
+        $tokenResponse = json_decode($client->getResponse()->getContent(), true);
+        $this->assertEquals('invalid_request', $tokenResponse['error']);
     }
 
     public function testAuthorizationHeader()
     {
-        $parameters = array();
+        $parameters = array(
+            'debug_token' => 'eeb5aa92bbb4b56373b9e0d00bc02d93',
+        );
         $server = array(
             'HTTP_Authorization' => 'Bearer eeb5aa92bbb4b56373b9e0d00bc02d93',
         );
         $client = static::createClient();
-        $crawler = $client->request('GET', '/oauth2/resource/username', $parameters, array(), $server);
-        $resource_response = json_decode($client->getResponse()->getContent(), true);
-        $this->assertEquals('demousername1', $resource_response['username']);
+        $crawler = $client->request('GET', '/oauth2/debug', $parameters, array(), $server);
+        $resourceResponse = json_decode($client->getResponse()->getContent(), true);
+        $this->assertEquals('demousername1', $resourceResponse['username']);
 
-        $parameters = array();
+        $parameters = array(
+            'debug_token' => 'eeb5aa92bbb4b56373b9e0d00bc02d93',
+        );
         $server = array(
             'HTTP_Authorization' => 'Bearer eeb5aa92bbb4b56373b9e0d00bc02d93',
         );
         $client = static::createClient();
-        $crawler = $client->request('POST', '/oauth2/resource/username', $parameters, array(), $server);
-        $resource_response = json_decode($client->getResponse()->getContent(), true);
-        $this->assertEquals('demousername1', $resource_response['username']);
+        $crawler = $client->request('POST', '/oauth2/debug', $parameters, array(), $server);
+        $resourceResponse = json_decode($client->getResponse()->getContent(), true);
+        $this->assertEquals('demousername1', $resourceResponse['username']);
     }
 
     public function testGet()
     {
         $parameters = array(
+            'debug_token' => 'eeb5aa92bbb4b56373b9e0d00bc02d93',
             'access_token' => 'eeb5aa92bbb4b56373b9e0d00bc02d93',
         );
         $server = array();
         $client = static::createClient();
-        $crawler = $client->request('GET', '/oauth2/resource/username', $parameters, array(), $server);
-        $resource_response = json_decode($client->getResponse()->getContent(), true);
-        $this->assertEquals('demousername1', $resource_response['username']);
+        $crawler = $client->request('GET', '/oauth2/debug', $parameters, array(), $server);
+        $resourceResponse = json_decode($client->getResponse()->getContent(), true);
+        $this->assertEquals('demousername1', $resourceResponse['username']);
     }
 
     public function testPost()
     {
         $parameters = array(
+            'debug_token' => 'eeb5aa92bbb4b56373b9e0d00bc02d93',
             'access_token' => 'eeb5aa92bbb4b56373b9e0d00bc02d93',
         );
         $server = array();
         $client = static::createClient();
-        $crawler = $client->request('POST', '/oauth2/resource/username', $parameters, array(), $server);
-        $resource_response = json_decode($client->getResponse()->getContent(), true);
-        $this->assertEquals('demousername1', $resource_response['username']);
+        $crawler = $client->request('POST', '/oauth2/debug', $parameters, array(), $server);
+        $resourceResponse = json_decode($client->getResponse()->getContent(), true);
+        $this->assertEquals('demousername1', $resourceResponse['username']);
     }
 }

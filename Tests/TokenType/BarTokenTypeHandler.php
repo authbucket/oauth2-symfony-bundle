@@ -23,7 +23,7 @@ class BarTokenTypeHandler implements TokenTypeHandlerInterface
 
     public function createAccessToken(
         ModelManagerFactoryInterface $modelManagerFactory,
-        $client_id,
+        $clientId,
         $username = '',
         $scope = array(),
         $state = null,
