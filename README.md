@@ -1,8 +1,8 @@
-AuthBucket2Bundle
-=================
+OAuth2Bundle
+============
 
 [![Build
-Status](https://travis-ci.org/authbucket/oauth2-bundle.png?branch=master)](https://travis-ci.org/authbucket/oauth2-bundle)
+Status](https://travis-ci.org/authbucket/oauth2-bundle.svg?branch=master)](https://travis-ci.org/authbucket/oauth2-bundle)
 [![Coverage
 Status](https://img.shields.io/coveralls/authbucket/oauth2-bundle.svg)](https://coveralls.io/r/authbucket/oauth2-bundle?branch=master)
 [![Dependency
@@ -13,10 +13,10 @@ Version](https://poser.pugx.org/authbucket/oauth2-bundle/v/stable.png)](https://
 Downloads](https://poser.pugx.org/authbucket/oauth2-bundle/downloads.png)](https://packagist.org/packages/authbucket/oauth2-bundle)
 [![License](https://poser.pugx.org/authbucket/oauth2-bundle/license.png)](https://packagist.org/packages/authbucket/oauth2-bundle)
 
-[AuthBucket2Bundle](https://github.com/authbucket/oauth2-bundle) is a
-Symfony2 Bundle, which integrate
-[AuthBucket2](https://github.com/authbucket/oauth2) as easy as possible
-into your [Symfony2](http://www.symfony.com) Project.
+[AuthBucket\\Bundle\\OAuth2Bundle](https://github.com/authbucket/oauth2-bundle)
+is a Symfony Bundle, which integrate
+[AuthBucket\\OAuth2](https://github.com/authbucket/oauth2) as easy as
+possible into your [Symfony](http://symfony.com) Project.
 
 Installation
 ------------
@@ -40,7 +40,7 @@ You also have to add `OAuth2Bundle` to your `AppKernel.php`:
         public function registerBundles()
         {
             $bundles = array(
-                new AuthBucket\Bundle\OAuth2Bundle\OAuth2Bundle()
+                new AuthBucket\Bundle\OAuth2Bundle\OAuth2Bundle(),
             );
             return $bundles;
         }
@@ -50,12 +50,12 @@ Demo
 ----
 
 This library bundle with a [Silex](http://silex.sensiolabs.org/) based
-[OAuth2ServiceProvider](https://github.com/authbucket/oauth2/blob/master/src/AuthBucket/OAuth2/Provider/OAuth2ServiceProvider.php).
-Read though [Demo](http://oauth2.authbucket.com/demo) for more
+[OAuth2ServiceProvider](https://github.com/authbucket/oauth2-bundle/blob/master/src/AuthBucket/OAuth2/Provider/OAuth2ServiceProvider.php).
+Read though [Demo](http://oauth2-bundle.authbucket.com/demo) for more
 information.
 
 You may also run the demo locally. Open a console and execute the
-following command to install the latest version in the oauth2/
+following command to install the latest version in the oauth2-bundle/
 directory:
 
     $ composer create-project authbucket/oauth2-bundle oauth2-bundle/ dev-master
@@ -90,7 +90,8 @@ To built the documents locally, execute the following command:
 
     $ vendor/bin/sami.php update app/config/config_sami.php
 
-Open `build/oauth2/index.html` with your browser for the documents.
+Open `build/oauth2-bundle/index.html` with your browser for the
+documents.
 
 Tests
 -----
@@ -110,7 +111,7 @@ Open `build/logs/html` with your browser for the coverage report.
 References
 ----------
 
--   [RFC6749 OAuth2.0](http://tools.ietf.org/html/rfc6749)
+-   [RFC6749](http://tools.ietf.org/html/rfc6749)
 -   [GitHub](https://github.com/authbucket/oauth2-bundle)
 -   [Packagist](https://packagist.org/packages/authbucket/oauth2-bundle)
 -   [Demo](http://oauth2-bundle.authbucket.com/demo)

@@ -28,7 +28,10 @@
             <directory>.</directory>
             <exclude>
                 <directory>./Tests</directory>
+                <directory>./app</directory>
+                <directory>./build</directory>
                 <directory>./vendor</directory>
+                <directory>./web</directory>
             </exclude>
         </whitelist>
     </filter>

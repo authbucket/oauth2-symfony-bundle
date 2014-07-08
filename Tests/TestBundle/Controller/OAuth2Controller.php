@@ -21,7 +21,7 @@ class OAuth2Controller extends Controller
     {
         return $this->render('TestBundle:oauth2:index.html.twig');
     }
-    
+
     public function oauth2LoginAction(Request $request)
     {
         $session = $request->getSession();
