@@ -1,6 +1,29 @@
-login:
-    pattern:    /oauth2/login
-    defaults:   { _controller:TestBundle:Security:login }
+index:
+    pattern:    /
+    defaults:   { _controller:TestBundle:Default:index }
 
-login_check:
+admin_refresh_database:
+    pattern:    /admin/refresh_database
+
+demo_index:
+    pattern:    /demo
+    defaults:   { _controller:TestBundle:Demo:index }
+
+client_index:
+    pattern:    /client
+    defaults:   { _controller:TestBundle:Client:index }
+
+resource_index:
+    pattern:    /resource
+    defaults:   { _controller:TestBundle:Resource:index }
+
+oauth2_index:
+    pattern:    /oauth2
+    defaults:   { _controller:TestBundle:OAuth2:index }
+
+oauth2_login:
+    pattern:    /oauth2/login
+    defaults:   { _controller:TestBundle:OAuth2:oauth2Login }
+
+oauth2_authorize_form_login_check:
     pattern:    /oauth2/authorize/form/login_check

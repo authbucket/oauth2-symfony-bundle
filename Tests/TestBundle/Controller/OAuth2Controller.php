@@ -15,9 +15,14 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Security\Core\SecurityContextInterface;
 
-class SecurityController extends Controller
+class OAuth2Controller extends Controller
 {
-    public function loginAction(Request $request)
+    public function oauth2IndexAction(Request $request)
+    {
+        return $this->render('TestBundle:oauth2:index.html.twig');
+    }
+    
+    public function oauth2LoginAction(Request $request)
     {
         $session = $request->getSession();
 
@@ -31,7 +36,7 @@ class SecurityController extends Controller
             $session->remove(SecurityContextInterface::AUTHENTICATION_ERROR);
         }
 
-        return $this->render('TestBundle:Security:login.html.twig', array(
+        return $this->render('TestBundle:oauth2:login.html.twig', array(
             'error' => $error,
             'last_username' => $session->get(SecurityContextInterface::LAST_USERNAME),
         ));
