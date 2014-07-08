@@ -24,5 +24,5 @@ return new Sami($iterator, array(
     'build_dir' => __DIR__ . '/../../build/oauth2-bundle/%version%',
     'cache_dir' => __DIR__ . '/../../build/cache/oauth2-bundle/%version%',
     'include_parent_data' => false,
-    'default_opened_level' => 2,
+    'default_opened_level' => 3,
 ));
