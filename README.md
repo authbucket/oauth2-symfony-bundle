@@ -49,8 +49,8 @@ You also have to add `OAuth2Bundle` to your `AppKernel.php`:
 Demo
 ----
 
-This library bundle with a [Silex](http://silex.sensiolabs.org/) based
-[OAuth2ServiceProvider](https://github.com/authbucket/oauth2-bundle/blob/master/src/AuthBucket/OAuth2/Provider/OAuth2ServiceProvider.php).
+This library bundle with a [Symfony](http://symfony.com/) based
+[AuthBucketOAuth2Bundle](https://github.com/authbucket/oauth2-bundle/blob/master/AuthBucketOAuth2Bundle.php).
 Read though [Demo](http://oauth2-bundle.authbucket.com/demo) for more
 information.
 
@@ -71,7 +71,8 @@ probably using PHP 5.3. That's ok! But the built-in web server is only
 available for PHP 5.4.0 or higher. If you have an older version of PHP
 or if you prefer a traditional web server such as Apache or Nginx, read
 the [Configuring a web
-server](http://silex.sensiolabs.org/doc/web_servers.html) article.
+server](http://symfony.com/doc/current/cookbook/configuration/web_server_configuration.html)
+article.
 
 Open your browser and access the <http://localhost:8000> URL to see the
 Welcome page of demo application.
