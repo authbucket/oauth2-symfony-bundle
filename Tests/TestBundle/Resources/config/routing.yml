@@ -7,19 +7,19 @@ admin_refresh_database:
 
 demo_index:
     pattern:    /demo
-    defaults:   { _controller:TestBundle:Demo:index }
+    defaults:   { _controller:TestBundle:Demo:demoIndex }
 
 client_index:
     pattern:    /client
-    defaults:   { _controller:TestBundle:Client:index }
+    defaults:   { _controller:TestBundle:Client:clientIndex }
 
 resource_index:
     pattern:    /resource
-    defaults:   { _controller:TestBundle:Resource:index }
+    defaults:   { _controller:TestBundle:Resource:resourceIndex }
 
 oauth2_index:
     pattern:    /oauth2
-    defaults:   { _controller:TestBundle:OAuth2:index }
+    defaults:   { _controller:TestBundle:OAuth2:oauth2Index }
 
 oauth2_login:
     pattern:    /oauth2/login

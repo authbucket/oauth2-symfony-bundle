@@ -16,7 +16,7 @@ use Symfony\Component\HttpFoundation\Request;
 
 class ResourceController extends Controller
 {
-    public function clientIndexAction(Request $request)
+    public function resourceIndexAction(Request $request)
     {
         return $this->render('TestBundle:resource:index.html.twig');
     }
