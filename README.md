@@ -1,5 +1,5 @@
-OAuth2Bundle
-============
+AuthBucket\\Bundle\\OAuth2Bundle
+================================
 
 [![Build
 Status](https://travis-ci.org/authbucket/oauth2-bundle.svg?branch=master)](https://travis-ci.org/authbucket/oauth2-bundle)
@@ -40,7 +40,7 @@ You also have to add `OAuth2Bundle` to your `AppKernel.php`:
         public function registerBundles()
         {
             $bundles = array(
-                new AuthBucket\Bundle\OAuth2Bundle\OAuth2Bundle(),
+                new AuthBucket\Bundle\OAuth2Bundle\AuthBucketOAuth2Bundle(),
             );
             return $bundles;
         }

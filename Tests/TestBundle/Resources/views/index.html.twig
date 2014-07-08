@@ -1,12 +1,15 @@
 {% extends 'TestBundle::html.html.twig' %}
 
-{% set head_title = 'AuthBucket\\OAuth2' %}
+{% set head_title = 'AuthBucket\\Bundle\\OAuth2Bundle' %}
 
 {% block page %}
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <h1 id="oauth2bundle" class="page-header">OAuth2Bundle</h1>
+                <h1 id="oauth2bundle" class="page-header">
+                    <span class="hidden-xs hidden-sm visible-md-inline visible-lg-inline">AuthBucket\Bundle\OAuth2Bundle</span>
+                    <span class="visible-xs-inline visible-sm-inline hidden-md hidden-lg">OAuth2Bundle</span>
+                </h1>
                 <p>
                     <a href="https://travis-ci.org/authbucket/oauth2-bundle"><img src="https://travis-ci.org/authbucket/oauth2-bundle.svg?branch=master" alt="Build Status" /></a>
                     <a href="https://coveralls.io/r/authbucket/oauth2-bundle?branch=master"><img src="https://img.shields.io/coveralls/authbucket/oauth2-bundle.svg" alt="Coverage Status" /></a>
@@ -31,7 +34,7 @@
     public function registerBundles()
     {
         $bundles = array(
-            new AuthBucket\Bundle\OAuth2Bundle\OAuth2Bundle(),
+            new AuthBucket\Bundle\OAuth2Bundle\AuthBucketOAuth2Bundle(),
         );
         return $bundles;
     }
