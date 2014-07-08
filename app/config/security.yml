@@ -45,4 +45,4 @@ security:
 
         oauth2_debug:
             pattern:            ^/oauth2/debug$
-            oauth2_resource:    true
+            oauth2_debug:       true

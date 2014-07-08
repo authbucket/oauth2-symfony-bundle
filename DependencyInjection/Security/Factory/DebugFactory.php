@@ -16,17 +16,17 @@ use Symfony\Component\Config\Definition\Builder\NodeDefinition;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\DefinitionDecorator;
 
-class ResourceFactory implements SecurityFactoryInterface
+class DebugFactory implements SecurityFactoryInterface
 {
     public function create(ContainerBuilder $container, $id, $config, $userProvider, $defaultEntryPoint)
     {
-        $providerId = 'security.authentication.provider.resource.' . $id;
+        $providerId = 'security.authentication.provider.debug.' . $id;
         $container
-            ->setDefinition($providerId, new DefinitionDecorator('security.authentication.provider.resource'))
+            ->setDefinition($providerId, new DefinitionDecorator('security.authentication.provider.debug'))
             ->replaceArgument(1, $id);
 
-        $listenerId = 'security.authentication.listener.resource.' . $id;
-        $container->setDefinition($listenerId, new DefinitionDecorator('security.authentication.listener.resource'))
+        $listenerId = 'security.authentication.listener.debug.' . $id;
+        $container->setDefinition($listenerId, new DefinitionDecorator('security.authentication.listener.debug'))
             ->replaceArgument(2, $id);
 
         return array($providerId, $listenerId, $defaultEntryPoint);
@@ -39,7 +39,7 @@ class ResourceFactory implements SecurityFactoryInterface
 
     public function getKey()
     {
-        return 'oauth2-resource';
+        return 'oauth2-debug';
     }
 
     public function addConfiguration(NodeDefinition $node)

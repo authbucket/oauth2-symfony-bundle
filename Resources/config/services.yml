@@ -12,8 +12,8 @@ parameters:
     security.authentication.provider.token.class: AuthBucket\OAuth2\Security\Authentication\Provider\TokenProvider
     security.authentication.listener.token.class: AuthBucket\OAuth2\Security\Firewall\TokenListener
 
-    security.authentication.provider.resource.class: AuthBucket\OAuth2\Security\Authentication\Provider\ResourceProvider
-    security.authentication.listener.resource.class: AuthBucket\OAuth2\Security\Firewall\ResourceListener
+    security.authentication.provider.debug.class: AuthBucket\OAuth2\Security\Authentication\Provider\DebugProvider
+    security.authentication.listener.debug.class: AuthBucket\OAuth2\Security\Firewall\DebugListener
 
 services:
     authbucket_oauth2.exception_listener:
@@ -48,9 +48,9 @@ services:
         class: %security.authentication.listener.token.class%
         arguments: ["@security.context", "@security.authentication.manager", ""]
 
-    security.authentication.provider.resource:
-        class: %security.authentication.provider.resource.class%
+    security.authentication.provider.debug:
+        class: %security.authentication.provider.debug.class%
         arguments: ["@authbucket_oauth2.model_manager.factory", ""]
-    security.authentication.listener.resource:
-        class: %security.authentication.listener.resource.class%
+    security.authentication.listener.debug:
+        class: %security.authentication.listener.debug.class%
         arguments: ["@security.context", "@security.authentication.manager", "", "@authbucket_oauth2.token_handler.factory"]
