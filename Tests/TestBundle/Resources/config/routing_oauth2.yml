@@ -17,4 +17,3 @@ oauth2_authorize_http:
     pattern: /oauth2/authorize/http
     defaults: { _controller: AuthBucketOAuth2Bundle:Authorize:authorize }
     methods: [GET]
-
