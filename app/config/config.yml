@@ -2,8 +2,6 @@ imports:
     - { resource: security.yml }
 
 framework:
-    #esi:             ~
-    #translator:      { fallback: %locale% }
     secret:          fbe0b58410c7435d8b0afde3a2108fade7
     router:
         resource: "%kernel.root_dir%/config/routing.yml"
@@ -13,7 +11,6 @@ framework:
     validation:      { enable_annotations: true }
     templating:
         engines: ['twig']
-        #assets_version: SomeVersionScheme
     default_locale:  en
     trusted_proxies: ~
     fragments:       ~
@@ -25,8 +22,14 @@ framework:
 
 # Twig Configuration
 twig:
-    debug:            %kernel.debug%
-    strict_variables: %kernel.debug%
+    debug:            true
+    strict_variables: true
+
+services:
+    twig.extension.debug:
+        class: Twig_Extension_Debug
+        tags:
+            - { name: twig.extension }
 
 # Doctrine Configuration
 doctrine:
