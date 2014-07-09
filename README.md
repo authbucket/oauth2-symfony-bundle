@@ -8,10 +8,10 @@ Status](https://img.shields.io/coveralls/authbucket/oauth2-bundle.svg)](https://
 [![Dependency
 Status](https://www.versioneye.com/php/authbucket:oauth2-bundle/dev-master/badge.svg)](https://www.versioneye.com/php/authbucket:oauth2-bundle/dev-master)
 [![Latest Stable
-Version](https://poser.pugx.org/authbucket/oauth2-bundle/v/stable.png)](https://packagist.org/packages/authbucket/oauth2-bundle)
+Version](https://poser.pugx.org/authbucket/oauth2-bundle/v/stable.svg)](https://packagist.org/packages/authbucket/oauth2-bundle)
 [![Total
-Downloads](https://poser.pugx.org/authbucket/oauth2-bundle/downloads.png)](https://packagist.org/packages/authbucket/oauth2-bundle)
-[![License](https://poser.pugx.org/authbucket/oauth2-bundle/license.png)](https://packagist.org/packages/authbucket/oauth2-bundle)
+Downloads](https://poser.pugx.org/authbucket/oauth2-bundle/downloads.svg)](https://packagist.org/packages/authbucket/oauth2-bundle)
+[![License](https://poser.pugx.org/authbucket/oauth2-bundle/license.svg)](https://packagist.org/packages/authbucket/oauth2-bundle)
 
 [AuthBucket\\Bundle\\OAuth2Bundle](https://github.com/authbucket/oauth2-bundle)
 is a Symfony Bundle, which integrate
@@ -74,10 +74,10 @@ the [Configuring a web
 server](http://symfony.com/doc/current/cookbook/configuration/web_server_configuration.html)
 article.
 
-Open your browser and access the <http://localhost:8000> URL to see the
+Open your browser and access the <http://127.0.0.1:8000> URL to see the
 Welcome page of demo application.
 
-Also access <http://localhost:8000/admin/refresh_database> to initialize
+Also access <http://127.0.0.1:8000/admin/refresh_database> to initialize
 the bundled SQLite database with user account `admin`:`secrete`.
 
 Documentation
@@ -123,5 +123,7 @@ References
 License
 -------
 
--   The bundle is licensed under the [MIT
-    License](http://opensource.org/licenses/MIT)
+-   Code released under
+    [MIT](https://github.com/authbucket/oauth2/blob/master/LICENSE)
+-   Docs released under [CC BY-NC-SA
+    3.0](http://creativecommons.org/licenses/by-nc-sa/3.0/)
