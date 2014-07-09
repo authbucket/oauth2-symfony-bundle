@@ -33,7 +33,7 @@ Here is a minimal example of a `composer.json`:
         }
     }
 
-You also have to add `OAuth2Bundle` to your `AppKernel.php`:
+You also have to add `AuthBucketOAuth2Bundle` to your `AppKernel.php`:
 
     class AppKernel extends Kernel
     {
