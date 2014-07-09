@@ -20,4 +20,39 @@ class DemoController extends Controller
     {
         return $this->render('TestBundle:demo:index.html.twig');
     }
+    
+    public function demoResponseTypeCodeAction(Request $request)
+    {
+        return $this->render('TestBundle:demo:index.html.twig');
+    }
+    
+    public function demoResponseTypeTokenAction(Request $request)
+    {
+        return $this->render('TestBundle:demo:index.html.twig');
+    }
+    
+    public function demoGrantTypeAuthorizationCodeAction(Request $request)
+    {
+        return $this->render('TestBundle:demo:index.html.twig');
+    }
+    
+    public function demoGrantTypePasswordAction(Request $request)
+    {
+        return $this->render('TestBundle:demo:index.html.twig');
+    }
+    
+    public function demoGrantTypeClientCredentialsAction(Request $request)
+    {
+        return $this->render('TestBundle:demo:index.html.twig');
+    }
+    
+    public function demoGrantTypeRefreshTokenAction(Request $request)
+    {
+        return $this->render('TestBundle:demo:index.html.twig');
+    }
+    
+    public function demoDebugAction(Request $request)
+    {
+        return $this->render('TestBundle:demo:index.html.twig');
+    }
 }
