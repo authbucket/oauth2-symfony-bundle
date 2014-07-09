@@ -1,10 +1,5 @@
-oauth2_authorize_http:
-    pattern: /oauth2/authorize/http
-    defaults: { _controller: AuthBucketOAuth2Bundle:Authorize:authorize }
-    methods: [GET]
-
-oauth2_authorize_form:
-    pattern: /oauth2/authorize/form
+oauth2_authorize:
+    pattern: /oauth2/authorize
     defaults: { _controller: AuthBucketOAuth2Bundle:Authorize:authorize }
     methods: [GET]
 

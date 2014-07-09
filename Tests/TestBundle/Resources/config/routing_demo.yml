@@ -1,0 +1,24 @@
+demo_index:
+    pattern:    /demo
+    defaults:   { _controller:TestBundle:Demo:demoIndex }
+
+demo_response_type_code:
+    pattern:    /demo/response_type/code
+
+demo_response_type_token:
+    pattern:    /demo/response_type/token
+
+demo_grant_type_authorization_code:
+    pattern:    /demo/grant_type/authorization_code
+
+demo_grant_type_password:
+    pattern:    /demo/grant_type/password
+
+demo_grant_type_client_credentials:
+    pattern:    /demo/grant_type/client_credentials
+
+demo_grant_type_refresh_token:
+    pattern:    /demo/grant_type/refresh_token
+
+demo_debug:
+    pattern:    /demo/debug

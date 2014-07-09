@@ -1,0 +1,3 @@
+client_index:
+    pattern:    /client
+    defaults:   { _controller:TestBundle:Client:clientIndex }

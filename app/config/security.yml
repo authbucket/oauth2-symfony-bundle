@@ -30,14 +30,14 @@ security:
             http_basic:
                 provider:       default
 
-        oauth2_authorize_form:
-            pattern:            ^/oauth2/authorize/form
+        oauth2_authorize:
+            pattern:            ^/oauth2/authorize
             form_login:
                 login_path:     /oauth2/login
-                check_path:     /oauth2/authorize/form/login_check
+                check_path:     /oauth2/authorize/login_check
                 provider:       default
             logout:
-                path:           /oauth2/authorize/form/logout
+                path:           /oauth2/authorize/logout
 
         oauth2_token:
             pattern:            ^/oauth2/token$

@@ -1,0 +1,20 @@
+authbucketoauth2bundle:
+    resource:   "@AuthBucketOAuth2Bundle/Resources/config/routing.yml"
+    prefix:     /
+
+oauth2_index:
+    pattern:    /oauth2
+    defaults:   { _controller:TestBundle:OAuth2:oauth2Index }
+
+oauth2_login:
+    pattern:    /oauth2/login
+    defaults:   { _controller:TestBundle:OAuth2:oauth2Login }
+
+oauth2_authorize_login_check:
+    pattern:    /oauth2/authorize/login_check
+
+oauth2_authorize_http:
+    pattern: /oauth2/authorize/http
+    defaults: { _controller: AuthBucketOAuth2Bundle:Authorize:authorize }
+    methods: [GET]
+

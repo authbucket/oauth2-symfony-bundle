@@ -1,7 +1,3 @@
-authbucket_oauth2:
-    resource:   "@AuthBucketOAuth2Bundle/Resources/config/routing.yml"
+testbundle:
     prefix:     /
-
-test:
     resource:   "@TestBundle/Resources/config/routing.yml"
-    prefix:     /
