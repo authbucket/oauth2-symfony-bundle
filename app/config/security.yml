@@ -46,3 +46,7 @@ security:
         oauth2_debug:
             pattern:            ^/oauth2/debug$
             oauth2_debug:       true
+
+        oauth2_resource:
+            pattern:            ^/resource/debug$
+            oauth2_resource:    true

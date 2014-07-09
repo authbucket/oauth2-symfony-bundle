@@ -1,3 +1,7 @@
 resource_index:
     pattern:    /resource
     defaults:   { _controller:TestBundle:Resource:resourceIndex }
+
+resource_debug:
+    pattern:    /resource/debug
+    defaults:   { _controller: AuthBucketOAuth2Bundle:Debug:debug }
