@@ -17,36 +17,44 @@ security:
 
     firewalls:
         admin:
-            pattern:            ^/admin
+            pattern:                ^/admin
             http_basic:
-                provider:       admin
+                provider:           admin
 
         oauth2_login:
-            pattern:            ^/oauth2/login$
-            anonymous:          true
+            pattern:                ^/oauth2/login$
+            anonymous:              true
 
         oauth2_authorize_http:
-            pattern:            ^/oauth2/authorize/http$
+            pattern:                ^/oauth2/authorize/http$
             http_basic:
-                provider:       default
+                provider:           default
 
         oauth2_authorize:
-            pattern:            ^/oauth2/authorize
+            pattern:                ^/oauth2/authorize
             form_login:
-                login_path:     /oauth2/login
-                check_path:     /oauth2/authorize/login_check
-                provider:       default
+                login_path:         /oauth2/login
+                check_path:         /oauth2/authorize/login_check
+                provider:           default
             logout:
-                path:           /oauth2/authorize/logout
+                path:               /oauth2/authorize/logout
 
         oauth2_token:
-            pattern:            ^/oauth2/token$
-            oauth2_token:       true
+            pattern:                ^/oauth2/token$
+            oauth2_token:           true
 
         oauth2_debug:
-            pattern:            ^/oauth2/debug$
-            oauth2_debug:       true
+            pattern:                ^/oauth2/debug$
+            oauth2_resource:
+                resource_type:      model
+                scope:              [ demoscope1, demoscope2, demoscope3 ]
 
         oauth2_resource:
-            pattern:            ^/resource/debug$
-            oauth2_resource:    true
+            pattern:                ^/resource/debug$
+            oauth2_resource:
+                resource_type:      debug_endpoint
+                scope:              [ demoscope1, demoscope2, demoscope3 ]
+                options:
+                    request_uri:    /oauth2/debug
+                    client_id:      ~
+                    client_secret:  ~

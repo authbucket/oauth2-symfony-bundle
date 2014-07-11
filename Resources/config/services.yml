@@ -4,6 +4,7 @@ parameters:
     authbucket_oauth2.response_handler.factory.class: AuthBucket\OAuth2\ResponseType\ResponseTypeHandlerFactory
     authbucket_oauth2.grant_handler.factory.class: AuthBucket\OAuth2\GrantType\GrantTypeHandlerFactory
     authbucket_oauth2.token_handler.factory.class: AuthBucket\OAuth2\TokenType\TokenTypeHandlerFactory
+    authbucket_oauth2.resource_handler.factory.class: AuthBucket\OAuth2\ResourceType\ResourceTypeHandlerFactory
 
     authbucket_oauth2.authorize_controller.class: AuthBucket\OAuth2\Controller\AuthorizeController
     authbucket_oauth2.token_controller.class: AuthBucket\OAuth2\Controller\TokenController
@@ -33,6 +34,9 @@ services:
     authbucket_oauth2.token_handler.factory:
         class: %authbucket_oauth2.token_handler.factory.class%
         arguments: ["%authbucket_oauth2.token_handler%"]
+    authbucket_oauth2.resource_handler.factory:
+        class: %authbucket_oauth2.resource_handler.factory.class%
+        arguments: ["%authbucket_oauth2.resource_handler%"]
 
     authbucket_oauth2.authorize_controller:
         class: %authbucket_oauth2.authorize_controller.class%

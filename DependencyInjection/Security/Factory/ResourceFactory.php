@@ -44,5 +44,24 @@ class ResourceFactory implements SecurityFactoryInterface
 
     public function addConfiguration(NodeDefinition $node)
     {
+        $node
+            ->children()
+                ->scalarNode('resource_type')->defaultValue('model')->end()
+            ->end();
+
+        $node
+            ->children()
+                ->arrayNode('scope')
+                    ->prototype('scalar')->end()
+                ->end()
+            ->end();
+
+        $node
+            ->children()
+                ->arrayNode('options')
+                    ->useAttributeAsKey('key')
+                    ->prototype('scalar')->end()
+                ->end()
+            ->end();
     }
 }

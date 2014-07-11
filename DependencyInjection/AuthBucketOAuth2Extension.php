@@ -44,6 +44,7 @@ class AuthBucketOAuth2Extension extends Extension
         $container->setParameter('authbucket_oauth2.response_handler', $config['response_handler']);
         $container->setParameter('authbucket_oauth2.grant_handler', $config['grant_handler']);
         $container->setParameter('authbucket_oauth2.token_handler', $config['token_handler']);
+        $container->setParameter('authbucket_oauth2.resource_handler', $config['resource_handler']);
 
         if (!empty($config['user_provider'])) {
             $container->getDefinition('authbucket_oauth2.token_controller')

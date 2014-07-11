@@ -63,6 +63,13 @@ class Configuration implements ConfigurationInterface
                 ->end()
             ->end();
 
+        $rootNode
+            ->children()
+                ->arrayNode('resource_handler')
+                    ->prototype('scalar')->end()
+                ->end()
+            ->end();
+
         return $treeBuilder;
     }
 }

@@ -66,3 +66,7 @@ authbucket_oauth2:
     token_handler:
         bearer:             AuthBucket\OAuth2\TokenType\BearerTokenTypeHandler
         mac:                AuthBucket\OAuth2\TokenType\MacTokenTypeHandler
+
+    resource_handler:
+        model:              AuthBucket\OAuth2\ResourceType\ModelResourceTypeHandler
+        debug_endpoint:     AuthBucket\OAuth2\ResourceType\DebugEndpointResourceTypeHandler
