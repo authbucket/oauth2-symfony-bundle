@@ -45,16 +45,11 @@ security:
 
         oauth2_debug:
             pattern:                ^/oauth2/debug$
-            oauth2_resource:
-                resource_type:      model
-                scope:              [ demoscope1, demoscope2, demoscope3 ]
+            oauth2_resource:        ~
 
         oauth2_resource:
             pattern:                ^/resource/debug$
             oauth2_resource:
                 resource_type:      debug_endpoint
-                scope:              [ demoscope1, demoscope2, demoscope3 ]
-                options:
-                    request_uri:    /oauth2/debug
-                    client_id:      ~
-                    client_secret:  ~
+                scope:              []
+                options:            []

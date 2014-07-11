@@ -64,7 +64,7 @@ services:
 
     security.authentication.provider.resource:
         class: %security.authentication.provider.resource.class%
-        arguments: ["@authbucket_oauth2.model_manager.factory", ""]
+        arguments: ["@authbucket_oauth2.model_manager.factory", "", null, null, null]
     security.authentication.listener.resource:
         class: %security.authentication.listener.resource.class%
         arguments: ["@security.context", "@security.authentication.manager", "", "@authbucket_oauth2.token_handler.factory"]

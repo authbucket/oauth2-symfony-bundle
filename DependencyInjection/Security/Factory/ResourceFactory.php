@@ -20,10 +20,19 @@ class ResourceFactory implements SecurityFactoryInterface
 {
     public function create(ContainerBuilder $container, $id, $config, $userProvider, $defaultEntryPoint)
     {
+        $config =  array_merge(array(
+            'resource_type' => 'model',
+            'scope' => array(),
+            'options' => array(),
+        ), (array) $config);
+
         $providerId = 'security.authentication.provider.resource.' . $id;
         $container
             ->setDefinition($providerId, new DefinitionDecorator('security.authentication.provider.resource'))
-            ->replaceArgument(1, $id);
+            ->replaceArgument(1, $id)
+            ->replaceArgument(2, $config['resource_type'])
+            ->replaceArgument(3, $config['scope'])
+            ->replaceArgument(4, $config['options']);
 
         $listenerId = 'security.authentication.listener.resource.' . $id;
         $container->setDefinition($listenerId, new DefinitionDecorator('security.authentication.listener.resource'))
