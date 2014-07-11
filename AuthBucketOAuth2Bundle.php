@@ -12,7 +12,6 @@
 namespace AuthBucket\Bundle\OAuth2Bundle;
 
 use AuthBucket\Bundle\OAuth2Bundle\DependencyInjection\AuthBucketOAuth2Extension;
-use AuthBucket\Bundle\OAuth2Bundle\DependencyInjection\Security\Factory\DebugFactory;
 use AuthBucket\Bundle\OAuth2Bundle\DependencyInjection\Security\Factory\ResourceFactory;
 use AuthBucket\Bundle\OAuth2Bundle\DependencyInjection\Security\Factory\TokenFactory;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
@@ -30,7 +29,6 @@ class AuthBucketOAuth2Bundle extends Bundle
         parent::build($container);
 
         $extension = $container->getExtension('security');
-        $extension->addSecurityListenerFactory(new DebugFactory());
         $extension->addSecurityListenerFactory(new ResourceFactory());
         $extension->addSecurityListenerFactory(new TokenFactory());
     }
