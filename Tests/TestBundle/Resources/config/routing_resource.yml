@@ -5,3 +5,7 @@ resource_index:
 resource_debug:
     pattern:    /resource/debug
     defaults:   { _controller: AuthBucketOAuth2Bundle:Debug:debug }
+
+resource_debug_model:
+    pattern:    /resource/debug/model
+    defaults:   { _controller: AuthBucketOAuth2Bundle:Debug:debug }

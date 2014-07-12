@@ -47,9 +47,12 @@ security:
             pattern:                ^/oauth2/debug$
             oauth2_resource:        ~
 
-        oauth2_resource:
+        resource_debug:
             pattern:                ^/resource/debug$
+            oauth2_resource:        ~
+
+        resource_debug_model:
+            pattern:                ^/resource/debug/model$
             oauth2_resource:
-                resource_type:      debug_endpoint
-                scope:              []
-                options:            []
+                resource_type:      model
+                scope:              [ demoscope1 ]
