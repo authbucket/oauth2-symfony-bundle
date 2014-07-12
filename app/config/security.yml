@@ -23,7 +23,7 @@ security:
 
         oauth2_login:
             pattern:                ^/oauth2/login$
-            anonymous:              true
+            anonymous:              ~
 
         oauth2_authorize_http:
             pattern:                ^/oauth2/authorize/http$
@@ -41,11 +41,13 @@ security:
 
         oauth2_token:
             pattern:                ^/oauth2/token$
-            oauth2_token:           true
+            oauth2_token:           ~
 
         oauth2_debug:
             pattern:                ^/oauth2/debug$
-            oauth2_resource:        ~
+            oauth2_resource:        
+                resource_type:      model
+                scope:              [ debug ]
 
         resource_debug:
             pattern:                ^/resource/debug$
@@ -56,3 +58,13 @@ security:
             oauth2_resource:
                 resource_type:      model
                 scope:              [ demoscope1 ]
+
+        resource_debug_debug_endpoint:
+            pattern:                ^/resource/debug/debug_endpoint$
+            oauth2_resource:
+                resource_type:      debug_endpoint
+                scope:              [ demoscope1 ]
+                options:
+                    request_uri:    /oauth2/debug
+                    client_id:      'http://democlient1.com/'
+                    client_secret:  'demosecret1'
