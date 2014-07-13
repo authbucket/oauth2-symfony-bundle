@@ -124,6 +124,6 @@ License
 -------
 
 -   Code released under
-    [MIT](https://github.com/authbucket/oauth2/blob/master/LICENSE)
+    [MIT](https://github.com/authbucket/oauth2-bundle/blob/master/LICENSE)
 -   Docs released under [CC BY-NC-SA
     3.0](http://creativecommons.org/licenses/by-nc-sa/3.0/)

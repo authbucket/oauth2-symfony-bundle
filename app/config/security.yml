@@ -45,7 +45,7 @@ security:
 
         oauth2_debug:
             pattern:                ^/oauth2/debug$
-            oauth2_resource:        
+            oauth2_resource:
                 resource_type:      model
                 scope:              [ debug ]
 
