@@ -9,3 +9,19 @@ resource_debug:
 resource_debug_model:
     pattern:    /resource/debug/model
     defaults:   { _controller: AuthBucketOAuth2Bundle:Debug:debug }
+
+resource_debug_debug_endpoint:
+    pattern:    /resource/debug/debug_endpoint
+    defaults:   { _controller: AuthBucketOAuth2Bundle:Debug:debug }
+
+resource_debug_debug_endpoint_cache:
+    pattern:    /resource/debug/debug_endpoint/cache
+    defaults:   { _controller: AuthBucketOAuth2Bundle:Debug:debug }
+
+resource_debug_debug_endpoint_invalid_options:
+    pattern:    /resource/debug/debug_endpoint/invalid_options
+    defaults:   { _controller: AuthBucketOAuth2Bundle:Debug:debug }
+
+resource_debug_debug_endpoint_invalid_client:
+    pattern:    /resource/debug/debug_endpoint/invalid_client
+    defaults:   { _controller: AuthBucketOAuth2Bundle:Debug:debug }
