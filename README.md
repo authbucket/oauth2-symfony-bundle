@@ -13,10 +13,10 @@ Version](https://poser.pugx.org/authbucket/oauth2-bundle/v/stable.svg)](https://
 Downloads](https://poser.pugx.org/authbucket/oauth2-bundle/downloads.svg)](https://packagist.org/packages/authbucket/oauth2-bundle)
 [![License](https://poser.pugx.org/authbucket/oauth2-bundle/license.svg)](https://packagist.org/packages/authbucket/oauth2-bundle)
 
-[AuthBucket\\Bundle\\OAuth2Bundle](https://github.com/authbucket/oauth2-bundle)
+[AuthBucket\\Bundle\\OAuth2Bundle](http://oauth2-bundle.authbucket.com/)
 is a Symfony Bundle, which integrate
-[AuthBucket\\OAuth2](https://github.com/authbucket/oauth2) as easy as
-possible into your [Symfony](http://symfony.com) Project.
+[AuthBucket\\OAuth2](http://oauth2.authbucket.com/) as easy as possible
+into your [Symfony](http://symfony.com) Project.
 
 Installation
 ------------
@@ -83,7 +83,7 @@ the bundled SQLite database with user account `admin`:`secrete`.
 Documentation
 -------------
 
-OAuth2's documentation is built with
+OAuth2Bundle's documentation is built with
 [Sami](https://github.com/fabpot/Sami) and publicly hosted on [GitHub
 Pages](http://authbucket.github.io/oauth2-bundle).
 
@@ -113,10 +113,10 @@ References
 ----------
 
 -   [RFC6749](http://tools.ietf.org/html/rfc6749)
--   [GitHub](https://github.com/authbucket/oauth2-bundle)
--   [Packagist](https://packagist.org/packages/authbucket/oauth2-bundle)
 -   [Demo](http://oauth2-bundle.authbucket.com/demo)
 -   [API](http://authbucket.github.io/oauth2-bundle/)
+-   [GitHub](https://github.com/authbucket/oauth2-bundle)
+-   [Packagist](https://packagist.org/packages/authbucket/oauth2-bundle)
 -   [Travis CI](https://travis-ci.org/authbucket/oauth2-bundle)
 -   [Coveralls](https://coveralls.io/r/authbucket/oauth2-bundle)
 
