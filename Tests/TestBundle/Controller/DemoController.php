@@ -33,7 +33,7 @@ class DemoController extends Controller
             'response_type' => 'code',
             'client_id' => 'authorization_code_grant',
             'redirect_uri' => $request->getUriForPath('/demo/response_type/code'),
-            'scope' => 'demoscope1',
+            'scope' => 'debug',
             'state' => $session->getId(),
         );
         $server = array(
@@ -67,7 +67,7 @@ class DemoController extends Controller
             'response_type' => 'token',
             'client_id' => 'implicit_grant',
             'redirect_uri' => $request->getUriForPath('/demo/response_type/token'),
-            'scope' => 'demoscope1',
+            'scope' => 'debug',
             'state' => $session->getId(),
         );
         $server = array(
@@ -133,7 +133,7 @@ class DemoController extends Controller
             'grant_type' => 'password',
             'username' => 'demousername1',
             'password' => 'demopassword1',
-            'scope' => 'demoscope1',
+            'scope' => 'debug',
             'state' => $session->getId(),
         );
         $server = array(
@@ -166,7 +166,7 @@ class DemoController extends Controller
     {
         $parameters = array(
             'grant_type' => 'client_credentials',
-            'scope' => 'demoscope1',
+            'scope' => 'debug',
         );
         $server = array(
             'PHP_AUTH_USER' => 'client_credentials_grant',
