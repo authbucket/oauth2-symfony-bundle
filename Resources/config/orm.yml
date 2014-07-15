@@ -1,7 +1,4 @@
-parameters:
-    authbucket_oauth2.model_manager.factory.class: AuthBucket\Bundle\OAuth2Bundle\Entity\ModelManagerFactory
-
 services:
     authbucket_oauth2.model_manager.factory:
-        class: %authbucket_oauth2.model_manager.factory.class%
+        class: AuthBucket\Bundle\OAuth2Bundle\Entity\ModelManagerFactory
         arguments: ["@doctrine.orm.entity_manager", "%authbucket_oauth2.model%"]
