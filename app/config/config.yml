@@ -10,7 +10,7 @@ framework:
     csrf_protection: ~
     validation:      { enable_annotations: true }
     templating:
-        engines: ['twig']
+        engines: [ 'twig' ]
     default_locale:  en
     trusted_proxies: ~
     fragments:       ~
@@ -35,14 +35,15 @@ services:
 doctrine:
     dbal:
         driver: pdo_sqlite
-        path:   %kernel.cache_dir%/.ht.sqlite
+        path:   "%kernel.cache_dir%/.ht.sqlite"
 
     orm:
-        auto_generate_proxy_classes: %kernel.debug%
+        auto_generate_proxy_classes: "%kernel.debug%"
         auto_mapping: true
 
 authbucket_oauth2:
     driver:                 orm
+    authorize_scope_uri:    ~
     user_provider:          security.user.provider.concrete.default
     model:
         access_token:       AuthBucket\Bundle\OAuth2Bundle\Tests\TestBundle\Entity\AccessToken

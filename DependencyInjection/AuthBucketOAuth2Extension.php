@@ -29,26 +29,33 @@ class AuthBucketOAuth2Extension extends Extension
      */
     public function load(array $configs, ContainerBuilder $container)
     {
-        $configuration = new Configuration();
-        $config = $this->processConfiguration($configuration, $configs);
+        $config = $this->processConfiguration(
+            new Configuration(),
+            $configs
+        );
 
-        $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
-
-        if (in_array($config['driver'], array('orm'))) {
-            $loader->load(sprintf('%s.yml', $config['driver']));
-        }
+        $loader = new Loader\YamlFileLoader(
+            $container,
+            new FileLocator(__DIR__ . '/../Resources/config')
+        );
 
         $loader->load('services.yml');
 
-        foreach (array('model', 'response_handler', 'grant_handler', 'token_handler', 'resource_handler') as $key) {
-            if (!empty($config[$key])) {
-                $container->setParameter('authbucket_oauth2.' . $key, $config[$key]);
+        if (!empty($config['driver'])) {
+            if (in_array($config['driver'], array('orm'))) {
+                $loader->load(sprintf('%s.yml', $config['driver']));
             }
+            unset($config['driver']);
         }
 
         if (!empty($config['user_provider'])) {
             $container->getDefinition('authbucket_oauth2.token_controller')
                 ->replaceArgument(6, new Reference($config['user_provider']));
+            unset($config['user_provider']);
+        }
+
+        foreach (array_filter($config) as $key => $value) {
+            $container->setParameter('authbucket_oauth2.' . $key, $value);
         }
     }
 

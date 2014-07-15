@@ -1,4 +1,6 @@
 parameters:
+    authbucket_oauth2.authorize_scope_uri: ~
+
     authbucket_oauth2.response_handler:
         code:               AuthBucket\OAuth2\ResponseType\CodeResponseTypeHandler
         token:              AuthBucket\OAuth2\ResponseType\TokenResponseTypeHandler
@@ -50,7 +52,7 @@ services:
             - "@authbucket_oauth2.model_manager.factory"
             - "@authbucket_oauth2.response_handler.factory"
             - "@authbucket_oauth2.token_handler.factory"
-            - ~
+            - "%authbucket_oauth2.authorize_scope_uri%"
 
     authbucket_oauth2.token_controller:
         class: AuthBucket\OAuth2\Controller\TokenController
