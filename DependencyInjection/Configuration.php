@@ -32,7 +32,10 @@ class Configuration implements ConfigurationInterface
         $rootNode
             ->children()
                 ->scalarNode('driver')->defaultValue('orm')->end()
-                ->scalarNode('authorize_scope_uri')->defaultNull()->end()
+                ->scalarNode('authorize_path')->defaultValue('/oauth2/authorize')->end()
+                ->scalarNode('token_path')->defaultValue('/oauth2/token')->end()
+                ->scalarNode('debug_path')->defaultValue('/oauth2/debug')->end()
+                ->scalarNode('authorize_scope_path')->defaultNull()->end()
                 ->scalarNode('user_provider')->defaultNull()->end()
                 ->arrayNode('model')
                     ->prototype('scalar')->end()

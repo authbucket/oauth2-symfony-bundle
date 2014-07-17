@@ -26,6 +26,16 @@ class ResourceFactory implements SecurityFactoryInterface
             'options' => array(),
         ), (array) $config);
 
+        if ($config['resource_type'] === 'debug_endpoint') {
+            $config['options'] = array_merge(array(
+                'token_path' => $container->getParameter('authbucket_oauth2.token_path'),
+                'debug_path' => $container->getParameter('authbucket_oauth2.debug_path'),
+                'client_id' => '',
+                'client_secret' => '',
+                'cache' => true,
+            ), $config['options']);
+        }
+
         $providerId = 'security.authentication.provider.resource.' . $id;
         $container
             ->setDefinition($providerId, new DefinitionDecorator('security.authentication.provider.resource'))
