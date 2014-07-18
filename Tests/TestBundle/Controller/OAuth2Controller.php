@@ -38,7 +38,6 @@ class OAuth2Controller extends Controller
 
         return $this->render('TestBundle:oauth2:login.html.twig', array(
             'error' => $error,
-            'last_username' => $session->get(SecurityContextInterface::LAST_USERNAME),
         ));
     }
 }

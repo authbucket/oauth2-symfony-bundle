@@ -1,7 +1,6 @@
 oauth2_authorize:
     pattern: /oauth2/authorize
     defaults: { _controller: AuthBucketOAuth2Bundle:Authorize:authorize }
-    methods: [GET]
 
 oauth2_token:
     pattern: /oauth2/token
