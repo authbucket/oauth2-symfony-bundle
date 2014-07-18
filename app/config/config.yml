@@ -43,10 +43,6 @@ doctrine:
 
 authbucket_oauth2:
     driver:                 orm
-    authorize_path:         /oauth2/authorize
-    token_path:             /oauth2/token
-    debug_path:             /oauth2/debug
-    authorize_scope_path:   /oauth2/authorize/scope
     user_provider:          security.user.provider.concrete.default
     model:
         access_token:       AuthBucket\Bundle\OAuth2Bundle\Tests\TestBundle\Entity\AccessToken

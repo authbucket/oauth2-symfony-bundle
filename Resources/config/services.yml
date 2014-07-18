@@ -2,7 +2,6 @@ parameters:
     authbucket_oauth2.authorize_path:       /oauth2/authorize
     authbucket_oauth2.token_path:           /oauth2/token
     authbucket_oauth2.debug_path:           /oauth2/debug
-    authbucket_oauth2.authorize_scope_path: ~
 
     authbucket_oauth2.response_handler:
         code:               AuthBucket\OAuth2\ResponseType\CodeResponseTypeHandler
@@ -55,7 +54,6 @@ services:
             - "@authbucket_oauth2.model_manager.factory"
             - "@authbucket_oauth2.response_handler.factory"
             - "@authbucket_oauth2.token_handler.factory"
-            - "%authbucket_oauth2.authorize_scope_path%"
 
     authbucket_oauth2.token_controller:
         class: AuthBucket\OAuth2\Controller\TokenController

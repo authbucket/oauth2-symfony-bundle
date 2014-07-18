@@ -41,18 +41,18 @@ class AuthBucketOAuth2Extension extends Extension
 
         $loader->load('services.yml');
 
-        if (!empty($config['driver'])) {
-            if (in_array($config['driver'], array('orm'))) {
-                $loader->load(sprintf('%s.yml', $config['driver']));
-            }
-            unset($config['driver']);
+        $driver = $config['driver'] ?: 'orm';
+        if (in_array($driver, array('orm'))) {
+            $loader->load(sprintf('%s.yml', $driver));
         }
+        unset($config['driver']);
 
-        if (!empty($config['user_provider'])) {
+        $userProvider = $config['user_provider'] ?: null;
+        if ($userProvider) {
             $container->getDefinition('authbucket_oauth2.token_controller')
-                ->replaceArgument(6, new Reference($config['user_provider']));
-            unset($config['user_provider']);
+                ->replaceArgument(6, new Reference($userProvider));
         }
+        unset($config['user_provider']);
 
         foreach (array_filter($config) as $key => $value) {
             $container->setParameter('authbucket_oauth2.' . $key, $value);
