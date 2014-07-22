@@ -2,6 +2,14 @@ demo_index:
     path:       /demo
     defaults:   { _controller:TestBundle:Demo:demoIndex }
 
+demo_authorize_code:
+    path:       /demo/authorize/code
+    defaults:   { _controller:TestBundle:Demo:demoAuthorizeCode }
+
+demo_authorize_token:
+    path:       /demo/authorize/token
+    defaults:   { _controller:TestBundle:Demo:demoAuthorizeToken }
+
 demo_response_type_code:
     path:       /demo/response_type/code
     defaults:   { _controller:TestBundle:Demo:demoResponseTypeCode }

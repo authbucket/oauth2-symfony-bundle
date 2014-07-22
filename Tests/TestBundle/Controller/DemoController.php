@@ -24,27 +24,55 @@ class DemoController extends Controller
         return $this->render('TestBundle:demo:index.html.twig');
     }
 
-    public function demoResponseTypeCodeAction(Request $request)
+    public function demoAuthorizeCodeAction(Request $request)
     {
         $session = new Session(new MockFileSessionStorage());
         $session->start();
+
+        $scopeManager = $this->get('authbucket_oauth2.model_manager.factory')->getModelManager('scope');
+        $scope = $scopeManager->createScope()
+            ->setScope(substr(md5(uniqid(null, true)), 0, 8));
+        $scopeManager->updateScope($scope);
 
         $parameters = array(
             'response_type' => 'code',
             'client_id' => 'authorization_code_grant',
             'redirect_uri' => $request->getUriForPath('/demo/response_type/code'),
-            'scope' => 'demoscope1',
+            'scope' => 'demoscope1 ' . $scope->getScope(),
             'state' => $session->getId(),
         );
-        $server = array(
-            'PHP_AUTH_USER' => 'demousername1',
-            'PHP_AUTH_PW' => 'demopassword1',
+
+        $url = Request::create($request->getUriForPath('/oauth2/authorize'), 'GET', $parameters)->getUri();
+
+        return $this->redirect($url);
+    }
+
+    public function demoAuthorizeTokenAction(Request $request)
+    {
+        $session = new Session(new MockFileSessionStorage());
+        $session->start();
+
+        $scopeManager = $this->get('authbucket_oauth2.model_manager.factory')->getModelManager('scope');
+        $scope = $scopeManager->createScope()
+            ->setScope(substr(md5(uniqid(null, true)), 0, 8));
+        $scopeManager->updateScope($scope);
+
+        $parameters = array(
+            'response_type' => 'token',
+            'client_id' => 'implicit_grant',
+            'redirect_uri' => $request->getUriForPath('/demo/response_type/token'),
+            'scope' => 'demoscope1 ' . $scope->getScope(),
+            'state' => $session->getId(),
         );
-        $client = new Client($this->get('kernel'));
-        $crawler = $client->request('GET', '/oauth2/authorize/http', $parameters, array(), $server);
-        $authResponse = Request::create($client->getResponse()->headers->get('Location'), 'GET');
-        $authorizationResponse = $authResponse->query->all();
-        $authorizationRequest = get_object_vars($client->getRequest());
+
+        $url = Request::create($request->getUriForPath('/oauth2/authorize'), 'GET', $parameters)->getUri();
+
+        return $this->redirect($url);
+    }
+
+    public function demoResponseTypeCodeAction(Request $request)
+    {
+        $authorizationResponse = $request->query->all();
 
         $tokenPath = $this->get('router')->generate('demo_grant_type_authorization_code', array(
             'code' => $authorizationResponse['code'],
@@ -53,32 +81,13 @@ class DemoController extends Controller
 
         return $this->render('TestBundle:demo/response_type:code.html.twig', array(
             'authorization_response' => $authorizationResponse,
-            'authorization_request' => $authorizationRequest,
             'token_path' => $tokenPath,
         ));
     }
 
     public function demoResponseTypeTokenAction(Request $request)
     {
-        $session = new Session(new MockFileSessionStorage());
-        $session->start();
-
-        $parameters = array(
-            'response_type' => 'token',
-            'client_id' => 'implicit_grant',
-            'redirect_uri' => $request->getUriForPath('/demo/response_type/token'),
-            'scope' => 'demoscope1',
-            'state' => $session->getId(),
-        );
-        $server = array(
-            'PHP_AUTH_USER' => 'demousername1',
-            'PHP_AUTH_PW' => 'demopassword1',
-        );
-        $client = new Client($this->get('kernel'));
-        $crawler = $client->request('GET', '/oauth2/authorize/http', $parameters, array(), $server);
-        $authResponse = Request::create($client->getResponse()->headers->get('Location'), 'GET');
-        $accessTokenResponse = $authResponse->query->all();
-        $accessTokenRequest = get_object_vars($client->getRequest());
+        $accessTokenResponse = $request->query->all();
 
         $modelPath = $this->get('router')->generate('demo_resource_type_model', array(
             'access_token' => $accessTokenResponse['access_token'],
@@ -89,7 +98,6 @@ class DemoController extends Controller
 
         return $this->render('TestBundle:demo/response_type:token.html.twig', array(
             'access_token_response' => $accessTokenResponse,
-            'access_token_request' => $accessTokenRequest,
             'model_path' => $modelPath,
             'debug_path' => $debugPath,
         ));
@@ -255,7 +263,7 @@ class DemoController extends Controller
             'HTTP_Authorization' => implode(' ', array('Bearer', $request->query->get('access_token'))),
         );
         $client = new Client($this->get('kernel'));
-        $crawler = $client->request('GET', '/resource/debug/model', $parameters, array(), $server);
+        $crawler = $client->request('GET', '/resource/resource_type/model', $parameters, array(), $server);
         $resourceResponse = json_decode($client->getResponse()->getContent(), true);
         $resourceRequest = get_object_vars($client->getRequest());
 
@@ -274,7 +282,7 @@ class DemoController extends Controller
             'HTTP_Authorization' => implode(' ', array('Bearer', $request->query->get('access_token'))),
         );
         $client = new Client($this->get('kernel'));
-        $crawler = $client->request('GET', '/resource/debug/debug_endpoint', $parameters, array(), $server);
+        $crawler = $client->request('GET', '/resource/resource_type/debug_endpoint', $parameters, array(), $server);
         $resourceResponse = json_decode($client->getResponse()->getContent(), true);
         $resourceRequest = get_object_vars($client->getRequest());
 

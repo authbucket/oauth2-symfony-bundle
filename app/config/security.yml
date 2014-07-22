@@ -3,11 +3,6 @@ security:
         Symfony\Component\Security\Core\User\User: plaintext
 
     providers:
-        admin:
-            memory:
-                users:
-                    admin:          { roles: 'ROLE_ADMIN', password: secrete }
-
         default:
             memory:
                 users:
@@ -15,11 +10,16 @@ security:
                     demousername2:  { roles: 'ROLE_USER', password: demopassword2 }
                     demousername3:  { roles: 'ROLE_USER', password: demopassword3 }
 
+        admin:
+            memory:
+                users:
+                    admin:          { roles: 'ROLE_ADMIN', password: secrete }
+
     firewalls:
         admin:
             pattern:                ^/admin
-            http_basic:
-                provider:           admin
+            http_basic:             ~
+            provider:               admin
 
         oauth2_login:
             pattern:                ^/oauth2/login$
@@ -27,18 +27,18 @@ security:
 
         oauth2_authorize_http:
             pattern:                ^/oauth2/authorize/http$
-            http_basic:
-                provider:           default
+            http_basic:             ~
+            provider:               default
 
         oauth2_authorize:
             pattern:                ^/oauth2/authorize
             form_login:
                 login_path:         /oauth2/login
                 check_path:         /oauth2/authorize/login_check
-                provider:           default
             logout:
                 path:               /oauth2/authorize/logout
                 target:             /demo
+            provider:               default
 
         oauth2_token:
             pattern:                ^/oauth2/token$
