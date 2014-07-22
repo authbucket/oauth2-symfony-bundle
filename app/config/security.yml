@@ -38,6 +38,7 @@ security:
                 provider:           default
             logout:
                 path:               /oauth2/authorize/logout
+                target:             /demo
 
         oauth2_token:
             pattern:                ^/oauth2/token$
@@ -49,18 +50,14 @@ security:
                 resource_type:      model
                 scope:              [ debug ]
 
-        resource_debug:
-            pattern:                ^/resource/debug$
-            oauth2_resource:        ~
-
-        resource_debug_model:
-            pattern:                ^/resource/debug/model$
+        resource_resource_type_model:
+            pattern:                ^/resource/resource_type/model$
             oauth2_resource:
                 resource_type:      model
                 scope:              [ demoscope1 ]
 
-        resource_debug_debug_endpoint:
-            pattern:                ^/resource/debug/debug_endpoint$
+        resource_resource_type_debug_endpoint:
+            pattern:                ^/resource/resource_type/debug_endpoint$
             oauth2_resource:
                 resource_type:      debug_endpoint
                 scope:              [ demoscope1 ]
@@ -69,8 +66,8 @@ security:
                     client_secret:  'demosecret1'
                     cache:          false
 
-        resource_debug_debug_endpoint_cache:
-            pattern:                ^/resource/debug/debug_endpoint/cache$
+        resource_resource_type_debug_endpoint_cache:
+            pattern:                ^/resource/resource_type/debug_endpoint/cache$
             oauth2_resource:
                 resource_type:      debug_endpoint
                 scope:              [ demoscope1 ]
@@ -78,15 +75,15 @@ security:
                     client_id:      'http://democlient1.com/'
                     client_secret:  'demosecret1'
 
-        resource_debug_debug_endpoint_invalid_options:
-            pattern:                ^/resource/debug/debug_endpoint/invalid_options$
+        resource_resource_type_debug_endpoint_invalid_options:
+            pattern:                ^/resource/resource_type/debug_endpoint/invalid_options$
             oauth2_resource:
                 resource_type:      debug_endpoint
                 scope:              [ demoscope1 ]
                 options:            ~
 
-        resource_debug_debug_endpoint_invalid_client:
-            pattern:                ^/resource/debug/debug_endpoint/invalid_client$
+        resource_resource_type_debug_endpoint_invalid_client:
+            pattern:                ^/resource/resource_type/debug_endpoint/invalid_client$
             oauth2_resource:
                 resource_type:      debug_endpoint
                 scope:              [ demoscope1 ]

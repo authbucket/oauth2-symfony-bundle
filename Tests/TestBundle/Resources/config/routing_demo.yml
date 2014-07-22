@@ -1,35 +1,35 @@
 demo_index:
-    pattern:    /demo
+    path:       /demo
     defaults:   { _controller:TestBundle:Demo:demoIndex }
 
 demo_response_type_code:
-    pattern:    /demo/response_type/code
+    path:       /demo/response_type/code
     defaults:   { _controller:TestBundle:Demo:demoResponseTypeCode }
 
 demo_response_type_token:
-    pattern:    /demo/response_type/token
+    path:       /demo/response_type/token
     defaults:   { _controller:TestBundle:Demo:demoResponseTypeToken }
 
 demo_grant_type_authorization_code:
-    pattern:    /demo/grant_type/authorization_code
+    path:       /demo/grant_type/authorization_code
     defaults:   { _controller:TestBundle:Demo:demoGrantTypeAuthorizationCode }
 
 demo_grant_type_password:
-    pattern:    /demo/grant_type/password
+    path:       /demo/grant_type/password
     defaults:   { _controller:TestBundle:Demo:demoGrantTypePassword }
 
 demo_grant_type_client_credentials:
-    pattern:    /demo/grant_type/client_credentials
+    path:       /demo/grant_type/client_credentials
     defaults:   { _controller:TestBundle:Demo:demoGrantTypeClientCredentials }
 
 demo_grant_type_refresh_token:
-    pattern:    /demo/grant_type/refresh_token
+    path:       /demo/grant_type/refresh_token
     defaults:   { _controller:TestBundle:Demo:demoGrantTypeRefreshToken }
 
 demo_resource_type_model:
-    pattern:    /demo/resource_type/model
+    path:       /demo/resource_type/model
     defaults:   { _controller:TestBundle:Demo:demoResourceTypeModel }
 
 demo_resource_type_debug_endpoint:
-    pattern:    /demo/resource_type/debug_endpoint
+    path:       /demo/resource_type/debug_endpoint
     defaults:   { _controller:TestBundle:Demo:demoResourceTypeDebugEndpoint }

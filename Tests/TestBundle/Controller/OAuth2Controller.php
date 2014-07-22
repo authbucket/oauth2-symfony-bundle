@@ -13,7 +13,7 @@ namespace AuthBucket\Bundle\OAuth2Bundle\Tests\TestBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\Security\Core\SecurityContextInterface;
+use Symfony\Component\Security\Core\SecurityContext;
 
 class OAuth2Controller extends Controller
 {
@@ -24,16 +24,10 @@ class OAuth2Controller extends Controller
 
     public function oauth2LoginAction(Request $request)
     {
-        $session = $request->getSession();
-
-        if ($request->attributes->has(SecurityContextInterface::AUTHENTICATION_ERROR)) {
-            $error = $request
-                ->attributes
-                ->get(SecurityContextInterface::AUTHENTICATION_ERROR);
+        if ($request->attributes->has(SecurityContext::AUTHENTICATION_ERROR)) {
+            $error = $request->attributes->get(SecurityContext::AUTHENTICATION_ERROR);
         } else {
-            $error = $session
-                ->get(SecurityContextInterface::AUTHENTICATION_ERROR);
-            $session->remove(SecurityContextInterface::AUTHENTICATION_ERROR);
+            $error = $request->getSession()->get(SecurityContext::AUTHENTICATION_ERROR);
         }
 
         return $this->render('TestBundle:oauth2:login.html.twig', array(

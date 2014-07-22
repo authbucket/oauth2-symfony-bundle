@@ -89,7 +89,7 @@ Pages](http://authbucket.github.io/oauth2-bundle).
 
 To built the documents locally, execute the following command:
 
-    $ vendor/bin/sami.php update app/config/config_sami.php
+    $ vendor/bin/sami.php update sami.php
 
 Open `build/oauth2-bundle/index.html` with your browser for the
 documents.

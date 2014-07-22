@@ -28,8 +28,8 @@ class ResourceFactory implements SecurityFactoryInterface
 
         if ($config['resource_type'] === 'debug_endpoint') {
             $config['options'] = array_merge(array(
-                'token_path' => $container->getParameter('authbucket_oauth2.token_path'),
-                'debug_path' => $container->getParameter('authbucket_oauth2.debug_path'),
+                'token_path' => '/oauth2/token',
+                'debug_path' => '/oauth2/debug',
                 'client_id' => '',
                 'client_secret' => '',
                 'cache' => true,

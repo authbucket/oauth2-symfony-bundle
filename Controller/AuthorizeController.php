@@ -19,9 +19,9 @@ class AuthorizeController extends Controller
 {
     public function authorizeAction(Request $request)
     {
+        // We only handle non-authorized scope here.
         try {
-            return $this->get('authbucket_oauth2.authorize_controller')
-                ->authorizeAction($request);
+            return $this->get('authbucket_oauth2.authorize_controller')->authorizeAction($request);
         } catch (InvalidScopeException $exception) {
             $message = unserialize($exception->getMessage());
             if ($message['error_description'] !== 'The requested scope is invalid.') {
@@ -60,11 +60,14 @@ class AuthorizeController extends Controller
         }
 
         // Display the form.
+        $authorizationRequest = $request->query->all();
+
         return $this->render('TestBundle:oauth2:authorize.html.twig', array(
             'client_id' => $clientId,
             'username' => $username,
             'scopes' => $scope,
             'form' => $form->createView(),
+            'authorization_request' => $authorizationRequest,
         ));
     }
 }

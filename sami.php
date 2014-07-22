@@ -21,8 +21,8 @@ return new Sami($iterator, array(
     'theme' => 'enhanced',
     'versions' => $versions,
     'title' => 'AuthBucket\Bundle\OAuth2Bundle API',
-    'build_dir' => __DIR__ . '/../../build/oauth2-bundle/%version%',
-    'cache_dir' => __DIR__ . '/../../build/cache/oauth2-bundle/%version%',
+    'build_dir' => __DIR__ . '/build/oauth2-bundle/%version%',
+    'cache_dir' => __DIR__ . '/build/cache/oauth2-bundle/%version%',
     'include_parent_data' => false,
     'default_opened_level' => 3,
 ));

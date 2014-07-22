@@ -1,27 +1,23 @@
 resource_index:
-    pattern:    /resource
+    path:       /resource
     defaults:   { _controller:TestBundle:Resource:resourceIndex }
 
-resource_debug:
-    pattern:    /resource/debug
+resource_resource_type_model:
+    path:       /resource/resource_type/model
     defaults:   { _controller: AuthBucketOAuth2Bundle:Debug:debug }
 
-resource_debug_model:
-    pattern:    /resource/debug/model
+resource_resource_type_debug_endpoint:
+    path:       /resource/resource_type/debug_endpoint
     defaults:   { _controller: AuthBucketOAuth2Bundle:Debug:debug }
 
-resource_debug_debug_endpoint:
-    pattern:    /resource/debug/debug_endpoint
+resource_resource_type_debug_endpoint_cache:
+    path:       /resource/resource_type/debug_endpoint/cache
     defaults:   { _controller: AuthBucketOAuth2Bundle:Debug:debug }
 
-resource_debug_debug_endpoint_cache:
-    pattern:    /resource/debug/debug_endpoint/cache
+resource_resource_type_debug_endpoint_invalid_options:
+    path:       /resource/resource_type/debug_endpoint/invalid_options
     defaults:   { _controller: AuthBucketOAuth2Bundle:Debug:debug }
 
-resource_debug_debug_endpoint_invalid_options:
-    pattern:    /resource/debug/debug_endpoint/invalid_options
-    defaults:   { _controller: AuthBucketOAuth2Bundle:Debug:debug }
-
-resource_debug_debug_endpoint_invalid_client:
-    pattern:    /resource/debug/debug_endpoint/invalid_client
+resource_resource_type_debug_endpoint_invalid_client:
+    path:       /resource/resource_type/debug_endpoint/invalid_client
     defaults:   { _controller: AuthBucketOAuth2Bundle:Debug:debug }
