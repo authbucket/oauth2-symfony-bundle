@@ -18,7 +18,6 @@ class DebugController extends Controller
 {
     public function debugAction(Request $request)
     {
-        return $this->get('authbucket_oauth2.debug_controller')
-            ->debugAction($request);
+        return $this->get('authbucket_oauth2.debug_controller')->debugAction($request);
     }
 }

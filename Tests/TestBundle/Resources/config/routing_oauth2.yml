@@ -12,7 +12,7 @@ oauth2_login:
 
 oauth2_authorize_http:
     path:       /oauth2/authorize/http
-    defaults:   { _controller: AuthBucketOAuth2Bundle:Authorize:authorize }
+    defaults:   { _controller: TestBundle:Authorize:authorize }
     methods:    [GET]
 
 oauth2_authorize_login_check:

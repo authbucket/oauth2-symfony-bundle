@@ -9,15 +9,15 @@
  * file that was distributed with this source code.
  */
 
-namespace AuthBucket\Bundle\OAuth2Bundle\Controller;
+namespace AuthBucket\Bundle\OAuth2Bundle\Tests\TestBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
-class TokenController extends Controller
+class AuthorizeController extends Controller
 {
-    public function tokenAction(Request $request)
+    public function authorizeAction(Request $request)
     {
-        return $this->get('authbucket_oauth2.token_controller')->tokenAction($request);
+        return $this->get('authbucket_oauth2.authorize_controller')->authorizeAction($request);
     }
 }
