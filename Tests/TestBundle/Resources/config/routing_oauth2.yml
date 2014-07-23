@@ -1,14 +1,14 @@
 authbucketoauth2bundle:
+    prefix:     /oauth2
     resource:   "@AuthBucketOAuth2Bundle/Resources/config/routing.yml"
-    prefix:     /
 
 oauth2_index:
     path:       /oauth2
-    defaults:   { _controller:TestBundle:OAuth2:oauth2Index }
+    defaults:   { _controller: TestBundle:OAuth2:oauth2Index }
 
 oauth2_login:
     path:       /oauth2/login
-    defaults:   { _controller:TestBundle:OAuth2:oauth2Login }
+    defaults:   { _controller: TestBundle:OAuth2:oauth2Login }
 
 oauth2_authorize_http:
     path:       /oauth2/authorize/http

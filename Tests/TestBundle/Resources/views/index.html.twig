@@ -23,13 +23,46 @@
                 <h2 id="installation" class="page-header">Installation</h2>
                 <p class="lead">Simply add a dependency on <code>authbucket/oauth2-bundle</code> to your project's <code>composer.json</code> file if you use <a href="http://getcomposer.org/">Composer</a> to manage the dependencies of your project.</p>
                 <p>Here is a minimal example of a <code>composer.json</code>:</p>
-<pre><code>{
+<pre><code class="json">{
     &quot;require&quot;: {
         &quot;authbucket/oauth2-bundle&quot;: &quot;dev-master&quot;
     }
 }</code></pre>
-                <p>You also have to add <code>AuthBucketOAuth2Bundle</code> to your <code>AppKernel.php</code>:</p>
-<pre><code>class AppKernel extends Kernel
+
+                <h3 id="parameters">Parameters</h3>
+                <p>Example setup in our built-in demo:</p>
+<pre><code class="no-highlight"># app/config/config.yml
+
+authbucket_oauth2:
+    driver:                 orm
+    user_provider:          security.user.provider.concrete.default
+    model:
+        access_token:       AuthBucket\Bundle\OAuth2Bundle\Tests\TestBundle\Entity\AccessToken
+        authorize:          AuthBucket\Bundle\OAuth2Bundle\Tests\TestBundle\Entity\Authorize
+        client:             AuthBucket\Bundle\OAuth2Bundle\Tests\TestBundle\Entity\Client
+        code:               AuthBucket\Bundle\OAuth2Bundle\Tests\TestBundle\Entity\Code
+        refresh_token:      AuthBucket\Bundle\OAuth2Bundle\Tests\TestBundle\Entity\RefreshToken
+        scope:              AuthBucket\Bundle\OAuth2Bundle\Tests\TestBundle\Entity\Scope</code></pre>
+                <p>Where:</p>
+                <ul>
+                    <li><code>driver</code>: Currently we only support Doctrine ORM (<code>orm</code>).</li>
+                    <li><code>user_provider</code>: (Optional) For using <code>grant_type = password</code>, override this parameter with your own user provider, e.g. using InMemoryUserProvider or a doctrine EntityRepository that implements UserProviderInterface.</li>
+                    <li><code>model</code>: Override this with your backend model classes, e.g. initialized for Doctrine ORM.</li>
+                </ul>
+
+                <h3 id="services">Services</h3>
+                <p>This bundle come with following services controller which simplify the implementation overhead:</p>
+                <ul>
+                    <li><code>AuthorizeController</code>: Authorization endpoint controller.</li>
+                    <li><code>TokenController</code>: Token endpoint controller.</li>
+                    <li><code>DebugController</code>: Debug endpoint controller.</li>
+                </ul>
+
+                <h3 id="registering">Registering</h3>
+                <p>You have to add <code>AuthBucketOAuth2Bundle</code> to your <code>AppKernel.php</code>:</p>
+<pre><code class="php"># app/AppKernel.php
+
+class AppKernel extends Kernel
 {
     public function registerBundles()
     {
@@ -40,12 +73,103 @@
     }
 }</code></pre>
 
+                <h2 id="usage" class="page-header">Usage</h2>
+                <p class="lead">This library seperate the endpoint logic in frontend firewall and backend controller point of view, so you will need to setup both for functioning.</p>
+                <p>To enable the built-in controller with corresponding routing, add the following into your <code>routing.yml</code>:</p>
+<pre><code class="no-highlight"># app/config/routing.yml
+
+authbucketoauth2bundle:
+    prefix:     /oauth2
+    resource:   &quot;@AuthBucketOAuth2Bundle/Resources/config/routing.yml&quot;</code></pre>
+                <p>Below is a list of recipes that cover some common use cases.</p>
+
+                <h3 id="authorization-endpoint">Authorization Endpoint</h3>
+                <p>We don't provide custom firewall for this endpoint, which you should protect it by yourself, authenticate and capture the user credential, e.g. by <a href="http://silex.sensiolabs.org/doc/providers/security.html">SecurityServiceProvider</a>:</p>
+<pre><code class="no-highlight"># app/config/security.yml
+
+security:
+    encoders:
+        Symfony\Component\Security\Core\User\User: plaintext
+
+    providers:
+        default:
+            memory:
+                users:
+                    demousername1:  { roles: &#39;ROLE_USER&#39;, password: demopassword1 }
+                    demousername2:  { roles: &#39;ROLE_USER&#39;, password: demopassword2 }
+                    demousername3:  { roles: &#39;ROLE_USER&#39;, password: demopassword3 }
+
+    firewalls:
+        oauth2_authorize:
+            pattern:                ^/oauth2/authorize$
+            http_basic:             ~
+            provider:               default</code></pre>
+
+                <h3 id="token-endpoint">Token Endpoint</h3>
+                <p>Similar as authorization endpoint, we need to protect this endpoint with our custom firewall <code>oauth2_token</code>:</p>
+<pre><code class="no-highlight"># app/config/security.yml
+
+security:
+    firewalls:
+        oauth2_token:
+            pattern:                ^/oauth2/token$
+            oauth2_token:           ~</code></pre>
+
+                <h3 id="debug-endpoint">Debug Endpoint</h3>
+                <p>We should protect this endpoint with our custom firewall <code>oauth2_resource</code> (scope <code>debug</code> is required for remote resource server query functioning):</p>
+<pre><code class="no-highlight"># app/config/security.yml
+
+security:
+    firewalls:
+        oauth2_debug:
+            pattern:                ^/oauth2/debug$
+            oauth2_resource:
+                resource_type:      model
+                scope:              [ debug ]</code></pre>
+
+                <h3 id="resource-endpoint">Resource Endpoint</h3>
+                <p>We don't provide other else resource endpoint controller implementation besides above debug endpoint. You should consider implement your own endpoint with custom logic, e.g. fetching user email address or profile image.</p>
+                <p>On the other hand, you can protect your resource server endpoint with our custom firewall <code>oauth2_resource</code>. Shorthand version (default assume resource server bundled with authorization server, query local model manager, without scope protection):</p>
+<pre><code class="no-highlight"># app/config/security.yml
+
+security:
+    firewalls:
+        resource:
+            pattern:                ^/resource
+            oauth2_resource:        ~</code></pre>
+                <p>Longhand version (assume resource server bundled with authorization server, query local model manager, protect with scope <code>demoscope1</code>):</p>
+<pre><code class="no-highlight"># app/config/security.yml
+
+security:
+    firewalls:
+        resource:
+            pattern:                ^/resource
+            oauth2_resource:
+                resource_type:      model
+                scope:              [ demoscope1 ]</code></pre>
+                <p>If authorization server is hosting somewhere else, you can protect your local resource endpoint by query remote authorization server debug endpoint:</p>
+<pre><code class="no-highlight"># app/config/security.yml
+
+security:
+    firewalls:
+        resource:
+            pattern:                ^/resource
+            oauth2_resource:
+                resource_type:      debug_endpoint
+                scope:              [ demoscope1 ]
+                options:
+                    token_path:     http://example.com/oauth2/token
+                    debug_path:     http://example.com/oauth2/debug
+                    client_id:      http://democlient1.com/
+                    client_secret:  demosecret1
+                    cache:          true</code></pre>
+
                 <h2 id="demo" class="page-header">Demo</h2>
-                <p class="lead">This library bundle with a <a href="http://symfony.com/">Symfony</a> based <a href="https://github.com/authbucket/oauth2-bundle/blob/master/AuthBucketOAuth2Bundle.php">AuthBucketOAuth2Bundle</a>. Read though <a href="http://oauth2-bundle.authbucket.com/demo">Demo</a> for more information.</p>
+                <p class="lead">The demo is based on <a href="http://symfony.com/">Symfony</a> and <a href="https://github.com/authbucket/oauth2-bundle/blob/master/AuthBucketOAuth2Bundle.php">AuthBucketOAuth2Bundle</a>. Read though <a href="http://oauth2-bundle.authbucket.com/demo">Demo</a> for more information.</p>
                 <p>You may also run the demo locally. Open a console and execute the following command to install the latest version in the oauth2-bundle/ directory:</p>
-<pre><code>$ composer create-project authbucket/oauth2-bundle oauth2-bundle/ dev-master</code></pre>
+<pre><code class="bash">$ composer create-project authbucket/oauth2-bundle oauth2-bundle/ dev-master</code></pre>
                 <p>Then use the PHP built-in web server to run the demo application:</p>
-<pre><code>$ cd oauth2-bundle/
+<pre><code class="bash">$ cd oauth2-bundle/
 $ php app/console server:run</code></pre>
                 <p>If you get the error <code>There are no commands defined in the &quot;server&quot; namespace.</code>, then you are probably using PHP 5.3. That's ok! But the built-in web server is only available for PHP 5.4.0 or higher. If you have an older version of PHP or if you prefer a traditional web server such as Apache or Nginx, read the <a href="http://symfony.com/doc/current/cookbook/configuration/web_server_configuration.html">Configuring a web server</a> article.</p>
                 <p>Open your browser and access the <a href="http://127.0.0.1:8000">http://127.0.0.1:8000</a> URL to see the Welcome page of demo application.</p>
@@ -54,13 +178,13 @@ $ php app/console server:run</code></pre>
                 <h2 id="documentation" class="page-header">Documentation</h2>
                 <p class="lead">OAuth2Bundle's documentation is built with <a href="https://github.com/fabpot/Sami">Sami</a> and publicly hosted on <a href="http://authbucket.github.io/oauth2-bundle">GitHub Pages</a>.</p>
                 <p>To built the documents locally, execute the following command:</p>
-<pre><code>$ vendor/bin/sami.php update app/config/config_sami.php</code></pre>
+<pre><code class="bash">$ vendor/bin/sami.php update .sami.php</code></pre>
                 <p>Open <code>build/oauth2-bundle/index.html</code> with your browser for the documents.</p>
 
                 <h2 id="tests" class="page-header">Tests</h2>
                 <p class="lead">This project is coverage with <a href="http://phpunit.de/">PHPUnit</a> test cases; CI result can be found from <a href="https://travis-ci.org/authbucket/oauth2-bundle">Travis CI</a>; code coverage report can be found from <a href="https://coveralls.io/r/authbucket/oauth2-bundle">Coveralls</a>.</p>
                 <p>To run the test suite locally, execute the following command:</p>
-<pre><code>$ vendor/bin/phpunit</code></pre>
+<pre><code class="bash">$ vendor/bin/phpunit</code></pre>
                 <p>Open <code>build/logs/html</code> with your browser for the coverage report.</p>
 
                 <h2 id="references" class="page-header">References</h2>

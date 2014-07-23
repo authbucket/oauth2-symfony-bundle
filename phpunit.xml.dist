@@ -32,6 +32,8 @@
                 <directory>./build</directory>
                 <directory>./vendor</directory>
                 <directory>./web</directory>
+                <file>.php-cs-fixer.php</file>
+                <file>.sami.php</file>
             </exclude>
         </whitelist>
     </filter>

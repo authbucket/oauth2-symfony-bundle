@@ -1,6 +1,6 @@
 resource_index:
     path:       /resource
-    defaults:   { _controller:TestBundle:Resource:resourceIndex }
+    defaults:   { _controller: TestBundle:Resource:resourceIndex }
 
 resource_resource_type_model:
     path:       /resource/resource_type/model
