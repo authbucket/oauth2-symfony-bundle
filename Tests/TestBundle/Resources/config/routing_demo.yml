@@ -1,43 +1,54 @@
 demo_index:
     path:       /demo
     defaults:   { _controller: TestBundle:Demo:demoIndex }
+    methods:    [ GET ]
 
 demo_authorize_code:
     path:       /demo/authorize/code
     defaults:   { _controller: TestBundle:Demo:demoAuthorizeCode }
+    methods:    [ GET ]
 
 demo_authorize_token:
     path:       /demo/authorize/token
     defaults:   { _controller: TestBundle:Demo:demoAuthorizeToken }
+    methods:    [ GET ]
 
 demo_response_type_code:
     path:       /demo/response_type/code
     defaults:   { _controller: TestBundle:Demo:demoResponseTypeCode }
+    methods:    [ GET ]
 
 demo_response_type_token:
     path:       /demo/response_type/token
     defaults:   { _controller: TestBundle:Demo:demoResponseTypeToken }
+    methods:    [ GET ]
 
 demo_grant_type_authorization_code:
     path:       /demo/grant_type/authorization_code
     defaults:   { _controller: TestBundle:Demo:demoGrantTypeAuthorizationCode }
+    methods:    [ GET ]
 
 demo_grant_type_password:
     path:       /demo/grant_type/password
     defaults:   { _controller: TestBundle:Demo:demoGrantTypePassword }
+    methods:    [ GET ]
 
 demo_grant_type_client_credentials:
     path:       /demo/grant_type/client_credentials
     defaults:   { _controller: TestBundle:Demo:demoGrantTypeClientCredentials }
+    methods:    [ GET ]
 
 demo_grant_type_refresh_token:
     path:       /demo/grant_type/refresh_token
     defaults:   { _controller: TestBundle:Demo:demoGrantTypeRefreshToken }
+    methods:    [ GET ]
 
 demo_resource_type_model:
     path:       /demo/resource_type/model
     defaults:   { _controller: TestBundle:Demo:demoResourceTypeModel }
+    methods:    [ GET ]
 
 demo_resource_type_debug_endpoint:
     path:       /demo/resource_type/debug_endpoint
     defaults:   { _controller: TestBundle:Demo:demoResourceTypeDebugEndpoint }
+    methods:    [ GET ]

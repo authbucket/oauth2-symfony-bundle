@@ -11,6 +11,7 @@
 
 namespace AuthBucket\Bundle\OAuth2Bundle\Tests\TestBundle\Controller;
 
+use AuthBucket\OAuth2\Exception\InvalidScopeException;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -18,6 +19,55 @@ class AuthorizeController extends Controller
 {
     public function authorizeAction(Request $request)
     {
-        return $this->get('authbucket_oauth2.authorize_controller')->authorizeAction($request);
+        // We only handle non-authorized scope here.
+        try {
+            return $this->get('authbucket_oauth2.authorize_controller')->authorizeAction($request);
+        } catch (InvalidScopeException $exception) {
+            $message = unserialize($exception->getMessage());
+            if ($message['error_description'] !== 'The requested scope is invalid.') {
+                throw $exception;
+            }
+        }
+
+        // Fetch parameters, which already checked.
+        $clientId = $request->query->get('client_id');
+        $username = $this->get('security.context')->getToken()->getUser()->getUsername();
+        $scope = preg_split('/\s+/', $request->query->get('scope', ''));
+
+        // Create form.
+        $form = $this->createFormBuilder()->getForm();
+        $form->handleRequest($request);
+
+        // Save authorized scope if submitted by POST.
+        if ($form->isValid()) {
+            $modelManager = $this->get('authbucket_oauth2.model_manager.factory');
+            $authorizeManager = $modelManager->getModelManager('authorize');
+            $authorize = $authorizeManager->findAuthorizeByClientIdAndUsername($clientId, $username);
+
+            // Update existing authorization if possible, else create new.
+            if ($authorize === null) {
+                $authorize = $authorizeManager->createAuthorize();
+            }
+
+            // Save authorization.
+            $authorize->setClientId($clientId)
+                ->setUsername($username)
+                ->setScope(array_merge($authorize->getScope(), $scope));
+            $authorizeManager->updateAuthorize($authorize);
+
+            // Back to this path, with original GET parameters.
+            return $this->redirect($request->getRequestUri());
+        }
+
+        // Display the form.
+        $authorizationRequest = $request->query->all();
+
+        return $this->render('TestBundle:oauth2:authorize.html.twig', array(
+            'client_id' => $clientId,
+            'username' => $username,
+            'scopes' => $scope,
+            'form' => $form->createView(),
+            'authorization_request' => $authorizationRequest,
+        ));
     }
 }

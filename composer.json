@@ -26,7 +26,7 @@
     "minimum-stability": "dev",
     "name": "authbucket/oauth2-bundle",
     "require": {
-        "authbucket/oauth2": "dev-master",
+        "authbucket/oauth2": "~1.0",
         "php": ">=5.3.3",
         "symfony/framework-bundle": "~2.3",
         "symfony/security-bundle": "~2.3"

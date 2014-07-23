@@ -25,7 +25,7 @@
                 <p>Here is a minimal example of a <code>composer.json</code>:</p>
 <pre><code class="json">{
     &quot;require&quot;: {
-        &quot;authbucket/oauth2-bundle&quot;: &quot;dev-master&quot;
+        &quot;authbucket/oauth2-bundle&quot;: &quot;~1.0&quot;
     }
 }</code></pre>
 
@@ -69,6 +69,7 @@ class AppKernel extends Kernel
         $bundles = array(
             new AuthBucket\Bundle\OAuth2Bundle\AuthBucketOAuth2Bundle(),
         );
+
         return $bundles;
     }
 }</code></pre>
@@ -84,7 +85,7 @@ authbucketoauth2bundle:
                 <p>Below is a list of recipes that cover some common use cases.</p>
 
                 <h3 id="authorization-endpoint">Authorization Endpoint</h3>
-                <p>We don't provide custom firewall for this endpoint, which you should protect it by yourself, authenticate and capture the user credential, e.g. by <a href="http://silex.sensiolabs.org/doc/providers/security.html">SecurityServiceProvider</a>:</p>
+                <p>We don't provide custom firewall for this endpoint, which you should protect it by yourself, authenticate and capture the user credential, e.g. by <a href="http://symfony.com/doc/current/reference/configuration/security.html">SecurityBundle</a>:</p>
 <pre><code class="no-highlight"># app/config/security.yml
 
 security:

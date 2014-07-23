@@ -18,6 +18,5 @@ class TestBundle extends Bundle
 {
     public function bulid(ContainerBuilder $container)
     {
-
     }
 }

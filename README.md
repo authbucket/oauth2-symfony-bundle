@@ -29,7 +29,7 @@ Here is a minimal example of a `composer.json`:
 
     {
         "require": {
-            "authbucket/oauth2-bundle": "dev-master"
+            "authbucket/oauth2-bundle": "~1.0"
         }
     }
 
@@ -82,6 +82,7 @@ You have to add `AuthBucketOAuth2Bundle` to your `AppKernel.php`:
             $bundles = array(
                 new AuthBucket\Bundle\OAuth2Bundle\AuthBucketOAuth2Bundle(),
             );
+
             return $bundles;
         }
     }
@@ -109,7 +110,7 @@ Below is a list of recipes that cover some common use cases.
 We don't provide custom firewall for this endpoint, which you should
 protect it by yourself, authenticate and capture the user credential,
 e.g. by
-[SecurityServiceProvider](http://silex.sensiolabs.org/doc/providers/security.html):
+[SecurityBundle](http://symfony.com/doc/current/reference/configuration/security.html):
 
     # app/config/security.yml
 
@@ -209,8 +210,8 @@ endpoint:
                     options:
                         token_path:     http://example.com/oauth2/token
                         debug_path:     http://example.com/oauth2/debug
-                        client_id:      'http://democlient1.com/'
-                        client_secret:  'demosecret1'
+                        client_id:      http://democlient1.com/
+                        client_secret:  demosecret1
                         cache:          true
 
 Demo
