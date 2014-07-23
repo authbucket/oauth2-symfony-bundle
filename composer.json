@@ -14,7 +14,7 @@
     "description": "Symfony OAuth2Bundle",
     "extra": {
         "branch-alias": {
-            "dev-master": "1.0.x-dev"
+            "dev-master": "1.1.x-dev"
         }
     },
     "homepage": "https://github.com/authbucket/oauth2-bundle",
