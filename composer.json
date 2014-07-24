@@ -20,7 +20,7 @@
     "homepage": "https://github.com/authbucket/oauth2-bundle",
     "keywords": [
         "oauth2",
-        "symfony2"
+        "symfony"
     ],
     "license": "MIT",
     "minimum-stability": "dev",
