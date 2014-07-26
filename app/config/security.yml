@@ -1,14 +1,11 @@
 security:
     encoders:
-        Symfony\Component\Security\Core\User\User: plaintext
+        Authbucket\Bundle\OAuth2Bundle\Tests\TestBundle\Entity\User:    plaintext
+        Symfony\Component\Security\Core\User\User:                      plaintext
 
     providers:
         default:
-            memory:
-                users:
-                    demousername1:  { roles: 'ROLE_USER', password: demopassword1 }
-                    demousername2:  { roles: 'ROLE_USER', password: demopassword2 }
-                    demousername3:  { roles: 'ROLE_USER', password: demopassword3 }
+            entity:                 { class: TestBundle:User }
 
         admin:
             memory:

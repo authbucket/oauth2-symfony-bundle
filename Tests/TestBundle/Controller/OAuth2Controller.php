@@ -24,14 +24,21 @@ class OAuth2Controller extends Controller
 
     public function oauth2LoginAction(Request $request)
     {
+        $session = $request->getSession();
+
         if ($request->attributes->has(SecurityContext::AUTHENTICATION_ERROR)) {
             $error = $request->attributes->get(SecurityContext::AUTHENTICATION_ERROR);
         } else {
             $error = $request->getSession()->get(SecurityContext::AUTHENTICATION_ERROR);
         }
 
+        $_username = $session->get('_username');
+        $_password = $session->get('_password');
+
         return $this->render('TestBundle:oauth2:login.html.twig', array(
             'error' => $error,
+            '_username' => $_username,
+            '_password' => $_password,
         ));
     }
 }

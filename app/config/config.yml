@@ -51,3 +51,4 @@ authbucket_oauth2:
         code:               AuthBucket\Bundle\OAuth2Bundle\Tests\TestBundle\Entity\Code
         refresh_token:      AuthBucket\Bundle\OAuth2Bundle\Tests\TestBundle\Entity\RefreshToken
         scope:              AuthBucket\Bundle\OAuth2Bundle\Tests\TestBundle\Entity\Scope
+        user:               AuthBucket\Bundle\OAuth2Bundle\Tests\TestBundle\Entity\User
