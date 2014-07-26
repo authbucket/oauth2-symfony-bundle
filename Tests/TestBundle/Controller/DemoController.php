@@ -14,7 +14,6 @@ namespace AuthBucket\Bundle\OAuth2Bundle\Tests\TestBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Session\Session;
-use Symfony\Component\HttpFoundation\Session\Storage\MockFileSessionStorage;
 use Symfony\Component\HttpKernel\Client;
 
 class DemoController extends Controller
@@ -26,8 +25,7 @@ class DemoController extends Controller
 
     public function demoAuthorizeCodeAction(Request $request)
     {
-        $session = new Session(new MockFileSessionStorage());
-        $session->start();
+        $session = $request->getSession();
 
         $scopeManager = $this->get('authbucket_oauth2.model_manager.factory')->getModelManager('scope');
         $scope = $scopeManager->createScope()
@@ -49,8 +47,7 @@ class DemoController extends Controller
 
     public function demoAuthorizeTokenAction(Request $request)
     {
-        $session = new Session(new MockFileSessionStorage());
-        $session->start();
+        $session = $request->getSession();
 
         $scopeManager = $this->get('authbucket_oauth2.model_manager.factory')->getModelManager('scope');
         $scope = $scopeManager->createScope()
@@ -142,15 +139,11 @@ class DemoController extends Controller
 
     public function demoGrantTypePasswordAction(Request $request)
     {
-        $session = new Session(new MockFileSessionStorage());
-        $session->start();
-
         $parameters = array(
             'grant_type' => 'password',
             'username' => 'demousername1',
             'password' => 'demopassword1',
             'scope' => 'demoscope1',
-            'state' => $session->getId(),
         );
         $server = array(
             'PHP_AUTH_USER' => 'resource_owner_password_credentials_grant',
