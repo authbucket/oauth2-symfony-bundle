@@ -16,13 +16,21 @@ use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 
 abstract class WebTestCase extends KernelTestCase
 {
-    public function createClient(array $server = array())
+    public function setUp()
     {
         static::bootKernel();
+    }
 
+    public function createClient(array $server = array())
+    {
         $client = static::$kernel->getContainer()->get('test.client');
         $client->setServerParameters($server);
 
         return $client;
+    }
+
+    public function get($id)
+    {
+        return static::$kernel->getContainer()->get($id);
     }
 }

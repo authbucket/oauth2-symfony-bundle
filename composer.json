@@ -14,7 +14,8 @@
     "description": "Symfony OAuth2Bundle",
     "extra": {
         "branch-alias": {
-            "dev-master": "1.1.x-dev"
+            "dev-develop": "2.x-dev",
+            "dev-master": "2.0.x-dev"
         }
     },
     "homepage": "https://github.com/authbucket/oauth2-bundle",
@@ -26,8 +27,8 @@
     "minimum-stability": "dev",
     "name": "authbucket/oauth2-bundle",
     "require": {
-        "authbucket/oauth2": "~1.0",
-        "php": ">=5.3.3",
+        "authbucket/oauth2": "~2.0",
+        "php": ">=5.3.9",
         "symfony/framework-bundle": "~2.3",
         "symfony/security-bundle": "~2.3"
     },

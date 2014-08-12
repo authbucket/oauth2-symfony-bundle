@@ -19,6 +19,8 @@ framework:
         storage_id:  session.storage.mock_file
     profiler:
         enabled:     false
+    serializer:
+            enabled: true
 
 # Twig Configuration
 twig:
@@ -30,6 +32,14 @@ services:
         class: Twig_Extension_Debug
         tags:
             - { name: twig.extension }
+    custom.normalizer:
+        class: Symfony\Component\Serializer\Normalizer\CustomNormalizer
+        tags:
+            - { name: serializer.normalizer }
+    get.set.method.normalizer:
+        class: Symfony\Component\Serializer\Normalizer\GetSetMethodNormalizer
+        tags:
+            - { name: serializer.normalizer }
 
 # Doctrine Configuration
 doctrine:

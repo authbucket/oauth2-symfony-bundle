@@ -25,7 +25,7 @@
                 <p>Here is a minimal example of a <code>composer.json</code>:</p>
 <pre><code class="json">{
     &quot;require&quot;: {
-        &quot;authbucket/oauth2-bundle&quot;: &quot;~1.0&quot;
+        &quot;authbucket/oauth2-bundle&quot;: &quot;~2.0&quot;
     }
 }</code></pre>
 
@@ -80,7 +80,7 @@ class AppKernel extends Kernel
 <pre><code class="no-highlight"># app/config/routing.yml
 
 authbucketoauth2bundle:
-    prefix:     /oauth2
+    prefix:     /
     resource:   &quot;@AuthBucketOAuth2Bundle/Resources/config/routing.yml&quot;</code></pre>
                 <p>Below is a list of recipes that cover some common use cases.</p>
 
@@ -168,7 +168,7 @@ security:
                 <h2 id="demo" class="page-header">Demo</h2>
                 <p class="lead">The demo is based on <a href="http://symfony.com/">Symfony</a> and <a href="https://github.com/authbucket/oauth2-bundle/blob/master/AuthBucketOAuth2Bundle.php">AuthBucketOAuth2Bundle</a>. Read though <a href="http://oauth2-bundle.authbucket.com/demo">Demo</a> for more information.</p>
                 <p>You may also run the demo locally. Open a console and execute the following command to install the latest version in the oauth2-bundle/ directory:</p>
-<pre><code class="bash">$ composer create-project authbucket/oauth2-bundle oauth2-bundle/ dev-master</code></pre>
+<pre><code class="bash">$ composer create-project authbucket/oauth2-bundle oauth2-bundle/ "~2.0"</code></pre>
                 <p>Then use the PHP built-in web server to run the demo application:</p>
 <pre><code class="bash">$ cd oauth2-bundle/
 $ php app/console server:run</code></pre>

@@ -11,18 +11,23 @@
 
 namespace AuthBucket\Bundle\OAuth2Bundle\Tests\ResponseType;
 
+use AuthBucket\Bundle\OAuth2Bundle\Tests\WebTestCase;
 use AuthBucket\OAuth2\ResponseType\ResponseTypeHandlerFactory;
 
-class ResponseTypeHandlerFactoryTest extends \PHPUnit_Framework_TestCase
+class ResponseTypeHandlerFactoryTest extends WebTestCase
 {
     /**
      * @expectedException \AuthBucket\OAuth2\Exception\UnsupportedResponseTypeException
      */
     public function testNonExistsResponseTypeHandler()
     {
-        $responseTypeHandlerFactory = new ResponseTypeHandlerFactory(array(
-            'foo' => 'AuthBucket\\Bundle\\OAuth2Bundle\\Tests\\ResponseType\\NonExistsResponseTypeHandler',
-        ));
+        $responseTypeHandlerFactory = new ResponseTypeHandlerFactory(
+            $this->get('security.context'),
+            $this->get('validator'),
+            $this->get('authbucket_oauth2.model_manager.factory'),
+            $this->get('authbucket_oauth2.token_handler.factory'),
+            array('foo' => 'AuthBucket\\Bundle\\OAuth2Bundle\\Tests\\ResponseType\\NonExistsResponseTypeHandler')
+        );
         $responseTypeHandlerFactory->addResponseTypeHandler('foo', $responseTypeHandler);
     }
 
@@ -31,9 +36,13 @@ class ResponseTypeHandlerFactoryTest extends \PHPUnit_Framework_TestCase
      */
     public function testBadAddResponseTypeHandler()
     {
-        $responseTypeHandlerFactory = new ResponseTypeHandlerFactory(array(
-            'foo' => 'AuthBucket\\Bundle\\OAuth2Bundle\\Tests\\ResponseType\\FooResponseTypeHandler',
-        ));
+        $responseTypeHandlerFactory = new ResponseTypeHandlerFactory(
+            $this->get('security.context'),
+            $this->get('validator'),
+            $this->get('authbucket_oauth2.model_manager.factory'),
+            $this->get('authbucket_oauth2.token_handler.factory'),
+            array('foo' => 'AuthBucket\\Bundle\\OAuth2Bundle\\Tests\\ResponseType\\FooResponseTypeHandler')
+        );
         $responseTypeHandlerFactory->addResponseTypeHandler('foo', $responseTypeHandler);
     }
 
@@ -42,17 +51,25 @@ class ResponseTypeHandlerFactoryTest extends \PHPUnit_Framework_TestCase
      */
     public function testBadGetResponseTypeHandler()
     {
-        $responseTypeHandlerFactory = new ResponseTypeHandlerFactory(array(
-            'bar' => 'AuthBucket\\Bundle\\OAuth2Bundle\\Tests\\ResponseType\\BarResponseTypeHandler',
-        ));
+        $responseTypeHandlerFactory = new ResponseTypeHandlerFactory(
+            $this->get('security.context'),
+            $this->get('validator'),
+            $this->get('authbucket_oauth2.model_manager.factory'),
+            $this->get('authbucket_oauth2.token_handler.factory'),
+            array('bar' => 'AuthBucket\\Bundle\\OAuth2Bundle\\Tests\\ResponseType\\BarResponseTypeHandler')
+        );
         $responseTypeHandlerFactory->getResponseTypeHandler('foo');
     }
 
     public function testGoodGetResponseTypeHandler()
     {
-        $responseTypeHandlerFactory = new ResponseTypeHandlerFactory(array(
-            'bar' => 'AuthBucket\\Bundle\\OAuth2Bundle\\Tests\\ResponseType\\BarResponseTypeHandler',
-        ));
+        $responseTypeHandlerFactory = new ResponseTypeHandlerFactory(
+            $this->get('security.context'),
+            $this->get('validator'),
+            $this->get('authbucket_oauth2.model_manager.factory'),
+            $this->get('authbucket_oauth2.token_handler.factory'),
+            array('bar' => 'AuthBucket\\Bundle\\OAuth2Bundle\\Tests\\ResponseType\\BarResponseTypeHandler')
+        );
         $responseTypeHandlerFactory->getResponseTypeHandler('bar');
     }
 }

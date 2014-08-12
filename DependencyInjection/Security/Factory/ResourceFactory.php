@@ -39,14 +39,14 @@ class ResourceFactory implements SecurityFactoryInterface
         $providerId = 'security.authentication.provider.resource.' . $id;
         $container
             ->setDefinition($providerId, new DefinitionDecorator('security.authentication.provider.resource'))
-            ->replaceArgument(3, $id)
-            ->replaceArgument(4, $config['resource_type'])
-            ->replaceArgument(5, $config['scope'])
-            ->replaceArgument(6, $config['options']);
+            ->replaceArgument(0, $id)
+            ->replaceArgument(2, $config['resource_type'])
+            ->replaceArgument(3, $config['scope'])
+            ->replaceArgument(4, $config['options']);
 
         $listenerId = 'security.authentication.listener.resource.' . $id;
         $container->setDefinition($listenerId, new DefinitionDecorator('security.authentication.listener.resource'))
-            ->replaceArgument(2, $id);
+            ->replaceArgument(0, $id);
 
         return array($providerId, $listenerId, $defaultEntryPoint);
     }
