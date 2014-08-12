@@ -1,32 +1,67 @@
 oauth2_index:
-    path:       /oauth2
-    defaults:   { _controller: TestBundle:OAuth2:oauth2Index }
-    methods:    [ GET ]
+    path:           /oauth2
+    defaults:       { _controller: TestBundle:OAuth2:oauth2Index }
+    methods:        [ GET ]
 
 oauth2_login:
-    path:       /oauth2/login
-    defaults:   { _controller: TestBundle:OAuth2:oauth2Login }
-    methods:    [ GET ]
+    path:           /oauth2/login
+    defaults:       { _controller: TestBundle:OAuth2:oauth2Login }
+    methods:        [ GET ]
 
 oauth2_authorize_http:
-    path:       /oauth2/authorize/http
-    defaults:   { _controller: AuthBucketOAuth2Bundle:Authorize:authorize }
-    methods:    [ GET ]
+    path:           /oauth2/authorize/http
+    defaults:       { _controller: AuthBucketOAuth2Bundle:Authorize:authorize }
+    methods:        [ GET ]
 
 oauth2_authorize:
-    pattern:    /oauth2/authorize
-    defaults:   { _controller: TestBundle:Authorize:authorize }
+    pattern:        /oauth2/authorize
+    defaults:       { _controller: TestBundle:Authorize:authorize }
 
 oauth2_token:
-    pattern:    /oauth2/token
-    defaults:   { _controller: AuthBucketOAuth2Bundle:Token:token }
+    pattern:        /oauth2/token
+    defaults:       { _controller: AuthBucketOAuth2Bundle:Token:token }
 
 oauth2_debug:
-    pattern:    /oauth2/debug
-    defaults:   { _controller: AuthBucketOAuth2Bundle:Debug:debug }
+    pattern:        /oauth2/debug
+    defaults:       { _controller: AuthBucketOAuth2Bundle:Debug:debug }
+
+oauth2_model_type_create:
+    pattern:        /oauth2/model/{type}.{_format}
+    defaults:       { _controller: AuthBucketOAuth2Bundle:Model:createModel }
+    methods:        [ POST ]
+    requirements:
+        _format:    json|xml
+
+oauth2_model_type_read:
+    pattern:        /oauth2/model/{type}/{id}.{_format}
+    defaults:       { _controller: AuthBucketOAuth2Bundle:Model:readModel }
+    methods:        [ GET ]
+    requirements:
+        _format:    json|xml
+
+oauth2_model_type_update:
+    pattern:        /oauth2/model/{type}/{id}.{_format}
+    defaults:       { _controller: AuthBucketOAuth2Bundle:Model:updateModel }
+    methods:        [ PUT ]
+    requirements:
+        _format:    json|xml
+
+oauth2_model_type_delete:
+    pattern:        /oauth2/model/{type}/{id}.{_format}
+    defaults:       { _controller: AuthBucketOAuth2Bundle:Model:deleteModel }
+    methods:        [ DELETE ]
+    requirements:
+        _format:    json|xml
+
+oauth2_model_type_list:
+    pattern:        /oauth2/model/{type}.{_format}
+    defaults:       { _controller: AuthBucketOAuth2Bundle:Model:listModel }
+    methods:        [ GET ]
+    requirements:
+        _format:    json|xml
 
 oauth2_authorize_login_check:
-    path:       /oauth2/authorize/login_check
+    path:           /oauth2/authorize/login_check
 
 oauth2_authorize_logout:
-    path:       /oauth2/authorize/logout
+    path:           /oauth2/authorize/logout

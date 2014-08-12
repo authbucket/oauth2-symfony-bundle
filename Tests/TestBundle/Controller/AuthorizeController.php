@@ -40,20 +40,27 @@ class AuthorizeController extends Controller
 
         // Save authorized scope if submitted by POST.
         if ($form->isValid()) {
-            $modelManager = $this->get('authbucket_oauth2.model_manager.factory');
-            $authorizeManager = $modelManager->getModelManager('authorize');
-            $authorize = $authorizeManager->findAuthorizeByClientIdAndUsername($clientId, $username);
+            $modelManagerFactory = $this->get('authbucket_oauth2.model_manager.factory');
+            $authorizeManager = $modelManagerFactory->getModelManager('authorize');
 
             // Update existing authorization if possible, else create new.
+            $authorize = $authorizeManager->readModelOneBy(array(
+                'clientId' => $clientId,
+                'username' => $username,
+            ));
             if ($authorize === null) {
-                $authorize = $authorizeManager->createAuthorize();
+                $class = $authorizeManager->getClassName();
+                $authorize = new $class();
+                $authorize->setClientId($clientId)
+                    ->setUsername($username)
+                    ->setScope((array) $scope);
+                $authorize = $authorizeManager->createModel($authorize);
+            } else {
+                $authorize->setClientId($clientId)
+                    ->setUsername($username)
+                    ->setScope(array_merge((array) $authorize->getScope(), $scope));
+                $authorizeManager->updateAuthorize($authorize);
             }
-
-            // Save authorization.
-            $authorize->setClientId($clientId)
-                ->setUsername($username)
-                ->setScope(array_merge((array) $authorize->getScope(), $scope));
-            $authorizeManager->updateAuthorize($authorize);
 
             // Back to this path, with original GET parameters.
             return $this->redirect($request->getRequestUri());

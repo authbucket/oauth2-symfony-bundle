@@ -77,6 +77,13 @@ services:
             - "@authbucket_oauth2.model_manager.factory"
             - "@authbucket_oauth2.token_handler.factory"
 
+    authbucket_oauth2.model_controller:
+        class: AuthBucket\OAuth2\Controller\ModelController
+        arguments:
+            - "@validator"
+            - "@serializer"
+            - "@authbucket_oauth2.model_manager.factory"
+
     security.authentication.provider.token:
         class: AuthBucket\OAuth2\Security\Authentication\Provider\TokenProvider
         arguments:

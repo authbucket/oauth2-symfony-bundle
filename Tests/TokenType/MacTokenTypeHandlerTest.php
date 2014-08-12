@@ -23,7 +23,10 @@ class MacTokenTypeHandlerTest extends WebTestCase
     public function testExceptionGetAccessToken()
     {
         $request = new Request();
-        $handler = new MacTokenTypeHandler();
+        $handler = new MacTokenTypeHandler(
+            $this->get('validator'),
+            $this->get('authbucket_oauth2.model_manager.factory')
+        );
         $handler->getAccessToken($request);
     }
 
@@ -33,7 +36,10 @@ class MacTokenTypeHandlerTest extends WebTestCase
     public function testExceptionCreateAccessToken()
     {
         $modelManagerFactory = new BarModelManagerFactory();
-        $handler = new MacTokenTypeHandler();
+        $handler = new MacTokenTypeHandler(
+            $this->get('validator'),
+            $this->get('authbucket_oauth2.model_manager.factory')
+        );
         $handler->createAccessToken($modelManagerFactory, 'foo');
     }
 }
