@@ -32,11 +32,11 @@ services:
         class: Twig_Extension_Debug
         tags:
             - { name: twig.extension }
-    custom.normalizer:
+    custom_normalizer:
         class: Symfony\Component\Serializer\Normalizer\CustomNormalizer
         tags:
             - { name: serializer.normalizer }
-    get.set.method.normalizer:
+    get_set_method_normalizer:
         class: Symfony\Component\Serializer\Normalizer\GetSetMethodNormalizer
         tags:
             - { name: serializer.normalizer }
