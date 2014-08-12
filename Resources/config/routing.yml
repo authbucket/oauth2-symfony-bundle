@@ -1,11 +1,11 @@
 oauth2_authorize:
-    pattern: /authorize
+    pattern: /oauth2/authorize
     defaults: { _controller: AuthBucketOAuth2Bundle:Authorize:authorize }
 
 oauth2_token:
-    pattern: /token
+    pattern: /oauth2/token
     defaults: { _controller: AuthBucketOAuth2Bundle:Token:token }
 
 oauth2_debug:
-    pattern: /debug
+    pattern: /oauth2/debug
     defaults: { _controller: AuthBucketOAuth2Bundle:Debug:debug }

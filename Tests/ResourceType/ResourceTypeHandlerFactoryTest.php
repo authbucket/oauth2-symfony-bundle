@@ -11,18 +11,21 @@
 
 namespace AuthBucket\Bundle\OAuth2Bundle\Tests\ResourceType;
 
+use AuthBucket\Bundle\OAuth2Bundle\Tests\WebTestCase;
 use AuthBucket\OAuth2\ResourceType\ResourceTypeHandlerFactory;
 
-class ResourceTypeHandlerFactoryTest extends \PHPUnit_Framework_TestCase
+class ResourceTypeHandlerFactoryTest extends WebTestCase
 {
     /**
      * @expectedException \AuthBucket\OAuth2\Exception\ServerErrorException
      */
     public function testNonExistsResourceTypeHandler()
     {
-        $resourceTypeHandlerFactory = new ResourceTypeHandlerFactory(array(
-            'foo' => 'AuthBucket\\Bundle\\OAuth2Bundle\\Tests\\ResourceType\\NonExistsResourceTypeHandler',
-        ));
+        $resourceTypeHandlerFactory = new ResourceTypeHandlerFactory(
+            $this->get('http_kernel'),
+            $this->get('authbucket_oauth2.model_manager.factory'),
+            array('foo' => 'AuthBucket\\Bundle\\OAuth2Bundle\\Tests\\ResourceType\\NonExistsResourceTypeHandler')
+        );
         $resourceTypeHandlerFactory->addResourceTypeHandler('foo', $responseTypeHandler);
     }
 
@@ -31,9 +34,11 @@ class ResourceTypeHandlerFactoryTest extends \PHPUnit_Framework_TestCase
      */
     public function testBadAddResourceTypeHandler()
     {
-        $resourceTypeHandlerFactory = new ResourceTypeHandlerFactory(array(
-            'foo' => 'AuthBucket\\Bundle\\OAuth2Bundle\\Tests\\ResourceType\\FooResourceTypeHandler',
-        ));
+        $resourceTypeHandlerFactory = new ResourceTypeHandlerFactory(
+            $this->get('http_kernel'),
+            $this->get('authbucket_oauth2.model_manager.factory'),
+            array('foo' => 'AuthBucket\\Bundle\\OAuth2Bundle\\Tests\\ResourceType\\FooResourceTypeHandler')
+        );
         $resourceTypeHandlerFactory->addResourceTypeHandler('foo', $responseTypeHandler);
     }
 
@@ -42,17 +47,21 @@ class ResourceTypeHandlerFactoryTest extends \PHPUnit_Framework_TestCase
      */
     public function testBadGetResourceTypeHandler()
     {
-        $resourceTypeHandlerFactory = new ResourceTypeHandlerFactory(array(
-            'bar' => 'AuthBucket\\Bundle\\OAuth2Bundle\\Tests\\ResourceType\\BarResourceTypeHandler',
-        ));
+        $resourceTypeHandlerFactory = new ResourceTypeHandlerFactory(
+            $this->get('http_kernel'),
+            $this->get('authbucket_oauth2.model_manager.factory'),
+            array('bar' => 'AuthBucket\\Bundle\\OAuth2Bundle\\Tests\\ResourceType\\BarResourceTypeHandler')
+        );
         $resourceTypeHandlerFactory->getResourceTypeHandler('foo');
     }
 
     public function testGoodGetResourceTypeHandler()
     {
-        $resourceTypeHandlerFactory = new ResourceTypeHandlerFactory(array(
-            'bar' => 'AuthBucket\\Bundle\\OAuth2Bundle\\Tests\\ResourceType\\BarResourceTypeHandler',
-        ));
+        $resourceTypeHandlerFactory = new ResourceTypeHandlerFactory(
+            $this->get('http_kernel'),
+            $this->get('authbucket_oauth2.model_manager.factory'),
+            array('bar' => 'AuthBucket\\Bundle\\OAuth2Bundle\\Tests\\ResourceType\\BarResourceTypeHandler')
+        );
         $resourceTypeHandlerFactory->getResourceTypeHandler('bar');
     }
 }

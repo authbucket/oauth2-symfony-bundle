@@ -29,7 +29,7 @@ Here is a minimal example of a `composer.json`:
 
     {
         "require": {
-            "authbucket/oauth2-bundle": "~1.0"
+            "authbucket/oauth2-bundle": "~2.0"
         }
     }
 
@@ -38,6 +38,20 @@ Here is a minimal example of a `composer.json`:
 Example setup in our built-in demo:
 
     # app/config/config.yml
+
+    framework:
+        serializer:
+            enabled: true
+
+    services:
+        custom_normalizer:
+            class: Symfony\Component\Serializer\Normalizer\CustomNormalizer
+            tags:
+                - { name: serializer.normalizer }
+        get_set_method_normalizer:
+            class: Symfony\Component\Serializer\Normalizer\GetSetMethodNormalizer
+            tags:
+                - { name: serializer.normalizer }
 
     authbucket_oauth2:
         driver:                 orm
@@ -100,7 +114,7 @@ following into your `routing.yml`:
     # app/config/routing.yml
 
     authbucketoauth2bundle:
-        prefix:     /oauth2
+        prefix:     /
         resource:   "@AuthBucketOAuth2Bundle/Resources/config/routing.yml"
 
 Below is a list of recipes that cover some common use cases.
@@ -226,7 +240,7 @@ You may also run the demo locally. Open a console and execute the
 following command to install the latest version in the oauth2-bundle/
 directory:
 
-    $ composer create-project authbucket/oauth2-bundle oauth2-bundle/ dev-master
+    $ composer create-project authbucket/oauth2-bundle oauth2-bundle/ "~2.0"
 
 Then use the PHP built-in web server to run the demo application:
 

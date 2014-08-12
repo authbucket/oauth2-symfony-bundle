@@ -1,8 +1,4 @@
 parameters:
-    authbucket_oauth2.authorize_path:       /oauth2/authorize
-    authbucket_oauth2.token_path:           /oauth2/token
-    authbucket_oauth2.debug_path:           /oauth2/debug
-
     authbucket_oauth2.response_handler:
         code:               AuthBucket\OAuth2\ResponseType\CodeResponseTypeHandler
         token:              AuthBucket\OAuth2\ResponseType\TokenResponseTypeHandler
@@ -30,68 +26,83 @@ services:
     authbucket_oauth2.response_handler.factory:
         class: AuthBucket\OAuth2\ResponseType\ResponseTypeHandlerFactory
         arguments:
+            - "@security.context"
+            - "@validator"
+            - "@authbucket_oauth2.model_manager.factory"
+            - "@authbucket_oauth2.token_handler.factory"
             - "%authbucket_oauth2.response_handler%"
 
     authbucket_oauth2.grant_handler.factory:
         class: AuthBucket\OAuth2\GrantType\GrantTypeHandlerFactory
         arguments:
+            - "@security.context"
+            - "@security.user_checker"
+            - "@security.encoder_factory"
+            - "@validator"
+            - "@authbucket_oauth2.model_manager.factory"
+            - "@authbucket_oauth2.token_handler.factory"
+            - ~
             - "%authbucket_oauth2.grant_handler%"
 
     authbucket_oauth2.token_handler.factory:
         class: AuthBucket\OAuth2\TokenType\TokenTypeHandlerFactory
         arguments:
+            - "@validator"
+            - "@authbucket_oauth2.model_manager.factory"
             - "%authbucket_oauth2.token_handler%"
 
     authbucket_oauth2.resource_handler.factory:
         class: AuthBucket\OAuth2\ResourceType\ResourceTypeHandlerFactory
         arguments:
+            - "@http_kernel"
+            - "@authbucket_oauth2.model_manager.factory"
             - "%authbucket_oauth2.resource_handler%"
 
     authbucket_oauth2.authorize_controller:
         class: AuthBucket\OAuth2\Controller\AuthorizeController
         arguments:
-            - "@security.context"
-            - "@authbucket_oauth2.model_manager.factory"
+            - "@validator"
             - "@authbucket_oauth2.response_handler.factory"
-            - "@authbucket_oauth2.token_handler.factory"
 
     authbucket_oauth2.token_controller:
         class: AuthBucket\OAuth2\Controller\TokenController
         arguments:
-            - "@security.context"
-            - "@security.user_checker"
-            - "@security.encoder_factory"
-            - "@authbucket_oauth2.model_manager.factory"
+            - "@validator"
             - "@authbucket_oauth2.grant_handler.factory"
-            - "@authbucket_oauth2.token_handler.factory"
-            - ~
 
     authbucket_oauth2.debug_controller:
         class: AuthBucket\OAuth2\Controller\DebugController
         arguments:
-            - "@security.context"
+            - "@validator"
+            - "@authbucket_oauth2.model_manager.factory"
+            - "@authbucket_oauth2.token_handler.factory"
+
+    authbucket_oauth2.model_controller:
+        class: AuthBucket\OAuth2\Controller\ModelController
+        arguments:
+            - "@validator"
+            - "@serializer"
             - "@authbucket_oauth2.model_manager.factory"
 
     security.authentication.provider.token:
         class: AuthBucket\OAuth2\Security\Authentication\Provider\TokenProvider
         arguments:
-            - "@authbucket_oauth2.model_manager.factory"
             - ~
+            - "@authbucket_oauth2.model_manager.factory"
 
     security.authentication.listener.token:
         class: AuthBucket\OAuth2\Security\Firewall\TokenListener
         arguments:
+            - ~
             - "@security.context"
             - "@security.authentication.manager"
-            - ~
+            - "@validator"
 
     security.authentication.provider.resource:
         class: AuthBucket\OAuth2\Security\Authentication\Provider\ResourceProvider
         arguments:
-            - "@http_kernel"
-            - "@authbucket_oauth2.model_manager.factory"
-            - "@authbucket_oauth2.resource_handler.factory"
             - ~
+            - "@authbucket_oauth2.resource_handler.factory"
             - ~
             - ~
             - ~
@@ -99,7 +110,8 @@ services:
     security.authentication.listener.resource:
         class: AuthBucket\OAuth2\Security\Firewall\ResourceListener
         arguments:
+            - ~
             - "@security.context"
             - "@security.authentication.manager"
-            - ~
+            - "@validator"
             - "@authbucket_oauth2.token_handler.factory"
