@@ -15,7 +15,7 @@
     "extra": {
         "branch-alias": {
             "dev-develop": "2.x-dev",
-            "dev-master": "2.0.x-dev"
+            "dev-master": "2.1.x-dev"
         }
     },
     "homepage": "https://github.com/authbucket/oauth2-bundle",
@@ -27,7 +27,7 @@
     "minimum-stability": "dev",
     "name": "authbucket/oauth2-bundle",
     "require": {
-        "authbucket/oauth2": "~2.0",
+        "authbucket/oauth2": "~2.1",
         "php": ">=5.3.9",
         "symfony/framework-bundle": "~2.3",
         "symfony/security-bundle": "~2.3"
