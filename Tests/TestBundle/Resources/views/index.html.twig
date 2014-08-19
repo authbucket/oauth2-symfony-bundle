@@ -25,7 +25,7 @@
                 <p>Here is a minimal example of a <code>composer.json</code>:</p>
 <pre><code class="json">{
     &quot;require&quot;: {
-        &quot;authbucket/oauth2-bundle&quot;: &quot;~2.0&quot;
+        &quot;authbucket/oauth2-bundle&quot;: &quot;~2.1&quot;
     }
 }</code></pre>
 
@@ -59,9 +59,9 @@ authbucket_oauth2:
         scope:              AuthBucket\Bundle\OAuth2Bundle\Tests\TestBundle\Entity\Scope</code></pre>
                 <p>Where:</p>
                 <ul>
-                    <li><code>driver</code>: Currently we only support Doctrine ORM (<code>orm</code>).</li>
-                    <li><code>user_provider</code>: (Optional) For using <code>grant_type = password</code>, override this parameter with your own user provider, e.g. using InMemoryUserProvider or a doctrine EntityRepository that implements UserProviderInterface.</li>
-                    <li><code>model</code>: Override this with your backend model classes, e.g. initialized for Doctrine ORM.</li>
+                    <li><code>driver</code>: (Optional) Currently we support in-memory (<code>in_memory</code>), or Doctrine ORM (<code>orm</code>). Default with in-memory for using resource firewall with remote debug endpoint.</li>
+                    <li><code>user_provider</code>: (Optional) For using <code>grant_type = password</code>, override this parameter with your own user provider, e.g. using InMemoryUserProvider or a Doctrine ORM EntityRepository that implements UserProviderInterface.</li>
+                    <li><code>model</code>: (Optional) Override this with your own model classes, default with in-memory AccessToken for using resource firewall with remote debug endpoint.</li>
                 </ul>
 
                 <h3 id="services">Services</h3>
@@ -175,14 +175,12 @@ security:
                 options:
                     token_path:     http://example.com/oauth2/token
                     debug_path:     http://example.com/oauth2/debug
-                    client_id:      http://democlient1.com/
-                    client_secret:  demosecret1
                     cache:          true</code></pre>
 
                 <h2 id="demo" class="page-header">Demo</h2>
                 <p class="lead">The demo is based on <a href="http://symfony.com/">Symfony</a> and <a href="https://github.com/authbucket/oauth2-bundle/blob/master/AuthBucketOAuth2Bundle.php">AuthBucketOAuth2Bundle</a>. Read though <a href="http://oauth2-bundle.authbucket.com/demo">Demo</a> for more information.</p>
                 <p>You may also run the demo locally. Open a console and execute the following command to install the latest version in the oauth2-bundle/ directory:</p>
-<pre><code class="bash">$ composer create-project authbucket/oauth2-bundle oauth2-bundle/ "~2.0"</code></pre>
+<pre><code class="bash">$ composer create-project authbucket/oauth2-bundle oauth2-bundle/ "~2.1"</code></pre>
                 <p>Then use the PHP built-in web server to run the demo application:</p>
 <pre><code class="bash">$ cd oauth2-bundle/
 $ php app/console server:run</code></pre>
