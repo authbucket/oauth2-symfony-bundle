@@ -267,9 +267,7 @@ class DemoController extends Controller
 
     public function demoResourceTypeModelAction(Request $request)
     {
-        $parameters = array(
-            'debug_token' => $request->query->get('access_token'),
-        );
+        $parameters = array();
         $server = array(
             'HTTP_Authorization' => implode(' ', array('Bearer', $request->query->get('access_token'))),
         );
@@ -286,9 +284,7 @@ class DemoController extends Controller
 
     public function demoResourceTypeDebugEndpointAction(Request $request)
     {
-        $parameters = array(
-            'debug_token' => $request->query->get('access_token'),
-        );
+        $parameters = array();
         $server = array(
             'HTTP_Authorization' => implode(' ', array('Bearer', $request->query->get('access_token'))),
         );

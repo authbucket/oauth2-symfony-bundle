@@ -165,8 +165,7 @@ our custom firewall `oauth2_token`:
 ### Debug Endpoint
 
 We should protect this endpoint with our custom firewall
-`oauth2_resource` (scope `debug` is required for remote resource server
-query functioning):
+`oauth2_resource`:
 
     # app/config/security.yml
 
@@ -174,9 +173,7 @@ query functioning):
         firewalls:
             oauth2_debug:
                 pattern:                ^/oauth2/debug$
-                oauth2_resource:
-                    resource_type:      model
-                    scope:              [ debug ]
+                oauth2_resource:        ~
 
 ### Resource Endpoint
 
