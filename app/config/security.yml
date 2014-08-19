@@ -59,8 +59,8 @@ security:
                 resource_type:      debug_endpoint
                 scope:              [ demoscope1 ]
                 options:
-                    client_id:      'http://democlient1.com/'
-                    client_secret:  'demosecret1'
+                    token_path:     '/oauth2/token'
+                    debug_path:     '/oauth2/debug'
                     cache:          false
 
         resource_resource_type_debug_endpoint_cache:
@@ -69,22 +69,16 @@ security:
                 resource_type:      debug_endpoint
                 scope:              [ demoscope1 ]
                 options:
-                    client_id:      'http://democlient1.com/'
-                    client_secret:  'demosecret1'
+                    token_path:     '/oauth2/token'
+                    debug_path:     '/oauth2/debug'
+                    cache:          true
 
         resource_resource_type_debug_endpoint_invalid_options:
             pattern:                ^/resource/resource_type/debug_endpoint/invalid_options$
             oauth2_resource:
                 resource_type:      debug_endpoint
                 scope:              [ demoscope1 ]
-                options:            ~
-
-        resource_resource_type_debug_endpoint_invalid_client:
-            pattern:                ^/resource/resource_type/debug_endpoint/invalid_client$
-            oauth2_resource:
-                resource_type:      debug_endpoint
-                scope:              [ demoscope1 ]
                 options:
-                    client_id:      'nonexistsclient'
-                    client_secret:  'fakesecret'
-                    cache:          false
+                    token_path:     ''
+                    debug_path:     ''
+                    cache:          true

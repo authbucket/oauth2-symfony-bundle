@@ -19,7 +19,7 @@ use Doctrine\ORM\Mapping as ORM;
  *
  * @ORM\MappedSuperclass(repositoryClass="AuthBucket\Bundle\OAuth2Bundle\Entity\AuthorizeRepository")
  */
-class Authorize implements AuthorizeInterface
+abstract class Authorize implements AuthorizeInterface
 {
     /**
      * @var string

@@ -19,7 +19,7 @@ use Doctrine\ORM\Mapping as ORM;
  *
  * @ORM\MappedSuperclass(repositoryClass="AuthBucket\Bundle\OAuth2Bundle\Entity\AccessTokenRepository")
  */
-class AccessToken implements AccessTokenInterface
+abstract class AccessToken implements AccessTokenInterface
 {
     /**
      * @var string

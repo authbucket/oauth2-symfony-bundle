@@ -41,8 +41,8 @@ class AuthBucketOAuth2Extension extends Extension
 
         $loader->load('services.yml');
 
-        $driver = $config['driver'] ?: 'orm';
-        if (in_array($driver, array('orm'))) {
+        $driver = $config['driver'] ?: 'in_memory';
+        if (in_array($driver, array('in_memory', 'orm'))) {
             $loader->load(sprintf('%s.yml', $driver));
         }
         unset($config['driver']);

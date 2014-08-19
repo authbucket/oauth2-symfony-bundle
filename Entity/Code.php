@@ -19,7 +19,7 @@ use Doctrine\ORM\Mapping as ORM;
  *
  * @ORM\MappedSuperclass(repositoryClass="AuthBucket\Bundle\OAuth2Bundle\Entity\CodeRepository")
  */
-class Code implements CodeInterface
+abstract class Code implements CodeInterface
 {
     /**
      * @var string

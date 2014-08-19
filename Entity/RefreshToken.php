@@ -19,7 +19,7 @@ use Doctrine\ORM\Mapping as ORM;
  *
  * @ORM\MappedSuperclass(repositoryClass="AuthBucket\Bundle\OAuth2Bundle\Entity\RefreshTokenRepository")
  */
-class RefreshToken implements RefreshTokenInterface
+abstract class RefreshToken implements RefreshTokenInterface
 {
     /**
      * @var string

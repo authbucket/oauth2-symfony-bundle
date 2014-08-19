@@ -29,6 +29,11 @@ abstract class WebTestCase extends KernelTestCase
         return $client;
     }
 
+    public function set($id, $service)
+    {
+        return static::$kernel->getContainer()->set($id, $service);
+    }
+
     public function get($id)
     {
         return static::$kernel->getContainer()->get($id);
