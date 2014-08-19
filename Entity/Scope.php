@@ -19,7 +19,7 @@ use Doctrine\ORM\Mapping as ORM;
  *
  * @ORM\MappedSuperclass(repositoryClass="AuthBucket\Bundle\OAuth2Bundle\Entity\ScopeRepository")
  */
-class Scope implements ScopeInterface
+abstract class Scope implements ScopeInterface
 {
     /**
      * @var string

@@ -18,7 +18,3 @@ resource_resource_type_debug_endpoint_cache:
 resource_resource_type_debug_endpoint_invalid_options:
     path:       /resource/resource_type/debug_endpoint/invalid_options
     defaults:   { _controller: AuthBucketOAuth2Bundle:Debug:debug }
-
-resource_resource_type_debug_endpoint_invalid_client:
-    path:       /resource/resource_type/debug_endpoint/invalid_client
-    defaults:   { _controller: AuthBucketOAuth2Bundle:Debug:debug }
