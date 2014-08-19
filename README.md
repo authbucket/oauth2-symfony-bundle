@@ -29,7 +29,7 @@ Here is a minimal example of a `composer.json`:
 
     {
         "require": {
-            "authbucket/oauth2-bundle": "~2.0"
+            "authbucket/oauth2-bundle": "~2.1"
         }
     }
 
@@ -66,13 +66,16 @@ Example setup in our built-in demo:
 
 Where:
 
--   `driver`: Currently we only support Doctrine ORM (`orm`).
+-   `driver`: (Optional) Currently we support in-memory (`in_memory`),
+    or Doctrine ORM (`orm`). Default with in-memory for using resource
+    firewall with remote debug endpoint.
 -   `user_provider`: (Optional) For using `grant_type = password`,
     override this parameter with your own user provider, e.g. using
-    InMemoryUserProvider or a doctrine EntityRepository that implements
-    UserProviderInterface.
--   `model`: Override this with your backend model classes, e.g.
-    initialized for Doctrine ORM.
+    InMemoryUserProvider or a Doctrine ORM EntityRepository that
+    implements UserProviderInterface.
+-   `model`: (Optional) Override this with your own model classes,
+    default with in-memory AccessToken for using resource firewall with
+    remote debug endpoint.
 
 ### Services
 
@@ -224,8 +227,6 @@ endpoint:
                     options:
                         token_path:     http://example.com/oauth2/token
                         debug_path:     http://example.com/oauth2/debug
-                        client_id:      http://democlient1.com/
-                        client_secret:  demosecret1
                         cache:          true
 
 Demo
@@ -240,7 +241,7 @@ You may also run the demo locally. Open a console and execute the
 following command to install the latest version in the oauth2-bundle/
 directory:
 
-    $ composer create-project authbucket/oauth2-bundle oauth2-bundle/ "~2.0"
+    $ composer create-project authbucket/oauth2-bundle oauth2-bundle/ "~2.1"
 
 Then use the PHP built-in web server to run the demo application:
 
