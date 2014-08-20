@@ -73,9 +73,7 @@ services:
     authbucket_oauth2.debug_controller:
         class: AuthBucket\OAuth2\Controller\DebugController
         arguments:
-            - "@validator"
-            - "@authbucket_oauth2.model_manager.factory"
-            - "@authbucket_oauth2.token_handler.factory"
+            - "@security.context"
 
     authbucket_oauth2.model_controller:
         class: AuthBucket\OAuth2\Controller\ModelController
