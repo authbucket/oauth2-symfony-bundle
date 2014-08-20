@@ -43,7 +43,6 @@ class InMemoryTest extends WebTestCase
             ->setUsername('demousername1')
             ->setExpires(new \DateTime('+1 hours'))
             ->setScope(array(
-                'debug',
                 'demoscope1',
             ));
         $accessTokenManager->createModel($model);
