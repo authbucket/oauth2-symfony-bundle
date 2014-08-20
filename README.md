@@ -222,7 +222,7 @@ endpoint:
                     resource_type:      debug_endpoint
                     scope:              [ demoscope1 ]
                     options:
-                        debug_path:     http://example.com/oauth2/debug
+                        debug_endpoint: http://example.com/oauth2/debug
                         cache:          true
 
 Demo
