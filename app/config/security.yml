@@ -57,7 +57,6 @@ security:
                 resource_type:      debug_endpoint
                 scope:              [ demoscope1 ]
                 options:
-                    token_path:     '/oauth2/token'
                     debug_path:     '/oauth2/debug'
                     cache:          false
 
@@ -67,7 +66,6 @@ security:
                 resource_type:      debug_endpoint
                 scope:              [ demoscope1 ]
                 options:
-                    token_path:     '/oauth2/token'
                     debug_path:     '/oauth2/debug'
                     cache:          true
 
@@ -77,6 +75,5 @@ security:
                 resource_type:      debug_endpoint
                 scope:              [ demoscope1 ]
                 options:
-                    token_path:     ''
                     debug_path:     ''
                     cache:          true
