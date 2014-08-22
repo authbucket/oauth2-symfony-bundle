@@ -36,7 +36,7 @@ class AuthBucketOAuth2Extension extends Extension
 
         $loader = new Loader\YamlFileLoader(
             $container,
-            new FileLocator(__DIR__ . '/../Resources/config')
+            new FileLocator(__DIR__.'/../Resources/config')
         );
 
         $loader->load('services.yml');
@@ -55,7 +55,7 @@ class AuthBucketOAuth2Extension extends Extension
         unset($config['user_provider']);
 
         foreach (array_filter($config) as $key => $value) {
-            $container->setParameter('authbucket_oauth2.' . $key, $value);
+            $container->setParameter('authbucket_oauth2.'.$key, $value);
         }
     }
 

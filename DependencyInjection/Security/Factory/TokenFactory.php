@@ -20,11 +20,11 @@ class TokenFactory implements SecurityFactoryInterface
 {
     public function create(ContainerBuilder $container, $id, $config, $userProvider, $defaultEntryPoint)
     {
-        $providerId = 'security.authentication.provider.token.' . $id;
+        $providerId = 'security.authentication.provider.token.'.$id;
         $container->setDefinition($providerId, new DefinitionDecorator('security.authentication.provider.token'))
             ->replaceArgument(0, $id);
 
-        $listenerId = 'security.authentication.listener.token.' . $id;
+        $listenerId = 'security.authentication.listener.token.'.$id;
         $container->setDefinition($listenerId, new DefinitionDecorator('security.authentication.listener.token'))
             ->replaceArgument(0, $id);
 

@@ -24,7 +24,7 @@ class InMemoryTest extends WebTestCase
         parent::setUp();
 
         $container = new ContainerBuilder();
-        $loader = new YamlFileLoader($container, new FileLocator(__DIR__ . '/../../Resources/config'));
+        $loader = new YamlFileLoader($container, new FileLocator(__DIR__.'/../../Resources/config'));
         $loader->load('in_memory.yml');
         $container->compile();
 

@@ -38,7 +38,7 @@ if (isset($_ENV['BOOTSTRAP_ENV'])) {
     ));
 }
 
-$loader = require __DIR__ . '/../vendor/autoload.php';
+$loader = require __DIR__.'/../vendor/autoload.php';
 
 AnnotationRegistry::registerLoader(array($loader, 'loadClass'));
 

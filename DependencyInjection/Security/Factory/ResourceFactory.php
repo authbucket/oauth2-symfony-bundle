@@ -26,7 +26,7 @@ class ResourceFactory implements SecurityFactoryInterface
             'options' => array(),
         ), (array) $config);
 
-        $providerId = 'security.authentication.provider.resource.' . $id;
+        $providerId = 'security.authentication.provider.resource.'.$id;
         $container
             ->setDefinition($providerId, new DefinitionDecorator('security.authentication.provider.resource'))
             ->replaceArgument(0, $id)
@@ -34,7 +34,7 @@ class ResourceFactory implements SecurityFactoryInterface
             ->replaceArgument(3, $config['scope'])
             ->replaceArgument(4, $config['options']);
 
-        $listenerId = 'security.authentication.listener.resource.' . $id;
+        $listenerId = 'security.authentication.listener.resource.'.$id;
         $container->setDefinition($listenerId, new DefinitionDecorator('security.authentication.listener.resource'))
             ->replaceArgument(0, $id);
 
