@@ -56,7 +56,7 @@ class DefaultController extends Controller
         $executor = new ORMExecutor($em, $purger);
 
         $loader = new Loader();
-        $loader->loadFromDirectory(__DIR__ . '/../DataFixtures/ORM');
+        $loader->loadFromDirectory(__DIR__.'/../DataFixtures/ORM');
         $executor->execute($loader->getFixtures());
 
         return $this->redirect($this->get('router')->generate('index'));
