@@ -1,4 +1,4 @@
-resource_index:
+resource:
     path:       /resource
     defaults:   { _controller: TestBundle:Resource:resourceIndex }
     methods:    [ GET ]

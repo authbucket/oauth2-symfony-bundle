@@ -1,4 +1,4 @@
-oauth2_index:
+oauth2:
     path:           /oauth2
     defaults:       { _controller: TestBundle:OAuth2:oauth2Index }
     methods:        [ GET ]
