@@ -1,4 +1,4 @@
-client_index:
+client:
     path:       /client
     defaults:   { _controller: TestBundle:Client:clientIndex }
     methods:    [ GET ]

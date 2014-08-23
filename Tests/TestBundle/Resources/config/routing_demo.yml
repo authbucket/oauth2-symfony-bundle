@@ -1,4 +1,4 @@
-demo_index:
+demo:
     path:       /demo
     defaults:   { _controller: TestBundle:Demo:demoIndex }
     methods:    [ GET ]
