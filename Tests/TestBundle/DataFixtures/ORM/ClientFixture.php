@@ -1,7 +1,7 @@
 <?php
 
 /**
- * This file is part of the authbucket/oauth2-bundle package.
+ * This file is part of the authbucket/oauth2-symfony-bundle package.
  *
  * (c) Wong Hoi Sing Edison <hswong3i@pantarei-design.com>
  *
