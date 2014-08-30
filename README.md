@@ -2,18 +2,18 @@ AuthBucket\\Bundle\\OAuth2Bundle
 ================================
 
 [![Build
-Status](https://travis-ci.org/authbucket/oauth2-bundle.svg?branch=master)](https://travis-ci.org/authbucket/oauth2-bundle)
+Status](https://travis-ci.org/authbucket/oauth2-symfony-bundle.svg?branch=master)](https://travis-ci.org/authbucket/oauth2-symfony-bundle)
 [![Coverage
-Status](https://img.shields.io/coveralls/authbucket/oauth2-bundle.svg)](https://coveralls.io/r/authbucket/oauth2-bundle?branch=master)
+Status](https://img.shields.io/coveralls/authbucket/oauth2-symfony-bundle.svg)](https://coveralls.io/r/authbucket/oauth2-symfony-bundle?branch=master)
 [![Dependency
-Status](https://www.versioneye.com/php/authbucket:oauth2-bundle/dev-master/badge.svg)](https://www.versioneye.com/php/authbucket:oauth2-bundle/dev-master)
+Status](https://www.versioneye.com/php/authbucket:oauth2-symfony-bundle/dev-master/badge.svg)](https://www.versioneye.com/php/authbucket:oauth2-symfony-bundle/dev-master)
 [![Latest Stable
-Version](https://poser.pugx.org/authbucket/oauth2-bundle/v/stable.svg)](https://packagist.org/packages/authbucket/oauth2-bundle)
+Version](https://poser.pugx.org/authbucket/oauth2-symfony-bundle/v/stable.svg)](https://packagist.org/packages/authbucket/oauth2-symfony-bundle)
 [![Total
-Downloads](https://poser.pugx.org/authbucket/oauth2-bundle/downloads.svg)](https://packagist.org/packages/authbucket/oauth2-bundle)
-[![License](https://poser.pugx.org/authbucket/oauth2-bundle/license.svg)](https://packagist.org/packages/authbucket/oauth2-bundle)
+Downloads](https://poser.pugx.org/authbucket/oauth2-symfony-bundle/downloads.svg)](https://packagist.org/packages/authbucket/oauth2-symfony-bundle)
+[![License](https://poser.pugx.org/authbucket/oauth2-symfony-bundle/license.svg)](https://packagist.org/packages/authbucket/oauth2-symfony-bundle)
 
-[AuthBucket\\Bundle\\OAuth2Bundle](http://oauth2-bundle.authbucket.com/)
+[AuthBucket\\Bundle\\OAuth2Bundle](http://oauth2-symfony-bundle.authbucket.com/)
 is a Symfony Bundle, which integrate
 [AuthBucket\\OAuth2](http://oauth2.authbucket.com/) as easy as possible
 into your [Symfony](http://symfony.com) Project.
@@ -21,15 +21,16 @@ into your [Symfony](http://symfony.com) Project.
 Installation
 ------------
 
-Simply add a dependency on `authbucket/oauth2-bundle` to your project's
-`composer.json` file if you use [Composer](http://getcomposer.org/) to
-manage the dependencies of your project.
+Simply add a dependency on `authbucket/oauth2-symfony-bundle` to your
+project's `composer.json` file if you use
+[Composer](http://getcomposer.org/) to manage the dependencies of your
+project.
 
 Here is a minimal example of a `composer.json`:
 
     {
         "require": {
-            "authbucket/oauth2-bundle": "~2.1"
+            "authbucket/oauth2-symfony-bundle": "~2.1"
         }
     }
 
@@ -229,19 +230,19 @@ Demo
 ----
 
 The demo is based on [Symfony](http://symfony.com/) and
-[AuthBucketOAuth2Bundle](https://github.com/authbucket/oauth2-bundle/blob/master/AuthBucketOAuth2Bundle.php).
-Read though [Demo](http://oauth2-bundle.authbucket.com/demo) for more
-information.
+[AuthBucketOAuth2Bundle](https://github.com/authbucket/oauth2-symfony-bundle/blob/master/AuthBucketOAuth2Bundle.php).
+Read though [Demo](http://oauth2-symfony-bundle.authbucket.com/demo) for
+more information.
 
 You may also run the demo locally. Open a console and execute the
-following command to install the latest version in the oauth2-bundle/
-directory:
+following command to install the latest version in the
+`oauth2-symfony-bundle` directory:
 
-    $ composer create-project authbucket/oauth2-bundle oauth2-bundle/ "~2.1"
+    $ composer create-project authbucket/oauth2-symfony-bundle oauth2-symfony-bundle "~2.1"
 
 Then use the PHP built-in web server to run the demo application:
 
-    $ cd oauth2-bundle/
+    $ cd oauth2-symfony-bundle
     $ php app/console server:run
 
 If you get the error
@@ -264,23 +265,22 @@ Documentation
 
 OAuth2Bundle's documentation is built with
 [Sami](https://github.com/fabpot/Sami) and publicly hosted on [GitHub
-Pages](http://authbucket.github.io/oauth2-bundle).
+Pages](http://authbucket.github.io/oauth2-symfony-bundle).
 
 To built the documents locally, execute the following command:
 
     $ vendor/bin/sami.php update .sami.php
 
-Open `build/oauth2-bundle/index.html` with your browser for the
-documents.
+Open `build/sami/index.html` with your browser for the documents.
 
 Tests
 -----
 
 This project is coverage with [PHPUnit](http://phpunit.de/) test cases;
 CI result can be found from [Travis
-CI](https://travis-ci.org/authbucket/oauth2-bundle); code coverage
-report can be found from
-[Coveralls](https://coveralls.io/r/authbucket/oauth2-bundle).
+CI](https://travis-ci.org/authbucket/oauth2-symfony-bundle); code
+coverage report can be found from
+[Coveralls](https://coveralls.io/r/authbucket/oauth2-symfony-bundle).
 
 To run the test suite locally, execute the following command:
 
@@ -292,17 +292,17 @@ References
 ----------
 
 -   [RFC6749](http://tools.ietf.org/html/rfc6749)
--   [Demo](http://oauth2-bundle.authbucket.com/demo)
--   [API](http://authbucket.github.io/oauth2-bundle/)
--   [GitHub](https://github.com/authbucket/oauth2-bundle)
--   [Packagist](https://packagist.org/packages/authbucket/oauth2-bundle)
--   [Travis CI](https://travis-ci.org/authbucket/oauth2-bundle)
--   [Coveralls](https://coveralls.io/r/authbucket/oauth2-bundle)
+-   [Demo](http://oauth2-symfony-bundle.authbucket.com/demo)
+-   [API](http://authbucket.github.io/oauth2-symfony-bundle/)
+-   [GitHub](https://github.com/authbucket/oauth2-symfony-bundle)
+-   [Packagist](https://packagist.org/packages/authbucket/oauth2-symfony-bundle)
+-   [Travis CI](https://travis-ci.org/authbucket/oauth2-symfony-bundle)
+-   [Coveralls](https://coveralls.io/r/authbucket/oauth2-symfony-bundle)
 
 License
 -------
 
 -   Code released under
-    [MIT](https://github.com/authbucket/oauth2-bundle/blob/master/LICENSE)
+    [MIT](https://github.com/authbucket/oauth2-symfony-bundle/blob/master/LICENSE)
 -   Docs released under [CC BY-NC-SA
     3.0](http://creativecommons.org/licenses/by-nc-sa/3.0/)
