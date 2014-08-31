@@ -60,6 +60,26 @@
             </tr>
                     <tr>
                 <td class="type">
+                    <abbr title="AuthBucket\Bundle\OAuth2Bundle\Entity\State">State</abbr>
+                </td>
+                <td class="last">
+                    <a href="#method_setState">setState</a>(string $state)
+                    <p>Set state</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    string
+                </td>
+                <td class="last">
+                    <a href="#method_getState">getState</a>()
+                    <p>Get state</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
                     <a href="../../../../AuthBucket/Bundle/OAuth2Bundle/Entity/Code.html"><abbr title="AuthBucket\Bundle\OAuth2Bundle\Entity\Code">Code</abbr></a>
                 </td>
                 <td class="last">
@@ -164,7 +184,7 @@
         <h2>Details</h2>
 
                         <h3 id="method_setCode">
-        <div class="location">at line 73</div>
+        <div class="location">at line 80</div>
         <code>            public            <a href="../../../../AuthBucket/Bundle/OAuth2Bundle/Entity/Code.html"><abbr title="AuthBucket\Bundle\OAuth2Bundle\Entity\Code">Code</abbr></a>
     <strong>setCode</strong>(string $code)</code>
     </h3>
@@ -201,7 +221,7 @@
     </div>
 
                 <h3 id="method_getCode">
-        <div class="location">at line 85</div>
+        <div class="location">at line 92</div>
         <code>            public            string
     <strong>getCode</strong>()</code>
     </h3>
@@ -226,8 +246,71 @@
                     </div>
     </div>
 
+                <h3 id="method_setState">
+        <div class="location">at line 104</div>
+        <code>            public            <abbr title="AuthBucket\Bundle\OAuth2Bundle\Entity\State">State</abbr>
+    <strong>setState</strong>(string $state)</code>
+    </h3>
+    <div class="details">
+        <p>Set state</p>
+        <p>
+</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>string</td>
+                <td>$state</td>
+                <td>
+</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td><abbr title="AuthBucket\Bundle\OAuth2Bundle\Entity\State">State</abbr></td>
+            <td>
+</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getState">
+        <div class="location">at line 116</div>
+        <code>            public            string
+    <strong>getState</strong>()</code>
+    </h3>
+    <div class="details">
+        <p>Get state</p>
+        <p>
+</p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>string</td>
+            <td>
+</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
                 <h3 id="method_setClientId">
-        <div class="location">at line 97</div>
+        <div class="location">at line 128</div>
         <code>            public            <a href="../../../../AuthBucket/Bundle/OAuth2Bundle/Entity/Code.html"><abbr title="AuthBucket\Bundle\OAuth2Bundle\Entity\Code">Code</abbr></a>
     <strong>setClientId</strong>(string $clientId)</code>
     </h3>
@@ -264,7 +347,7 @@
     </div>
 
                 <h3 id="method_getClientId">
-        <div class="location">at line 109</div>
+        <div class="location">at line 140</div>
         <code>            public            string
     <strong>getClientId</strong>()</code>
     </h3>
@@ -290,7 +373,7 @@
     </div>
 
                 <h3 id="method_setUsername">
-        <div class="location">at line 121</div>
+        <div class="location">at line 152</div>
         <code>            public            <a href="../../../../AuthBucket/Bundle/OAuth2Bundle/Entity/Code.html"><abbr title="AuthBucket\Bundle\OAuth2Bundle\Entity\Code">Code</abbr></a>
     <strong>setUsername</strong>(string $username)</code>
     </h3>
@@ -327,7 +410,7 @@
     </div>
 
                 <h3 id="method_getUsername">
-        <div class="location">at line 133</div>
+        <div class="location">at line 164</div>
         <code>            public            string
     <strong>getUsername</strong>()</code>
     </h3>
@@ -353,7 +436,7 @@
     </div>
 
                 <h3 id="method_setRedirectUri">
-        <div class="location">at line 145</div>
+        <div class="location">at line 176</div>
         <code>            public            <a href="../../../../AuthBucket/Bundle/OAuth2Bundle/Entity/Code.html"><abbr title="AuthBucket\Bundle\OAuth2Bundle\Entity\Code">Code</abbr></a>
     <strong>setRedirectUri</strong>(string $redirectUri)</code>
     </h3>
@@ -390,7 +473,7 @@
     </div>
 
                 <h3 id="method_getRedirectUri">
-        <div class="location">at line 157</div>
+        <div class="location">at line 188</div>
         <code>            public            string
     <strong>getRedirectUri</strong>()</code>
     </h3>
@@ -416,7 +499,7 @@
     </div>
 
                 <h3 id="method_setExpires">
-        <div class="location">at line 169</div>
+        <div class="location">at line 200</div>
         <code>            public            <a href="../../../../AuthBucket/Bundle/OAuth2Bundle/Entity/Code.html"><abbr title="AuthBucket\Bundle\OAuth2Bundle\Entity\Code">Code</abbr></a>
     <strong>setExpires</strong>(<a href="http://php.net/DateTime"><abbr title="DateTime">DateTime</abbr></a> $expires)</code>
     </h3>
@@ -453,7 +536,7 @@
     </div>
 
                 <h3 id="method_getExpires">
-        <div class="location">at line 181</div>
+        <div class="location">at line 212</div>
         <code>            public            <a href="http://php.net/DateTime"><abbr title="DateTime">DateTime</abbr></a>
     <strong>getExpires</strong>()</code>
     </h3>
@@ -479,7 +562,7 @@
     </div>
 
                 <h3 id="method_setScope">
-        <div class="location">at line 193</div>
+        <div class="location">at line 224</div>
         <code>            public            <a href="../../../../AuthBucket/Bundle/OAuth2Bundle/Entity/Code.html"><abbr title="AuthBucket\Bundle\OAuth2Bundle\Entity\Code">Code</abbr></a>
     <strong>setScope</strong>(array $scope)</code>
     </h3>
@@ -516,7 +599,7 @@
     </div>
 
                 <h3 id="method_getScope">
-        <div class="location">at line 205</div>
+        <div class="location">at line 236</div>
         <code>            public            array
     <strong>getScope</strong>()</code>
     </h3>
