@@ -15,8 +15,8 @@ Downloads](https://poser.pugx.org/authbucket/oauth2-symfony-bundle/downloads.svg
 
 [AuthBucket\\Bundle\\OAuth2Bundle](http://oauth2-symfony-bundle.authbucket.com/)
 is a Symfony Bundle, which integrate
-[AuthBucket\\OAuth2](http://oauth2.authbucket.com/) as easy as possible
-into your [Symfony](http://symfony.com) Project.
+[AuthBucket\\OAuth2](http://oauth2-php.authbucket.com/) as easy as
+possible into your [Symfony](http://symfony.com) Project.
 
 Installation
 ------------
