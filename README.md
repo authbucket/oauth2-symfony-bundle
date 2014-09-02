@@ -30,7 +30,7 @@ Here is a minimal example of a `composer.json`:
 
     {
         "require": {
-            "authbucket/oauth2-symfony-bundle": "~2.1"
+            "authbucket/oauth2-symfony-bundle": "~2.2"
         }
     }
 
@@ -81,11 +81,18 @@ Where:
 ### Services
 
 This bundle come with following services controller which simplify the
-implementation overhead:
+OAuth2.0 controller implementation overhead:
 
--   `AuthorizeController`: Authorization endpoint controller.
--   `TokenController`: Token endpoint controller.
--   `DebugController`: Debug endpoint controller.
+-   `authbucket_oauth2.oauth2_controller`: OAuth2 endpoint controller.
+
+Moreover, we also provide following model
+[CRUD](http://en.wikipedia.org/wiki/Create,_read,_update_and_delete)
+controller for alter raw data set:
+
+-   `authbucket_oauth2.authorize_controller`: Authorize endpoint
+    controller.
+-   `authbucket_oauth2.client_controller`: Client endpoint controller.
+-   `authbucket_oauth2.scope_controller`: Scope endpoint controller.
 
 ### Registering
 
@@ -113,7 +120,8 @@ backend controller point of view, so you will need to setup both for
 functioning.
 
 To enable the built-in controller with corresponding routing, add the
-following into your `routing.yml`:
+following into your `routing.yml`, all above controllers will be enabled
+accordingly with routing prefix `/api/v1.0`:
 
     # app/config/routing.yml
 
@@ -160,7 +168,7 @@ our custom firewall `oauth2_token`:
     security:
         firewalls:
             oauth2_token:
-                pattern:                ^/oauth2/token$
+                pattern:                ^/api/v1.0/oauth2/token$
                 oauth2_token:           ~
 
 ### Debug Endpoint
@@ -173,7 +181,7 @@ We should protect this endpoint with our custom firewall
     security:
         firewalls:
             oauth2_debug:
-                pattern:                ^/oauth2/debug$
+                pattern:                ^/api/v1.0/oauth2/debug$
                 oauth2_resource:        ~
 
 ### Resource Endpoint
@@ -223,7 +231,7 @@ endpoint:
                     resource_type:      debug_endpoint
                     scope:              [ demoscope1 ]
                     options:
-                        debug_endpoint: http://example.com/oauth2/debug
+                        debug_endpoint: http://example.com/api/v1.0/oauth2/debug
                         cache:          true
 
 Demo
@@ -238,7 +246,7 @@ You may also run the demo locally. Open a console and execute the
 following command to install the latest version in the
 `oauth2-symfony-bundle` directory:
 
-    $ composer create-project authbucket/oauth2-symfony-bundle oauth2-symfony-bundle "~2.1"
+    $ composer create-project authbucket/oauth2-symfony-bundle oauth2-symfony-bundle "~2.2"
 
 Then use the PHP built-in web server to run the demo application:
 

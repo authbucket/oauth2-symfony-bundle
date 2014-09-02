@@ -58,25 +58,30 @@ services:
             - "@authbucket_oauth2.model_manager.factory"
             - "%authbucket_oauth2.resource_handler%"
 
+    authbucket_oauth2.oauth2_controller:
+        class: AuthBucket\OAuth2\Controller\OAuth2Controller
+        arguments:
+            - "@security.context"
+            - "@validator"
+            - "@authbucket_oauth2.response_handler.factory"
+            - "@authbucket_oauth2.grant_handler.factory"
+
     authbucket_oauth2.authorize_controller:
         class: AuthBucket\OAuth2\Controller\AuthorizeController
         arguments:
             - "@validator"
-            - "@authbucket_oauth2.response_handler.factory"
+            - "@serializer"
+            - "@authbucket_oauth2.model_manager.factory"
 
-    authbucket_oauth2.token_controller:
-        class: AuthBucket\OAuth2\Controller\TokenController
+    authbucket_oauth2.client_controller:
+        class: AuthBucket\OAuth2\Controller\ClientController
         arguments:
             - "@validator"
-            - "@authbucket_oauth2.grant_handler.factory"
+            - "@serializer"
+            - "@authbucket_oauth2.model_manager.factory"
 
-    authbucket_oauth2.debug_controller:
-        class: AuthBucket\OAuth2\Controller\DebugController
-        arguments:
-            - "@security.context"
-
-    authbucket_oauth2.model_controller:
-        class: AuthBucket\OAuth2\Controller\ModelController
+    authbucket_oauth2.scope_controller:
+        class: AuthBucket\OAuth2\Controller\ScopeController
         arguments:
             - "@validator"
             - "@serializer"

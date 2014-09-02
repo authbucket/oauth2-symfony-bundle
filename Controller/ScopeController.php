@@ -14,30 +14,30 @@ namespace AuthBucket\Bundle\OAuth2Bundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
-class AuthorizeController extends Controller
+class ScopeController extends Controller
 {
     public function createAction(Request $request)
     {
-        return $this->get('authbucket_oauth2.authorize_controller')->createAction($request);
+        return $this->get('authbucket_oauth2.scope_controller')->createAction($request);
     }
 
     public function readAction(Request $request, $id)
     {
-        return $this->get('authbucket_oauth2.authorize_controller')->readAction($request, $id);
+        return $this->get('authbucket_oauth2.scope_controller')->readAction($request, $id);
     }
 
     public function updateAction(Request $request, $id)
     {
-        return $this->get('authbucket_oauth2.authorize_controller')->updateAction($request, $id);
+        return $this->get('authbucket_oauth2.scope_controller')->updateAction($request, $id);
     }
 
     public function deleteAction(Request $request, $id)
     {
-        return $this->get('authbucket_oauth2.authorize_controller')->deleteAction($request, $id);
+        return $this->get('authbucket_oauth2.scope_controller')->deleteAction($request, $id);
     }
 
     public function listAction(Request $request)
     {
-        return $this->get('authbucket_oauth2.authorize_controller')->listAction($request);
+        return $this->get('authbucket_oauth2.scope_controller')->listAction($request);
     }
 }

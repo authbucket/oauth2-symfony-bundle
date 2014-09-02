@@ -1,20 +1,20 @@
 resource:
     path:       /resource
-    defaults:   { _controller: TestBundle:Resource:resourceIndex }
+    defaults:   { _controller: TestBundle:Resource:index }
     methods:    [ GET ]
 
-resource_resource_type_model:
-    path:       /resource/resource_type/model
-    defaults:   { _controller: AuthBucketOAuth2Bundle:Debug:debug }
+api_resource_model:
+    path:       /api/v1.0/resource/model
+    defaults:   { _controller: AuthBucketOAuth2Bundle:OAuth2:debug }
 
-resource_resource_type_debug_endpoint:
-    path:       /resource/resource_type/debug_endpoint
-    defaults:   { _controller: AuthBucketOAuth2Bundle:Debug:debug }
+api_resource_debug_endpoint:
+    path:       /api/v1.0/resource/debug_endpoint
+    defaults:   { _controller: AuthBucketOAuth2Bundle:OAuth2:debug }
 
-resource_resource_type_debug_endpoint_cache:
-    path:       /resource/resource_type/debug_endpoint/cache
-    defaults:   { _controller: AuthBucketOAuth2Bundle:Debug:debug }
+api_resource_debug_endpoint_cache:
+    path:       /api/v1.0/resource/debug_endpoint/cache
+    defaults:   { _controller: AuthBucketOAuth2Bundle:OAuth2:debug }
 
-resource_resource_type_debug_endpoint_invalid_options:
-    path:       /resource/resource_type/debug_endpoint/invalid_options
-    defaults:   { _controller: AuthBucketOAuth2Bundle:Debug:debug }
+api_resource_debug_endpoint_invalid_options:
+    path:       /api/v1.0/resource/debug_endpoint/invalid_options
+    defaults:   { _controller: AuthBucketOAuth2Bundle:OAuth2:debug }

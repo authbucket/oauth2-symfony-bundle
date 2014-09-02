@@ -25,7 +25,7 @@
                 <p>Here is a minimal example of a <code>composer.json</code>:</p>
 <pre><code class="json">{
     &quot;require&quot;: {
-        &quot;authbucket/oauth2-symfony-bundle&quot;: &quot;~2.1&quot;
+        &quot;authbucket/oauth2-symfony-bundle&quot;: &quot;~2.2&quot;
     }
 }</code></pre>
 
@@ -65,11 +65,16 @@ authbucket_oauth2:
                 </ul>
 
                 <h3 id="services">Services</h3>
-                <p>This bundle come with following services controller which simplify the implementation overhead:</p>
+                <p>This bundle come with following services controller which simplify the OAuth2.0 controller implementation overhead:</p>
                 <ul>
-                    <li><code>AuthorizeController</code>: Authorization endpoint controller.</li>
-                    <li><code>TokenController</code>: Token endpoint controller.</li>
-                    <li><code>DebugController</code>: Debug endpoint controller.</li>
+                    <li><code>authbucket_oauth2.oauth2_controller</code>: OAuth2 endpoint controller.</li>
+                </ul>
+
+                <p>Moreover, we also provide following model <a href="http://en.wikipedia.org/wiki/Create,_read,_update_and_delete">CRUD</a> controller for alter raw data set:</p>
+                <ul>
+                    <li><code>authbucket_oauth2.authorize_controller</code>: Authorize endpoint controller.</li>
+                    <li><code>authbucket_oauth2.client_controller</code>: Client endpoint controller.</li>
+                    <li><code>authbucket_oauth2.scope_controller</code>: Scope endpoint controller.</li>
                 </ul>
 
                 <h3 id="registering">Registering</h3>
@@ -90,7 +95,7 @@ class AppKernel extends Kernel
 
                 <h2 id="usage" class="page-header">Usage</h2>
                 <p class="lead">This library seperate the endpoint logic in frontend firewall and backend controller point of view, so you will need to setup both for functioning.</p>
-                <p>To enable the built-in controller with corresponding routing, add the following into your <code>routing.yml</code>:</p>
+                <p>To enable the built-in controller with corresponding routing, add the following into your <code>routing.yml</code>, all above controllers will be enabled accordingly with routing prefix <code>/api/v1.0</code>:</p>
 <pre><code class="no-highlight"># app/config/routing.yml
 
 authbucketoauth2bundle:
@@ -127,7 +132,7 @@ security:
 security:
     firewalls:
         oauth2_token:
-            pattern:                ^/oauth2/token$
+            pattern:                ^/api/v1.0/oauth2/token$
             oauth2_token:           ~</code></pre>
 
                 <h3 id="debug-endpoint">Debug Endpoint</h3>
@@ -137,7 +142,7 @@ security:
 security:
     firewalls:
         oauth2_debug:
-            pattern:                ^/oauth2/debug$
+            pattern:                ^/api/v1.0/oauth2/debug$
             oauth2_resource:        ~</code></pre>
 
                 <h3 id="resource-endpoint">Resource Endpoint</h3>
@@ -171,13 +176,13 @@ security:
                 resource_type:      debug_endpoint
                 scope:              [ demoscope1 ]
                 options:
-                    debug_endpoint: http://example.com/oauth2/debug
+                    debug_endpoint: http://example.com/api/v1.0/oauth2/debug
                     cache:          true</code></pre>
 
                 <h2 id="demo" class="page-header">Demo</h2>
                 <p class="lead">The demo is based on <a href="http://symfony.com/">Symfony</a> and <a href="https://github.com/authbucket/oauth2-symfony-bundle/blob/master/AuthBucketOAuth2Bundle.php">AuthBucketOAuth2Bundle</a>. Read though <a href="http://oauth2-symfony-bundle.authbucket.com/demo">Demo</a> for more information.</p>
                 <p>You may also run the demo locally. Open a console and execute the following command to install the latest version in the <code>oauth2-symfony-bundle</code> directory:</p>
-<pre><code class="bash">$ composer create-project authbucket/oauth2-symfony-bundle oauth2-symfony-bundle "~2.1"</code></pre>
+<pre><code class="bash">$ composer create-project authbucket/oauth2-symfony-bundle oauth2-symfony-bundle "~2.2"</code></pre>
                 <p>Then use the PHP built-in web server to run the demo application:</p>
 <pre><code class="bash">$ cd oauth2-symfony-bundle
 $ php app/console server:run</code></pre>
