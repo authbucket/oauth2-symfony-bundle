@@ -30,7 +30,7 @@ Here is a minimal example of a `composer.json`:
 
     {
         "require": {
-            "authbucket/oauth2-symfony-bundle": "~2.1"
+            "authbucket/oauth2-symfony-bundle": "~2.2"
         }
     }
 
@@ -160,7 +160,7 @@ our custom firewall `oauth2_token`:
     security:
         firewalls:
             oauth2_token:
-                pattern:                ^/oauth2/token$
+                pattern:                ^/api/v1.0/oauth2/token$
                 oauth2_token:           ~
 
 ### Debug Endpoint
@@ -173,7 +173,7 @@ We should protect this endpoint with our custom firewall
     security:
         firewalls:
             oauth2_debug:
-                pattern:                ^/oauth2/debug$
+                pattern:                ^/api/v1.0/oauth2/debug$
                 oauth2_resource:        ~
 
 ### Resource Endpoint
@@ -223,7 +223,7 @@ endpoint:
                     resource_type:      debug_endpoint
                     scope:              [ demoscope1 ]
                     options:
-                        debug_endpoint: http://example.com/oauth2/debug
+                        debug_endpoint: http://example.com/api/v1.0/oauth2/debug
                         cache:          true
 
 Demo
@@ -238,7 +238,7 @@ You may also run the demo locally. Open a console and execute the
 following command to install the latest version in the
 `oauth2-symfony-bundle` directory:
 
-    $ composer create-project authbucket/oauth2-symfony-bundle oauth2-symfony-bundle "~2.1"
+    $ composer create-project authbucket/oauth2-symfony-bundle oauth2-symfony-bundle "~2.2"
 
 Then use the PHP built-in web server to run the demo application:
 

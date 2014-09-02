@@ -22,11 +22,6 @@ security:
             pattern:                ^/oauth2/login$
             anonymous:              ~
 
-        oauth2_authorize_http:
-            pattern:                ^/oauth2/authorize/http$
-            http_basic:             ~
-            provider:               default
-
         oauth2_authorize:
             pattern:                ^/oauth2/authorize
             form_login:
@@ -37,43 +32,52 @@ security:
                 target:             /demo
             provider:               default
 
-        oauth2_token:
-            pattern:                ^/oauth2/token$
+        api_oauth2_authorize:
+            pattern:                ^/api/v1.0/oauth2/authorize$
+            http_basic:             ~
+            provider:               default
+
+        api_oauth2_token:
+            pattern:                ^/api/v1.0/oauth2/token$
             oauth2_token:           ~
 
-        oauth2_debug:
-            pattern:                ^/oauth2/debug$
+        api_oauth2_debug:
+            pattern:                ^/api/v1.0/oauth2/debug$
             oauth2_resource:        ~
 
-        resource_resource_type_model:
-            pattern:                ^/resource/resource_type/model$
+        api_resource_model:
+            pattern:                ^/api/v1.0/resource/model$
             oauth2_resource:
                 resource_type:      model
                 scope:              [ demoscope1 ]
 
-        resource_resource_type_debug_endpoint:
-            pattern:                ^/resource/resource_type/debug_endpoint$
+        api_resource_debug_endpoint:
+            pattern:                ^/api/v1.0/resource/debug_endpoint$
             oauth2_resource:
                 resource_type:      debug_endpoint
                 scope:              [ demoscope1 ]
                 options:
-                    debug_endpoint: '/oauth2/debug'
+                    debug_endpoint: '/api/v1.0/oauth2/debug'
                     cache:          false
 
-        resource_resource_type_debug_endpoint_cache:
-            pattern:                ^/resource/resource_type/debug_endpoint/cache$
+        api_resource_debug_endpoint_cache:
+            pattern:                ^/api/v1.0/resource/debug_endpoint/cache$
             oauth2_resource:
                 resource_type:      debug_endpoint
                 scope:              [ demoscope1 ]
                 options:
-                    debug_endpoint: '/oauth2/debug'
+                    debug_endpoint: '/api/v1.0/oauth2/debug'
                     cache:          true
 
-        resource_resource_type_debug_endpoint_invalid_options:
-            pattern:                ^/resource/resource_type/debug_endpoint/invalid_options$
+        api_resource_debug_endpoint_invalid_options:
+            pattern:                ^/api/v1.0/resource/debug_endpoint/invalid_options$
             oauth2_resource:
                 resource_type:      debug_endpoint
                 scope:              [ demoscope1 ]
                 options:
                     debug_endpoint: ''
                     cache:          true
+
+        api:
+            pattern:                ^/api/v1.0
+            oauth2_resource:        ~
