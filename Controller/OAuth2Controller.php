@@ -14,10 +14,20 @@ namespace AuthBucket\Bundle\OAuth2Bundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
-class DebugController extends Controller
+class OAuth2Controller extends Controller
 {
+    public function authorizeAction(Request $request)
+    {
+        return $this->get('authbucket_oauth2.oauth2_controller')->authorizeAction($request);
+    }
+
+    public function tokenAction(Request $request)
+    {
+        return $this->get('authbucket_oauth2.oauth2_controller')->tokenAction($request);
+    }
+
     public function debugAction(Request $request)
     {
-        return $this->get('authbucket_oauth2.debug_controller')->debugAction($request);
+        return $this->get('authbucket_oauth2.oauth2_controller')->debugAction($request);
     }
 }

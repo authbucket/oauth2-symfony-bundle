@@ -16,7 +16,7 @@ use Symfony\Component\HttpFoundation\Request;
 
 class ClientController extends Controller
 {
-    public function clientIndexAction(Request $request)
+    public function indexAction(Request $request)
     {
         return $this->render('TestBundle:client:index.html.twig');
     }
