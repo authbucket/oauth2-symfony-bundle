@@ -81,11 +81,18 @@ Where:
 ### Services
 
 This bundle come with following services controller which simplify the
-implementation overhead:
+OAuth2.0 controller implementation overhead:
 
--   `AuthorizeController`: Authorization endpoint controller.
--   `TokenController`: Token endpoint controller.
--   `DebugController`: Debug endpoint controller.
+-   `authbucket_oauth2.oauth2_controller`: OAuth2 endpoint controller.
+
+Moreover, we also provide following model
+[CRUD](http://en.wikipedia.org/wiki/Create,_read,_update_and_delete)
+controller for alter raw data set:
+
+-   `authbucket_oauth2.authorize_controller`: Authorize endpoint
+    controller.
+-   `authbucket_oauth2.client_controller`: Client endpoint controller.
+-   `authbucket_oauth2.scope_controller`: Scope endpoint controller.
 
 ### Registering
 
@@ -113,7 +120,8 @@ backend controller point of view, so you will need to setup both for
 functioning.
 
 To enable the built-in controller with corresponding routing, add the
-following into your `routing.yml`:
+following into your `routing.yml`, all above controllers will be enabled
+accordingly with routing prefix `/api/v1.0`:
 
     # app/config/routing.yml
 

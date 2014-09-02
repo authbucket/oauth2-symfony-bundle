@@ -65,11 +65,16 @@ authbucket_oauth2:
                 </ul>
 
                 <h3 id="services">Services</h3>
-                <p>This bundle come with following services controller which simplify the implementation overhead:</p>
+                <p>This bundle come with following services controller which simplify the OAuth2.0 controller implementation overhead:</p>
                 <ul>
-                    <li><code>AuthorizeController</code>: Authorization endpoint controller.</li>
-                    <li><code>TokenController</code>: Token endpoint controller.</li>
-                    <li><code>DebugController</code>: Debug endpoint controller.</li>
+                    <li><code>authbucket_oauth2.oauth2_controller</code>: OAuth2 endpoint controller.</li>
+                </ul>
+
+                <p>Moreover, we also provide following model <a href="http://en.wikipedia.org/wiki/Create,_read,_update_and_delete">CRUD</a> controller for alter raw data set:</p>
+                <ul>
+                    <li><code>authbucket_oauth2.authorize_controller</code>: Authorize endpoint controller.</li>
+                    <li><code>authbucket_oauth2.client_controller</code>: Client endpoint controller.</li>
+                    <li><code>authbucket_oauth2.scope_controller</code>: Scope endpoint controller.</li>
                 </ul>
 
                 <h3 id="registering">Registering</h3>
@@ -90,7 +95,7 @@ class AppKernel extends Kernel
 
                 <h2 id="usage" class="page-header">Usage</h2>
                 <p class="lead">This library seperate the endpoint logic in frontend firewall and backend controller point of view, so you will need to setup both for functioning.</p>
-                <p>To enable the built-in controller with corresponding routing, add the following into your <code>routing.yml</code>:</p>
+                <p>To enable the built-in controller with corresponding routing, add the following into your <code>routing.yml</code>, all above controllers will be enabled accordingly with routing prefix <code>/api/v1.0</code>:</p>
 <pre><code class="no-highlight"># app/config/routing.yml
 
 authbucketoauth2bundle:
