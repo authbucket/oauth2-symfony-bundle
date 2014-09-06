@@ -63,6 +63,7 @@ services:
         arguments:
             - "@security.context"
             - "@validator"
+            - "@authbucket_oauth2.model_manager.factory"
             - "@authbucket_oauth2.response_handler.factory"
             - "@authbucket_oauth2.grant_handler.factory"
 

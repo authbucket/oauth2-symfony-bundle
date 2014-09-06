@@ -6,10 +6,17 @@ api_oauth2_authorize:
 api_oauth2_token:
     pattern:        /api/v1.0/oauth2/token
     defaults:       { _controller: AuthBucketOAuth2Bundle:OAuth2:token }
+    methods:        [ POST ]
 
 api_oauth2_debug:
     pattern:        /api/v1.0/oauth2/debug
     defaults:       { _controller: AuthBucketOAuth2Bundle:OAuth2:debug }
+    methods:        [ GET|POST ]
+
+api_oauth2_cron:
+    pattern:        /api/v1.0/oauth2/cron
+    defaults:       { _controller: AuthBucketOAuth2Bundle:OAuth2:cron }
+    methods:        [ GET ]
 
 api_authorize_create:
     pattern:        /api/v1.0/authorize.{_format}

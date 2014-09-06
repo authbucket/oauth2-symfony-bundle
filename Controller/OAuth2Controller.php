@@ -30,4 +30,9 @@ class OAuth2Controller extends Controller
     {
         return $this->get('authbucket_oauth2.oauth2_controller')->debugAction($request);
     }
+
+    public function cronAction(Request $request)
+    {
+        return $this->get('authbucket_oauth2.oauth2_controller')->cronAction($request);
+    }
 }
