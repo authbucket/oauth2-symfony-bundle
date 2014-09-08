@@ -121,7 +121,7 @@ security:
 
     firewalls:
         oauth2_authorize:
-            pattern:                ^/oauth2/authorize$
+            pattern:                ^/api/v1.0/oauth2/authorize$
             http_basic:             ~
             provider:               default</code></pre>
 
@@ -153,7 +153,7 @@ security:
 security:
     firewalls:
         resource:
-            pattern:                ^/resource
+            pattern:                ^/api/v1.0/resource
             oauth2_resource:        ~</code></pre>
                 <p>Longhand version (assume resource server bundled with authorization server, query local model manager, protect with scope <code>demoscope1</code>):</p>
 <pre><code class="no-highlight"># app/config/security.yml
@@ -161,7 +161,7 @@ security:
 security:
     firewalls:
         resource:
-            pattern:                ^/resource
+            pattern:                ^/api/v1.0/resource
             oauth2_resource:
                 resource_type:      model
                 scope:              [ demoscope1 ]</code></pre>
@@ -171,7 +171,7 @@ security:
 security:
     firewalls:
         resource:
-            pattern:                ^/resource
+            pattern:                ^/api/v1.0/resource
             oauth2_resource:
                 resource_type:      debug_endpoint
                 scope:              [ demoscope1 ]
