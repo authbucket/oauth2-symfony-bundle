@@ -154,7 +154,7 @@ e.g. by
 
         firewalls:
             oauth2_authorize:
-                pattern:                ^/oauth2/authorize$
+                pattern:                ^/api/v1.0/oauth2/authorize$
                 http_basic:             ~
                 provider:               default
 
@@ -201,7 +201,7 @@ manager, without scope protection):
     security:
         firewalls:
             resource:
-                pattern:                ^/resource
+                pattern:                ^/api/v1.0/resource
                 oauth2_resource:        ~
 
 Longhand version (assume resource server bundled with authorization
@@ -212,7 +212,7 @@ server, query local model manager, protect with scope `demoscope1`):
     security:
         firewalls:
             resource:
-                pattern:                ^/resource
+                pattern:                ^/api/v1.0/resource
                 oauth2_resource:
                     resource_type:      model
                     scope:              [ demoscope1 ]
@@ -226,7 +226,7 @@ endpoint:
     security:
         firewalls:
             resource:
-                pattern:                ^/resource
+                pattern:                ^/api/v1.0/resource
                 oauth2_resource:
                     resource_type:      debug_endpoint
                     scope:              [ demoscope1 ]
