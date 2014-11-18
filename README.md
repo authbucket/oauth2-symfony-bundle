@@ -30,7 +30,7 @@ Here is a minimal example of a `composer.json`:
 
     {
         "require": {
-            "authbucket/oauth2-symfony-bundle": "~2.3"
+            "authbucket/oauth2-symfony-bundle": "~2.4"
         }
     }
 
@@ -246,7 +246,7 @@ You may also run the demo locally. Open a console and execute the
 following command to install the latest version in the
 `oauth2-symfony-bundle` directory:
 
-    $ composer create-project authbucket/oauth2-symfony-bundle oauth2-symfony-bundle "~2.3"
+    $ composer create-project authbucket/oauth2-symfony-bundle oauth2-symfony-bundle "~2.4"
 
 Then use the PHP built-in web server to run the demo application:
 
