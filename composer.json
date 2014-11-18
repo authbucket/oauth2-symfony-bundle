@@ -36,6 +36,7 @@
         "doctrine/doctrine-bundle": "~1.2",
         "doctrine/doctrine-fixtures-bundle": "~2.2",
         "doctrine/orm": "~2.2,>=2.2.3",
+        "ext-pdo_sqlite": "*",
         "fabpot/php-cs-fixer": "@stable",
         "incenteev/composer-parameter-handler": "~2.0",
         "phpunit/phpunit": "@stable",
