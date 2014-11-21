@@ -4,120 +4,120 @@ api_oauth2_authorize:
     methods:        [ GET ]
 
 api_oauth2_token:
-    pattern:        /api/v1.0/oauth2/token
+    path:           /api/v1.0/oauth2/token
     defaults:       { _controller: AuthBucketOAuth2Bundle:OAuth2:token }
     methods:        [ POST ]
 
 api_oauth2_debug:
-    pattern:        /api/v1.0/oauth2/debug
+    path:           /api/v1.0/oauth2/debug
     defaults:       { _controller: AuthBucketOAuth2Bundle:OAuth2:debug }
     methods:        [ GET|POST ]
 
 api_oauth2_cron:
-    pattern:        /api/v1.0/oauth2/cron
+    path:           /api/v1.0/oauth2/cron
     defaults:       { _controller: AuthBucketOAuth2Bundle:OAuth2:cron }
     methods:        [ GET ]
 
 api_authorize_create:
-    pattern:        /api/v1.0/authorize.{_format}
+    path:           /api/v1.0/authorize.{_format}
     defaults:       { _controller: AuthBucketOAuth2Bundle:Authorize:create }
     methods:        [ POST ]
     requirements:
         _format:    json|xml
 
 api_authorize_read:
-    pattern:        /api/v1.0/authorize/{id}.{_format}
+    path:           /api/v1.0/authorize/{id}.{_format}
     defaults:       { _controller: AuthBucketOAuth2Bundle:Authorize:read }
     methods:        [ GET ]
     requirements:
         _format:    json|xml
 
 api_authorize_update:
-    pattern:        /api/v1.0/authorize/{id}.{_format}
+    path:           /api/v1.0/authorize/{id}.{_format}
     defaults:       { _controller: AuthBucketOAuth2Bundle:Authorize:update }
     methods:        [ PUT ]
     requirements:
         _format:    json|xml
 
 api_authorize_delete:
-    pattern:        /api/v1.0/authorize/{id}.{_format}
+    path:           /api/v1.0/authorize/{id}.{_format}
     defaults:       { _controller: AuthBucketOAuth2Bundle:Authorize:delete }
     methods:        [ DELETE ]
     requirements:
         _format:    json|xml
 
 api_authorize_list:
-    pattern:        /api/v1.0/authorize.{_format}
+    path:           /api/v1.0/authorize.{_format}
     defaults:       { _controller: AuthBucketOAuth2Bundle:Authorize:list }
     methods:        [ GET ]
     requirements:
         _format:    json|xml
 
 api_client_create:
-    pattern:        /api/v1.0/client.{_format}
+    path:           /api/v1.0/client.{_format}
     defaults:       { _controller: AuthBucketOAuth2Bundle:Client:create }
     methods:        [ POST ]
     requirements:
         _format:    json|xml
 
 api_client_read:
-    pattern:        /api/v1.0/client/{id}.{_format}
+    path:           /api/v1.0/client/{id}.{_format}
     defaults:       { _controller: AuthBucketOAuth2Bundle:Client:read }
     methods:        [ GET ]
     requirements:
         _format:    json|xml
 
 api_client_update:
-    pattern:        /api/v1.0/client/{id}.{_format}
+    path:           /api/v1.0/client/{id}.{_format}
     defaults:       { _controller: AuthBucketOAuth2Bundle:Client:update }
     methods:        [ PUT ]
     requirements:
         _format:    json|xml
 
 api_client_delete:
-    pattern:        /api/v1.0/client/{id}.{_format}
+    path:           /api/v1.0/client/{id}.{_format}
     defaults:       { _controller: AuthBucketOAuth2Bundle:Client:delete }
     methods:        [ DELETE ]
     requirements:
         _format:    json|xml
 
 api_client_list:
-    pattern:        /api/v1.0/client.{_format}
+    path:           /api/v1.0/client.{_format}
     defaults:       { _controller: AuthBucketOAuth2Bundle:Client:list }
     methods:        [ GET ]
     requirements:
         _format:    json|xml
 
 api_scope_create:
-    pattern:        /api/v1.0/scope.{_format}
+    path:           /api/v1.0/scope.{_format}
     defaults:       { _controller: AuthBucketOAuth2Bundle:Scope:create }
     methods:        [ POST ]
     requirements:
         _format:    json|xml
 
 api_scope_read:
-    pattern:        /api/v1.0/scope/{id}.{_format}
+    path:           /api/v1.0/scope/{id}.{_format}
     defaults:       { _controller: AuthBucketOAuth2Bundle:Scope:read }
     methods:        [ GET ]
     requirements:
         _format:    json|xml
 
 api_scope_update:
-    pattern:        /api/v1.0/scope/{id}.{_format}
+    path:           /api/v1.0/scope/{id}.{_format}
     defaults:       { _controller: AuthBucketOAuth2Bundle:Scope:update }
     methods:        [ PUT ]
     requirements:
         _format:    json|xml
 
 api_scope_delete:
-    pattern:        /api/v1.0/scope/{id}.{_format}
+    path:           /api/v1.0/scope/{id}.{_format}
     defaults:       { _controller: AuthBucketOAuth2Bundle:Scope:delete }
     methods:        [ DELETE ]
     requirements:
         _format:    json|xml
 
 api_scope_list:
-    pattern:        /api/v1.0/scope.{_format}
+    path:           /api/v1.0/scope.{_format}
     defaults:       { _controller: AuthBucketOAuth2Bundle:Scope:list }
     methods:        [ GET ]
     requirements:

@@ -9,7 +9,7 @@ oauth2_login:
     methods:        [ GET ]
 
 oauth2_authorize:
-    pattern:        /oauth2/authorize
+    path:           /oauth2/authorize
     defaults:       { _controller: TestBundle:OAuth2:authorize }
 
 oauth2_authorize_login_check:
