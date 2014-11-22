@@ -79,7 +79,3 @@ security:
                 options:
                     debug_endpoint: ''
                     cache:          true
-
-        api:
-            pattern:                ^/api/v1.0
-            oauth2_resource:        ~
