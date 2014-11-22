@@ -31,7 +31,7 @@ class Configuration implements ConfigurationInterface
 
         $rootNode
             ->children()
-                ->scalarNode('driver')->defaultValue('orm')->end()
+                ->scalarNode('driver')->defaultNull()->end()
                 ->scalarNode('user_provider')->defaultNull()->end()
                 ->arrayNode('model')
                     ->prototype('scalar')->end()
