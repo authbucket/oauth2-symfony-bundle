@@ -1,10 +1,12 @@
 index:
     path:       /
     defaults:   { _controller:TestBundle:Default:index }
+    methods:    [ GET ]
 
 admin_refresh_database:
     path:       /admin/refresh_database
     defaults:   { _controller:TestBundle:Default:adminRefreshDatabase }
+    methods:    [ GET ]
 
 client:
     path:       /client
@@ -79,12 +81,15 @@ oauth2_login:
 oauth2_authorize:
     path:       /oauth2/authorize
     defaults:   { _controller: TestBundle:OAuth2:authorize }
+    methods:    [ GET|POST ]
 
 oauth2_authorize_login_check:
     path:       /oauth2/authorize/login_check
+    methods:    [ GET|POST ]
 
 oauth2_authorize_logout:
     path:       /oauth2/authorize/logout
+    methods:    [ GET ]
 
 resource:
     path:       /resource
@@ -94,15 +99,19 @@ resource:
 api_resource_model:
     path:       /api/v1.0/resource/model
     defaults:   { _controller: AuthBucketOAuth2Bundle:OAuth2:debug }
+    methods:    [ GET|POST ]
 
 api_resource_debug_endpoint:
     path:       /api/v1.0/resource/debug_endpoint
     defaults:   { _controller: AuthBucketOAuth2Bundle:OAuth2:debug }
+    methods:    [ GET|POST ]
 
 api_resource_debug_endpoint_cache:
     path:       /api/v1.0/resource/debug_endpoint/cache
     defaults:   { _controller: AuthBucketOAuth2Bundle:OAuth2:debug }
+    methods:    [ GET|POST ]
 
 api_resource_debug_endpoint_invalid_options:
     path:       /api/v1.0/resource/debug_endpoint/invalid_options
     defaults:   { _controller: AuthBucketOAuth2Bundle:OAuth2:debug }
+    methods:    [ GET|POST ]
