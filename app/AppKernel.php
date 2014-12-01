@@ -18,7 +18,6 @@ class AppKernel extends Kernel
     {
         $bundles = array(
             new AuthBucket\Bundle\OAuth2Bundle\AuthBucketOAuth2Bundle(),
-            new AuthBucket\Bundle\OAuth2Bundle\Tests\TestBundle\TestBundle(),
             new Doctrine\Bundle\DoctrineBundle\DoctrineBundle(),
             new Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle(),
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
@@ -27,6 +26,10 @@ class AppKernel extends Kernel
             new Symfony\Bundle\SecurityBundle\SecurityBundle(),
             new Symfony\Bundle\TwigBundle\TwigBundle(),
         );
+
+        if (in_array($this->getEnvironment(), array('dev', 'test'))) {
+            $bundles[] = new AuthBucket\Bundle\OAuth2Bundle\Tests\TestBundle\TestBundle();
+        }
 
         return $bundles;
     }

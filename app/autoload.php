@@ -9,6 +9,7 @@
  * file that was distributed with this source code.
  */
 
+use Composer\Autoload\ClassLoader;
 use Doctrine\Common\Annotations\AnnotationRegistry;
 
 // See http://symfony.com/doc/current/cookbook/testing/bootstrap.html
@@ -38,6 +39,9 @@ if (isset($_ENV['BOOTSTRAP_ENV'])) {
     ));
 }
 
+/**
+ * @var ClassLoader $loader
+ */
 $loader = require __DIR__.'/../vendor/autoload.php';
 
 AnnotationRegistry::registerLoader(array($loader, 'loadClass'));
