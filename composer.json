@@ -24,7 +24,6 @@
         "symfony"
     ],
     "license": "MIT",
-    "minimum-stability": "dev",
     "name": "authbucket/oauth2-symfony-bundle",
     "require": {
         "authbucket/oauth2-php": "~2.4",
@@ -35,7 +34,7 @@
     "require-dev": {
         "doctrine/doctrine-bundle": "~1.2",
         "doctrine/doctrine-fixtures-bundle": "~2.2",
-        "doctrine/orm": "~2.2,>=2.2.3",
+        "doctrine/orm": "~2.2",
         "ext-pdo_sqlite": "*",
         "fabpot/php-cs-fixer": "@stable",
         "incenteev/composer-parameter-handler": "~2.0",
