@@ -18,7 +18,7 @@ class AppKernel extends Kernel
     {
         $bundles = array(
             new AuthBucket\Bundle\OAuth2Bundle\AuthBucketOAuth2Bundle(),
-            new AuthBucket\Bundle\OAuth2Bundle\Tests\TestBundle\TestBundle();
+            new AuthBucket\Bundle\OAuth2Bundle\Tests\TestBundle\TestBundle(),
             new Doctrine\Bundle\DoctrineBundle\DoctrineBundle(),
             new Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle(),
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
