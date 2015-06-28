@@ -28,20 +28,8 @@ class DefaultController extends Controller
 
     public function adminRefreshDatabaseAction(Request $request)
     {
-        $conn = $this->get('database_connection');
         $em = $this->get('doctrine')->getManager();
-
-        $params = $conn->getParams();
-        $name = isset($params['path']) ? $params['path'] : (isset($params['dbname']) ? $params['dbname'] : false);
-
-        try {
-            $conn->getSchemaManager()->dropDatabase($name);
-            $conn->getSchemaManager()->createDatabase($name);
-            $conn->close();
-        } catch (\Exception $e) {
-            return 1;
-        }
-
+        
         $classes = array();
         foreach ($this->container->getParameter('authbucket_oauth2.model') as $class) {
             $classes[] = $em->getClassMetadata($class);
