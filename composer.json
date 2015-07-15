@@ -63,6 +63,5 @@
         "phpunit": "rm -rf app/cache/*/*; phpunit -c phpunit.xml.dist; exit 0",
         "sami": "sami.php update .sami.php; exit 0"
     },
-    "target-dir": "AuthBucket/Bundle/OAuth2Bundle",
     "type": "symfony-bundle"
 }
