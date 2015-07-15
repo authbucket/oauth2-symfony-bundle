@@ -15,7 +15,7 @@ use AuthBucket\Bundle\OAuth2Bundle\Entity\Client as AbstractClient;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Client
+ * Client.
  *
  * @ORM\Table(name="authbucket_oauth2_client")
  * @ORM\Entity(repositoryClass="AuthBucket\Bundle\OAuth2Bundle\Tests\TestBundle\Entity\ClientRepository")
@@ -23,7 +23,7 @@ use Doctrine\ORM\Mapping as ORM;
 class Client extends AbstractClient
 {
     /**
-     * @var integer
+     * @var int
      *
      * @ORM\Column(name="id", type="integer")
      * @ORM\Id
@@ -32,9 +32,9 @@ class Client extends AbstractClient
     protected $id;
 
     /**
-     * Get id
+     * Get id.
      *
-     * @return integer
+     * @return int
      */
     public function getId()
     {

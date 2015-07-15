@@ -23,7 +23,7 @@ class GrantTypeHandlerFactoryTest extends WebTestCase
     {
         $classes = array('foo' => 'AuthBucket\\Bundle\\OAuth2Bundle\\Tests\\GrantType\\NonExistsGrantTypeHandler');
         $factory = new GrantTypeHandlerFactory(
-            $this->get('security.context'),
+            $this->get('security.token_storage'),
             $this->get('security.user_checker'),
             $this->get('security.encoder_factory'),
             $this->get('validator'),
@@ -41,7 +41,7 @@ class GrantTypeHandlerFactoryTest extends WebTestCase
     {
         $classes = array('foo' => 'AuthBucket\\Bundle\\OAuth2Bundle\\Tests\\GrantType\\FooGrantTypeHandler');
         $factory = new GrantTypeHandlerFactory(
-            $this->get('security.context'),
+            $this->get('security.token_storage'),
             $this->get('security.user_checker'),
             $this->get('security.encoder_factory'),
             $this->get('validator'),
@@ -59,7 +59,7 @@ class GrantTypeHandlerFactoryTest extends WebTestCase
     {
         $classes = array('bar' => 'AuthBucket\\Bundle\\OAuth2Bundle\\Tests\\GrantType\\BarGrantTypeHandler');
         $factory = new GrantTypeHandlerFactory(
-            $this->get('security.context'),
+            $this->get('security.token_storage'),
             $this->get('security.user_checker'),
             $this->get('security.encoder_factory'),
             $this->get('validator'),
@@ -75,7 +75,7 @@ class GrantTypeHandlerFactoryTest extends WebTestCase
     {
         $classes = array('bar' => 'AuthBucket\\Bundle\\OAuth2Bundle\\Tests\\GrantType\\BarGrantTypeHandler');
         $factory = new GrantTypeHandlerFactory(
-            $this->get('security.context'),
+            $this->get('security.token_storage'),
             $this->get('security.user_checker'),
             $this->get('security.encoder_factory'),
             $this->get('validator'),

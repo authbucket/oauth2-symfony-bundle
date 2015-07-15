@@ -27,7 +27,7 @@ class RefreshTokenGrantTypeHandlerTest extends WebTestCase
             'PHP_AUTH_PW' => 'demosecret1',
         );
         $client = $this->createClient();
-        $crawler = $client->request('POST', '/api/v1.0/oauth2/token', $parameters, array(), $server);
+        $crawler = $client->request('POST', '/api/oauth2/token', $parameters, array(), $server);
         $this->assertEquals(400, $client->getResponse()->getStatusCode());
         $this->assertNotNull(json_decode($client->getResponse()->getContent()));
         $tokenResponse = json_decode($client->getResponse()->getContent(), true);
@@ -39,14 +39,14 @@ class RefreshTokenGrantTypeHandlerTest extends WebTestCase
         $parameters = array(
             'grant_type' => 'refresh_token',
             'refresh_token' => '288b5ea8e75d2b24368a79ed5ed9593b',
-            'scope' => "badscope1",
+            'scope' => 'badscope1',
         );
         $server = array(
             'PHP_AUTH_USER' => 'http://democlient3.com/',
             'PHP_AUTH_PW' => 'demosecret3',
         );
         $client = $this->createClient();
-        $crawler = $client->request('POST', '/api/v1.0/oauth2/token', $parameters, array(), $server);
+        $crawler = $client->request('POST', '/api/oauth2/token', $parameters, array(), $server);
         $this->assertEquals(400, $client->getResponse()->getStatusCode());
         $this->assertNotNull(json_decode($client->getResponse()->getContent()));
         $tokenResponse = json_decode($client->getResponse()->getContent(), true);
@@ -65,7 +65,7 @@ class RefreshTokenGrantTypeHandlerTest extends WebTestCase
             'PHP_AUTH_PW' => 'demosecret2',
         );
         $client = $this->createClient();
-        $crawler = $client->request('POST', '/api/v1.0/oauth2/token', $parameters, array(), $server);
+        $crawler = $client->request('POST', '/api/oauth2/token', $parameters, array(), $server);
         $this->assertEquals(400, $client->getResponse()->getStatusCode());
         $this->assertNotNull(json_decode($client->getResponse()->getContent()));
         $tokenResponse = json_decode($client->getResponse()->getContent(), true);
@@ -84,7 +84,7 @@ class RefreshTokenGrantTypeHandlerTest extends WebTestCase
             'PHP_AUTH_PW' => 'demosecret2',
         );
         $client = $this->createClient();
-        $crawler = $client->request('POST', '/api/v1.0/oauth2/token', $parameters, array(), $server);
+        $crawler = $client->request('POST', '/api/oauth2/token', $parameters, array(), $server);
         $this->assertEquals(400, $client->getResponse()->getStatusCode());
         $this->assertNotNull(json_decode($client->getResponse()->getContent()));
         $tokenResponse = json_decode($client->getResponse()->getContent(), true);
@@ -103,7 +103,7 @@ class RefreshTokenGrantTypeHandlerTest extends WebTestCase
             'PHP_AUTH_PW' => 'demosecret3',
         );
         $client = $this->createClient();
-        $crawler = $client->request('POST', '/api/v1.0/oauth2/token', $parameters, array(), $server);
+        $crawler = $client->request('POST', '/api/oauth2/token', $parameters, array(), $server);
         $this->assertEquals(400, $client->getResponse()->getStatusCode());
         $this->assertNotNull(json_decode($client->getResponse()->getContent()));
         $tokenResponse = json_decode($client->getResponse()->getContent(), true);
@@ -122,7 +122,7 @@ class RefreshTokenGrantTypeHandlerTest extends WebTestCase
             'PHP_AUTH_PW' => 'demosecret1',
         );
         $client = $this->createClient();
-        $crawler = $client->request('POST', '/api/v1.0/oauth2/token', $parameters, array(), $server);
+        $crawler = $client->request('POST', '/api/oauth2/token', $parameters, array(), $server);
         $this->assertEquals(400, $client->getResponse()->getStatusCode());
         $this->assertNotNull(json_decode($client->getResponse()->getContent()));
         $tokenResponse = json_decode($client->getResponse()->getContent(), true);
@@ -141,7 +141,7 @@ class RefreshTokenGrantTypeHandlerTest extends WebTestCase
             'PHP_AUTH_PW' => 'demosecret1',
         );
         $client = $this->createClient();
-        $crawler = $client->request('POST', '/api/v1.0/oauth2/token', $parameters, array(), $server);
+        $crawler = $client->request('POST', '/api/oauth2/token', $parameters, array(), $server);
         $this->assertEquals(400, $client->getResponse()->getStatusCode());
         $this->assertNotNull(json_decode($client->getResponse()->getContent()));
         $tokenResponse = json_decode($client->getResponse()->getContent(), true);
@@ -160,7 +160,7 @@ class RefreshTokenGrantTypeHandlerTest extends WebTestCase
             'PHP_AUTH_PW' => 'demosecret3',
         );
         $client = $this->createClient();
-        $crawler = $client->request('POST', '/api/v1.0/oauth2/token', $parameters, array(), $server);
+        $crawler = $client->request('POST', '/api/oauth2/token', $parameters, array(), $server);
         $this->assertEquals(200, $client->getResponse()->getStatusCode());
         $this->assertNotNull(json_decode($client->getResponse()->getContent()));
 
@@ -173,7 +173,7 @@ class RefreshTokenGrantTypeHandlerTest extends WebTestCase
             'PHP_AUTH_PW' => 'demosecret3',
         );
         $client = $this->createClient();
-        $crawler = $client->request('POST', '/api/v1.0/oauth2/token', $parameters, array(), $server);
+        $crawler = $client->request('POST', '/api/oauth2/token', $parameters, array(), $server);
         $this->assertEquals(200, $client->getResponse()->getStatusCode());
         $this->assertNotNull(json_decode($client->getResponse()->getContent()));
     }

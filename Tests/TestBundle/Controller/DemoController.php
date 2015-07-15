@@ -11,10 +11,11 @@
 
 namespace AuthBucket\Bundle\OAuth2Bundle\Tests\TestBundle\Controller;
 
+use AuthBucket\OAuth2\Exception\InvalidScopeException;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Session\Session;
 use Symfony\Component\HttpKernel\Client;
+use Symfony\Component\Security\Core\Security;
 
 class DemoController extends Controller
 {
@@ -23,7 +24,88 @@ class DemoController extends Controller
         return $this->render('TestBundle:demo:index.html.twig');
     }
 
-    public function authorizeCodeAction(Request $request)
+    public function loginAction(Request $request)
+    {
+        $session = $request->getSession();
+
+        if ($request->attributes->has(Security::AUTHENTICATION_ERROR)) {
+            $error = $request->attributes->get(Security::AUTHENTICATION_ERROR);
+        } else {
+            $error = $request->getSession()->get(Security::AUTHENTICATION_ERROR);
+        }
+
+        $_username = $session->get('_username');
+        $_password = $session->get('_password');
+
+        return $this->render('TestBundle:demo:login.html.twig', array(
+            'error' => $error,
+            '_username' => $_username,
+            '_password' => $_password,
+        ));
+    }
+
+    public function authorizeAction(Request $request)
+    {
+        // We only handle non-authorized scope here.
+        try {
+            return $this->get('authbucket_oauth2.oauth2_controller')->authorizeAction($request);
+        } catch (InvalidScopeException $exception) {
+            $message = unserialize($exception->getMessage());
+            if ($message['error_description'] !== 'The requested scope is invalid.') {
+                throw $exception;
+            }
+        }
+
+        // Fetch parameters, which already checked.
+        $clientId = $request->query->get('client_id');
+        $username = $this->get('security.token_storage')->getToken()->getUser()->getUsername();
+        $scope = preg_split('/\s+/', $request->query->get('scope', ''));
+
+        // Create form.
+        $form = $this->createFormBuilder()->getForm();
+        $form->handleRequest($request);
+
+        // Save authorized scope if submitted by POST.
+        if ($form->isValid()) {
+            $modelManagerFactory = $this->get('authbucket_oauth2.model_manager.factory');
+            $authorizeManager = $modelManagerFactory->getModelManager('authorize');
+
+            // Update existing authorization if possible, else create new.
+            $authorize = $authorizeManager->readModelOneBy(array(
+                'clientId' => $clientId,
+                'username' => $username,
+            ));
+            if ($authorize === null) {
+                $class = $authorizeManager->getClassName();
+                $authorize = new $class();
+                $authorize->setClientId($clientId)
+                    ->setUsername($username)
+                    ->setScope((array) $scope);
+                $authorize = $authorizeManager->createModel($authorize);
+            } else {
+                $authorize->setClientId($clientId)
+                    ->setUsername($username)
+                    ->setScope(array_merge((array) $authorize->getScope(), $scope));
+                $authorizeManager->updateModel($authorize);
+            }
+
+            // Back to this path, with original GET parameters.
+            return $this->redirect($request->getRequestUri());
+        }
+
+        // Display the form.
+        $authorizationRequest = $request->query->all();
+
+        return $this->render('TestBundle:demo:authorize.html.twig', array(
+            'client_id' => $clientId,
+            'username' => $username,
+            'scopes' => $scope,
+            'form' => $form->createView(),
+            'authorization_request' => $authorizationRequest,
+        ));
+    }
+
+    public function requestCodeAction(Request $request)
     {
         $session = $request->getSession();
 
@@ -50,12 +132,12 @@ class DemoController extends Controller
             'state' => $session->getId(),
         );
 
-        $url = Request::create($request->getUriForPath('/oauth2/authorize'), 'GET', $parameters)->getUri();
+        $url = Request::create($request->getUriForPath('/demo/authorize'), 'GET', $parameters)->getUri();
 
         return $this->redirect($url);
     }
 
-    public function authorizeTokenAction(Request $request)
+    public function requestTokenAction(Request $request)
     {
         $session = $request->getSession();
 
@@ -82,7 +164,7 @@ class DemoController extends Controller
             'state' => $session->getId(),
         );
 
-        $url = Request::create($request->getUriForPath('/oauth2/authorize'), 'GET', $parameters)->getUri();
+        $url = Request::create($request->getUriForPath('/demo/authorize'), 'GET', $parameters)->getUri();
 
         return $this->redirect($url);
     }
@@ -130,7 +212,7 @@ class DemoController extends Controller
         );
         $server = array();
         $client = new Client($this->get('kernel'));
-        $crawler = $client->request('POST', '/api/v1.0/oauth2/token', $parameters, array(), $server);
+        $crawler = $client->request('POST', '/api/oauth2/token', $parameters, array(), $server);
         $accessTokenResponse = json_decode($client->getResponse()->getContent(), true);
         $accessTokenRequest = get_object_vars($client->getRequest());
 
@@ -168,7 +250,7 @@ class DemoController extends Controller
             'PHP_AUTH_PW' => 'Eevahph6',
         );
         $client = new Client($this->get('kernel'));
-        $crawler = $client->request('POST', '/api/v1.0/oauth2/token', $parameters, array(), $server);
+        $crawler = $client->request('POST', '/api/oauth2/token', $parameters, array(), $server);
         $accessTokenResponse = json_decode($client->getResponse()->getContent(), true);
         $accessTokenRequest = get_object_vars($client->getRequest());
 
@@ -204,7 +286,7 @@ class DemoController extends Controller
             'PHP_AUTH_PW' => 'yib6aiFe',
         );
         $client = new Client($this->get('kernel'));
-        $crawler = $client->request('POST', '/api/v1.0/oauth2/token', $parameters, array(), $server);
+        $crawler = $client->request('POST', '/api/oauth2/token', $parameters, array(), $server);
         $accessTokenResponse = json_decode($client->getResponse()->getContent(), true);
         $accessTokenRequest = get_object_vars($client->getRequest());
 
@@ -240,7 +322,7 @@ class DemoController extends Controller
             'PHP_AUTH_PW' => $request->query->get('password'),
         );
         $client = new Client($this->get('kernel'));
-        $crawler = $client->request('POST', '/api/v1.0/oauth2/token', $parameters, array(), $server);
+        $crawler = $client->request('POST', '/api/oauth2/token', $parameters, array(), $server);
         $accessTokenResponse = json_decode($client->getResponse()->getContent(), true);
         $accessTokenRequest = get_object_vars($client->getRequest());
 
@@ -272,7 +354,7 @@ class DemoController extends Controller
             'HTTP_Authorization' => implode(' ', array('Bearer', $request->query->get('access_token'))),
         );
         $client = new Client($this->get('kernel'));
-        $crawler = $client->request('GET', '/api/v1.0/resource/model', $parameters, array(), $server);
+        $crawler = $client->request('GET', '/api/resource/model', $parameters, array(), $server);
         $resourceResponse = json_decode($client->getResponse()->getContent(), true);
         $resourceRequest = get_object_vars($client->getRequest());
 
@@ -289,7 +371,7 @@ class DemoController extends Controller
             'HTTP_Authorization' => implode(' ', array('Bearer', $request->query->get('access_token'))),
         );
         $client = new Client($this->get('kernel'));
-        $crawler = $client->request('GET', '/api/v1.0/resource/debug_endpoint', $parameters, array(), $server);
+        $crawler = $client->request('GET', '/api/resource/debug_endpoint', $parameters, array(), $server);
         $resourceResponse = json_decode($client->getResponse()->getContent(), true);
         $resourceRequest = get_object_vars($client->getRequest());
 

@@ -1,0 +1,104 @@
+parameters:
+    authbucket_oauth2.response_handler:
+        code:               AuthBucket\OAuth2\ResponseType\CodeResponseTypeHandler
+        token:              AuthBucket\OAuth2\ResponseType\TokenResponseTypeHandler
+
+    authbucket_oauth2.grant_handler:
+        authorization_code: AuthBucket\OAuth2\GrantType\AuthorizationCodeGrantTypeHandler
+        client_credentials: AuthBucket\OAuth2\GrantType\ClientCredentialsGrantTypeHandler
+        password:           AuthBucket\OAuth2\GrantType\PasswordGrantTypeHandler
+        refresh_token:      AuthBucket\OAuth2\GrantType\RefreshTokenGrantTypeHandler
+
+    authbucket_oauth2.token_handler:
+        bearer:             AuthBucket\OAuth2\TokenType\BearerTokenTypeHandler
+        mac:                AuthBucket\OAuth2\TokenType\MacTokenTypeHandler
+
+    authbucket_oauth2.resource_handler:
+        model:              AuthBucket\OAuth2\ResourceType\ModelResourceTypeHandler
+        debug_endpoint:     AuthBucket\OAuth2\ResourceType\DebugEndpointResourceTypeHandler
+
+services:
+    authbucket_oauth2.exception_listener:
+        class: AuthBucket\OAuth2\EventListener\ExceptionListener
+        arguments:
+            - "@logger"
+        tags:
+            - { name: kernel.event_listener, event: kernel.exception, method: onKernelException, priority: -8 }
+
+    authbucket_oauth2.response_handler.factory:
+        class: AuthBucket\OAuth2\ResponseType\ResponseTypeHandlerFactory
+        arguments:
+            - "@security.token_storage"
+            - "@validator"
+            - "@authbucket_oauth2.model_manager.factory"
+            - "@authbucket_oauth2.token_handler.factory"
+            - "%authbucket_oauth2.response_handler%"
+
+    authbucket_oauth2.grant_handler.factory:
+        class: AuthBucket\OAuth2\GrantType\GrantTypeHandlerFactory
+        arguments:
+            - "@security.token_storage"
+            - "@security.user_checker"
+            - "@security.encoder_factory"
+            - "@validator"
+            - "@authbucket_oauth2.model_manager.factory"
+            - "@authbucket_oauth2.token_handler.factory"
+            - ~
+            - "%authbucket_oauth2.grant_handler%"
+
+    authbucket_oauth2.token_handler.factory:
+        class: AuthBucket\OAuth2\TokenType\TokenTypeHandlerFactory
+        arguments:
+            - "@validator"
+            - "@authbucket_oauth2.model_manager.factory"
+            - "%authbucket_oauth2.token_handler%"
+
+    authbucket_oauth2.resource_handler.factory:
+        class: AuthBucket\OAuth2\ResourceType\ResourceTypeHandlerFactory
+        arguments:
+            - "@http_kernel"
+            - "@authbucket_oauth2.model_manager.factory"
+            - "%authbucket_oauth2.resource_handler%"
+
+    authbucket_oauth2.oauth2_controller:
+        class: AuthBucket\OAuth2\Controller\OAuth2Controller
+        arguments:
+            - "@security.token_storage"
+            - "@validator"
+            - "@authbucket_oauth2.model_manager.factory"
+            - "@authbucket_oauth2.response_handler.factory"
+            - "@authbucket_oauth2.grant_handler.factory"
+
+    security.authentication.provider.token:
+        class: AuthBucket\OAuth2\Security\Authentication\Provider\TokenProvider
+        arguments:
+            - ~
+            - "@authbucket_oauth2.model_manager.factory"
+
+    security.authentication.listener.token:
+        class: AuthBucket\OAuth2\Security\Firewall\TokenListener
+        arguments:
+            - ~
+            - "@security.token_storage"
+            - "@security.authentication.manager"
+            - "@validator"
+            - "@logger"
+
+    security.authentication.provider.resource:
+        class: AuthBucket\OAuth2\Security\Authentication\Provider\ResourceProvider
+        arguments:
+            - ~
+            - "@authbucket_oauth2.resource_handler.factory"
+            - ~
+            - ~
+            - ~
+
+    security.authentication.listener.resource:
+        class: AuthBucket\OAuth2\Security\Firewall\ResourceListener
+        arguments:
+            - ~
+            - "@security.token_storage"
+            - "@security.authentication.manager"
+            - "@validator"
+            - "@logger"
+            - "@authbucket_oauth2.token_handler.factory"

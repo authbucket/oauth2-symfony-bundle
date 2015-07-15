@@ -15,7 +15,7 @@ use AuthBucket\Bundle\OAuth2Bundle\Entity\AccessToken as AbstractAccessToken;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * AccessToken
+ * AccessToken.
  *
  * @ORM\Table(name="authbucket_oauth2_access_token")
  * @ORM\Entity(repositoryClass="AuthBucket\Bundle\OAuth2Bundle\Tests\TestBundle\Entity\AccessTokenRepository")
@@ -23,7 +23,7 @@ use Doctrine\ORM\Mapping as ORM;
 class AccessToken extends AbstractAccessToken
 {
     /**
-     * @var integer
+     * @var int
      *
      * @ORM\Column(name="id", type="integer")
      * @ORM\Id
@@ -32,9 +32,9 @@ class AccessToken extends AbstractAccessToken
     protected $id;
 
     /**
-     * Get id
+     * Get id.
      *
-     * @return integer
+     * @return int
      */
     public function getId()
     {

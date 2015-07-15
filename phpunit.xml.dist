@@ -14,27 +14,17 @@
 
     <testsuites>
         <testsuite name="AuthBucket\Bundle\OAuth2Bundle Test Suite">
-            <directory>./Tests</directory>
+            <directory>./tests</directory>
         </testsuite>
     </testsuites>
 
     <php>
         <server name="KERNEL_DIR" value="./app"/>
-        <env name="BOOTSTRAP_ENV" value="test"/>
     </php>
 
     <filter>
         <whitelist>
-            <directory>.</directory>
-            <exclude>
-                <directory>./Tests</directory>
-                <directory>./app</directory>
-                <directory>./build</directory>
-                <directory>./vendor</directory>
-                <directory>./web</directory>
-                <file>.php-cs-fixer.php</file>
-                <file>.sami.php</file>
-            </exclude>
+            <directory>./src</directory>
         </whitelist>
     </filter>
 

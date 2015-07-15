@@ -7,15 +7,20 @@
         }
     ],
     "autoload": {
-        "psr-0": {
-            "AuthBucket\\Bundle\\OAuth2Bundle": ""
+        "psr-4": {
+            "AuthBucket\\Bundle\\OAuth2Bundle\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "AuthBucket\\Bundle\\OAuth2Bundle\\Tests\\": "tests/"
         }
     },
     "description": "Symfony OAuth2Bundle",
     "extra": {
         "branch-alias": {
-            "dev-develop": "2.x-dev",
-            "dev-master": "2.4.x-dev"
+            "dev-develop": "3.x-dev",
+            "dev-master": "3.0.x-dev"
         }
     },
     "homepage": "https://github.com/authbucket/oauth2-symfony-bundle",
@@ -26,13 +31,16 @@
     "license": "MIT",
     "name": "authbucket/oauth2-symfony-bundle",
     "require": {
-        "authbucket/oauth2-php": "~2.4",
-        "php": ">=5.3.9",
-        "symfony/framework-bundle": "~2.3",
-        "symfony/security-bundle": "~2.3"
+        "authbucket/oauth2-php": "3.x-dev",
+        "php": ">=5.5.9",
+        "psr/http-message": "~1.0",
+        "psr/log": "~1.0",
+        "symfony/framework-bundle": "~2.7",
+        "symfony/monolog-bundle": "~2.4",
+        "symfony/security-bundle": "~2.7"
     },
     "require-dev": {
-        "doctrine/doctrine-bundle": "~1.2",
+        "doctrine/doctrine-bundle": "~1.4",
         "doctrine/doctrine-fixtures-bundle": "~2.2",
         "doctrine/orm": "~2.2",
         "ext-pdo_sqlite": "*",
@@ -41,13 +49,19 @@
         "phpunit/phpunit": "@stable",
         "sami/sami": "@stable",
         "satooshi/php-coveralls": "dev-master",
-        "sensio/distribution-bundle": "~3.0",
+        "sensio/distribution-bundle": "~4.0",
         "sensio/framework-extra-bundle": "~3.0",
         "symfony/assetic-bundle": "~2.3",
-        "symfony/monolog-bundle": "~2.4",
+        "symfony/phpunit-bridge": "~2.7",
         "symfony/swiftmailer-bundle": "~2.3",
-        "symfony/symfony": "~2.3",
+        "symfony/symfony": "~2.7",
         "twig/extensions": "~1.0"
+    },
+    "scripts": {
+        "coveralls": "coveralls -v; exit 0",
+        "php-cs-fixer": "php-cs-fixer fix --config-file .php-cs-fixer.php; exit 0",
+        "phpunit": "rm -rf app/cache/*/*; phpunit -c phpunit.xml.dist; exit 0",
+        "sami": "sami.php update .sami.php; exit 0"
     },
     "target-dir": "AuthBucket/Bundle/OAuth2Bundle",
     "type": "symfony-bundle"

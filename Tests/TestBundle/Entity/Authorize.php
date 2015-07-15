@@ -15,7 +15,7 @@ use AuthBucket\Bundle\OAuth2Bundle\Entity\Authorize as AbstractAuthorize;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Authorize
+ * Authorize.
  *
  * @ORM\Table(name="authbucket_oauth2_authorize")
  * @ORM\Entity(repositoryClass="AuthBucket\Bundle\OAuth2Bundle\Tests\TestBundle\Entity\AuthorizeRepository")
@@ -23,7 +23,7 @@ use Doctrine\ORM\Mapping as ORM;
 class Authorize extends AbstractAuthorize
 {
     /**
-     * @var integer
+     * @var int
      *
      * @ORM\Column(name="id", type="integer")
      * @ORM\Id
@@ -32,9 +32,9 @@ class Authorize extends AbstractAuthorize
     protected $id;
 
     /**
-     * Get id
+     * Get id.
      *
-     * @return integer
+     * @return int
      */
     public function getId()
     {

@@ -15,7 +15,7 @@ use AuthBucket\Bundle\OAuth2Bundle\Entity\Code as AbstractCode;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Code
+ * Code.
  *
  * @ORM\Table(name="authbucket_oauth2_code")
  * @ORM\Entity(repositoryClass="AuthBucket\Bundle\OAuth2Bundle\Tests\TestBundle\Entity\CodeRepository")
@@ -23,7 +23,7 @@ use Doctrine\ORM\Mapping as ORM;
 class Code extends AbstractCode
 {
     /**
-     * @var integer
+     * @var int
      *
      * @ORM\Column(name="id", type="integer")
      * @ORM\Id
@@ -32,9 +32,9 @@ class Code extends AbstractCode
     protected $id;
 
     /**
-     * Get id
+     * Get id.
      *
-     * @return integer
+     * @return int
      */
     public function getId()
     {

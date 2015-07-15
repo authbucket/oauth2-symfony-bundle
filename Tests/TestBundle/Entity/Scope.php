@@ -15,7 +15,7 @@ use AuthBucket\Bundle\OAuth2Bundle\Entity\Scope as AbstractScope;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Scope
+ * Scope.
  *
  * @ORM\Table(name="authbucket_oauth2_scope")
  * @ORM\Entity(repositoryClass="AuthBucket\Bundle\OAuth2Bundle\Tests\TestBundle\Entity\ScopeRepository")
@@ -23,7 +23,7 @@ use Doctrine\ORM\Mapping as ORM;
 class Scope extends AbstractScope
 {
     /**
-     * @var integer
+     * @var int
      *
      * @ORM\Column(name="id", type="integer")
      * @ORM\Id
@@ -32,9 +32,9 @@ class Scope extends AbstractScope
     protected $id;
 
     /**
-     * Get id
+     * Get id.
      *
-     * @return integer
+     * @return int
      */
     public function getId()
     {

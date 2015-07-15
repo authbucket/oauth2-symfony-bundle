@@ -15,7 +15,7 @@ use AuthBucket\Bundle\OAuth2Bundle\Entity\RefreshToken as AbstractRefreshToken;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * RefreshToken
+ * RefreshToken.
  *
  * @ORM\Table(name="authbucket_oauth2_refresh_token")
  * @ORM\Entity(repositoryClass="AuthBucket\Bundle\OAuth2Bundle\Tests\TestBundle\Entity\RefreshTokenRepository")
@@ -23,7 +23,7 @@ use Doctrine\ORM\Mapping as ORM;
 class RefreshToken extends AbstractRefreshToken
 {
     /**
-     * @var integer
+     * @var int
      *
      * @ORM\Column(name="id", type="integer")
      * @ORM\Id
@@ -32,9 +32,9 @@ class RefreshToken extends AbstractRefreshToken
     protected $id;
 
     /**
-     * Get id
+     * Get id.
      *
-     * @return integer
+     * @return int
      */
     public function getId()
     {

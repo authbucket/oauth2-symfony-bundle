@@ -24,7 +24,7 @@ class InMemoryTest extends WebTestCase
         parent::setUp();
 
         $container = new ContainerBuilder();
-        $loader = new YamlFileLoader($container, new FileLocator(__DIR__.'/../../Resources/config'));
+        $loader = new YamlFileLoader($container, new FileLocator(__DIR__.'/../../src/Resources/config'));
         $loader->load('in_memory.yml');
         $container->compile();
 
@@ -66,7 +66,7 @@ class InMemoryTest extends WebTestCase
             'HTTP_Authorization' => implode(' ', array('Bearer', "aaa\x19bbb\x5Cccc\x7Fddd")),
         );
         $client = $this->createClient();
-        $crawler = $client->request('GET', '/api/v1.0/resource/debug_endpoint', $parameters, array(), $server);
+        $crawler = $client->request('GET', '/api/resource/debug_endpoint', $parameters, array(), $server);
         $resourceResponse = json_decode($client->getResponse()->getContent(), true);
         $this->assertEquals('invalid_request', $resourceResponse['error']);
     }
@@ -78,7 +78,7 @@ class InMemoryTest extends WebTestCase
             'HTTP_Authorization' => implode(' ', array('Bearer', 'abcd')),
         );
         $client = $this->createClient();
-        $crawler = $client->request('GET', '/api/v1.0/resource/debug_endpoint', $parameters, array(), $server);
+        $crawler = $client->request('GET', '/api/resource/debug_endpoint', $parameters, array(), $server);
         $resourceResponse = json_decode($client->getResponse()->getContent(), true);
         $this->assertEquals('invalid_request', $resourceResponse['error']);
     }
@@ -90,7 +90,7 @@ class InMemoryTest extends WebTestCase
             'HTTP_Authorization' => implode(' ', array('Bearer', 'd2b58c4c6bc0cc9fefca2d558f1221a5')),
         );
         $client = $this->createClient();
-        $crawler = $client->request('GET', '/api/v1.0/resource/debug_endpoint', $parameters, array(), $server);
+        $crawler = $client->request('GET', '/api/resource/debug_endpoint', $parameters, array(), $server);
         $resourceResponse = json_decode($client->getResponse()->getContent(), true);
         $this->assertEquals('invalid_request', $resourceResponse['error']);
     }
@@ -102,7 +102,7 @@ class InMemoryTest extends WebTestCase
             'HTTP_Authorization' => implode(' ', array('Bearer', 'eeb5aa92bbb4b56373b9e0d00bc02d93')),
         );
         $client = $this->createClient();
-        $crawler = $client->request('GET', '/api/v1.0/resource/debug_endpoint/invalid_options', $parameters, array(), $server);
+        $crawler = $client->request('GET', '/api/resource/debug_endpoint/invalid_options', $parameters, array(), $server);
         $resourceResponse = json_decode($client->getResponse()->getContent(), true);
         $this->assertEquals('server_error', $resourceResponse['error']);
     }
@@ -114,7 +114,7 @@ class InMemoryTest extends WebTestCase
             'HTTP_Authorization' => implode(' ', array('Bearer', 'eeb5aa92bbb4b56373b9e0d00bc02d93')),
         );
         $client = $this->createClient();
-        $crawler = $client->request('GET', '/api/v1.0/resource/debug_endpoint', $parameters, array(), $server);
+        $crawler = $client->request('GET', '/api/resource/debug_endpoint', $parameters, array(), $server);
         $resourceResponse = json_decode($client->getResponse()->getContent(), true);
         $this->assertEquals('demousername1', $resourceResponse['username']);
     }
@@ -126,7 +126,7 @@ class InMemoryTest extends WebTestCase
             'HTTP_Authorization' => implode(' ', array('Bearer', 'eeb5aa92bbb4b56373b9e0d00bc02d93')),
         );
         $client = $this->createClient();
-        $crawler = $client->request('GET', '/api/v1.0/resource/debug_endpoint/cache', $parameters, array(), $server);
+        $crawler = $client->request('GET', '/api/resource/debug_endpoint/cache', $parameters, array(), $server);
         $resourceResponse = json_decode($client->getResponse()->getContent(), true);
         $this->assertEquals('demousername1', $resourceResponse['username']);
     }
