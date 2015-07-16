@@ -6,5 +6,4 @@ passthru(__DIR__.'/console --env=test -q doctrine:schema:drop --force');
 passthru(__DIR__.'/console --env=test -q doctrine:schema:create');
 passthru(__DIR__.'/console --env=test -q doctrine:fixtures:load -n');
 
-$loader = require __DIR__.'/bootstrap.php.cache';
-$loader->add('AuthBucket\Bundle\OAuth2Bundle\Tests', __DIR__.'/../tests');
+require __DIR__.'/bootstrap.php.cache';
