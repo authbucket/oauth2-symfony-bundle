@@ -15,7 +15,6 @@ install:
 before_script:
   - mkdir -p build/logs
   - rm -rf app/cache/*/*
-  - cat vendor/composer/autoload_psr4.php
 
 script:
   - composer phpunit

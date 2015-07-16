@@ -8,11 +8,7 @@
     ],
     "autoload": {
         "psr-4": {
-            "AuthBucket\\Bundle\\OAuth2Bundle\\": "src/"
-        }
-    },
-    "autoload-dev": {
-        "psr-4": {
+            "AuthBucket\\Bundle\\OAuth2Bundle\\": "src/",
             "AuthBucket\\Bundle\\OAuth2Bundle\\Tests\\": "tests/"
         }
     },
