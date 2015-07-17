@@ -36,14 +36,14 @@ demo_authorize_logout:
     path:       /demo/authorize/logout
     methods:    [ GET ]
 
-demo_authorize_code:
-    path:       /demo/authorize/code
-    defaults:   { _controller: TestBundle:Demo:authorizeCode }
+demo_request_code:
+    path:       /demo/request/code
+    defaults:   { _controller: TestBundle:Demo:requestCode }
     methods:    [ GET ]
 
-demo_authorize_token:
-    path:       /demo/authorize/token
-    defaults:   { _controller: TestBundle:Demo:authorizeToken }
+demo_request_token:
+    path:       /demo/request/token
+    defaults:   { _controller: TestBundle:Demo:requestToken }
     methods:    [ GET ]
 
 demo_response_type_code:
