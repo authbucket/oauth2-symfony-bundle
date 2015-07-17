@@ -4,7 +4,7 @@ AuthBucket\\Bundle\\OAuth2Bundle
 [![Build
 Status](https://travis-ci.org/authbucket/oauth2-symfony-bundle.svg?branch=master)](https://travis-ci.org/authbucket/oauth2-symfony-bundle)
 [![Coverage
-Status](https://img.shields.io/coveralls/authbucket/oauth2-symfony-bundle.svg)](https://coveralls.io/r/authbucket/oauth2-symfony-bundle?branch=master)
+Status](https://coveralls.io/repos/authbucket/oauth2-symfony-bundle/badge.svg?branch=master&service=github)](https://coveralls.io/github/authbucket/oauth2-symfony-bundle?branch=master)
 [![Dependency
 Status](https://www.versioneye.com/php/authbucket:oauth2-symfony-bundle/dev-master/badge.svg)](https://www.versioneye.com/php/authbucket:oauth2-symfony-bundle/dev-master)
 [![Latest Stable
@@ -30,7 +30,7 @@ Here is a minimal example of a `composer.json`:
 
     {
         "require": {
-            "authbucket/oauth2-symfony-bundle": "~2.4"
+            "authbucket/oauth2-symfony-bundle": "~3.0"
         }
     }
 
@@ -89,8 +89,8 @@ Moreover, we also provide following model
 [CRUD](http://en.wikipedia.org/wiki/Create,_read,_update_and_delete)
 controller for alter raw data set:
 
--   `authbucket_oauth2.authorize_controller`: Authorize endpoint
-    controller.
+-   `authbucket_oauth2.authorize_controller`: Authorize
+    endpoint controller.
 -   `authbucket_oauth2.client_controller`: Client endpoint controller.
 -   `authbucket_oauth2.scope_controller`: Scope endpoint controller.
 
@@ -121,7 +121,7 @@ functioning.
 
 To enable the built-in controller with corresponding routing, add the
 following into your `routing.yml`, all above controllers will be enabled
-accordingly with routing prefix `/api/v1.0`:
+accordingly with routing prefix `/api`:
 
     # app/config/routing.yml
 
@@ -154,7 +154,7 @@ e.g. by
 
         firewalls:
             oauth2_authorize:
-                pattern:                ^/api/v1.0/oauth2/authorize$
+                pattern:                ^/api/oauth2/authorize$
                 http_basic:             ~
                 provider:               default
 
@@ -168,7 +168,7 @@ our custom firewall `oauth2_token`:
     security:
         firewalls:
             oauth2_token:
-                pattern:                ^/api/v1.0/oauth2/token$
+                pattern:                ^/api/oauth2/token$
                 oauth2_token:           ~
 
 ### Debug Endpoint
@@ -181,7 +181,7 @@ We should protect this endpoint with our custom firewall
     security:
         firewalls:
             oauth2_debug:
-                pattern:                ^/api/v1.0/oauth2/debug$
+                pattern:                ^/api/oauth2/debug$
                 oauth2_resource:        ~
 
 ### Resource Endpoint
@@ -201,7 +201,7 @@ manager, without scope protection):
     security:
         firewalls:
             resource:
-                pattern:                ^/api/v1.0/resource
+                pattern:                ^/api/resource
                 oauth2_resource:        ~
 
 Longhand version (assume resource server bundled with authorization
@@ -212,7 +212,7 @@ server, query local model manager, protect with scope `demoscope1`):
     security:
         firewalls:
             resource:
-                pattern:                ^/api/v1.0/resource
+                pattern:                ^/api/resource
                 oauth2_resource:
                     resource_type:      model
                     scope:              [ demoscope1 ]
@@ -226,12 +226,12 @@ endpoint:
     security:
         firewalls:
             resource:
-                pattern:                ^/api/v1.0/resource
+                pattern:                ^/api/resource
                 oauth2_resource:
                     resource_type:      debug_endpoint
                     scope:              [ demoscope1 ]
                     options:
-                        debug_endpoint: http://example.com/api/v1.0/oauth2/debug
+                        debug_endpoint: http://example.com/api/oauth2/debug
                         cache:          true
 
 Demo
@@ -246,7 +246,7 @@ You may also run the demo locally. Open a console and execute the
 following command to install the latest version in the
 `oauth2-symfony-bundle` directory:
 
-    $ composer create-project authbucket/oauth2-symfony-bundle oauth2-symfony-bundle "~2.4"
+    $ composer create-project authbucket/oauth2-symfony-bundle oauth2-symfony-bundle "~3.0"
 
 Then use the PHP built-in web server to run the demo application:
 
@@ -277,7 +277,7 @@ Pages](http://authbucket.github.io/oauth2-symfony-bundle).
 
 To built the documents locally, execute the following command:
 
-    $ vendor/bin/sami.php update .sami.php
+    $ composer sami
 
 Open `build/sami/index.html` with your browser for the documents.
 
@@ -292,7 +292,7 @@ coverage report can be found from
 
 To run the test suite locally, execute the following command:
 
-    $ vendor/bin/phpunit
+    $ composer phpunit
 
 Open `build/logs/html` with your browser for the coverage report.
 
@@ -312,5 +312,5 @@ License
 
 -   Code released under
     [MIT](https://github.com/authbucket/oauth2-symfony-bundle/blob/master/LICENSE)
--   Docs released under [CC BY-NC-SA
-    3.0](http://creativecommons.org/licenses/by-nc-sa/3.0/)
+-   Docs released under [CC BY
+    4.0](http://creativecommons.org/licenses/by/4.0/)
