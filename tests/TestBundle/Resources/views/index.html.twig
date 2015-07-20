@@ -12,7 +12,7 @@
                 </h1>
                 <p>
                     <a href="https://travis-ci.org/authbucket/oauth2-symfony-bundle"><img src="https://travis-ci.org/authbucket/oauth2-symfony-bundle.svg?branch=master" alt="Build Status" /></a>
-                    <a href='https://coveralls.io/github/authbucket/oauth2-symfony-bundle?branch=master'><img src='https://coveralls.io/repos/authbucket/oauth2-symfony-bundle/badge.svg?branch=master&service=github' alt='Coverage Status' /></a>
+                    <a href="https://coveralls.io/github/authbucket/oauth2-symfony-bundle?branch=master"><img src="https://coveralls.io/repos/authbucket/oauth2-symfony-bundle/badge.svg?branch=master&amp;service=github" alt="Coverage Status" /></a>
                     <a href="https://www.versioneye.com/php/authbucket:oauth2-symfony-bundle/dev-master"><img src="https://www.versioneye.com/php/authbucket:oauth2-symfony-bundle/dev-master/badge.svg" alt="Dependency Status" /></a>
                     <a href="https://packagist.org/packages/authbucket/oauth2-symfony-bundle"><img src="https://poser.pugx.org/authbucket/oauth2-symfony-bundle/v/stable.svg" alt="Latest Stable Version" /></a>
                     <a href="https://packagist.org/packages/authbucket/oauth2-symfony-bundle"><img src="https://poser.pugx.org/authbucket/oauth2-symfony-bundle/downloads.svg" alt="Total Downloads" /></a>
@@ -30,34 +30,7 @@
 }</code></pre>
 
                 <h3 id="parameters">Parameters</h3>
-                <p>Example setup in our built-in demo:</p>
-<pre><code class="no-highlight"># app/config/config.yml
-
-framework:
-    serializer:
-        enabled: true
-
-services:
-    custom_normalizer:
-        class: Symfony\Component\Serializer\Normalizer\CustomNormalizer
-        tags:
-            - { name: serializer.normalizer }
-    get_set_method_normalizer:
-        class: Symfony\Component\Serializer\Normalizer\GetSetMethodNormalizer
-        tags:
-            - { name: serializer.normalizer }
-
-authbucket_oauth2:
-    driver:                 orm
-    user_provider:          security.user.provider.concrete.default
-    model:
-        access_token:       AuthBucket\Bundle\OAuth2Bundle\Tests\TestBundle\Entity\AccessToken
-        authorize:          AuthBucket\Bundle\OAuth2Bundle\Tests\TestBundle\Entity\Authorize
-        client:             AuthBucket\Bundle\OAuth2Bundle\Tests\TestBundle\Entity\Client
-        code:               AuthBucket\Bundle\OAuth2Bundle\Tests\TestBundle\Entity\Code
-        refresh_token:      AuthBucket\Bundle\OAuth2Bundle\Tests\TestBundle\Entity\RefreshToken
-        scope:              AuthBucket\Bundle\OAuth2Bundle\Tests\TestBundle\Entity\Scope</code></pre>
-                <p>Where:</p>
+                <p>This bundle come with following parameters:</p>
                 <ul>
                     <li><code>driver</code>: (Optional) Currently we support in-memory (<code>in_memory</code>), or Doctrine ORM (<code>orm</code>). Default with in-memory for using resource firewall with remote debug endpoint.</li>
                     <li><code>user_provider</code>: (Optional) For using <code>grant_type = password</code>, override this parameter with your own user provider, e.g. using InMemoryUserProvider or a Doctrine ORM EntityRepository that implements UserProviderInterface.</li>
@@ -68,13 +41,6 @@ authbucket_oauth2:
                 <p>This bundle come with following services controller which simplify the OAuth2.0 controller implementation overhead:</p>
                 <ul>
                     <li><code>authbucket_oauth2.oauth2_controller</code>: OAuth2 endpoint controller.</li>
-                </ul>
-
-                <p>Moreover, we also provide following model <a href="http://en.wikipedia.org/wiki/Create,_read,_update_and_delete">CRUD</a> controller for alter raw data set:</p>
-                <ul>
-                    <li><code>authbucket_oauth2.authorize_controller</code>: Authorize endpoint controller.</li>
-                    <li><code>authbucket_oauth2.client_controller</code>: Client endpoint controller.</li>
-                    <li><code>authbucket_oauth2.scope_controller</code>: Scope endpoint controller.</li>
                 </ul>
 
                 <h3 id="registering">Registering</h3>
@@ -92,14 +58,20 @@ class AppKernel extends Kernel
         return $bundles;
     }
 }</code></pre>
+                <p>Moreover, enable following bundles if that's not already the case:</p>
+<pre><code class="php">$bundles = array(
+    new Symfony\Bundle\FrameworkBundle\FrameworkBundle(),
+    new Symfony\Bundle\SecurityBundle\SecurityBundle(),
+    new Symfony\Bundle\MonologBundle\MonologBundle(),
+);</code></pre>
 
                 <h2 id="usage" class="page-header">Usage</h2>
                 <p class="lead">This library seperate the endpoint logic in frontend firewall and backend controller point of view, so you will need to setup both for functioning.</p>
-                <p>To enable the built-in controller with corresponding routing, add the following into your <code>routing.yml</code>, all above controllers will be enabled accordingly with routing prefix <code>/api</code>:</p>
+                <p>To enable the built-in controller with corresponding routing, add the following into your <code>routing.yml</code>, all above controllers will be enabled accordingly with routing prefix <code>/api/oauth2</code>:</p>
 <pre><code class="no-highlight"># app/config/routing.yml
 
 authbucketoauth2bundle:
-    prefix:     /
+    prefix:     /api/oauth2
     resource:   &quot;@AuthBucketOAuth2Bundle/Resources/config/routing.yml&quot;</code></pre>
                 <p>Below is a list of recipes that cover some common use cases.</p>
 
@@ -120,7 +92,7 @@ security:
                     demousername3:  { roles: &#39;ROLE_USER&#39;, password: demopassword3 }
 
     firewalls:
-        oauth2_authorize:
+        api_oauth2_authorize:
             pattern:                ^/api/oauth2/authorize$
             http_basic:             ~
             provider:               default</code></pre>
@@ -131,7 +103,7 @@ security:
 
 security:
     firewalls:
-        oauth2_token:
+        api_oauth2_token:
             pattern:                ^/api/oauth2/token$
             oauth2_token:           ~</code></pre>
 
@@ -141,7 +113,7 @@ security:
 
 security:
     firewalls:
-        oauth2_debug:
+        api_oauth2_debug:
             pattern:                ^/api/oauth2/debug$
             oauth2_resource:        ~</code></pre>
 
@@ -152,7 +124,7 @@ security:
 
 security:
     firewalls:
-        resource:
+        api_resource:
             pattern:                ^/api/resource
             oauth2_resource:        ~</code></pre>
                 <p>Longhand version (assume resource server bundled with authorization server, query local model manager, protect with scope <code>demoscope1</code>):</p>
@@ -160,7 +132,7 @@ security:
 
 security:
     firewalls:
-        resource:
+        api_resource:
             pattern:                ^/api/resource
             oauth2_resource:
                 resource_type:      model
@@ -170,7 +142,7 @@ security:
 
 security:
     firewalls:
-        resource:
+        api_resource:
             pattern:                ^/api/resource
             oauth2_resource:
                 resource_type:      debug_endpoint
@@ -180,12 +152,12 @@ security:
                     cache:          true</code></pre>
 
                 <h2 id="demo" class="page-header">Demo</h2>
-                <p class="lead">The demo is based on <a href="http://symfony.com/">Symfony</a> and <a href="https://github.com/authbucket/oauth2-symfony-bundle/blob/master/AuthBucketOAuth2Bundle.php">AuthBucketOAuth2Bundle</a>. Read though <a href="http://oauth2-symfony-bundle.authbucket.com/demo">Demo</a> for more information.</p>
+                <p class="lead">The demo is based on <a href="http://symfony.com/">Symfony</a> and <a href="https://github.com/authbucket/oauth2-symfony-bundle/blob/master/src/AuthBucketOAuth2Bundle.php">AuthBucketOAuth2Bundle</a>. Read though <a href="http://oauth2-symfony-bundle.authbucket.com/demo">Demo</a> for more information.</p>
                 <p>You may also run the demo locally. Open a console and execute the following command to install the latest version in the <code>oauth2-symfony-bundle</code> directory:</p>
-<pre><code class="bash">$ composer create-project authbucket/oauth2-symfony-bundle oauth2-symfony-bundle "~3.0"</code></pre>
+<pre><code class="bash">$ composer create-project authbucket/oauth2-symfony-bundle authbucket/oauth2-symfony-bundle &quot;~3.0&quot;</code></pre>
                 <p>Then use the PHP built-in web server to run the demo application:</p>
-<pre><code class="bash">$ cd oauth2-symfony-bundle
-$ php app/console server:run</code></pre>
+<pre><code class="bash">$ cd authbucket/oauth2-symfony-bundle
+$ ./app/console server:run</code></pre>
                 <p>If you get the error <code>There are no commands defined in the &quot;server&quot; namespace.</code>, then you are probably using PHP 5.3. That's ok! But the built-in web server is only available for PHP 5.4.0 or higher. If you have an older version of PHP or if you prefer a traditional web server such as Apache or Nginx, read the <a href="http://symfony.com/doc/current/cookbook/configuration/web_server_configuration.html">Configuring a web server</a> article.</p>
                 <p>Open your browser and access the <a href="http://127.0.0.1:8000">http://127.0.0.1:8000</a> URL to see the Welcome page of demo application.</p>
                 <p>Also access <a href="http://127.0.0.1:8000/admin/refresh_database">http://127.0.0.1:8000/admin/refresh_database</a> to initialize the bundled SQLite database with user account <code>admin</code>:<code>secrete</code>.</p>

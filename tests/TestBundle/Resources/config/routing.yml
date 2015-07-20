@@ -10,7 +10,7 @@ admin_refresh_database:
 
 getting-started:
     path:       /getting-started
-    defaults:   { _controller: TestBundle:Demo:gettingStartedIndex }
+    defaults:   { _controller: TestBundle:Default:gettingStartedIndex }
     methods:    [ GET ]
 
 demo:

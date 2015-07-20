@@ -26,6 +26,11 @@ class DefaultController extends Controller
         return $this->render('TestBundle::index.html.twig');
     }
 
+    public function gettingStartedIndexAction(Request $request)
+    {
+        return $this->render('TestBundle:getting-started:index.html.twig');
+    }
+
     public function adminRefreshDatabaseAction(Request $request)
     {
         $conn = $this->get('database_connection');

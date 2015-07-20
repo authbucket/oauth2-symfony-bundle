@@ -10,14 +10,17 @@ class AppKernel extends Kernel
         $bundles = array(
             new Symfony\Bundle\FrameworkBundle\FrameworkBundle(),
             new Symfony\Bundle\SecurityBundle\SecurityBundle(),
-            new Symfony\Bundle\TwigBundle\TwigBundle(),
             new Symfony\Bundle\MonologBundle\MonologBundle(),
-            new Doctrine\Bundle\DoctrineBundle\DoctrineBundle(),
-            new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
-            new Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle(),
             new AuthBucket\Bundle\OAuth2Bundle\AuthBucketOAuth2Bundle(),
-            new AuthBucket\Bundle\OAuth2Bundle\Tests\TestBundle\TestBundle(),
         );
+
+        if (in_array($this->getEnvironment(), array('prod', 'dev', 'test'))) {
+            $bundles[] = new Symfony\Bundle\TwigBundle\TwigBundle();
+            $bundles[] = new Doctrine\Bundle\DoctrineBundle\DoctrineBundle();
+            $bundles[] = new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle();
+            $bundles[] = new Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle();
+            $bundles[] = new AuthBucket\Bundle\OAuth2Bundle\Tests\TestBundle\TestBundle();
+        }
 
         return $bundles;
     }
