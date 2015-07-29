@@ -31,7 +31,7 @@
     "license": "MIT",
     "name": "authbucket/oauth2-symfony-bundle",
     "require": {
-        "authbucket/oauth2-php": "3.x-dev",
+        "authbucket/oauth2-php": "~3.0",
         "php": ">=5.5.9",
         "psr/http-message": "~1.0",
         "psr/log": "~1.0",
