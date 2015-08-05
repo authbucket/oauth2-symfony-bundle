@@ -23,7 +23,7 @@ services:
         arguments:
             - "@logger"
         tags:
-            - { name: kernel.event_listener, event: kernel.exception, method: onKernelException, priority: -8 }
+            - { name: kernel.event_listener, event: kernel.exception, method: onKernelException, priority: -2 }
 
     authbucket_oauth2.response_handler.factory:
         class: AuthBucket\OAuth2\ResponseType\ResponseTypeHandlerFactory
