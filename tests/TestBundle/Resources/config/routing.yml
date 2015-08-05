@@ -1,0 +1,107 @@
+index:
+    path:       /
+    defaults:   { _controller:TestBundle:Default:index }
+    methods:    [ GET ]
+
+admin_refresh_database:
+    path:       /admin/refresh_database
+    defaults:   { _controller:TestBundle:Default:adminRefreshDatabase }
+    methods:    [ GET ]
+
+getting-started:
+    path:       /getting-started
+    defaults:   { _controller: TestBundle:Default:gettingStartedIndex }
+    methods:    [ GET ]
+
+demo:
+    path:       /demo
+    defaults:   { _controller: TestBundle:Demo:index }
+    methods:    [ GET ]
+
+demo_login:
+    path:       /demo/login
+    defaults:   { _controller: TestBundle:Demo:login }
+    methods:    [ GET ]
+
+demo_authorize:
+    path:       /demo/authorize
+    defaults:   { _controller: TestBundle:Demo:authorize }
+    methods:    [ GET|POST ]
+
+demo_authorize_login_check:
+    path:       /demo/authorize/login_check
+    methods:    [ GET|POST ]
+
+demo_authorize_logout:
+    path:       /demo/authorize/logout
+    methods:    [ GET ]
+
+demo_request_code:
+    path:       /demo/request/code
+    defaults:   { _controller: TestBundle:Demo:requestCode }
+    methods:    [ GET ]
+
+demo_request_token:
+    path:       /demo/request/token
+    defaults:   { _controller: TestBundle:Demo:requestToken }
+    methods:    [ GET ]
+
+demo_response_type_code:
+    path:       /demo/response_type/code
+    defaults:   { _controller: TestBundle:Demo:responseTypeCode }
+    methods:    [ GET ]
+
+demo_response_type_token:
+    path:       /demo/response_type/token
+    defaults:   { _controller: TestBundle:Demo:responseTypeToken }
+    methods:    [ GET ]
+
+demo_grant_type_authorization_code:
+    path:       /demo/grant_type/authorization_code
+    defaults:   { _controller: TestBundle:Demo:grantTypeAuthorizationCode }
+    methods:    [ GET ]
+
+demo_grant_type_password:
+    path:       /demo/grant_type/password
+    defaults:   { _controller: TestBundle:Demo:grantTypePassword }
+    methods:    [ GET ]
+
+demo_grant_type_client_credentials:
+    path:       /demo/grant_type/client_credentials
+    defaults:   { _controller: TestBundle:Demo:grantTypeClientCredentials }
+    methods:    [ GET ]
+
+demo_grant_type_refresh_token:
+    path:       /demo/grant_type/refresh_token
+    defaults:   { _controller: TestBundle:Demo:grantTypeRefreshToken }
+    methods:    [ GET ]
+
+demo_resource_type_model:
+    path:       /demo/resource_type/model
+    defaults:   { _controller: TestBundle:Demo:resourceTypeModel }
+    methods:    [ GET ]
+
+demo_resource_type_debug_endpoint:
+    path:       /demo/resource_type/debug_endpoint
+    defaults:   { _controller: TestBundle:Demo:resourceTypeDebugEndpoint }
+    methods:    [ GET ]
+
+api_resource_model:
+    path:       /api/resource/model
+    defaults:   { _controller: AuthBucketOAuth2Bundle:OAuth2:debug }
+    methods:    [ GET|POST ]
+
+api_resource_debug_endpoint:
+    path:       /api/resource/debug_endpoint
+    defaults:   { _controller: AuthBucketOAuth2Bundle:OAuth2:debug }
+    methods:    [ GET|POST ]
+
+api_resource_debug_endpoint_cache:
+    path:       /api/resource/debug_endpoint/cache
+    defaults:   { _controller: AuthBucketOAuth2Bundle:OAuth2:debug }
+    methods:    [ GET|POST ]
+
+api_resource_debug_endpoint_invalid_options:
+    path:       /api/resource/debug_endpoint/invalid_options
+    defaults:   { _controller: AuthBucketOAuth2Bundle:OAuth2:debug }
+    methods:    [ GET|POST ]

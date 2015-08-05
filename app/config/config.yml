@@ -19,8 +19,6 @@ framework:
         storage_id:  session.storage.mock_file
     profiler:
         enabled:     false
-    serializer:
-            enabled: true
 
 # Twig Configuration
 twig:
@@ -32,14 +30,6 @@ services:
         class: Twig_Extension_Debug
         tags:
             - { name: twig.extension }
-    custom_normalizer:
-        class: Symfony\Component\Serializer\Normalizer\CustomNormalizer
-        tags:
-            - { name: serializer.normalizer }
-    get_set_method_normalizer:
-        class: Symfony\Component\Serializer\Normalizer\GetSetMethodNormalizer
-        tags:
-            - { name: serializer.normalizer }
 
 # Doctrine Configuration
 doctrine:
@@ -50,6 +40,16 @@ doctrine:
     orm:
         auto_generate_proxy_classes: "%kernel.debug%"
         auto_mapping: true
+
+monolog:
+    handlers:
+        main:
+            type:   stream
+            path:   "%kernel.logs_dir%/%kernel.environment%.log"
+            level:  debug
+        console:
+            type:   console
+            bubble: false
 
 authbucket_oauth2:
     driver:                 orm

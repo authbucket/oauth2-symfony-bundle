@@ -1,0 +1,14 @@
+api_oauth2_authorize:
+    path:           /authorize
+    defaults:       { _controller: AuthBucketOAuth2Bundle:OAuth2:authorize }
+    methods:        [ GET ]
+
+api_oauth2_token:
+    path:           /token
+    defaults:       { _controller: AuthBucketOAuth2Bundle:OAuth2:token }
+    methods:        [ POST ]
+
+api_oauth2_debug:
+    path:           /debug
+    defaults:       { _controller: AuthBucketOAuth2Bundle:OAuth2:debug }
+    methods:        [ GET|POST ]

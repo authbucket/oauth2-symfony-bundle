@@ -4,7 +4,7 @@ AuthBucket\\Bundle\\OAuth2Bundle
 [![Build
 Status](https://travis-ci.org/authbucket/oauth2-symfony-bundle.svg?branch=master)](https://travis-ci.org/authbucket/oauth2-symfony-bundle)
 [![Coverage
-Status](https://img.shields.io/coveralls/authbucket/oauth2-symfony-bundle.svg)](https://coveralls.io/r/authbucket/oauth2-symfony-bundle?branch=master)
+Status](https://coveralls.io/repos/authbucket/oauth2-symfony-bundle/badge.svg?branch=master&service=github)](https://coveralls.io/github/authbucket/oauth2-symfony-bundle?branch=master)
 [![Dependency
 Status](https://www.versioneye.com/php/authbucket:oauth2-symfony-bundle/dev-master/badge.svg)](https://www.versioneye.com/php/authbucket:oauth2-symfony-bundle/dev-master)
 [![Latest Stable
@@ -30,42 +30,13 @@ Here is a minimal example of a `composer.json`:
 
     {
         "require": {
-            "authbucket/oauth2-symfony-bundle": "~2.4"
+            "authbucket/oauth2-symfony-bundle": "~3.0"
         }
     }
 
 ### Parameters
 
-Example setup in our built-in demo:
-
-    # app/config/config.yml
-
-    framework:
-        serializer:
-            enabled: true
-
-    services:
-        custom_normalizer:
-            class: Symfony\Component\Serializer\Normalizer\CustomNormalizer
-            tags:
-                - { name: serializer.normalizer }
-        get_set_method_normalizer:
-            class: Symfony\Component\Serializer\Normalizer\GetSetMethodNormalizer
-            tags:
-                - { name: serializer.normalizer }
-
-    authbucket_oauth2:
-        driver:                 orm
-        user_provider:          security.user.provider.concrete.default
-        model:
-            access_token:       AuthBucket\Bundle\OAuth2Bundle\Tests\TestBundle\Entity\AccessToken
-            authorize:          AuthBucket\Bundle\OAuth2Bundle\Tests\TestBundle\Entity\Authorize
-            client:             AuthBucket\Bundle\OAuth2Bundle\Tests\TestBundle\Entity\Client
-            code:               AuthBucket\Bundle\OAuth2Bundle\Tests\TestBundle\Entity\Code
-            refresh_token:      AuthBucket\Bundle\OAuth2Bundle\Tests\TestBundle\Entity\RefreshToken
-            scope:              AuthBucket\Bundle\OAuth2Bundle\Tests\TestBundle\Entity\Scope
-
-Where:
+This bundle come with following parameters:
 
 -   `driver`: (Optional) Currently we support in-memory (`in_memory`),
     or Doctrine ORM (`orm`). Default with in-memory for using resource
@@ -85,15 +56,6 @@ OAuth2.0 controller implementation overhead:
 
 -   `authbucket_oauth2.oauth2_controller`: OAuth2 endpoint controller.
 
-Moreover, we also provide following model
-[CRUD](http://en.wikipedia.org/wiki/Create,_read,_update_and_delete)
-controller for alter raw data set:
-
--   `authbucket_oauth2.authorize_controller`: Authorize endpoint
-    controller.
--   `authbucket_oauth2.client_controller`: Client endpoint controller.
--   `authbucket_oauth2.scope_controller`: Scope endpoint controller.
-
 ### Registering
 
 You have to add `AuthBucketOAuth2Bundle` to your `AppKernel.php`:
@@ -112,6 +74,14 @@ You have to add `AuthBucketOAuth2Bundle` to your `AppKernel.php`:
         }
     }
 
+Moreover, enable following bundles if that's not already the case:
+
+    $bundles = array(
+        new Symfony\Bundle\FrameworkBundle\FrameworkBundle(),
+        new Symfony\Bundle\SecurityBundle\SecurityBundle(),
+        new Symfony\Bundle\MonologBundle\MonologBundle(),
+    );
+
 Usage
 -----
 
@@ -121,12 +91,12 @@ functioning.
 
 To enable the built-in controller with corresponding routing, add the
 following into your `routing.yml`, all above controllers will be enabled
-accordingly with routing prefix `/api/v1.0`:
+accordingly with routing prefix `/api/oauth2`:
 
     # app/config/routing.yml
 
     authbucketoauth2bundle:
-        prefix:     /
+        prefix:     /api/oauth2
         resource:   "@AuthBucketOAuth2Bundle/Resources/config/routing.yml"
 
 Below is a list of recipes that cover some common use cases.
@@ -153,8 +123,8 @@ e.g. by
                         demousername3:  { roles: 'ROLE_USER', password: demopassword3 }
 
         firewalls:
-            oauth2_authorize:
-                pattern:                ^/api/v1.0/oauth2/authorize$
+            api_oauth2_authorize:
+                pattern:                ^/api/oauth2/authorize$
                 http_basic:             ~
                 provider:               default
 
@@ -167,8 +137,8 @@ our custom firewall `oauth2_token`:
 
     security:
         firewalls:
-            oauth2_token:
-                pattern:                ^/api/v1.0/oauth2/token$
+            api_oauth2_token:
+                pattern:                ^/api/oauth2/token$
                 oauth2_token:           ~
 
 ### Debug Endpoint
@@ -180,8 +150,8 @@ We should protect this endpoint with our custom firewall
 
     security:
         firewalls:
-            oauth2_debug:
-                pattern:                ^/api/v1.0/oauth2/debug$
+            api_oauth2_debug:
+                pattern:                ^/api/oauth2/debug$
                 oauth2_resource:        ~
 
 ### Resource Endpoint
@@ -200,8 +170,8 @@ manager, without scope protection):
 
     security:
         firewalls:
-            resource:
-                pattern:                ^/api/v1.0/resource
+            api_resource:
+                pattern:                ^/api/resource
                 oauth2_resource:        ~
 
 Longhand version (assume resource server bundled with authorization
@@ -211,8 +181,8 @@ server, query local model manager, protect with scope `demoscope1`):
 
     security:
         firewalls:
-            resource:
-                pattern:                ^/api/v1.0/resource
+            api_resource:
+                pattern:                ^/api/resource
                 oauth2_resource:
                     resource_type:      model
                     scope:              [ demoscope1 ]
@@ -225,20 +195,20 @@ endpoint:
 
     security:
         firewalls:
-            resource:
-                pattern:                ^/api/v1.0/resource
+            api_resource:
+                pattern:                ^/api/resource
                 oauth2_resource:
                     resource_type:      debug_endpoint
                     scope:              [ demoscope1 ]
                     options:
-                        debug_endpoint: http://example.com/api/v1.0/oauth2/debug
+                        debug_endpoint: http://example.com/api/oauth2/debug
                         cache:          true
 
 Demo
 ----
 
 The demo is based on [Symfony](http://symfony.com/) and
-[AuthBucketOAuth2Bundle](https://github.com/authbucket/oauth2-symfony-bundle/blob/master/AuthBucketOAuth2Bundle.php).
+[AuthBucketOAuth2Bundle](https://github.com/authbucket/oauth2-symfony-bundle/blob/master/src/AuthBucketOAuth2Bundle.php).
 Read though [Demo](http://oauth2-symfony-bundle.authbucket.com/demo) for
 more information.
 
@@ -246,12 +216,12 @@ You may also run the demo locally. Open a console and execute the
 following command to install the latest version in the
 `oauth2-symfony-bundle` directory:
 
-    $ composer create-project authbucket/oauth2-symfony-bundle oauth2-symfony-bundle "~2.4"
+    $ composer create-project authbucket/oauth2-symfony-bundle authbucket/oauth2-symfony-bundle "~3.0"
 
 Then use the PHP built-in web server to run the demo application:
 
-    $ cd oauth2-symfony-bundle
-    $ php app/console server:run
+    $ cd authbucket/oauth2-symfony-bundle
+    $ ./app/console server:run
 
 If you get the error
 `There are no commands defined in the "server" namespace.`, then you are
@@ -277,7 +247,7 @@ Pages](http://authbucket.github.io/oauth2-symfony-bundle).
 
 To built the documents locally, execute the following command:
 
-    $ vendor/bin/sami.php update .sami.php
+    $ composer sami
 
 Open `build/sami/index.html` with your browser for the documents.
 
@@ -292,7 +262,7 @@ coverage report can be found from
 
 To run the test suite locally, execute the following command:
 
-    $ vendor/bin/phpunit
+    $ composer phpunit
 
 Open `build/logs/html` with your browser for the coverage report.
 
@@ -312,5 +282,5 @@ License
 
 -   Code released under
     [MIT](https://github.com/authbucket/oauth2-symfony-bundle/blob/master/LICENSE)
--   Docs released under [CC BY-NC-SA
-    3.0](http://creativecommons.org/licenses/by-nc-sa/3.0/)
+-   Docs released under [CC BY
+    4.0](http://creativecommons.org/licenses/by/4.0/)
