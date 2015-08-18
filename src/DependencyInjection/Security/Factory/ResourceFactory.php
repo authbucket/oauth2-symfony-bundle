@@ -15,6 +15,7 @@ use Symfony\Bundle\SecurityBundle\DependencyInjection\Security\Factory\SecurityF
 use Symfony\Component\Config\Definition\Builder\NodeDefinition;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\DefinitionDecorator;
+use Symfony\Component\DependencyInjection\Reference;
 
 class ResourceFactory implements SecurityFactoryInterface
 {
@@ -32,7 +33,8 @@ class ResourceFactory implements SecurityFactoryInterface
             ->replaceArgument(0, $id)
             ->replaceArgument(2, $config['resource_type'])
             ->replaceArgument(3, $config['scope'])
-            ->replaceArgument(4, $config['options']);
+            ->replaceArgument(4, $config['options'])
+            ->replaceArgument(5, new Reference($userProvider));
 
         $listenerId = 'security.authentication.listener.resource.'.$id;
         $container->setDefinition($listenerId, new DefinitionDecorator('security.authentication.listener.resource'))
