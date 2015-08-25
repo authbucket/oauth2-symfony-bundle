@@ -26,15 +26,17 @@
     "homepage": "https://github.com/authbucket/oauth2-symfony-bundle",
     "keywords": [
         "oauth2",
-        "symfony"
+        "symfony",
+        "psr-1",
+        "psr-2",
+        "psr-3",
+        "psr-4"
     ],
     "license": "MIT",
     "name": "authbucket/oauth2-symfony-bundle",
     "require": {
-        "authbucket/oauth2-php": "~3.0",
+        "authbucket/oauth2-php": "dev-master",
         "php": ">=5.5.9",
-        "psr/http-message": "~1.0",
-        "psr/log": "~1.0",
         "symfony/framework-bundle": "~2.7",
         "symfony/monolog-bundle": "~2.4",
         "symfony/security-bundle": "~2.7"

@@ -2,7 +2,7 @@ imports:
     - { resource: security.yml }
 
 framework:
-    secret:          fbe0b58410c7435d8b0afde3a2108fade7
+    secret:          bb5b97682484447a819d7d27a0e8931e
     router:
         resource: "%kernel.root_dir%/config/routing.yml"
         strict_requirements: ~
