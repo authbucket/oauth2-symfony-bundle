@@ -16,7 +16,7 @@ $versions = GitVersionCollection::create($dir)
     ->addFromTags('3.*')
     ->addFromTags('4.*');
 
-return new Sami($iterator, array(
+return new Sami($iterator, [
     'theme' => 'default',
     'versions' => $versions,
     'title' => 'AuthBucket\Bundle\OAuth2Bundle API',
