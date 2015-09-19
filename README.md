@@ -66,9 +66,9 @@ You have to add `AuthBucketOAuth2Bundle` to your `AppKernel.php`:
     {
         public function registerBundles()
         {
-            $bundles = array(
+            $bundles = [
                 new AuthBucket\Bundle\OAuth2Bundle\AuthBucketOAuth2Bundle(),
-            );
+            ];
 
             return $bundles;
         }
@@ -76,11 +76,11 @@ You have to add `AuthBucketOAuth2Bundle` to your `AppKernel.php`:
 
 Moreover, enable following bundles if that's not already the case:
 
-    $bundles = array(
+    $bundles = [
         new Symfony\Bundle\FrameworkBundle\FrameworkBundle(),
         new Symfony\Bundle\SecurityBundle\SecurityBundle(),
         new Symfony\Bundle\MonologBundle\MonologBundle(),
-    );
+    ];
 
 Usage
 -----

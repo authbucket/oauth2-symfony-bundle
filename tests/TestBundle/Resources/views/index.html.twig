@@ -51,19 +51,19 @@ class AppKernel extends Kernel
 {
     public function registerBundles()
     {
-        $bundles = array(
+        $bundles = [
             new AuthBucket\Bundle\OAuth2Bundle\AuthBucketOAuth2Bundle(),
-        );
+        ];
 
         return $bundles;
     }
 }</code></pre>
                 <p>Moreover, enable following bundles if that's not already the case:</p>
-<pre><code class="php">$bundles = array(
+<pre><code class="php">$bundles = [
     new Symfony\Bundle\FrameworkBundle\FrameworkBundle(),
     new Symfony\Bundle\SecurityBundle\SecurityBundle(),
     new Symfony\Bundle\MonologBundle\MonologBundle(),
-);</code></pre>
+];</code></pre>
 
                 <h2 id="usage" class="page-header">Usage</h2>
                 <p class="lead">This library seperate the endpoint logic in frontend firewall and backend controller point of view, so you will need to setup both for functioning.</p>

@@ -37,11 +37,11 @@ class DemoController extends Controller
         $_username = $session->get('_username');
         $_password = $session->get('_password');
 
-        return $this->render('TestBundle:demo:login.html.twig', array(
+        return $this->render('TestBundle:demo:login.html.twig', [
             'error' => $error,
             '_username' => $_username,
             '_password' => $_password,
-        ));
+        ]);
     }
 
     public function authorizeAction(Request $request)
@@ -71,10 +71,10 @@ class DemoController extends Controller
             $authorizeManager = $modelManagerFactory->getModelManager('authorize');
 
             // Update existing authorization if possible, else create new.
-            $authorize = $authorizeManager->readModelOneBy(array(
+            $authorize = $authorizeManager->readModelOneBy([
                 'clientId' => $clientId,
                 'username' => $username,
-            ));
+            ]);
             if ($authorize === null) {
                 $class = $authorizeManager->getClassName();
                 $authorize = new $class();
@@ -96,13 +96,13 @@ class DemoController extends Controller
         // Display the form.
         $authorizationRequest = $request->query->all();
 
-        return $this->render('TestBundle:demo:authorize.html.twig', array(
+        return $this->render('TestBundle:demo:authorize.html.twig', [
             'client_id' => $clientId,
             'username' => $username,
             'scopes' => $scope,
             'form' => $form->createView(),
             'authorization_request' => $authorizationRequest,
-        ));
+        ]);
     }
 
     public function requestCodeAction(Request $request)
@@ -119,18 +119,18 @@ class DemoController extends Controller
         $user = $userManager->createUser()
             ->setUsername($_username)
             ->setPassword($_password)
-            ->setRoles(array(
+            ->setRoles([
                 'ROLE_USER',
-            ));
+            ]);
         $userManager->updateUser($user);
 
-        $parameters = array(
+        $parameters = [
             'response_type' => 'code',
             'client_id' => 'authorization_code_grant',
             'redirect_uri' => $request->getUriForPath('/demo/response_type/code'),
             'scope' => 'demoscope1 demoscope2 demoscope3',
             'state' => $session->getId(),
-        );
+        ];
 
         $url = Request::create($request->getUriForPath('/demo/authorize'), 'GET', $parameters)->getUri();
 
@@ -151,18 +151,18 @@ class DemoController extends Controller
         $user = $userManager->createUser()
             ->setUsername($_username)
             ->setPassword($_password)
-            ->setRoles(array(
+            ->setRoles([
                 'ROLE_USER',
-            ));
+            ]);
         $userManager->updateUser($user);
 
-        $parameters = array(
+        $parameters = [
             'response_type' => 'token',
             'client_id' => 'implicit_grant',
             'redirect_uri' => $request->getUriForPath('/demo/response_type/token'),
             'scope' => 'demoscope1 demoscope2 demoscope3',
             'state' => $session->getId(),
-        );
+        ];
 
         $url = Request::create($request->getUriForPath('/demo/authorize'), 'GET', $parameters)->getUri();
 
@@ -173,211 +173,211 @@ class DemoController extends Controller
     {
         $authorizationResponse = $request->query->all();
 
-        $tokenPath = $this->get('router')->generate('demo_grant_type_authorization_code', array(
+        $tokenPath = $this->get('router')->generate('demo_grant_type_authorization_code', [
             'code' => $authorizationResponse['code'],
-        ));
+        ]);
 
-        return $this->render('TestBundle:demo/response_type:code.html.twig', array(
+        return $this->render('TestBundle:demo/response_type:code.html.twig', [
             'authorization_response' => $authorizationResponse,
             'token_path' => $tokenPath,
-        ));
+        ]);
     }
 
     public function responseTypeTokenAction(Request $request)
     {
         $accessTokenResponse = $request->query->all();
 
-        $modelPath = $this->get('router')->generate('demo_resource_type_model', array(
+        $modelPath = $this->get('router')->generate('demo_resource_type_model', [
             'access_token' => $accessTokenResponse['access_token'],
-        ));
-        $debugPath = $this->get('router')->generate('demo_resource_type_debug_endpoint', array(
+        ]);
+        $debugPath = $this->get('router')->generate('demo_resource_type_debug_endpoint', [
             'access_token' => $accessTokenResponse['access_token'],
-        ));
+        ]);
 
-        return $this->render('TestBundle:demo/response_type:token.html.twig', array(
+        return $this->render('TestBundle:demo/response_type:token.html.twig', [
             'access_token_response' => $accessTokenResponse,
             'model_path' => $modelPath,
             'debug_path' => $debugPath,
-        ));
+        ]);
     }
 
     public function grantTypeAuthorizationCodeAction(Request $request)
     {
-        $parameters = array(
+        $parameters = [
             'grant_type' => 'authorization_code',
             'code' => $request->query->get('code'),
             'redirect_uri' => $request->getUriForPath('/demo/response_type/code'),
             'client_id' => 'authorization_code_grant',
             'client_secret' => 'uoce8AeP',
-        );
-        $server = array();
+        ];
+        $server = [];
         $client = new Client($this->get('kernel'));
-        $crawler = $client->request('POST', '/api/oauth2/token', $parameters, array(), $server);
+        $crawler = $client->request('POST', '/api/oauth2/token', $parameters, [], $server);
         $accessTokenResponse = json_decode($client->getResponse()->getContent(), true);
         $accessTokenRequest = get_object_vars($client->getRequest());
 
-        $modelPath = $this->get('router')->generate('demo_resource_type_model', array(
+        $modelPath = $this->get('router')->generate('demo_resource_type_model', [
             'access_token' => $accessTokenResponse['access_token'],
-        ));
-        $debugPath = $this->get('router')->generate('demo_resource_type_debug_endpoint', array(
+        ]);
+        $debugPath = $this->get('router')->generate('demo_resource_type_debug_endpoint', [
             'access_token' => $accessTokenResponse['access_token'],
-        ));
-        $refreshPath = $this->get('router')->generate('demo_grant_type_refresh_token', array(
+        ]);
+        $refreshPath = $this->get('router')->generate('demo_grant_type_refresh_token', [
             'username' => 'authorization_code_grant',
             'password' => 'uoce8AeP',
             'refresh_token' => $accessTokenResponse['refresh_token'],
-        ));
+        ]);
 
-        return $this->render('TestBundle:demo/grant_type:authorization_code.html.twig', array(
+        return $this->render('TestBundle:demo/grant_type:authorization_code.html.twig', [
             'access_token_response' => $accessTokenResponse,
             'access_token_request' => $accessTokenRequest,
             'model_path' => $modelPath,
             'debug_path' => $debugPath,
             'refresh_path' => $refreshPath,
-        ));
+        ]);
     }
 
     public function grantTypePasswordAction(Request $request)
     {
-        $parameters = array(
+        $parameters = [
             'grant_type' => 'password',
             'username' => 'demousername1',
             'password' => 'demopassword1',
             'scope' => 'demoscope1',
-        );
-        $server = array(
+        ];
+        $server = [
             'PHP_AUTH_USER' => 'resource_owner_password_credentials_grant',
             'PHP_AUTH_PW' => 'Eevahph6',
-        );
+        ];
         $client = new Client($this->get('kernel'));
-        $crawler = $client->request('POST', '/api/oauth2/token', $parameters, array(), $server);
+        $crawler = $client->request('POST', '/api/oauth2/token', $parameters, [], $server);
         $accessTokenResponse = json_decode($client->getResponse()->getContent(), true);
         $accessTokenRequest = get_object_vars($client->getRequest());
 
-        $modelPath = $this->get('router')->generate('demo_resource_type_model', array(
+        $modelPath = $this->get('router')->generate('demo_resource_type_model', [
             'access_token' => $accessTokenResponse['access_token'],
-        ));
-        $debugPath = $this->get('router')->generate('demo_resource_type_debug_endpoint', array(
+        ]);
+        $debugPath = $this->get('router')->generate('demo_resource_type_debug_endpoint', [
             'access_token' => $accessTokenResponse['access_token'],
-        ));
-        $refreshPath = $this->get('router')->generate('demo_grant_type_refresh_token', array(
+        ]);
+        $refreshPath = $this->get('router')->generate('demo_grant_type_refresh_token', [
             'username' => 'resource_owner_password_credentials_grant',
             'password' => 'Eevahph6',
             'refresh_token' => $accessTokenResponse['refresh_token'],
-        ));
+        ]);
 
-        return $this->render('TestBundle:demo/grant_type:password.html.twig', array(
+        return $this->render('TestBundle:demo/grant_type:password.html.twig', [
             'access_token_response' => $accessTokenResponse,
             'access_token_request' => $accessTokenRequest,
             'model_path' => $modelPath,
             'debug_path' => $debugPath,
             'refresh_path' => $refreshPath,
-        ));
+        ]);
     }
 
     public function grantTypeClientCredentialsAction(Request $request)
     {
-        $parameters = array(
+        $parameters = [
             'grant_type' => 'client_credentials',
             'scope' => 'demoscope1',
-        );
-        $server = array(
+        ];
+        $server = [
             'PHP_AUTH_USER' => 'client_credentials_grant',
             'PHP_AUTH_PW' => 'yib6aiFe',
-        );
+        ];
         $client = new Client($this->get('kernel'));
-        $crawler = $client->request('POST', '/api/oauth2/token', $parameters, array(), $server);
+        $crawler = $client->request('POST', '/api/oauth2/token', $parameters, [], $server);
         $accessTokenResponse = json_decode($client->getResponse()->getContent(), true);
         $accessTokenRequest = get_object_vars($client->getRequest());
 
-        $modelPath = $this->get('router')->generate('demo_resource_type_model', array(
+        $modelPath = $this->get('router')->generate('demo_resource_type_model', [
             'access_token' => $accessTokenResponse['access_token'],
-        ));
-        $debugPath = $this->get('router')->generate('demo_resource_type_debug_endpoint', array(
+        ]);
+        $debugPath = $this->get('router')->generate('demo_resource_type_debug_endpoint', [
             'access_token' => $accessTokenResponse['access_token'],
-        ));
-        $refreshPath = $this->get('router')->generate('demo_grant_type_refresh_token', array(
+        ]);
+        $refreshPath = $this->get('router')->generate('demo_grant_type_refresh_token', [
             'username' => 'client_credentials_grant',
             'password' => 'yib6aiFe',
             'refresh_token' => $accessTokenResponse['refresh_token'],
-        ));
+        ]);
 
-        return $this->render('TestBundle:demo/grant_type:client_credentials.html.twig', array(
+        return $this->render('TestBundle:demo/grant_type:client_credentials.html.twig', [
             'access_token_response' => $accessTokenResponse,
             'access_token_request' => $accessTokenRequest,
             'model_path' => $modelPath,
             'debug_path' => $debugPath,
             'refresh_path' => $refreshPath,
-        ));
+        ]);
     }
 
     public function grantTypeRefreshTokenAction(Request $request)
     {
-        $parameters = array(
+        $parameters = [
             'grant_type' => 'refresh_token',
             'refresh_token' => $request->query->get('refresh_token'),
-        );
-        $server = array(
+        ];
+        $server = [
             'PHP_AUTH_USER' => $request->query->get('username'),
             'PHP_AUTH_PW' => $request->query->get('password'),
-        );
+        ];
         $client = new Client($this->get('kernel'));
-        $crawler = $client->request('POST', '/api/oauth2/token', $parameters, array(), $server);
+        $crawler = $client->request('POST', '/api/oauth2/token', $parameters, [], $server);
         $accessTokenResponse = json_decode($client->getResponse()->getContent(), true);
         $accessTokenRequest = get_object_vars($client->getRequest());
 
-        $modelPath = $this->get('router')->generate('demo_resource_type_model', array(
+        $modelPath = $this->get('router')->generate('demo_resource_type_model', [
             'access_token' => $accessTokenResponse['access_token'],
-        ));
-        $debugPath = $this->get('router')->generate('demo_resource_type_debug_endpoint', array(
+        ]);
+        $debugPath = $this->get('router')->generate('demo_resource_type_debug_endpoint', [
             'access_token' => $accessTokenResponse['access_token'],
-        ));
-        $refreshPath = $this->get('router')->generate('demo_grant_type_refresh_token', array(
+        ]);
+        $refreshPath = $this->get('router')->generate('demo_grant_type_refresh_token', [
             'username' => $request->query->get('username'),
             'password' => $request->query->get('password'),
             'refresh_token' => $accessTokenResponse['refresh_token'],
-        ));
+        ]);
 
-        return $this->render('TestBundle:demo/grant_type:refresh_token.html.twig', array(
+        return $this->render('TestBundle:demo/grant_type:refresh_token.html.twig', [
             'access_token_response' => $accessTokenResponse,
             'access_token_request' => $accessTokenRequest,
             'model_path' => $modelPath,
             'debug_path' => $debugPath,
             'refresh_path' => $refreshPath,
-        ));
+        ]);
     }
 
     public function resourceTypeModelAction(Request $request)
     {
-        $parameters = array();
-        $server = array(
-            'HTTP_Authorization' => implode(' ', array('Bearer', $request->query->get('access_token'))),
-        );
+        $parameters = [];
+        $server = [
+            'HTTP_Authorization' => implode(' ', ['Bearer', $request->query->get('access_token')]),
+        ];
         $client = new Client($this->get('kernel'));
-        $crawler = $client->request('GET', '/api/resource/model', $parameters, array(), $server);
+        $crawler = $client->request('GET', '/api/resource/model', $parameters, [], $server);
         $resourceResponse = json_decode($client->getResponse()->getContent(), true);
         $resourceRequest = get_object_vars($client->getRequest());
 
-        return $this->render('TestBundle:demo/resource_type:model.html.twig', array(
+        return $this->render('TestBundle:demo/resource_type:model.html.twig', [
             'resource_response' => $resourceResponse,
             'resource_request' => $resourceRequest,
-        ));
+        ]);
     }
 
     public function resourceTypeDebugEndpointAction(Request $request)
     {
-        $parameters = array();
-        $server = array(
-            'HTTP_Authorization' => implode(' ', array('Bearer', $request->query->get('access_token'))),
-        );
+        $parameters = [];
+        $server = [
+            'HTTP_Authorization' => implode(' ', ['Bearer', $request->query->get('access_token')]),
+        ];
         $client = new Client($this->get('kernel'));
-        $crawler = $client->request('GET', '/api/resource/debug_endpoint', $parameters, array(), $server);
+        $crawler = $client->request('GET', '/api/resource/debug_endpoint', $parameters, [], $server);
         $resourceResponse = json_decode($client->getResponse()->getContent(), true);
         $resourceRequest = get_object_vars($client->getRequest());
 
-        return $this->render('TestBundle:demo/resource_type:debug_endpoint.html.twig', array(
+        return $this->render('TestBundle:demo/resource_type:debug_endpoint.html.twig', [
             'resource_response' => $resourceResponse,
             'resource_request' => $resourceRequest,
-        ));
+        ]);
     }
 }

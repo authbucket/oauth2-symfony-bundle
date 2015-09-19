@@ -21,7 +21,7 @@ class ResourceTypeHandlerFactoryTest extends WebTestCase
      */
     public function testNonExistsResourceTypeHandler()
     {
-        $classes = array('foo' => 'AuthBucket\\Bundle\\OAuth2Bundle\\Tests\\ResourceType\\NonExistsResourceTypeHandler');
+        $classes = ['foo' => 'AuthBucket\\Bundle\\OAuth2Bundle\\Tests\\ResourceType\\NonExistsResourceTypeHandler'];
         $factory = new ResourceTypeHandlerFactory(
             $this->get('http_kernel'),
             $this->get('authbucket_oauth2.model_manager.factory'),
@@ -34,7 +34,7 @@ class ResourceTypeHandlerFactoryTest extends WebTestCase
      */
     public function testBadAddResourceTypeHandler()
     {
-        $classes = array('foo' => 'AuthBucket\\Bundle\\OAuth2Bundle\\Tests\\ResourceType\\FooResourceTypeHandler');
+        $classes = ['foo' => 'AuthBucket\\Bundle\\OAuth2Bundle\\Tests\\ResourceType\\FooResourceTypeHandler'];
         $factory = new ResourceTypeHandlerFactory(
             $this->get('http_kernel'),
             $this->get('authbucket_oauth2.model_manager.factory'),
@@ -47,7 +47,7 @@ class ResourceTypeHandlerFactoryTest extends WebTestCase
      */
     public function testBadGetResourceTypeHandler()
     {
-        $classes = array('bar' => 'AuthBucket\\Bundle\\OAuth2Bundle\\Tests\\ResourceType\\BarResourceTypeHandler');
+        $classes = ['bar' => 'AuthBucket\\Bundle\\OAuth2Bundle\\Tests\\ResourceType\\BarResourceTypeHandler'];
         $factory = new ResourceTypeHandlerFactory(
             $this->get('http_kernel'),
             $this->get('authbucket_oauth2.model_manager.factory'),
@@ -58,13 +58,13 @@ class ResourceTypeHandlerFactoryTest extends WebTestCase
 
     public function testGoodGetResourceTypeHandler()
     {
-        $classes = array('bar' => 'AuthBucket\\Bundle\\OAuth2Bundle\\Tests\\ResourceType\\BarResourceTypeHandler');
+        $classes = ['bar' => 'AuthBucket\\Bundle\\OAuth2Bundle\\Tests\\ResourceType\\BarResourceTypeHandler'];
         $factory = new ResourceTypeHandlerFactory(
             $this->get('http_kernel'),
             $this->get('authbucket_oauth2.model_manager.factory'),
             $classes
         );
         $handler = $factory->getResourceTypeHandler('bar');
-        $this->assertEquals($factory->getResourceTypeHandlers(), $classes);
+        $this->assertSame($factory->getResourceTypeHandlers(), $classes);
     }
 }
