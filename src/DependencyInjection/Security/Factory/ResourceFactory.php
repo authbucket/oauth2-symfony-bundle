@@ -20,11 +20,11 @@ class ResourceFactory implements SecurityFactoryInterface
 {
     public function create(ContainerBuilder $container, $id, $config, $userProvider, $defaultEntryPoint)
     {
-        $config = array_merge(array(
+        $config = array_merge([
             'resource_type' => 'model',
-            'scope' => array(),
-            'options' => array(),
-        ), (array) $config);
+            'scope' => [],
+            'options' => [],
+        ], (array) $config);
 
         $providerId = 'security.authentication.provider.resource.'.$id;
         $container
@@ -38,7 +38,7 @@ class ResourceFactory implements SecurityFactoryInterface
         $container->setDefinition($listenerId, new DefinitionDecorator('security.authentication.listener.resource'))
             ->replaceArgument(0, $id);
 
-        return array($providerId, $listenerId, $defaultEntryPoint);
+        return [$providerId, $listenerId, $defaultEntryPoint];
     }
 
     public function getPosition()

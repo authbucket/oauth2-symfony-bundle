@@ -28,7 +28,7 @@ class TokenFactory implements SecurityFactoryInterface
         $container->setDefinition($listenerId, new DefinitionDecorator('security.authentication.listener.token'))
             ->replaceArgument(0, $id);
 
-        return array($providerId, $listenerId, $defaultEntryPoint);
+        return [$providerId, $listenerId, $defaultEntryPoint];
     }
 
     public function getPosition()
