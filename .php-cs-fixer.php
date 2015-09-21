@@ -1,15 +1,22 @@
 <?php
 
-$fixers = array(
-    '-psr0',
+$fixers = [
     '-no_empty_lines_after_phpdocs',
-);
+    '-psr0',
+    'ordered_use',
+    'php_unit_construct',
+    'php_unit_strict',
+    'phpdoc_order',
+    'short_array_syntax',
+];
 
 $finder = Symfony\CS\Finder\DefaultFinder::create()
     ->exclude('app/cache')
     ->exclude('app/log')
     ->exclude('build')
     ->exclude('vendor')
+    ->ignoreDotFiles(false)
+    ->ignoreVCS(true)
     ->in(__DIR__)
     ->notName('*.phar')
     ->notName('LICENSE')

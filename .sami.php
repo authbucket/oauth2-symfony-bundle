@@ -13,14 +13,14 @@ $iterator = Finder::create()
 $versions = GitVersionCollection::create($dir)
     ->add('develop', 'develop branch')
     ->add('master', 'master branch')
-    ->addFromTags('*');
+    ->addFromTags('3.*');
 
-return new Sami($iterator, array(
+return new Sami($iterator, [
     'theme' => 'default',
     'versions' => $versions,
     'title' => 'AuthBucket\Bundle\OAuth2Bundle API',
-    'build_dir' => __DIR__ . '/build/sami/%version%',
-    'cache_dir' => __DIR__ . '/build/cache/sami/%version%',
+    'build_dir' => __DIR__.'/build/sami/%version%',
+    'cache_dir' => __DIR__.'/build/cache/sami/%version%',
     'include_parent_data' => false,
     'default_opened_level' => 3,
-));
+]);
