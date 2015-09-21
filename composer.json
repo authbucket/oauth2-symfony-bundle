@@ -26,11 +26,11 @@
     "homepage": "https://github.com/authbucket/oauth2-symfony-bundle",
     "keywords": [
         "oauth2",
-        "symfony",
         "psr-1",
         "psr-2",
         "psr-3",
-        "psr-4"
+        "psr-4",
+        "symfony"
     ],
     "license": "MIT",
     "name": "authbucket/oauth2-symfony-bundle",
