@@ -28,11 +28,13 @@ project.
 
 Here is a minimal example of a `composer.json`:
 
+``` js
     {
         "require": {
             "authbucket/oauth2-symfony-bundle": "~3.0"
         }
     }
+```
 
 ### Parameters
 
@@ -60,7 +62,8 @@ OAuth2.0 controller implementation overhead:
 
 You have to add `AuthBucketOAuth2Bundle` to your `AppKernel.php`:
 
-    # app/AppKernel.php
+``` php
+    // app/AppKernel.php
 
     class AppKernel extends Kernel
     {
@@ -73,14 +76,17 @@ You have to add `AuthBucketOAuth2Bundle` to your `AppKernel.php`:
             return $bundles;
         }
     }
+```
 
 Moreover, enable following bundles if that's not already the case:
 
+``` php
     $bundles = [
         new Symfony\Bundle\FrameworkBundle\FrameworkBundle(),
         new Symfony\Bundle\SecurityBundle\SecurityBundle(),
         new Symfony\Bundle\MonologBundle\MonologBundle(),
     ];
+```
 
 Usage
 -----
