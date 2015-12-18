@@ -38,7 +38,6 @@ services:
         class: AuthBucket\OAuth2\GrantType\GrantTypeHandlerFactory
         arguments:
             - "@security.token_storage"
-            - "@security.user_checker"
             - "@security.encoder_factory"
             - "@validator"
             - "@authbucket_oauth2.model_manager.factory"
