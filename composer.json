@@ -37,26 +37,22 @@
     "require": {
         "authbucket/oauth2-php": "dev-develop",
         "php": ">=5.5.9",
-        "symfony/framework-bundle": "~2.7",
+        "symfony/framework-bundle": "~2.8",
         "symfony/monolog-bundle": "~2.4",
-        "symfony/security-bundle": "~2.7"
+        "symfony/security-bundle": "~2.8"
     },
     "require-dev": {
         "doctrine/doctrine-bundle": "~1.4",
         "doctrine/doctrine-fixtures-bundle": "~2.2",
-        "doctrine/orm": "~2.2",
+        "doctrine/orm": "~2.4",
         "ext-pdo_sqlite": "*",
-        "fabpot/php-cs-fixer": "@stable",
         "incenteev/composer-parameter-handler": "~2.0",
-        "phpunit/phpunit": "@stable",
-        "sami/sami": "@stable",
-        "satooshi/php-coveralls": "dev-master",
-        "sensio/distribution-bundle": "~4.0",
+        "sensio/distribution-bundle": "~5.0",
         "sensio/framework-extra-bundle": "~3.0",
         "symfony/assetic-bundle": "~2.3",
-        "symfony/phpunit-bridge": "~2.7",
+        "symfony/phpunit-bridge": "~2.8",
         "symfony/swiftmailer-bundle": "~2.3",
-        "symfony/symfony": "~2.7",
+        "symfony/symfony": "~2.8",
         "twig/extensions": "~1.0"
     },
     "scripts": {
