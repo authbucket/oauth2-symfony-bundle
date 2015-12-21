@@ -25,7 +25,7 @@ security:
         demo_authorize:
             pattern:                ^/demo/authorize
             remember_me:
-                secret:             "%kernel.secret%"
+                key:                "%kernel.secret%"
             form_login:
                 login_path:         /demo/login
                 check_path:         /demo/authorize/login_check
