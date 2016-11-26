@@ -25,7 +25,7 @@
                 <div id="control-panel">
                     <form action="#" method="GET">
                 <select id="version-switcher" name="version">
-                                            <option value="../../../../../develop/index.html">develop branch</option>
+                                            <option value="../../../../../develop/index.html" selected>develop branch</option>
                                             <option value="../../../../../master/index.html">master branch</option>
                                             <option value="../../../../../3.0.0/index.html">3.0.0</option>
                                             <option value="../../../../../3.0.1/index.html">3.0.1</option>
@@ -35,12 +35,18 @@
                                             <option value="../../../../../3.0.5/index.html">3.0.5</option>
                                             <option value="../../../../../3.0.6/index.html">3.0.6</option>
                                             <option value="../../../../../3.0.7/index.html">3.0.7</option>
-                                            <option value="../../../../../3.0.8/index.html" selected>3.0.8</option>
+                                            <option value="../../../../../3.0.8/index.html">3.0.8</option>
                                             <option value="../../../../../3.0.9/index.html">3.0.9</option>
                                             <option value="../../../../../3.0.10/index.html">3.0.10</option>
+                                            <option value="../../../../../3.0.11/index.html">3.0.11</option>
+                                            <option value="../../../../../3.0.12/index.html">3.0.12</option>
+                                            <option value="../../../../../3.1.0/index.html">3.1.0</option>
                                             <option value="../../../../../4.0.0/index.html">4.0.0</option>
                                             <option value="../../../../../4.0.1/index.html">4.0.1</option>
                                             <option value="../../../../../4.0.2/index.html">4.0.2</option>
+                                            <option value="../../../../../4.0.3/index.html">4.0.3</option>
+                                            <option value="../../../../../4.0.4/index.html">4.0.4</option>
+                                            <option value="../../../../../4.1.0/index.html">4.1.0</option>
                                     </select>
             </form>
                 <form id="search-form" action="../../../../search.html" method="GET">
@@ -94,13 +100,19 @@
                 <div id="page-content">
                 
     <div class="page-header">
-        <h1>Authorize</h1>
+        <h1>
+            Authorize
+                
+        </h1>
     </div>
 
     <p>    class
     <strong>Authorize</strong>        implements
         <abbr title="AuthBucket\OAuth2\Model\AuthorizeInterface">AuthorizeInterface</abbr>
 </p>
+
+        
+    
 
             <div class="description">
             <p>Authorize.</p>                    </div>
@@ -113,64 +125,61 @@
             <div class="container-fluid underlined">
                     <div class="row">
                 <div class="col-md-2 type">
-                    
-    <a href="../../../../AuthBucket/Bundle/OAuth2Bundle/Entity/Authorize.html"><abbr title="AuthBucket\Bundle\OAuth2Bundle\Entity\Authorize">Authorize</abbr></a>
+                    <a href="../../../../AuthBucket/Bundle/OAuth2Bundle/Entity/Authorize.html"><abbr title="AuthBucket\Bundle\OAuth2Bundle\Entity\Authorize">Authorize</abbr></a>
                 </div>
                 <div class="col-md-8 type">
-                    <a href="#method_setClientId">setClientId</a>(
-    string $clientId)
+                    <a href="#method_setClientId">setClientId</a>(string $clientId)
+        
                                             <p>Set client_id.</p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
-                    
-    string
+                    string
                 </div>
                 <div class="col-md-8 type">
                     <a href="#method_getClientId">getClientId</a>()
+        
                                             <p>Get client_id.</p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
-                    
-    <a href="../../../../AuthBucket/Bundle/OAuth2Bundle/Entity/Authorize.html"><abbr title="AuthBucket\Bundle\OAuth2Bundle\Entity\Authorize">Authorize</abbr></a>
+                    <a href="../../../../AuthBucket/Bundle/OAuth2Bundle/Entity/Authorize.html"><abbr title="AuthBucket\Bundle\OAuth2Bundle\Entity\Authorize">Authorize</abbr></a>
                 </div>
                 <div class="col-md-8 type">
-                    <a href="#method_setUsername">setUsername</a>(
-    string $username)
+                    <a href="#method_setUsername">setUsername</a>(string $username)
+        
                                             <p>Set username.</p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
-                    
-    string
+                    string
                 </div>
                 <div class="col-md-8 type">
                     <a href="#method_getUsername">getUsername</a>()
+        
                                             <p>Get username.</p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
-                    
-    <a href="../../../../AuthBucket/Bundle/OAuth2Bundle/Entity/Authorize.html"><abbr title="AuthBucket\Bundle\OAuth2Bundle\Entity\Authorize">Authorize</abbr></a>
+                    <a href="../../../../AuthBucket/Bundle/OAuth2Bundle/Entity/Authorize.html"><abbr title="AuthBucket\Bundle\OAuth2Bundle\Entity\Authorize">Authorize</abbr></a>
                 </div>
                 <div class="col-md-8 type">
-                    <a href="#method_setScope">setScope</a>(
-    array $scope)
+                    <a href="#method_setScope">setScope</a>(array $scope)
+        
                                             <p>Set scope.</p>                </div>
                 <div class="col-md-2"></div>
             </div>
                     <div class="row">
                 <div class="col-md-2 type">
-                    
-    array
+                    array
                 </div>
                 <div class="col-md-8 type">
                     <a href="#method_getScope">getScope</a>()
+        
                                             <p>Get scope.</p>                </div>
                 <div class="col-md-2"></div>
             </div>
@@ -182,13 +191,15 @@
             <div id="method-details">
                     <div class="method-item">
                     <h3 id="method_setClientId">
-        <div class="location">at line 52</div>
-        <code>                    
-    <a href="../../../../AuthBucket/Bundle/OAuth2Bundle/Entity/Authorize.html"><abbr title="AuthBucket\Bundle\OAuth2Bundle\Entity\Authorize">Authorize</abbr></a>
-    <strong>setClientId</strong>(
-    string $clientId)</code>
+        <div class="location">at line         line 52</div>
+        <code>                    <a href="../../../../AuthBucket/Bundle/OAuth2Bundle/Entity/Authorize.html"><abbr title="AuthBucket\Bundle\OAuth2Bundle\Entity\Authorize">Authorize</abbr></a>
+    <strong>setClientId</strong>(string $clientId)
+        </code>
     </h3>
     <div class="details">
+            
+    
+
                     <div class="method-description">
                                     <p>Set client_id.</p>                                </div>
                 <div class="tags">
@@ -196,11 +207,9 @@
 
                     <table class="table table-condensed">
                     <tr>
-                <td>
-    string</td>
+                <td>string</td>
                 <td>$clientId</td>
-                <td>
-</td>
+                <td></td>
             </tr>
             </table>
 
@@ -209,10 +218,8 @@
 
                     <table class="table table-condensed">
         <tr>
-            <td>
-    <a href="../../../../AuthBucket/Bundle/OAuth2Bundle/Entity/Authorize.html"><abbr title="AuthBucket\Bundle\OAuth2Bundle\Entity\Authorize">Authorize</abbr></a></td>
-            <td>
-</td>
+            <td><a href="../../../../AuthBucket/Bundle/OAuth2Bundle/Entity/Authorize.html"><abbr title="AuthBucket\Bundle\OAuth2Bundle\Entity\Authorize">Authorize</abbr></a></td>
+            <td></td>
         </tr>
     </table>
 
@@ -224,12 +231,15 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_getClientId">
-        <div class="location">at line 64</div>
-        <code>                    
-    string
-    <strong>getClientId</strong>()</code>
+        <div class="location">at line         line 64</div>
+        <code>                    string
+    <strong>getClientId</strong>()
+        </code>
     </h3>
     <div class="details">
+            
+    
+
                     <div class="method-description">
                                     <p>Get client_id.</p>                                </div>
                 <div class="tags">
@@ -238,10 +248,8 @@
 
                     <table class="table table-condensed">
         <tr>
-            <td>
-    string</td>
-            <td>
-</td>
+            <td>string</td>
+            <td></td>
         </tr>
     </table>
 
@@ -253,13 +261,15 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_setUsername">
-        <div class="location">at line 76</div>
-        <code>                    
-    <a href="../../../../AuthBucket/Bundle/OAuth2Bundle/Entity/Authorize.html"><abbr title="AuthBucket\Bundle\OAuth2Bundle\Entity\Authorize">Authorize</abbr></a>
-    <strong>setUsername</strong>(
-    string $username)</code>
+        <div class="location">at line         line 76</div>
+        <code>                    <a href="../../../../AuthBucket/Bundle/OAuth2Bundle/Entity/Authorize.html"><abbr title="AuthBucket\Bundle\OAuth2Bundle\Entity\Authorize">Authorize</abbr></a>
+    <strong>setUsername</strong>(string $username)
+        </code>
     </h3>
     <div class="details">
+            
+    
+
                     <div class="method-description">
                                     <p>Set username.</p>                                </div>
                 <div class="tags">
@@ -267,11 +277,9 @@
 
                     <table class="table table-condensed">
                     <tr>
-                <td>
-    string</td>
+                <td>string</td>
                 <td>$username</td>
-                <td>
-</td>
+                <td></td>
             </tr>
             </table>
 
@@ -280,10 +288,8 @@
 
                     <table class="table table-condensed">
         <tr>
-            <td>
-    <a href="../../../../AuthBucket/Bundle/OAuth2Bundle/Entity/Authorize.html"><abbr title="AuthBucket\Bundle\OAuth2Bundle\Entity\Authorize">Authorize</abbr></a></td>
-            <td>
-</td>
+            <td><a href="../../../../AuthBucket/Bundle/OAuth2Bundle/Entity/Authorize.html"><abbr title="AuthBucket\Bundle\OAuth2Bundle\Entity\Authorize">Authorize</abbr></a></td>
+            <td></td>
         </tr>
     </table>
 
@@ -295,12 +301,15 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_getUsername">
-        <div class="location">at line 88</div>
-        <code>                    
-    string
-    <strong>getUsername</strong>()</code>
+        <div class="location">at line         line 88</div>
+        <code>                    string
+    <strong>getUsername</strong>()
+        </code>
     </h3>
     <div class="details">
+            
+    
+
                     <div class="method-description">
                                     <p>Get username.</p>                                </div>
                 <div class="tags">
@@ -309,10 +318,8 @@
 
                     <table class="table table-condensed">
         <tr>
-            <td>
-    string</td>
-            <td>
-</td>
+            <td>string</td>
+            <td></td>
         </tr>
     </table>
 
@@ -324,13 +331,15 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_setScope">
-        <div class="location">at line 100</div>
-        <code>                    
-    <a href="../../../../AuthBucket/Bundle/OAuth2Bundle/Entity/Authorize.html"><abbr title="AuthBucket\Bundle\OAuth2Bundle\Entity\Authorize">Authorize</abbr></a>
-    <strong>setScope</strong>(
-    array $scope)</code>
+        <div class="location">at line         line 100</div>
+        <code>                    <a href="../../../../AuthBucket/Bundle/OAuth2Bundle/Entity/Authorize.html"><abbr title="AuthBucket\Bundle\OAuth2Bundle\Entity\Authorize">Authorize</abbr></a>
+    <strong>setScope</strong>(array $scope)
+        </code>
     </h3>
     <div class="details">
+            
+    
+
                     <div class="method-description">
                                     <p>Set scope.</p>                                </div>
                 <div class="tags">
@@ -338,11 +347,9 @@
 
                     <table class="table table-condensed">
                     <tr>
-                <td>
-    array</td>
+                <td>array</td>
                 <td>$scope</td>
-                <td>
-</td>
+                <td></td>
             </tr>
             </table>
 
@@ -351,10 +358,8 @@
 
                     <table class="table table-condensed">
         <tr>
-            <td>
-    <a href="../../../../AuthBucket/Bundle/OAuth2Bundle/Entity/Authorize.html"><abbr title="AuthBucket\Bundle\OAuth2Bundle\Entity\Authorize">Authorize</abbr></a></td>
-            <td>
-</td>
+            <td><a href="../../../../AuthBucket/Bundle/OAuth2Bundle/Entity/Authorize.html"><abbr title="AuthBucket\Bundle\OAuth2Bundle\Entity\Authorize">Authorize</abbr></a></td>
+            <td></td>
         </tr>
     </table>
 
@@ -366,12 +371,15 @@
             </div>
                     <div class="method-item">
                     <h3 id="method_getScope">
-        <div class="location">at line 112</div>
-        <code>                    
-    array
-    <strong>getScope</strong>()</code>
+        <div class="location">at line         line 112</div>
+        <code>                    array
+    <strong>getScope</strong>()
+        </code>
     </h3>
     <div class="details">
+            
+    
+
                     <div class="method-description">
                                     <p>Get scope.</p>                                </div>
                 <div class="tags">
@@ -380,10 +388,8 @@
 
                     <table class="table table-condensed">
         <tr>
-            <td>
-    array</td>
-            <td>
-</td>
+            <td>array</td>
+            <td></td>
         </tr>
     </table>
 
