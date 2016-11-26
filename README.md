@@ -19,7 +19,7 @@ Here is a minimal example of a `composer.json`:
 
     {
         "require": {
-            "authbucket/oauth2-symfony-bundle": "~3.0"
+            "authbucket/oauth2-symfony-bundle": "~3.1"
         }
     }
 
@@ -27,9 +27,9 @@ Here is a minimal example of a `composer.json`:
 
 This bundle come with following parameters:
 
+-   `model`: (Optional) Override this with your own model classes, default with in-memory AccessToken for using resource firewall with remote debug endpoint.
 -   `driver`: (Optional) Currently we support in-memory (`in_memory`), or Doctrine ORM (`orm`). Default with in-memory for using resource firewall with remote debug endpoint.
 -   `user_provider`: (Optional) For using `grant_type = password`, override this parameter with your own user provider, e.g. using InMemoryUserProvider or a Doctrine ORM EntityRepository that implements UserProviderInterface.
--   `model`: (Optional) Override this with your own model classes, default with in-memory AccessToken for using resource firewall with remote debug endpoint.
 
 ### Services
 
@@ -174,12 +174,12 @@ The demo is based on [Symfony](http://symfony.com/) and [AuthBucketOAuth2Bundle]
 
 You may also run the demo locally. Open a console and execute the following command to install the latest version in the `oauth2-symfony-bundle` directory:
 
-    $ composer create-project authbucket/oauth2-symfony-bundle authbucket/oauth2-symfony-bundle "~3.0"
+    $ composer create-project authbucket/oauth2-symfony-bundle authbucket/oauth2-symfony-bundle "~3.1"
 
 Then use the PHP built-in web server to run the demo application:
 
     $ cd authbucket/oauth2-symfony-bundle
-    $ ./app/console server:run
+    $ ./bin/console server:run
 
 If you get the error `There are no commands defined in the "server" namespace.`, then you are probably using PHP 5.3. That's ok! But the built-in web server is only available for PHP 5.4.0 or higher. If you have an older version of PHP or if you prefer a traditional web server such as Apache or Nginx, read the [Configuring a web server](http://symfony.com/doc/current/cookbook/configuration/web_server_configuration.html) article.
 
