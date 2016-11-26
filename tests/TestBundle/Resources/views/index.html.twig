@@ -25,16 +25,16 @@
                 <p>Here is a minimal example of a <code>composer.json</code>:</p>
 <pre><code class="json">{
     &quot;require&quot;: {
-        &quot;authbucket/oauth2-symfony-bundle&quot;: &quot;~4.0&quot;
+        &quot;authbucket/oauth2-symfony-bundle&quot;: &quot;~4.1&quot;
     }
 }</code></pre>
 
                 <h3 id="parameters">Parameters</h3>
                 <p>This bundle come with following parameters:</p>
                 <ul>
+                    <li><code>model</code>: (Optional) Override this with your own model classes, default with in-memory AccessToken for using resource firewall with remote debug endpoint.</li>
                     <li><code>driver</code>: (Optional) Currently we support in-memory (<code>in_memory</code>), or Doctrine ORM (<code>orm</code>). Default with in-memory for using resource firewall with remote debug endpoint.</li>
                     <li><code>user_provider</code>: (Optional) For using <code>grant_type = password</code>, override this parameter with your own user provider, e.g. using InMemoryUserProvider or a Doctrine ORM EntityRepository that implements UserProviderInterface.</li>
-                    <li><code>model</code>: (Optional) Override this with your own model classes, default with in-memory AccessToken for using resource firewall with remote debug endpoint.</li>
                 </ul>
 
                 <h3 id="services">Services</h3>
@@ -154,10 +154,10 @@ security:
                 <h2 id="demo" class="page-header">Demo</h2>
                 <p class="lead">The demo is based on <a href="http://symfony.com/">Symfony</a> and <a href="https://github.com/authbucket/oauth2-symfony-bundle/blob/master/src/AuthBucketOAuth2Bundle.php">AuthBucketOAuth2Bundle</a>. Read though <a href="http://oauth2-symfony-bundle.authbucket.com/demo">Demo</a> for more information.</p>
                 <p>You may also run the demo locally. Open a console and execute the following command to install the latest version in the <code>oauth2-symfony-bundle</code> directory:</p>
-<pre><code class="bash">$ composer create-project authbucket/oauth2-symfony-bundle authbucket/oauth2-symfony-bundle &quot;~4.0&quot;</code></pre>
+<pre><code class="bash">$ composer create-project authbucket/oauth2-symfony-bundle authbucket/oauth2-symfony-bundle &quot;~4.1&quot;</code></pre>
                 <p>Then use the PHP built-in web server to run the demo application:</p>
 <pre><code class="bash">$ cd authbucket/oauth2-symfony-bundle
-$ ./app/console server:run</code></pre>
+$ ./bin/console server:run</code></pre>
                 <p>If you get the error <code>There are no commands defined in the &quot;server&quot; namespace.</code>, then you are probably using PHP 5.3. That's ok! But the built-in web server is only available for PHP 5.4.0 or higher. If you have an older version of PHP or if you prefer a traditional web server such as Apache or Nginx, read the <a href="http://symfony.com/doc/current/cookbook/configuration/web_server_configuration.html">Configuring a web server</a> article.</p>
                 <p>Open your browser and access the <a href="http://127.0.0.1:8000">http://127.0.0.1:8000</a> URL to see the Welcome page of demo application.</p>
                 <p>Also access <a href="http://127.0.0.1:8000/admin/refresh_database">http://127.0.0.1:8000/admin/refresh_database</a> to initialize the bundled SQLite database with user account <code>admin</code>:<code>secrete</code>.</p>

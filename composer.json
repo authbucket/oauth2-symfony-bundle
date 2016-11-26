@@ -20,7 +20,7 @@
     "extra": {
         "branch-alias": {
             "dev-develop": "4.x-dev",
-            "dev-master": "4.0.x-dev"
+            "dev-master": "4.1.x-dev"
         }
     },
     "homepage": "https://github.com/authbucket/oauth2-symfony-bundle",
@@ -35,10 +35,10 @@
     "license": "MIT",
     "name": "authbucket/oauth2-symfony-bundle",
     "require": {
-        "authbucket/oauth2-php": "~4.0",
+        "authbucket/oauth2-php": "~4.1",
         "php": ">=5.5.9",
         "symfony/framework-bundle": "~2.8|~3.0",
-        "symfony/monolog-bundle": "~2.8",
+        "symfony/monolog-bundle": "~2.8|~3.0",
         "symfony/security-bundle": "~2.8|~3.0"
     },
     "require-dev": {
@@ -46,7 +46,6 @@
         "doctrine/doctrine-fixtures-bundle": "~2.3",
         "doctrine/orm": "~2.5",
         "ext-pdo_sqlite": "*",
-        "incenteev/composer-parameter-handler": "~2.0",
         "sensio/distribution-bundle": "~5.0",
         "sensio/framework-extra-bundle": "~3.0",
         "symfony/phpunit-bridge": "~2.8|~3.0",
