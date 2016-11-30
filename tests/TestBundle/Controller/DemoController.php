@@ -66,7 +66,7 @@ class DemoController extends Controller
         $form->handleRequest($request);
 
         // Save authorized scope if submitted by POST.
-        if ($form->isValid()) {
+        if ($request->isMethod('POST')) {
             $modelManagerFactory = $this->get('authbucket_oauth2.model_manager.factory');
             $authorizeManager = $modelManagerFactory->getModelManager('authorize');
 
