@@ -28,7 +28,6 @@ services:
     authbucket_oauth2.response_handler.factory:
         class: AuthBucket\OAuth2\ResponseType\ResponseTypeHandlerFactory
         arguments:
-            - "@security.token_storage"
             - "@validator"
             - "@authbucket_oauth2.model_manager.factory"
             - "@authbucket_oauth2.token_handler.factory"
@@ -37,12 +36,9 @@ services:
     authbucket_oauth2.grant_handler.factory:
         class: AuthBucket\OAuth2\GrantType\GrantTypeHandlerFactory
         arguments:
-            - "@security.token_storage"
-            - "@security.encoder_factory"
             - "@validator"
             - "@authbucket_oauth2.model_manager.factory"
             - "@authbucket_oauth2.token_handler.factory"
-            - ~
             - "%authbucket_oauth2.grant_handler%"
 
     authbucket_oauth2.token_handler.factory:
@@ -62,11 +58,11 @@ services:
     authbucket_oauth2.oauth2_controller:
         class: AuthBucket\OAuth2\Controller\OAuth2Controller
         arguments:
-            - "@security.token_storage"
             - "@validator"
             - "@authbucket_oauth2.model_manager.factory"
             - "@authbucket_oauth2.response_handler.factory"
             - "@authbucket_oauth2.grant_handler.factory"
+            - "@authbucket_oauth2.token_handler.factory"
 
     security.authentication.provider.token:
         class: AuthBucket\OAuth2\Security\Authentication\Provider\TokenProvider
@@ -82,6 +78,8 @@ services:
             - "@security.authentication.manager"
             - "@validator"
             - "@logger"
+            - "@security.encoder_factory"
+            - ~
 
     security.authentication.provider.resource:
         class: AuthBucket\OAuth2\Security\Authentication\Provider\ResourceProvider
