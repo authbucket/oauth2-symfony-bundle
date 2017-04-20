@@ -16,7 +16,7 @@ use Symfony\Component\HttpKernel\Bundle\Bundle;
 
 class TestBundle extends Bundle
 {
-    public function bulid(ContainerBuilder $container)
+    public function build(ContainerBuilder $container)
     {
     }
 }
