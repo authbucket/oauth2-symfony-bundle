@@ -26,7 +26,7 @@ class ResponseTypeHandlerFactoryTest extends WebTestCase
             $this->get('security.token_storage'),
             $this->get('validator'),
             $this->get('authbucket_oauth2.model_manager.factory'),
-            $this->get('authbucket_oauth2.token_handler.factory'),
+            $this->get('authbucket_oauth2.token_type_handler.factory'),
             $classes
         );
     }
@@ -41,7 +41,7 @@ class ResponseTypeHandlerFactoryTest extends WebTestCase
             $this->get('security.token_storage'),
             $this->get('validator'),
             $this->get('authbucket_oauth2.model_manager.factory'),
-            $this->get('authbucket_oauth2.token_handler.factory'),
+            $this->get('authbucket_oauth2.token_type_handler.factory'),
             $classes
         );
     }
@@ -56,7 +56,7 @@ class ResponseTypeHandlerFactoryTest extends WebTestCase
             $this->get('security.token_storage'),
             $this->get('validator'),
             $this->get('authbucket_oauth2.model_manager.factory'),
-            $this->get('authbucket_oauth2.token_handler.factory'),
+            $this->get('authbucket_oauth2.token_type_handler.factory'),
             $classes
         );
         $handler = $factory->getResponseTypeHandler('foo');
@@ -69,7 +69,7 @@ class ResponseTypeHandlerFactoryTest extends WebTestCase
             $this->get('security.token_storage'),
             $this->get('validator'),
             $this->get('authbucket_oauth2.model_manager.factory'),
-            $this->get('authbucket_oauth2.token_handler.factory'),
+            $this->get('authbucket_oauth2.token_type_handler.factory'),
             $classes
         );
         $handler = $factory->getResponseTypeHandler('bar');
