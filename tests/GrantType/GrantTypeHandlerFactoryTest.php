@@ -23,9 +23,12 @@ class GrantTypeHandlerFactoryTest extends WebTestCase
     {
         $classes = ['foo' => 'AuthBucket\\Bundle\\OAuth2Bundle\\Tests\\GrantType\\NonExistsGrantTypeHandler'];
         $factory = new GrantTypeHandlerFactory(
+            $this->get('security.token_storage'),
+            $this->get('security.encoder_factory'),
             $this->get('validator'),
             $this->get('authbucket_oauth2.model_manager.factory'),
-            $this->get('authbucket_oauth2.token_handler.factory'),
+            $this->get('authbucket_oauth2.token_type_handler.factory'),
+            null,
             $classes
         );
     }
@@ -37,9 +40,12 @@ class GrantTypeHandlerFactoryTest extends WebTestCase
     {
         $classes = ['foo' => 'AuthBucket\\Bundle\\OAuth2Bundle\\Tests\\GrantType\\FooGrantTypeHandler'];
         $factory = new GrantTypeHandlerFactory(
+            $this->get('security.token_storage'),
+            $this->get('security.encoder_factory'),
             $this->get('validator'),
             $this->get('authbucket_oauth2.model_manager.factory'),
-            $this->get('authbucket_oauth2.token_handler.factory'),
+            $this->get('authbucket_oauth2.token_type_handler.factory'),
+            null,
             $classes
         );
     }
@@ -51,9 +57,12 @@ class GrantTypeHandlerFactoryTest extends WebTestCase
     {
         $classes = ['bar' => 'AuthBucket\\Bundle\\OAuth2Bundle\\Tests\\GrantType\\BarGrantTypeHandler'];
         $factory = new GrantTypeHandlerFactory(
+            $this->get('security.token_storage'),
+            $this->get('security.encoder_factory'),
             $this->get('validator'),
             $this->get('authbucket_oauth2.model_manager.factory'),
-            $this->get('authbucket_oauth2.token_handler.factory'),
+            $this->get('authbucket_oauth2.token_type_handler.factory'),
+            null,
             $classes
         );
         $handler = $factory->getGrantTypeHandler('foo');
@@ -63,9 +72,12 @@ class GrantTypeHandlerFactoryTest extends WebTestCase
     {
         $classes = ['bar' => 'AuthBucket\\Bundle\\OAuth2Bundle\\Tests\\GrantType\\BarGrantTypeHandler'];
         $factory = new GrantTypeHandlerFactory(
+            $this->get('security.token_storage'),
+            $this->get('security.encoder_factory'),
             $this->get('validator'),
             $this->get('authbucket_oauth2.model_manager.factory'),
-            $this->get('authbucket_oauth2.token_handler.factory'),
+            $this->get('authbucket_oauth2.token_type_handler.factory'),
+            null,
             $classes
         );
         $handler = $factory->getGrantTypeHandler('bar');

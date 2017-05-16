@@ -23,9 +23,10 @@ class ResponseTypeHandlerFactoryTest extends WebTestCase
     {
         $classes = ['foo' => 'AuthBucket\\Bundle\\OAuth2Bundle\\Tests\\ResponseType\\NonExistsResponseTypeHandler'];
         $factory = new ResponseTypeHandlerFactory(
+            $this->get('security.token_storage'),
             $this->get('validator'),
             $this->get('authbucket_oauth2.model_manager.factory'),
-            $this->get('authbucket_oauth2.token_handler.factory'),
+            $this->get('authbucket_oauth2.token_type_handler.factory'),
             $classes
         );
     }
@@ -37,9 +38,10 @@ class ResponseTypeHandlerFactoryTest extends WebTestCase
     {
         $classes = ['foo' => 'AuthBucket\\Bundle\\OAuth2Bundle\\Tests\\ResponseType\\FooResponseTypeHandler'];
         $factory = new ResponseTypeHandlerFactory(
+            $this->get('security.token_storage'),
             $this->get('validator'),
             $this->get('authbucket_oauth2.model_manager.factory'),
-            $this->get('authbucket_oauth2.token_handler.factory'),
+            $this->get('authbucket_oauth2.token_type_handler.factory'),
             $classes
         );
     }
@@ -51,9 +53,10 @@ class ResponseTypeHandlerFactoryTest extends WebTestCase
     {
         $classes = ['bar' => 'AuthBucket\\Bundle\\OAuth2Bundle\\Tests\\ResponseType\\BarResponseTypeHandler'];
         $factory = new ResponseTypeHandlerFactory(
+            $this->get('security.token_storage'),
             $this->get('validator'),
             $this->get('authbucket_oauth2.model_manager.factory'),
-            $this->get('authbucket_oauth2.token_handler.factory'),
+            $this->get('authbucket_oauth2.token_type_handler.factory'),
             $classes
         );
         $handler = $factory->getResponseTypeHandler('foo');
@@ -63,9 +66,10 @@ class ResponseTypeHandlerFactoryTest extends WebTestCase
     {
         $classes = ['bar' => 'AuthBucket\\Bundle\\OAuth2Bundle\\Tests\\ResponseType\\BarResponseTypeHandler'];
         $factory = new ResponseTypeHandlerFactory(
+            $this->get('security.token_storage'),
             $this->get('validator'),
             $this->get('authbucket_oauth2.model_manager.factory'),
-            $this->get('authbucket_oauth2.token_handler.factory'),
+            $this->get('authbucket_oauth2.token_type_handler.factory'),
             $classes
         );
         $handler = $factory->getResponseTypeHandler('bar');

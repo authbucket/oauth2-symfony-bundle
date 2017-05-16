@@ -1,9 +1,9 @@
 parameters:
     authbucket_oauth2.model:
-        access_token:   AuthBucket\OAuth2\Model\InMemory\AccessToken
+        access_token:   AuthBucket\OAuth2\Model\InMemoryAccessToken
 
 services:
     authbucket_oauth2.model_manager.factory:
-        class: AuthBucket\OAuth2\Model\InMemory\ModelManagerFactory
+        class: AuthBucket\OAuth2\Model\InMemoryModelManagerFactory
         arguments:
             - "%authbucket_oauth2.model%"
