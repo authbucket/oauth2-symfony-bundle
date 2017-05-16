@@ -1,4 +1,6 @@
 
+window.projectVersion = '3.0.3';
+
 (function(root) {
 
     var bhIndex = null;

@@ -1,4 +1,6 @@
 
+window.projectVersion = '4.0.0';
+
 (function(root) {
 
     var bhIndex = null;

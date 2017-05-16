@@ -1,4 +1,6 @@
 
+window.projectVersion = 'develop';
+
 (function(root) {
 
     var bhIndex = null;
