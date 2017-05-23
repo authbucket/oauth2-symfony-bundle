@@ -17,11 +17,13 @@ Simply add a dependency on `authbucket/oauth2-symfony-bundle` to your project's 
 
 Here is a minimal example of a `composer.json`:
 
+``` js
     {
         "require": {
             "authbucket/oauth2-symfony-bundle": "~4.1"
         }
     }
+```
 
 ### Parameters
 
@@ -41,7 +43,8 @@ This bundle come with following services controller which simplify the OAuth2.0 
 
 You have to add `AuthBucketOAuth2Bundle` to your `AppKernel.php`:
 
-    # app/AppKernel.php
+``` php
+    // app/AppKernel.php
 
     class AppKernel extends Kernel
     {
@@ -54,14 +57,17 @@ You have to add `AuthBucketOAuth2Bundle` to your `AppKernel.php`:
             return $bundles;
         }
     }
+```
 
 Moreover, enable following bundles if that's not already the case:
 
+``` php
     $bundles = [
         new Symfony\Bundle\FrameworkBundle\FrameworkBundle(),
         new Symfony\Bundle\SecurityBundle\SecurityBundle(),
         new Symfony\Bundle\MonologBundle\MonologBundle(),
     ];
+```
 
 Usage
 -----
