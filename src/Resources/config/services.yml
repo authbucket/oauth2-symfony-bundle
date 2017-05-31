@@ -91,6 +91,7 @@ services:
             - ~
             - ~
             - ~
+            - ~
 
     security.authentication.listener.resource:
         class: AuthBucket\OAuth2\Symfony\Component\Security\Http\Firewall\ResourceListener
