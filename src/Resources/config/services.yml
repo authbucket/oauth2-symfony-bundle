@@ -59,14 +59,22 @@ services:
             - "@authbucket_oauth2.model_manager.factory"
             - "%authbucket_oauth2.resource_type_handler%"
 
-    authbucket_oauth2.oauth2_controller:
-        class: AuthBucket\OAuth2\Controller\OAuth2Controller
+    authbucket_oauth2.authorization_controller:
+        class: AuthBucket\OAuth2\Controller\AuthorizationController
+        arguments:
+            - "@validator"
+            - "@authbucket_oauth2.response_type_handler.factory"
+
+    authbucket_oauth2.token_controller:
+        class: AuthBucket\OAuth2\Controller\TokenController
+        arguments:
+            - "@validator"
+            - "@authbucket_oauth2.grant_type_handler.factory"
+
+    authbucket_oauth2.debug_controller:
+        class: AuthBucket\OAuth2\Controller\DebugController
         arguments:
             - "@security.token_storage"
-            - "@validator"
-            - "@authbucket_oauth2.model_manager.factory"
-            - "@authbucket_oauth2.response_type_handler.factory"
-            - "@authbucket_oauth2.grant_type_handler.factory"
 
     security.authentication.provider.token:
         class: AuthBucket\OAuth2\Symfony\Component\Security\Core\Authentication\Provider\TokenProvider
