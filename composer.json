@@ -46,6 +46,7 @@
         "doctrine/doctrine-fixtures-bundle": "~2.3",
         "doctrine/orm": "~2.5",
         "ext-pdo_sqlite": "*",
+        "phpunit/phpunit": "~5.7",
         "sensio/distribution-bundle": "~5.0",
         "sensio/framework-extra-bundle": "~3.0",
         "symfony/phpunit-bridge": "~2.8|~3.0",
