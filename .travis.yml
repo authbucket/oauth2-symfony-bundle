@@ -19,6 +19,7 @@ before_install:
 install:
   - sh -c "if [ '$SYMFONY_DEPS_VERSION' = '2.8' ]; then sed -i 's/~2.8|~3.0/2.8.*@dev/g' composer.json; composer update; fi"
   - sh -c "if [ '$SYMFONY_DEPS_VERSION' = '3.0' ]; then sed -i 's/~2.8|~3.0/3.0.*@dev/g' composer.json; composer update; fi"
+  - sh -c "if [ -z '${SYMFONY_DEPS_VERSION+x}' ]; then composer require symfony/web-server-bundle; composer update; fi"
   - composer install --prefer-source
 
 before_script:
