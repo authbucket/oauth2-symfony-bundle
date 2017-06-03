@@ -19,6 +19,9 @@ use Symfony\Component\HttpFoundation\Request;
 
 class InMemoryTest extends WebTestCase
 {
+    /**
+     * @group legacy
+     */
     public function setUp()
     {
         parent::setUp();

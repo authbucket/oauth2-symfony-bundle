@@ -16,6 +16,9 @@ use Symfony\Component\HttpFoundation\Request;
 
 class OAuth2ControllerTest extends WebTestCase
 {
+    /**
+     * @group legacy
+     */
     public function testExceptionNoResponseType()
     {
         $parameters = [

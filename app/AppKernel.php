@@ -16,11 +16,14 @@ class AppKernel extends Kernel
 
         if (in_array($this->getEnvironment(), ['prod', 'dev', 'test'])) {
             $bundles[] = new Symfony\Bundle\TwigBundle\TwigBundle();
-            $bundles[] = new Symfony\Bundle\WebServerBundle\WebServerBundle();
             $bundles[] = new Doctrine\Bundle\DoctrineBundle\DoctrineBundle();
             $bundles[] = new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle();
             $bundles[] = new Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle();
             $bundles[] = new AuthBucket\Bundle\OAuth2Bundle\Tests\TestBundle\TestBundle();
+
+            if (class_exists('Symfony\Bundle\WebServerBundle\WebServerBundle')) {
+                $bundles[] = new Symfony\Bundle\WebServerBundle\WebServerBundle();
+            }
         }
 
         return $bundles;
