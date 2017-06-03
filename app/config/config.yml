@@ -12,7 +12,6 @@ framework:
     templating:
         engines: [ 'twig' ]
     default_locale:  en
-    trusted_proxies: ~
     fragments:       ~
     test: ~
     session:

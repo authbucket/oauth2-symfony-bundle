@@ -88,20 +88,20 @@ demo_resource_type_debug_endpoint:
 
 api_resource_model:
     path:       /api/resource/model
-    defaults:   { _controller: AuthBucketOAuth2Bundle:OAuth2:debug }
+    defaults:   { _controller: AuthBucketOAuth2Bundle:Debug:index }
     methods:    [ GET|POST ]
 
 api_resource_debug_endpoint:
     path:       /api/resource/debug_endpoint
-    defaults:   { _controller: AuthBucketOAuth2Bundle:OAuth2:debug }
+    defaults:   { _controller: AuthBucketOAuth2Bundle:Debug:index }
     methods:    [ GET|POST ]
 
 api_resource_debug_endpoint_cache:
     path:       /api/resource/debug_endpoint/cache
-    defaults:   { _controller: AuthBucketOAuth2Bundle:OAuth2:debug }
+    defaults:   { _controller: AuthBucketOAuth2Bundle:Debug:index }
     methods:    [ GET|POST ]
 
 api_resource_debug_endpoint_invalid_options:
     path:       /api/resource/debug_endpoint/invalid_options
-    defaults:   { _controller: AuthBucketOAuth2Bundle:OAuth2:debug }
+    defaults:   { _controller: AuthBucketOAuth2Bundle:Debug:index }
     methods:    [ GET|POST ]

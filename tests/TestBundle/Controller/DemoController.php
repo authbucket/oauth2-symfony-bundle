@@ -48,7 +48,7 @@ class DemoController extends Controller
     {
         // We only handle non-authorized scope here.
         try {
-            return $this->get('authbucket_oauth2.oauth2_controller')->authorizeAction($request);
+            return $this->get('authbucket_oauth2.authorization_controller')->indexAction($request);
         } catch (InvalidScopeException $exception) {
             $message = unserialize($exception->getMessage());
             if ($message['error_description'] !== 'The requested scope is invalid.') {
