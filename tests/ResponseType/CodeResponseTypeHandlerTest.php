@@ -315,6 +315,9 @@ class CodeResponseTypeHandlerTest extends WebTestCase
         $this->assertTrue($client->getResponse()->isRedirect());
     }
 
+    /**
+     * @group legacy
+     */
     public function testGoodCodeFormSubmit()
     {
         // Start session manually.
