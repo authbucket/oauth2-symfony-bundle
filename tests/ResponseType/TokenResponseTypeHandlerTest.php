@@ -304,6 +304,9 @@ class TokenResponseTypeHandlerTest extends WebTestCase
         $this->assertTrue($client->getResponse()->isRedirect());
     }
 
+    /**
+     * @group legacy
+     */
     public function testGoodTokenFormSubmit()
     {
         // Start session manually.
@@ -335,6 +338,9 @@ class TokenResponseTypeHandlerTest extends WebTestCase
         $this->assertTrue($client->getResponse()->isRedirect());
     }
 
+    /**
+     * @group legacy
+     */
     public function testGoodTokenFormSubmitRememberMe()
     {
         // Start session manually.
