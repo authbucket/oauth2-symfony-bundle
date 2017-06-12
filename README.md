@@ -19,7 +19,7 @@ Here is a minimal example of a `composer.json`:
 
     {
         "require": {
-            "authbucket/oauth2-symfony-bundle": "~4.2"
+            "authbucket/oauth2-symfony-bundle": "~5.0"
         }
     }
 
@@ -35,7 +35,9 @@ This bundle come with following parameters:
 
 This bundle come with following services controller which simplify the OAuth2.0 controller implementation overhead:
 
--   `authbucket_oauth2.oauth2_controller`: OAuth2 endpoint controller.
+-   `authbucket_oauth2.authorization_controller`: Authorization Endpoint controller.
+-   `authbucket_oauth2.token_controller`: Token Endpoint controller.
+-   `authbucket_oauth2.debug_controller`: Debug Endpoint controller.
 
 ### Registering
 
@@ -174,7 +176,7 @@ The demo is based on [Symfony](http://symfony.com/) and [AuthBucketOAuth2Bundle]
 
 You may also run the demo locally. Open a console and execute the following command to install the latest version in the `oauth2-symfony-bundle` directory:
 
-    $ composer create-project authbucket/oauth2-symfony-bundle authbucket/oauth2-symfony-bundle "~4.2"
+    $ composer create-project authbucket/oauth2-symfony-bundle authbucket/oauth2-symfony-bundle "~5.0"
 
 Then use the PHP built-in web server to run the demo application:
 
@@ -225,3 +227,4 @@ License
 
 -   Code released under [MIT](https://github.com/authbucket/oauth2-symfony-bundle/blob/master/LICENSE)
 -   Docs released under [CC BY 4.0](http://creativecommons.org/licenses/by/4.0/)
+
