@@ -9,9 +9,12 @@ language: php
 before_install:
   - sh -c "if [ $TRAVIS_PHP_VERSION != hhvm ]; then echo 'sendmail_path = /bin/true' >> ~/.phpenv/versions/$(phpenv version-name)/etc/conf.d/travis.ini; fi"
   - travis_retry composer self-update
+  - travis_retry composer global require --no-update consolidation/cgr:@stable
   - travis_retry composer global require --no-update hirak/prestissimo:@stable
   - travis_retry composer global update
-  - export PATH="$PATH:$HOME/.composer/vendor/bin"
+  - export PATH="$HOME/.composer/vendor/bin:$PATH"
+  - travis_retry cgr phpunit/phpunit ~5.7
+  - travis_retry cgr satooshi/php-coveralls ~1.0
 
 install:
   - sh -c "if [ '$SYMFONY_DEPS_VERSION' = '3.2' ]; then sed -i 's/~3.2/3.2.*@dev/g' composer.json; fi"
@@ -23,10 +26,10 @@ before_script:
   - rm -rf app/cache/*/*
 
 script:
-  - composer phpunit
+  - phpunit -c phpunit.xml.dist
 
 after_script:
-  - travis_retry composer coveralls
+  - travis_retry coveralls -v
 
 matrix:
   include:
