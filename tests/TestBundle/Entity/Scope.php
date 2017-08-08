@@ -17,7 +17,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Scope.
  *
- * @ORM\Table(name="authbucket_oauth2_scope")
+ * @ORM\Table(name="authbucket_oauth2_scope", uniqueConstraints={@ORM\UniqueConstraint(columns={"scope"})})
  * @ORM\Entity(repositoryClass="AuthBucket\Bundle\OAuth2Bundle\Tests\TestBundle\Entity\ScopeRepository")
  */
 class Scope extends AbstractScope

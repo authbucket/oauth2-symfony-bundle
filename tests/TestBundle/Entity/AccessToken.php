@@ -17,7 +17,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * AccessToken.
  *
- * @ORM\Table(name="authbucket_oauth2_access_token")
+ * @ORM\Table(name="authbucket_oauth2_access_token", uniqueConstraints={@ORM\UniqueConstraint(columns={"access_token"})})
  * @ORM\Entity(repositoryClass="AuthBucket\Bundle\OAuth2Bundle\Tests\TestBundle\Entity\AccessTokenRepository")
  */
 class AccessToken extends AbstractAccessToken

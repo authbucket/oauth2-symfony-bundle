@@ -17,7 +17,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Client.
  *
- * @ORM\Table(name="authbucket_oauth2_client")
+ * @ORM\Table(name="authbucket_oauth2_client", uniqueConstraints={@ORM\UniqueConstraint(columns={"client_id"})})
  * @ORM\Entity(repositoryClass="AuthBucket\Bundle\OAuth2Bundle\Tests\TestBundle\Entity\ClientRepository")
  */
 class Client extends AbstractClient
