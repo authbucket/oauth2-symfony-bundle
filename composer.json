@@ -35,7 +35,7 @@
     "license": "MIT",
     "name": "authbucket/oauth2-symfony-bundle",
     "require": {
-        "authbucket/oauth2-php": "~5.0.0-alpha4",
+        "authbucket/oauth2-php": "dev-master as ~5.0-dev",
         "php": ">=5.5.9",
         "symfony/framework-bundle": "~3.2",
         "symfony/monolog-bundle": "~3.0",
@@ -53,5 +53,11 @@
         "symfony/symfony": "~3.2",
         "twig/extensions": "~1.0"
     },
-    "type": "symfony-bundle"
+    "type": "symfony-bundle",
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/mcfedr/oauth2-php"
+        }
+    ]
 }
