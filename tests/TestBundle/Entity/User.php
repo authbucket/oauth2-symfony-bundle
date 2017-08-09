@@ -18,7 +18,7 @@ use Symfony\Component\Security\Core\User\UserInterface;
 /**
  * User.
  *
- * @ORM\Table(name="authbucket_oauth2_user")
+ * @ORM\Table(name="authbucket_oauth2_user", uniqueConstraints={@ORM\UniqueConstraint(columns={"username"})})
  * @ORM\Entity(repositoryClass="AuthBucket\Bundle\OAuth2Bundle\Tests\TestBundle\Entity\UserRepository")
  */
 class User implements ModelInterface, UserInterface

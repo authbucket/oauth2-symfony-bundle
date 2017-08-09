@@ -17,7 +17,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Authorize.
  *
- * @ORM\Table(name="authbucket_oauth2_authorize")
+ * @ORM\Table(name="authbucket_oauth2_authorize", uniqueConstraints={@ORM\UniqueConstraint(columns={"client_id", "username"})})
  * @ORM\Entity(repositoryClass="AuthBucket\Bundle\OAuth2Bundle\Tests\TestBundle\Entity\AuthorizeRepository")
  */
 class Authorize extends AbstractAuthorize

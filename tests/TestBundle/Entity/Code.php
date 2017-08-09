@@ -17,7 +17,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Code.
  *
- * @ORM\Table(name="authbucket_oauth2_code")
+ * @ORM\Table(name="authbucket_oauth2_code", uniqueConstraints={@ORM\UniqueConstraint(columns={"code"})})
  * @ORM\Entity(repositoryClass="AuthBucket\Bundle\OAuth2Bundle\Tests\TestBundle\Entity\CodeRepository")
  */
 class Code extends AbstractCode
