@@ -20,6 +20,9 @@ parameters:
     authbucket_oauth2.client_token_roles:
         - ROLE_CLIENT_ID
 
+    authbucket_oauth2.resource_token_roles:
+        - ROLE_RESOURCE
+
 services:
     authbucket_oauth2.exception_listener:
         class: AuthBucket\OAuth2\Symfony\Component\EventDispatcher\ExceptionListener
@@ -114,3 +117,4 @@ services:
             - "@validator"
             - "@logger"
             - "@authbucket_oauth2.token_type_handler.factory"
+            - "%authbucket_oauth2.resource_token_roles%"

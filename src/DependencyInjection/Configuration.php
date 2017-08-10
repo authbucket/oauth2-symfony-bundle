@@ -51,6 +51,9 @@ class Configuration implements ConfigurationInterface
                 ->arrayNode('client_token_roles')
                     ->prototype('scalar')->end()
                 ->end()
+                ->arrayNode('resource_token_roles')
+                    ->prototype('scalar')->end()
+                ->end()
             ->end();
 
         return $treeBuilder;
