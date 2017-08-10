@@ -11,9 +11,11 @@
 
 namespace AuthBucket\Bundle\OAuth2Bundle\DependencyInjection\Security\Factory;
 
+use AuthBucket\OAuth2\Symfony\Component\Security\Http\EntryPoint\ResourceAuthenticationEntryPoint;
 use Symfony\Bundle\SecurityBundle\DependencyInjection\Security\Factory\SecurityFactoryInterface;
 use Symfony\Component\Config\Definition\Builder\NodeDefinition;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
+use Symfony\Component\DependencyInjection\Definition;
 use Symfony\Component\DependencyInjection\DefinitionDecorator;
 
 class ResourceFactory implements SecurityFactoryInterface
@@ -37,6 +39,13 @@ class ResourceFactory implements SecurityFactoryInterface
         $listenerId = 'security.authentication.listener.resource.'.$id;
         $container->setDefinition($listenerId, new DefinitionDecorator('security.authentication.listener.resource'))
             ->replaceArgument(0, $id);
+
+        if (!$defaultEntryPoint) {
+            $entryPointId = 'security.authentication.entrypoint.token.'.$id;
+            $container->setDefinition($entryPointId, new Definition(ResourceAuthenticationEntryPoint::class));
+
+            $defaultEntryPoint = $entryPointId;
+        }
 
         return [$providerId, $listenerId, $defaultEntryPoint];
     }
