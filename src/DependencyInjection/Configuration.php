@@ -48,6 +48,12 @@ class Configuration implements ConfigurationInterface
                 ->arrayNode('resource_type_handler')
                     ->prototype('scalar')->end()
                 ->end()
+                ->arrayNode('client_token_roles')
+                    ->prototype('scalar')->end()
+                ->end()
+                ->arrayNode('resource_token_roles')
+                    ->prototype('scalar')->end()
+                ->end()
             ->end();
 
         return $treeBuilder;

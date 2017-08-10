@@ -49,8 +49,11 @@ class AuthBucketOAuth2Extension extends Extension
 
         $userProvider = $config['user_provider'] ?: null;
         if ($userProvider) {
+            $userProviderReference = new Reference($userProvider);
             $container->getDefinition('authbucket_oauth2.grant_type_handler.factory')
-                ->replaceArgument(5, new Reference($userProvider));
+                ->replaceArgument(5, $userProviderReference);
+            $container->getDefinition('security.authentication.provider.resource')
+                ->replaceArgument(5, $userProviderReference);
         }
         unset($config['user_provider']);
 

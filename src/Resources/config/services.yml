@@ -17,6 +17,12 @@ parameters:
         model:              AuthBucket\OAuth2\ResourceType\ModelResourceTypeHandler
         debug_endpoint:     AuthBucket\OAuth2\ResourceType\DebugEndpointResourceTypeHandler
 
+    authbucket_oauth2.client_token_roles:
+        - ROLE_CLIENT_ID
+
+    authbucket_oauth2.resource_token_roles:
+        - ROLE_RESOURCE
+
 services:
     authbucket_oauth2.exception_listener:
         class: AuthBucket\OAuth2\Symfony\Component\EventDispatcher\ExceptionListener
@@ -90,12 +96,14 @@ services:
             - "@security.authentication.manager"
             - "@validator"
             - "@logger"
+            - "%authbucket_oauth2.client_token_roles%"
 
     security.authentication.provider.resource:
         class: AuthBucket\OAuth2\Symfony\Component\Security\Core\Authentication\Provider\ResourceProvider
         arguments:
             - ~
             - "@authbucket_oauth2.resource_type_handler.factory"
+            - ~
             - ~
             - ~
             - ~
@@ -109,3 +117,4 @@ services:
             - "@validator"
             - "@logger"
             - "@authbucket_oauth2.token_type_handler.factory"
+            - "%authbucket_oauth2.resource_token_roles%"

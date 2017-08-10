@@ -36,6 +36,19 @@ class OAuth2ControllerTest extends WebTestCase
         $this->assertSame('invalid_request', $tokenResponse['error']);
     }
 
+    public function testExceptionNotLoggedIn()
+    {
+        $parameters = [
+            'client_id' => '1234',
+        ];
+        $server = [
+
+        ];
+        $client = $this->createClient();
+        $crawler = $client->request('GET', '/api/oauth2/authorize', $parameters, [], $server);
+        $this->assertSame(401, $client->getResponse()->getStatusCode());
+    }
+
     public function testErrorBadResponseType()
     {
         $parameters = [

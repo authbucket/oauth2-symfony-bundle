@@ -32,6 +32,30 @@ class CodeFixture implements FixtureInterface
         $manager->persist($model);
 
         $model = new Code();
+        $model->setCode('f0c68d250bcc729eb780a235371a9a56')
+            ->setClientId('http://democlient2.com/')
+            ->setUsername('demousername2')
+            ->setRedirectUri('http://democlient2.com/redirect_uri')
+            ->setExpires(new \DateTime('+10 minutes'))
+            ->setScope([
+                'demoscope1',
+                'demoscope2',
+            ]);
+        $manager->persist($model);
+
+        $model = new Code();
+        $model->setCode('f0c68d250bcc729eb780a235371a9a57')
+            ->setClientId('http://democlient2.com/')
+            ->setUsername('demousername2')
+            ->setRedirectUri('http://democlient2.com/redirect_uri')
+            ->setExpires(new \DateTime('+10 minutes'))
+            ->setScope([
+                'demoscope1',
+                'demoscope2',
+            ]);
+        $manager->persist($model);
+
+        $model = new Code();
         $model->setCode('1e5aa97ddaf4b0228dfb4223010d4417')
             ->setClientId('http://democlient1.com/')
             ->setUsername('demousername1')
