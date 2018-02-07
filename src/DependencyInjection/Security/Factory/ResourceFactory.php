@@ -13,6 +13,7 @@ namespace AuthBucket\Bundle\OAuth2Bundle\DependencyInjection\Security\Factory;
 
 use Symfony\Bundle\SecurityBundle\DependencyInjection\Security\Factory\SecurityFactoryInterface;
 use Symfony\Component\Config\Definition\Builder\NodeDefinition;
+use Symfony\Component\DependencyInjection\ChildDefinition;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\DefinitionDecorator;
 
@@ -28,14 +29,14 @@ class ResourceFactory implements SecurityFactoryInterface
 
         $providerId = 'security.authentication.provider.resource.'.$id;
         $container
-            ->setDefinition($providerId, new DefinitionDecorator('security.authentication.provider.resource'))
+            ->setDefinition($providerId, $this->decorate('security.authentication.provider.resource'))
             ->replaceArgument(0, $id)
             ->replaceArgument(2, $config['resource_type'])
             ->replaceArgument(3, $config['scope'])
             ->replaceArgument(4, $config['options']);
 
         $listenerId = 'security.authentication.listener.resource.'.$id;
-        $container->setDefinition($listenerId, new DefinitionDecorator('security.authentication.listener.resource'))
+        $container->setDefinition($listenerId, $this->decorate('security.authentication.listener.resource'))
             ->replaceArgument(0, $id);
 
         return [$providerId, $listenerId, $defaultEntryPoint];
@@ -72,5 +73,14 @@ class ResourceFactory implements SecurityFactoryInterface
                     ->prototype('scalar')->end()
                 ->end()
             ->end();
+    }
+
+    private function decorate($definitionId)
+    {
+        if (class_exists(ChildDefinition::class)) {
+            return new ChildDefinition($definitionId);
+        }
+
+        return new DefinitionDecorator($definitionId);
     }
 }
