@@ -13,6 +13,7 @@ namespace AuthBucket\Bundle\OAuth2Bundle\DependencyInjection\Security\Factory;
 
 use Symfony\Bundle\SecurityBundle\DependencyInjection\Security\Factory\SecurityFactoryInterface;
 use Symfony\Component\Config\Definition\Builder\NodeDefinition;
+use Symfony\Component\DependencyInjection\ChildDefinition;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\DefinitionDecorator;
 
@@ -21,11 +22,11 @@ class TokenFactory implements SecurityFactoryInterface
     public function create(ContainerBuilder $container, $id, $config, $userProvider, $defaultEntryPoint)
     {
         $providerId = 'security.authentication.provider.token.'.$id;
-        $container->setDefinition($providerId, new DefinitionDecorator('security.authentication.provider.token'))
+        $container->setDefinition($providerId, $this->decorate('security.authentication.provider.token'))
             ->replaceArgument(0, $id);
 
         $listenerId = 'security.authentication.listener.token.'.$id;
-        $container->setDefinition($listenerId, new DefinitionDecorator('security.authentication.listener.token'))
+        $container->setDefinition($listenerId, $this->decorate('security.authentication.listener.token'))
             ->replaceArgument(0, $id);
 
         return [$providerId, $listenerId, $defaultEntryPoint];
@@ -43,5 +44,14 @@ class TokenFactory implements SecurityFactoryInterface
 
     public function addConfiguration(NodeDefinition $node)
     {
+    }
+
+    private function decorate($definitionId)
+    {
+        if (class_exists(ChildDefinition::class)) {
+            return new ChildDefinition($definitionId);
+        }
+
+        return new DefinitionDecorator($definitionId);
     }
 }
